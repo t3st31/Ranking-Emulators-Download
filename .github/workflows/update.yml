@@ -12,20 +12,24 @@ jobs:
     steps:
       - name: Checkout repo
         uses: actions/checkout@v4
+        with:
+          fetch-depth: 0   # IMPORTANTE
 
-      - name: Setup Node
+      - name: Setup Node.js
         uses: actions/setup-node@v4
         with:
           node-version: 20
 
-      - name: Install deps (se existir package.json)
+      - name: Install dependencies (if any)
         run: npm ci || true
 
-      - name: Generate rankings.json
-        run: node scripts/fetch_downloads.js
+      - name: Clean old generated files
+        run: |
+          rm -f data/rankings.json
+          mkdir -p docs/data
 
-      - name: Ensure docs/data exists
-        run: mkdir -p docs/data
+      - name: Fetch downloads
+        run: node scripts/fetch_downloads.js
 
       - name: Move rankings to docs
         run: |
@@ -37,6 +41,10 @@ jobs:
         run: |
           git config user.name "github-actions"
           git config user.email "actions@github.com"
+
+          git pull --rebase origin main
+
           git add docs/data/rankings.json
           git commit -m "Update rankings (auto)" || exit 0
-          git push
+
+          git push origin main
