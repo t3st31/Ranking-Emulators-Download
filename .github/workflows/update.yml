@@ -17,6 +17,8 @@ jobs:
 
       - run: node scripts/fetch_downloads.js
 
+      - run: node scripts/generate_readme.js
+
       - run: |
           git config user.name "github-actions"
           git config user.email "actions@github.com"
