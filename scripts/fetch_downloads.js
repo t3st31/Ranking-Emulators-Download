@@ -18,6 +18,8 @@ const repos = [
   { name: "Winlator Ajay", repo: "ajay9634/winlator-ajay", category: "Winlator", logo: "winlator.png" },
   { name: "Winlator Coffincolors", repo: "coffincolors/winlator", category: "Winlator", logo: "winlator.png" },
   { name: "Winlator X", repo: "JURIS-X/winlator_x", category: "Winlator", logo: "winlator.png" },
+  { name: "Winlator Bionic", repo: "jhinzuo/winlator", category: "Winlator", logo: "winlator.png" },
+  { name: "Winlator Honkon", repo: "Honkonx/winlator-honkon", category: "Winlator", logo: "winlator.png" },
   { name: "Winlator Glibc", repo: "longjunyu2/winlator", category: "Winlator", logo: "winlator.png" },
   { name: "Wb64dev", repo: "winebox64/winlator", category: "Winlator", logo: "winlator.png" },
   { name: "Winlator Mali", repo: "Fcharan/WinlatorMali", category: "Winlator", logo: "winlator.png" },
@@ -75,6 +77,8 @@ const repos = [
   { name: "Freedreno Turnip CI (StevenMXZ)", repo: "StevenMXZ/freedreno_turnip-CI", category: "Drivers", logo: "drivers.png", extensions: [".zip"] },
   { name: "Freedreno Turnip CI (whitebelyash)", repo: "whitebelyash/freedreno_turnip-CI", category: "Drivers", logo: "drivers.png", extensions: [".zip"] },
   { name: "Upload Grave", repo: "jhinzuo/upload_grave", category: "Drivers", logo: "drivers.png", extensions: [".zip"] },
+  { name: "Winlator Ref4ik (Drivers/Wine)", repo: "REF4IK/winlator-ref4ik-", category: "Drivers", logo: "drivers.png", extensions: [".wcp"] },
+  { name: "StevenMXZ Contents Cmod", repo: "StevenMXZ/Contents-Cmod", category: "Drivers", logo: "drivers.png", extensions: [".wcp", ".wcp.xz"] },
 ];
 
 // ===== GitHub API =====
@@ -139,6 +143,35 @@ async function getGiteaReleasesData(host, repo) {
   } catch (error) {
     console.error(`  ❌ Erro ao buscar ${repo} (Gitea):`, error.message);
     return { total: 0, releases: [] };
+  }
+}
+
+// ===== Manifest Loader (StevenMXZ Contents) =====
+async function fetchManifestDrivers() {
+  try {
+    console.log(`\n📂 Buscando manifest de drivers (Winlator-Contents)...`);
+    const res = await fetch("https://raw.githubusercontent.com/StevenMXZ/Winlator-Contents/main/contents.json");
+    if (!res.ok) throw new Error(`Status ${res.status}`);
+    const data = await res.json();
+
+    // Agrupar por tipo para facilitar a exibição
+    const grouped = {};
+    data.forEach(item => {
+      const type = item.type || "Other";
+      if (!grouped[type]) grouped[type] = [];
+      grouped[type].push({
+        name: item.verName,
+        version: item.verCode,
+        url: item.remoteUrl,
+        date: new Date().toISOString() // Manifests JSON geralmente não tem data por item, usamos 'now'
+      });
+    });
+
+    console.log(`  ✅ Manifest processado: ${data.length} itens encontrados.`);
+    return grouped;
+  } catch (error) {
+    console.error(`  ❌ Erro ao buscar manifest:`, error.message);
+    return {};
   }
 }
 
@@ -224,6 +257,9 @@ function parseReleases(releases, isGitea = false) {
     await new Promise(resolve => setTimeout(resolve, 1100));
   }
 
+  // Buscar drivers do manifest
+  const manifestDrivers = await fetchManifestDrivers();
+
   // Ordenar por downloads (decrescente)
   results.sort((a, b) => b.downloads - a.downloads);
 
@@ -236,7 +272,8 @@ function parseReleases(releases, isGitea = false) {
     totalProjects: results.length,
     projectsWithReleases: successCount,
     projectsWithoutReleases: errorCount,
-    results: results
+    results: results,
+    manifestDrivers: manifestDrivers // Novos drivers categorizados do manifest
   };
 
   fs.writeFileSync("data/rankings.json", JSON.stringify(output, null, 2));
