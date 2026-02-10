@@ -2216,7 +2216,7 @@
             <div class="ranking-card-item" onclick='openModal(${itemJson})'>
               <div class="card-rank">${rank}</div>
               <div class="card-logo-container">
-                ${item.logo ? `<img src="${item.logo}" class="card-logo" onerror="this.style.display='none'">` : ''}
+                ${item.logo ? `<img src="logos/${item.logo}" class="card-logo" onerror="this.style.display='none'">` : ''}
               </div>
               <div class="card-info">
                 <div class="card-name">
@@ -2263,7 +2263,7 @@
               </td>
               <td>
                 <div class="project-cell">
-                  ${item.logo ? `<img src="${item.logo}" class="project-logo" onerror="this.style.display='none'">` : ''}
+                  ${item.logo ? `<img src="logos/${item.logo}" class="project-logo" onerror="this.style.display='none'">` : ''}
                   <div class="project-name">
                     ${item.name}
                     ${hasNew ? '<span class="new-release-badge">🔥 NOVO APK!</span>' : ''}
