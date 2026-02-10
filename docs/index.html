@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>🎮 Emulator Ranking Arena</title>
+  <title>🎮 Emulator Battle Arena - Rankings</title>
 
   <!-- Chart.js -->
   <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
@@ -203,7 +203,12 @@
       box-shadow: 0 0 10px rgba(0, 247, 255, 0.8);
     }
 
-    /* TABELA DE RANKING */
+    /* TABELA DE RANKING - DESKTOP */
+    .ranking-table-wrapper {
+      overflow-x: auto;
+      -webkit-overflow-scrolling: touch;
+    }
+
     table {
       width: 100%;
       border-collapse: collapse;
@@ -224,6 +229,7 @@
       text-transform: uppercase;
       letter-spacing: 1px;
       background: rgba(255, 107, 255, 0.1);
+      white-space: nowrap;
     }
 
     tbody tr {
@@ -295,6 +301,12 @@
       text-shadow: 0 0 10px rgba(0, 247, 255, 0.6);
     }
 
+    .click-hint {
+      opacity: 0.6;
+      font-size: 0.85em;
+      font-weight: normal;
+    }
+
     .category-badge {
       display: inline-block;
       padding: 4px 12px;
@@ -320,6 +332,68 @@
       font-weight: bold;
       color: #00ff88;
       text-shadow: 0 0 8px rgba(0, 255, 136, 0.5);
+      white-space: nowrap;
+    }
+
+    /* CARDS MOBILE */
+    .ranking-cards {
+      display: none;
+    }
+
+    .ranking-card-item {
+      background: linear-gradient(145deg, #0f3460 0%, #16213e 100%);
+      border-radius: 15px;
+      padding: 20px;
+      margin-bottom: 15px;
+      border: 1px solid rgba(0, 247, 255, 0.2);
+      cursor: pointer;
+      transition: all 0.3s ease;
+    }
+
+    .ranking-card-item:hover {
+      transform: translateY(-5px);
+      box-shadow: 0 10px 30px rgba(0, 247, 255, 0.3);
+      border-color: rgba(0, 247, 255, 0.5);
+    }
+
+    .card-header {
+      display: flex;
+      align-items: center;
+      gap: 15px;
+      margin-bottom: 12px;
+    }
+
+    .card-rank {
+      font-size: 2em;
+      font-weight: bold;
+      min-width: 50px;
+      text-align: center;
+    }
+
+    .card-info {
+      flex: 1;
+    }
+
+    .card-name {
+      font-size: 1.2em;
+      font-weight: bold;
+      color: #00d4ff;
+      margin-bottom: 5px;
+    }
+
+    .card-category {
+      margin-bottom: 10px;
+    }
+
+    .card-downloads {
+      font-size: 1.3em;
+      font-weight: bold;
+      color: #00ff88;
+      text-align: center;
+      padding: 10px;
+      background: rgba(0, 255, 136, 0.1);
+      border-radius: 8px;
+      margin-top: 10px;
     }
 
     /* MODAL DE RELEASES */
@@ -377,12 +451,16 @@
       justify-content: space-between;
       align-items: center;
       border-bottom: 2px solid rgba(0, 247, 255, 0.3);
+      flex-wrap: wrap;
+      gap: 15px;
     }
 
     .modal-header h2 {
       margin: 0;
       color: white;
       text-shadow: 0 2px 10px rgba(0,0,0,0.5);
+      flex: 1;
+      min-width: 200px;
     }
 
     .modal-header h2::after {
@@ -482,6 +560,8 @@
       margin-bottom: 15px;
       position: relative;
       z-index: 1;
+      flex-wrap: wrap;
+      gap: 10px;
     }
 
     .release-tag {
@@ -509,6 +589,63 @@
       z-index: 1;
     }
 
+    .release-description {
+      color: #ccc;
+      font-size: 0.95em;
+      line-height: 1.6;
+      margin-bottom: 15px;
+      padding: 15px;
+      background: rgba(0, 0, 0, 0.3);
+      border-radius: 8px;
+      border-left: 3px solid #00f7ff;
+      position: relative;
+      z-index: 1;
+      max-height: 200px;
+      overflow-y: auto;
+    }
+
+    .release-description::-webkit-scrollbar {
+      width: 6px;
+    }
+
+    .release-description::-webkit-scrollbar-thumb {
+      background: rgba(0, 247, 255, 0.5);
+      border-radius: 3px;
+    }
+
+    .release-description:empty {
+      display: none;
+    }
+
+    .release-actions {
+      display: flex;
+      gap: 10px;
+      margin-bottom: 15px;
+      flex-wrap: wrap;
+      position: relative;
+      z-index: 1;
+    }
+
+    .github-link-btn {
+      background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+      color: white;
+      padding: 10px 18px;
+      border-radius: 8px;
+      text-decoration: none;
+      font-weight: bold;
+      font-size: 0.9em;
+      transition: all 0.3s;
+      box-shadow: 0 4px 15px rgba(102, 126, 234, 0.4);
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+    }
+
+    .github-link-btn:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 6px 25px rgba(102, 126, 234, 0.6);
+    }
+
     .release-downloads {
       color: #00ff88;
       font-size: 1.1em;
@@ -523,6 +660,13 @@
       z-index: 1;
     }
 
+    .assets-header {
+      font-weight: bold;
+      color: #00f7ff;
+      margin-bottom: 10px;
+      font-size: 1.1em;
+    }
+
     .asset-item {
       background: rgba(0, 0, 0, 0.3);
       padding: 12px;
@@ -533,6 +677,8 @@
       align-items: center;
       transition: all 0.3s;
       border: 1px solid rgba(0, 247, 255, 0.1);
+      gap: 10px;
+      flex-wrap: wrap;
     }
 
     .asset-item:hover {
@@ -546,6 +692,7 @@
       font-size: 0.9em;
       flex: 1;
       word-break: break-word;
+      min-width: 150px;
     }
 
     .asset-info {
@@ -553,6 +700,7 @@
       gap: 15px;
       align-items: center;
       flex-shrink: 0;
+      flex-wrap: wrap;
     }
 
     .asset-size {
@@ -571,6 +719,7 @@
       transition: all 0.3s;
       box-shadow: 0 4px 15px rgba(0, 255, 136, 0.3);
       display: inline-block;
+      white-space: nowrap;
     }
 
     .download-btn:hover {
@@ -640,28 +789,171 @@
       to { transform: rotate(360deg); }
     }
 
-    /* Responsive */
-    @media (max-width: 768px) {
-      header h1 {
-        font-size: 2em;
+    /* ==================== RESPONSIVIDADE MOBILE ==================== */
+    
+    /* Tablets e mobile landscape */
+    @media (max-width: 1024px) {
+      .card {
+        padding: 25px;
       }
 
       .releases-grid {
-        grid-template-columns: 1fr;
+        grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+      }
+    }
+
+    /* Mobile portrait e pequeno */
+    @media (max-width: 768px) {
+      header h1 {
+        font-size: 2em;
+        letter-spacing: 1px;
       }
 
+      header p {
+        font-size: 0.95em;
+      }
+
+      h2 {
+        font-size: 1.5em;
+      }
+
+      .card {
+        padding: 20px;
+        border-radius: 15px;
+      }
+
+      /* ESCONDER TABELA, MOSTRAR CARDS */
+      .ranking-table-wrapper {
+        display: none;
+      }
+
+      .ranking-cards {
+        display: block;
+      }
+
+      /* Modal ajustes */
       .modal-content {
         width: 95%;
         margin: 5% auto;
+        max-height: 85vh;
       }
 
-      th, td {
-        padding: 12px 8px;
+      .modal-header {
+        padding: 20px;
+      }
+
+      .modal-header h2 {
+        font-size: 1.3em;
+      }
+
+      .close {
+        font-size: 32px;
+        width: 35px;
+        height: 35px;
+      }
+
+      .modal-body {
+        padding: 20px;
+      }
+
+      /* Grid de releases em 1 coluna */
+      .releases-grid {
+        grid-template-columns: 1fr;
+        gap: 20px;
+      }
+
+      .release-card {
+        padding: 20px;
+      }
+
+      .release-name {
+        font-size: 1.1em;
+      }
+
+      .release-description {
         font-size: 0.9em;
+        padding: 12px;
       }
 
-      .rank {
-        font-size: 1.2em;
+      /* Assets responsivos */
+      .asset-item {
+        flex-direction: column;
+        align-items: flex-start;
+      }
+
+      .asset-info {
+        width: 100%;
+        justify-content: space-between;
+      }
+
+      .download-btn {
+        width: 100%;
+        text-align: center;
+      }
+
+      /* Footer */
+      footer {
+        font-size: 0.85em;
+        padding: 20px;
+      }
+    }
+
+    /* Mobile muito pequeno */
+    @media (max-width: 480px) {
+      header {
+        padding: 25px 15px;
+      }
+
+      header h1 {
+        font-size: 1.6em;
+      }
+
+      header p {
+        font-size: 0.85em;
+      }
+
+      section {
+        padding: 20px 10px;
+      }
+
+      .card {
+        padding: 15px;
+        margin-bottom: 20px;
+      }
+
+      h2 {
+        font-size: 1.3em;
+      }
+
+      .ranking-card-item {
+        padding: 15px;
+      }
+
+      .card-rank {
+        font-size: 1.5em;
+        min-width: 40px;
+      }
+
+      .card-name {
+        font-size: 1em;
+      }
+
+      .card-downloads {
+        font-size: 1.1em;
+      }
+
+      .category-badge {
+        font-size: 0.75em;
+        padding: 3px 10px;
+      }
+
+      .modal-header h2 {
+        font-size: 1.1em;
+      }
+
+      .release-tag {
+        font-size: 0.85em;
+        padding: 5px 12px;
       }
     }
   </style>
@@ -672,8 +964,8 @@
 <div class="grid-bg"></div>
 
 <header>
-  <h1>🎮 EMULATOR RANKING ARENA</h1>
-  <p>Automatic Rankings • Real-Time Downloads</p>
+  <h1>🎮 EMULATOR BATTLE ARENA</h1>
+  <p>Rankings Automáticos • GitHub Actions • Downloads em Tempo Real</p>
 </header>
 
 <div class="last-update" id="lastUpdate">
@@ -741,6 +1033,33 @@ function formatDate(dateString) {
   });
 }
 
+function escapeHtml(text) {
+  const div = document.createElement('div');
+  div.textContent = text;
+  return div.innerHTML;
+}
+
+function formatMarkdown(text) {
+  if (!text) return '';
+  
+  // Converter markdown básico para HTML
+  let html = escapeHtml(text);
+  
+  // Links
+  html = html.replace(/\[([^\]]+)\]\(([^)]+)\)/g, '<a href="$2" target="_blank">$1</a>');
+  
+  // Negrito
+  html = html.replace(/\*\*([^*]+)\*\*/g, '<strong>$1</strong>');
+  
+  // Itálico
+  html = html.replace(/\*([^*]+)\*/g, '<em>$1</em>');
+  
+  // Quebras de linha
+  html = html.replace(/\n/g, '<br>');
+  
+  return html;
+}
+
 function openModal(projectData) {
   const modal = document.getElementById('releasesModal');
   const modalTitle = document.getElementById('modalTitle');
@@ -754,7 +1073,7 @@ function openModal(projectData) {
         😔 Nenhuma release encontrada para este projeto
         <br><br>
         <a href="${projectData.repoUrl}" target="_blank" class="repo-link">
-          Ver Repositório no GitHub →
+          📦 Ver Repositório no GitHub →
         </a>
       </div>
     `;
@@ -767,6 +1086,11 @@ function openModal(projectData) {
     `;
 
     projectData.releases.forEach(release => {
+      const description = release.description || release.body || '';
+      const descriptionHtml = description ? `
+        <div class="release-description">${formatMarkdown(description)}</div>
+      ` : '';
+
       releasesHTML += `
         <div class="release-card">
           <div class="release-header">
@@ -774,10 +1098,21 @@ function openModal(projectData) {
             <span class="release-date">${formatDate(release.date)}</span>
           </div>
           <div class="release-name">${release.name}</div>
+          
+          <div class="release-actions">
+            <a href="${release.htmlUrl}" target="_blank" class="github-link-btn">
+              🔗 Ver no GitHub
+            </a>
+          </div>
+
+          ${descriptionHtml}
+          
           <div class="release-downloads">
             📥 ${release.downloads.toLocaleString('pt-BR')} downloads totais
           </div>
+          
           <div class="assets-list">
+            <div class="assets-header">📦 Arquivos para Download:</div>
       `;
 
       release.assets.forEach(asset => {
@@ -787,7 +1122,7 @@ function openModal(projectData) {
             <div class="asset-info">
               <span class="asset-size">${formatBytes(asset.size)}</span>
               <a href="${asset.url}" target="_blank" class="download-btn">
-                ⬇ ${asset.downloads.toLocaleString('pt-BR')}
+                ⬇ Baixar (${asset.downloads.toLocaleString('pt-BR')})
               </a>
             </div>
           </div>
@@ -842,20 +1177,19 @@ async function loadData() {
         `⏱️ Última atualização: ${formatDate(json.updatedAt)}`;
     }
 
-    // ===== RANKING =====
-    const container = document.getElementById('rankingContainer');
-    
+    // ===== RANKING TABELA (DESKTOP) =====
     let tableHTML = `
-      <table id="ranking">
-        <thead>
-          <tr>
-            <th>#</th>
-            <th>Projeto</th>
-            <th>Categoria</th>
-            <th>Downloads</th>
-          </tr>
-        </thead>
-        <tbody>
+      <div class="ranking-table-wrapper">
+        <table id="ranking">
+          <thead>
+            <tr>
+              <th>#</th>
+              <th>Projeto</th>
+              <th>Categoria</th>
+              <th>Downloads</th>
+            </tr>
+          </thead>
+          <tbody>
     `;
 
     allData.forEach((item, index) => {
@@ -866,12 +1200,17 @@ async function loadData() {
       else if (index === 1) { medal = "🥈"; medalClass = "silver"; }
       else if (index === 2) { medal = "🥉"; medalClass = "bronze"; }
 
+      const hasReleases = item.releases && item.releases.length > 0;
+      const itemJson = JSON.stringify(item).replace(/'/g, "&#39;");
+
       tableHTML += `
-        <tr onclick='openModal(${JSON.stringify(item).replace(/'/g, "&#39;")})'>
+        <tr onclick='openModal(${itemJson})'>
           <td class="rank ${medalClass}">${medal}</td>
           <td class="project-name">
-            ${item.name}
-            ${item.releases && item.releases.length > 0 ? '<span style="opacity: 0.6;">👆 clique para ver releases</span>' : ''}
+            <div>
+              ${item.name}
+              ${hasReleases ? '<div class="click-hint">👆 clique para ver releases</div>' : ''}
+            </div>
           </td>
           <td>
             <span class="category-badge category-${item.category || 'Other'}">
@@ -884,11 +1223,49 @@ async function loadData() {
     });
 
     tableHTML += `
-        </tbody>
-      </table>
+          </tbody>
+        </table>
+      </div>
     `;
 
-    container.innerHTML = tableHTML;
+    // ===== RANKING CARDS (MOBILE) =====
+    let cardsHTML = '<div class="ranking-cards">';
+
+    allData.forEach((item, index) => {
+      let medal = index + 1;
+      let medalClass = "";
+
+      if (index === 0) { medal = "🥇"; medalClass = "gold"; }
+      else if (index === 1) { medal = "🥈"; medalClass = "silver"; }
+      else if (index === 2) { medal = "🥉"; medalClass = "bronze"; }
+
+      const itemJson = JSON.stringify(item).replace(/'/g, "&#39;");
+
+      cardsHTML += `
+        <div class="ranking-card-item" onclick='openModal(${itemJson})'>
+          <div class="card-header">
+            <div class="card-rank ${medalClass}">${medal}</div>
+            <div class="card-info">
+              <div class="card-name">${item.name}</div>
+              <div class="card-category">
+                <span class="category-badge category-${item.category || 'Other'}">
+                  ${item.category || "-"}
+                </span>
+              </div>
+            </div>
+          </div>
+          <div class="card-downloads">
+            📥 ${item.downloads.toLocaleString('pt-BR')} downloads
+          </div>
+        </div>
+      `;
+    });
+
+    cardsHTML += '</div>';
+
+    // Inserir ambos
+    const container = document.getElementById('rankingContainer');
+    container.innerHTML = tableHTML + cardsHTML;
 
     // ===== GRÁFICO =====
     const ctx = document.getElementById('chart');
