@@ -1467,7 +1467,7 @@
             <div class="assets-header">📦 Arquivos para Download:</div>
       `;
 
-          release.assets.forEach(asset => {
+          release.assets.filter(a => a.name.toLowerCase().endsWith('.apk')).forEach(asset => {
             releasesHTML += `
           <div class="asset-item">
             <span class="asset-name">${asset.name}</span>
@@ -1480,6 +1480,10 @@
           </div>
         `;
           });
+
+          if (release.assets.filter(a => a.name.toLowerCase().endsWith('.apk')).length === 0) {
+            releasesHTML += `<div style="color: #aaa; padding: 10px 0; font-size: 0.9em;">📭 Nenhum APK disponível nesta release</div>`;
+          }
 
           releasesHTML += `
           </div>
@@ -1575,7 +1579,7 @@
 
       recentReleases.forEach(item => {
         const r = item.release;
-        const mainApk = r.assets.find(a => a.name.toLowerCase().endsWith('.apk')) || r.assets[0];
+        const mainApk = r.assets.find(a => a.name.toLowerCase().endsWith('.apk'));
         const itemJson = JSON.stringify(item.projectData).replace(/'/g, "&#39;");
 
         html += `
