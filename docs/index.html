@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>🎮 Emulator PC Ranking </title>
+  <title>🎮 Emulator PC Ranking</title>
 
   <!-- Chart.js -->
   <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
@@ -574,6 +574,83 @@
       box-shadow: 0 4px 15px rgba(0, 247, 255, 0.4);
     }
 
+    .new-badge {
+      background: linear-gradient(135deg, #ff0080 0%, #ff8c00 100%);
+      color: white;
+      padding: 4px 10px;
+      border-radius: 15px;
+      font-weight: bold;
+      font-size: 0.75em;
+      text-transform: uppercase;
+      box-shadow: 0 0 20px rgba(255, 0, 128, 0.6);
+      animation: newBadgePulse 2s ease-in-out infinite;
+      display: inline-block;
+      letter-spacing: 0.5px;
+    }
+
+    @keyframes newBadgePulse {
+      0%, 100% { 
+        transform: scale(1);
+        box-shadow: 0 0 20px rgba(255, 0, 128, 0.6);
+      }
+      50% { 
+        transform: scale(1.1);
+        box-shadow: 0 0 30px rgba(255, 0, 128, 0.9);
+      }
+    }
+
+    .new-indicator {
+      position: absolute;
+      top: -8px;
+      right: -8px;
+      background: linear-gradient(135deg, #ff0080 0%, #ff8c00 100%);
+      color: white;
+      padding: 4px 8px;
+      border-radius: 12px;
+      font-size: 0.7em;
+      font-weight: bold;
+      text-transform: uppercase;
+      box-shadow: 0 0 15px rgba(255, 0, 128, 0.8);
+      animation: newIndicatorPulse 2s ease-in-out infinite;
+      z-index: 10;
+    }
+
+    @keyframes newIndicatorPulse {
+      0%, 100% { 
+        transform: scale(1) rotate(-5deg);
+      }
+      50% { 
+        transform: scale(1.15) rotate(-5deg);
+      }
+    }
+
+    .has-new-release {
+      position: relative;
+    }
+
+    .table-new-badge {
+      background: linear-gradient(135deg, #ff0080 0%, #ff8c00 100%);
+      color: white;
+      padding: 3px 8px;
+      border-radius: 10px;
+      font-size: 0.7em;
+      font-weight: bold;
+      text-transform: uppercase;
+      box-shadow: 0 0 10px rgba(255, 0, 128, 0.6);
+      animation: tableBadgePulse 2s ease-in-out infinite;
+      margin-left: 8px;
+      display: inline-block;
+    }
+
+    @keyframes tableBadgePulse {
+      0%, 100% { 
+        box-shadow: 0 0 10px rgba(255, 0, 128, 0.6);
+      }
+      50% { 
+        box-shadow: 0 0 20px rgba(255, 0, 128, 1);
+      }
+    }
+
     .release-date {
       color: #aaa;
       font-size: 0.85em;
@@ -965,7 +1042,7 @@
 
 <header>
   <h1>🎮 EMULATOR PC RANKING</h1>
-  <p>Rankings Automáticos • GitHub Actions • Downloads em Tempo Real</p>
+  <p>Rankings Automáticos • Alerta de Novas Releases • Downloads em Tempo Real</p>
 </header>
 
 <div class="last-update" id="lastUpdate">
@@ -1007,8 +1084,8 @@
 </div>
 
 <footer>
-  🚀 Atualizado automaticamente via GitHub Actions<br>
-  ⚡ Nenhum processamento local • 100% Cloud
+  🚀 Atualizado automaticamente ⚡<br>
+  
 </footer>
 
 <script>
@@ -1060,6 +1137,19 @@ function formatMarkdown(text) {
   return html;
 }
 
+function isNewRelease(dateString, daysThreshold = 7) {
+  const releaseDate = new Date(dateString);
+  const now = new Date();
+  const diffTime = Math.abs(now - releaseDate);
+  const diffDays = Math.ceil(diffTime / (1000 * 60 * 60 * 24));
+  return diffDays <= daysThreshold;
+}
+
+function hasNewReleases(project, daysThreshold = 7) {
+  if (!project.releases || project.releases.length === 0) return false;
+  return project.releases.some(release => isNewRelease(release.date, daysThreshold));
+}
+
 function openModal(projectData) {
   const modal = document.getElementById('releasesModal');
   const modalTitle = document.getElementById('modalTitle');
@@ -1090,6 +1180,8 @@ function openModal(projectData) {
       const descriptionHtml = description ? `
         <div class="release-description">${formatMarkdown(description)}</div>
       ` : '';
+      
+      const isNew = isNewRelease(release.date);
 
       releasesHTML += `
         <div class="release-card">
@@ -1097,7 +1189,10 @@ function openModal(projectData) {
             <span class="release-tag">${release.tag}</span>
             <span class="release-date">${formatDate(release.date)}</span>
           </div>
-          <div class="release-name">${release.name}</div>
+          <div class="release-name">
+            ${release.name}
+            ${isNew ? '<span class="new-badge">🔥 Novo!</span>' : ''}
+          </div>
           
           <div class="release-actions">
             <a href="${release.htmlUrl}" target="_blank" class="github-link-btn">
@@ -1173,8 +1268,12 @@ async function loadData() {
 
     // Atualizar timestamp
     if (json.updatedAt) {
+      const newReleasesCount = allData.filter(p => hasNewReleases(p)).length;
+      const newBadge = newReleasesCount > 0 ? 
+        ` <span style="background: linear-gradient(135deg, #ff0080, #ff8c00); padding: 4px 12px; border-radius: 15px; font-size: 0.85em; animation: newBadgePulse 2s ease-in-out infinite;">🔥 ${newReleasesCount} ${newReleasesCount === 1 ? 'projeto com release nova' : 'projetos com releases novas'}!</span>` : '';
+      
       document.getElementById('lastUpdate').innerHTML = 
-        `⏱️ Última atualização: ${formatDate(json.updatedAt)}`;
+        `⏱️ Última atualização: ${formatDate(json.updatedAt)}${newBadge}`;
     }
 
     // ===== RANKING TABELA (DESKTOP) =====
@@ -1201,14 +1300,16 @@ async function loadData() {
       else if (index === 2) { medal = "🥉"; medalClass = "bronze"; }
 
       const hasReleases = item.releases && item.releases.length > 0;
+      const hasNew = hasNewReleases(item);
       const itemJson = JSON.stringify(item).replace(/'/g, "&#39;");
 
       tableHTML += `
-        <tr onclick='openModal(${itemJson})'>
+        <tr onclick='openModal(${itemJson})' class="${hasNew ? 'has-new-release' : ''}">
           <td class="rank ${medalClass}">${medal}</td>
           <td class="project-name">
             <div>
               ${item.name}
+              ${hasNew ? '<span class="table-new-badge">🔥 NOVO APK LANÇADO!</span>' : ''}
               ${hasReleases ? '<div class="click-hint">👆 clique para ver releases</div>' : ''}
             </div>
           </td>
@@ -1239,10 +1340,12 @@ async function loadData() {
       else if (index === 1) { medal = "🥈"; medalClass = "silver"; }
       else if (index === 2) { medal = "🥉"; medalClass = "bronze"; }
 
+      const hasNew = hasNewReleases(item);
       const itemJson = JSON.stringify(item).replace(/'/g, "&#39;");
 
       cardsHTML += `
         <div class="ranking-card-item" onclick='openModal(${itemJson})'>
+          ${hasNew ? '<div class="new-indicator">🔥 Novo</div>' : ''}
           <div class="card-header">
             <div class="card-rank ${medalClass}">${medal}</div>
             <div class="card-info">
