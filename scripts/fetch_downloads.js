@@ -10,7 +10,7 @@ const repos = [
   { name: "Winlator Ludashi", repo: "StevenMXZ/Winlator-Ludashi", category: "Winlator" },
   { name: "Winlator Oficial", repo: "brunodev85/winlator", category: "Winlator" },
   { name: "Winlator Afei", repo: "afeimod/winlator-mod", category: "Winlator" },
-  { name: "Winlator XMOD", repo: "deivid22srk/Winlator-Xmod", category: "Winlator" },
+  { name: "Winlator Xmod", repo: "deivid22srk/Winlator-Xmod", category: "Winlator" },
   { name: "Winlator Ajay", repo: "ajay9634/winlator-ajay", category: "Winlator" },
   { name: "Winlator Coffincolors", repo: "coffincolors/winlator", category: "Winlator" },
   { name: "Winlator X", repo: "JURIS-X/winlator_x", category: "Winlator" },
