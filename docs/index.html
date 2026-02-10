@@ -547,7 +547,44 @@
       font-size: 0.9em;
       display: flex;
       align-items: center;
+      justify-content: center;
       gap: 8px;
+      position: relative;
+    }
+
+    /* DESTAQUE PARA ABA DE NOVIDADES */
+    .tab-news-highlight {
+      animation: tabHighlightPulse 2s infinite !important;
+      border: 1px solid #ff0080 !important;
+    }
+
+    @keyframes tabHighlightPulse {
+
+      0%,
+      100% {
+        box-shadow: 0 0 5px rgba(255, 0, 128, 0.3);
+        background: rgba(255, 0, 128, 0.05);
+      }
+
+      50% {
+        box-shadow: 0 0 20px rgba(255, 0, 128, 0.6);
+        background: rgba(255, 0, 128, 0.15);
+        color: #fff;
+      }
+    }
+
+    .tab-badge {
+      position: absolute;
+      top: -5px;
+      right: 5px;
+      background: #ff005d;
+      color: white;
+      font-size: 0.65em;
+      padding: 2px 6px;
+      border-radius: 10px;
+      font-weight: 800;
+      box-shadow: 0 0 10px rgba(255, 0, 93, 0.6);
+      z-index: 10;
     }
 
     .tab-btn:hover {
@@ -1818,6 +1855,14 @@
       if (tabName === 'charts') {
         renderCharts(allData);
       }
+
+      // Limpar destaque se clicar em novidades
+      if (tabName === 'news') {
+        const btnNews = document.getElementById('btn-news');
+        btnNews.classList.remove('tab-news-highlight');
+        const badge = btnNews.querySelector('.tab-badge');
+        if (badge) badge.remove();
+      }
     }
 
     function populateFilters(data) {
@@ -2120,7 +2165,7 @@
               </div>
               <div style="text-align: right;">
                 <div class="recent-time-ago">📅 ${timeAgo(r.date)}</div>
-                ${item.isHot ? '<div class="recent-hot-flame">🔥 Acabou de Lançar!</div>' : ''}
+                ${item.isHot ? '<div class="recent-hot-flame">🔥 LANÇAMENTO RECENTE!</div>' : ''}
               </div>
             </div>
             <div class="recent-release-name">
@@ -2516,6 +2561,19 @@
             ` : ''}
           `;
           document.getElementById('lastUpdate').innerHTML = statusHtml;
+
+          // Destaque na aba de Novidades
+          if (newReleasesCount > 0) {
+            const btnNews = document.getElementById('btn-news');
+            btnNews.classList.add('tab-news-highlight');
+            // Adicionar badge se não existir
+            if (!btnNews.querySelector('.tab-badge')) {
+              const badge = document.createElement('span');
+              badge.className = 'tab-badge';
+              badge.innerText = newReleasesCount;
+              btnNews.appendChild(badge);
+            }
+          }
         }
 
         // Inserir ambos (removido duplicata manual aqui)
