@@ -1,5 +1,5 @@
 {
-  "updatedAt": "2026-02-10T02:35:19.237Z",
+  "updatedAt": "2026-02-10T02:49:18.823Z",
   "totalProjects": 14,
   "projectsWithReleases": 14,
   "projectsWithoutReleases": 0,
@@ -8,18 +8,20 @@
       "name": "Winlator Oficial",
       "repo": "brunodev85/winlator",
       "category": "Winlator",
-      "downloads": 12489878,
+      "downloads": 12490000,
       "releases": [
         {
           "name": "Winlator 11.0 (Beta)",
           "tag": "v11.0.0",
           "date": "2025-09-26T20:20:22Z",
-          "downloads": 814420,
+          "downloads": 814455,
+          "body": "- Added Wine 10.10\r\n- Added support for multiple controllers\r\n- Added support for controller vibration\r\n- Added Light/Dark app themes\r\n- Improved UI (User Interface)\r\n- Improved DirectInput/XInput compatibility\r\n- Improved Steam compatibility\r\n- Improved Vortek\r\n- Added new desktop wallpapers\r\n- Fixed display of Portuguese/Russian language shortcuts\r\n- Fixed display of layered windows\r\n- Improved keyboard for latin characters",
+          "prerelease": true,
           "assets": [
             {
               "name": "Winlator_11.0.apk",
               "size": 152225524,
-              "downloads": 814420,
+              "downloads": 814455,
               "url": "https://github.com/brunodev85/winlator/releases/download/v11.0.0/Winlator_11.0.apk"
             }
           ],
@@ -29,12 +31,14 @@
           "name": "Winlator 10.1 (Hotfix)",
           "tag": "v10.1.0",
           "date": "2025-07-08T18:12:38Z",
-          "downloads": 2328603,
+          "downloads": 2328658,
+          "body": "**v10.1 (Hotfix)**\r\n\r\n- Added fixes for Steam Client startup\r\n- Added AdrenoTools to Vortek\r\n- Removed dgVoodoo from DX Wrappers\r\n- Other bug fixes and improvements\r\n\r\n**v10.1 (Initial Release)**\r\n\r\n- Implemented MIDI Input/Output\r\n- Added support for external MIDI controllers\r\n- Added new control types in Input Controls\r\n- Added option Move Mouse when pressing button (Input Controls)\r\n- Added a virtual CD-ROM drive [X:] (some old games need this)\r\n- Added basic support for ISO/BIN/CUE Images with [libcdio](https://github.com/libcdio/libcdio) (Can be loaded in [X:])\r\n- Added Active Windows to Side Menu\r\n- Added Picture-in-Picture (PiP) Mode to Side Menu\r\n- Improved XServer (fixed black screen in some old games)\r\n- Added Portuguese and Russian languages\r\n- Added dgVoodoo in DX Wrappers\r\n- Updated Box64 presets\r\n- Updated Box64 (v0.3.6 release)\r\n- Updated Mesa Turnip (v25.1.0 release)\r\n- Converted some parts of the app to native code for better performance\r\n\r\nVortek Changelogs\r\n\r\n- Implemented cached texture decoding for better loading time\r\n- Implemented parallel texture decoding for better performance\r\n- Implemented asynchronous pipeline creation\r\n- Improved performance",
+          "prerelease": false,
           "assets": [
             {
               "name": "Winlator_10.1.apk",
               "size": 147778434,
-              "downloads": 2328603,
+              "downloads": 2328658,
               "url": "https://github.com/brunodev85/winlator/releases/download/v10.1.0/Winlator_10.1.apk"
             }
           ],
@@ -44,12 +48,14 @@
           "name": "Winlator 10.0 (Hotfix)",
           "tag": "v10.0.0",
           "date": "2025-02-28T19:17:37Z",
-          "downloads": 1033346,
+          "downloads": 1033349,
+          "body": "**v10.0 (Hotfix)**\r\n\r\n- Added fallback URL for Wine Mono/Gecko installation\r\n- Added fixes for Vortek\r\n- Updated/Recompiled internal programs: wfm.exe, winhandler.exe, TestD3D.exe and GPUInfo.exe\r\n\r\n**v10.0 (Final)**\r\n\r\nGeneral changelogs:\r\n\r\n- Improved Task Manager\r\n- Added GPUInfo to Start Menu (Useful for viewing GPU capabilities)\r\n- Added missing gstreamer plugins\r\n- Added configuration for Vortek\r\n\r\nVortek changelogs:\r\n\r\n- Added support for Mali devices\r\n- Implemented textureCompressionBC for devices that don't support this feature\r\n- Added fixes for vertex explosion for Mali devices\r\n- Added fixes for character animations that remains in T-Pose (D3D9 games)\r\n- Added support for some texture formats for devices that don't support them\r\n- Added fixes for some games that freeze on startup\r\n- Improved compatibility with Mesa Zink\r\n- Improved performance\r\n\r\n**v10.0 (Beta 2)**\r\n\r\n- Added missing MPEG-1 gstreamer plugin (#269)\r\n- Added workaround for Dino Crisis 1/2 video issues\r\n- Updated Box64 (v0.3.4 release) \r\n\r\n**v10.0 (Beta 1)**\r\n\r\n- Added native GLIBC for better I/O performance\r\n- Minor improvements to Vortek\r\n- Improved internal Registry Editor (Speeds up container startup)\r\n- Added option to open Android browser from Wine\r\n- Added option to use Android clipboard on Wine\r\n- Added option to capture pointer on external mouse\r\n- Added some network stuff on [Wine](https://github.com/brunodev85/wine-9.2-custom/commit/3437f8ee1617ba97550c96fb2dc4e210420aae93) (Fixes some games startup)\r\n- Implemented direct rendering on XServer and [Vulkan WSI X11](https://github.com/brunodev85/mesa3d-custom/blob/main/turnip-25.0.0/src/vulkan/wsi/wsi_common_x11.c) (Turnip)\r\n\r\nNotes: The Root FS has been restructured and each library has been compiled individually, keeping only those required by Box64/Wine",
+          "prerelease": false,
           "assets": [
             {
               "name": "Winlator_10.0.apk",
               "size": 147685565,
-              "downloads": 1033346,
+              "downloads": 1033349,
               "url": "https://github.com/brunodev85/winlator/releases/download/v10.0.0/Winlator_10.0.apk"
             }
           ],
@@ -59,12 +65,14 @@
           "name": "Winlator 9.0",
           "tag": "v9.0.0",
           "date": "2025-01-03T19:44:34Z",
-          "downloads": 1531662,
+          "downloads": 1531667,
+          "body": "- Added a new graphics driver: Vortek (Experimental)\r\n- Added option to install components (Box64/Turnip/DXVK)\r\n- Improved ALSA plugin\r\n- Improved Force Fullscreen option (useful for low resolution games)\r\n- Updated Box64 (v0.3.2 release)\r\n- Added workaround for the following game: Ghost Song\r\n- Performance improvements on XServer and other fixes",
+          "prerelease": false,
           "assets": [
             {
               "name": "Winlator_9.0.apk",
               "size": 199652248,
-              "downloads": 1531662,
+              "downloads": 1531667,
               "url": "https://github.com/brunodev85/winlator/releases/download/v9.0.0/Winlator_9.0.apk"
             }
           ],
@@ -74,12 +82,14 @@
           "name": "Winlator 8.0 (Revision 1)",
           "tag": "v8.0.0",
           "date": "2024-09-26T16:41:52Z",
-          "downloads": 942449,
+          "downloads": 942453,
+          "body": "**v8.0 (Revision 1)**\r\n\r\n- Updated Box64 (v0.3.1 devel)\r\n- Updated Mesa Turnip (v24.3.0 devel)\r\n- Updated DXVK (v2.4.1 release)\r\n- Other bug fixes and improvements\r\n\r\n**v8.0 (Initial Release)**\r\n\r\n- Improved UI (User Interface)\r\n- Added File Manager to Container\r\n- Added Screen Effect (Color Adjustment, FXAA and CRT Shader)\r\n- Fixed Container startup on Android 14 (SD Gen 3)\r\n- Added option to select preferred input API: DirectInput or XInput (useful for Dragon's Dogma Dark Arisen, Street Fighter IV and others)\r\n- Added option to disable mouse input (useful for Virtual Gamepad)\r\n- Added option to move cursor to touchpoint\r\n- Improved Input Controls\r\n- Improved ALSA audio driver\r\n- Improved DirectInput\r\n- Improved Drives on Container\r\n- Updated DXVK (v2.4 release)\r\n- Updated Box64 (v0.3.0 release)\r\n- Updated Mesa Turnip (v24.2.0 release)\r\n- Added workarounds for some games:\r\n    Starbound, Venetica, FATE, Gex, Drakensang, Medal of Honor Allied Assault, Return to Castle Wolfenstein, FF XII The Zodiac Age, Deus Ex Mankind Divided, MGS Ground Zeroes, Far Cry 4, Assassin's Creed Revelations and others\r\n- Performance improvements and other fixes",
+          "prerelease": false,
           "assets": [
             {
               "name": "Winlator_8.0.Revision.1.apk",
               "size": 197836693,
-              "downloads": 942449,
+              "downloads": 942453,
               "url": "https://github.com/brunodev85/winlator/releases/download/v8.0.0/Winlator_8.0.Revision.1.apk"
             }
           ],
@@ -89,12 +99,14 @@
           "name": "Winlator 7.1",
           "tag": "v7.1.0",
           "date": "2024-06-21T17:13:51Z",
-          "downloads": 1137432,
+          "downloads": 1137435,
+          "body": "- Updated audio plugin (ALSA)\r\n- Fixed audio in some applications\r\n- Updated Mesa Turnip\r\n- Updated Startup Selection on container settings\r\n- Updated Box86/Box64\r\n- Other bug fixes and improvements",
+          "prerelease": false,
           "assets": [
             {
               "name": "Winlator_7.1.apk",
               "size": 266057025,
-              "downloads": 1137432,
+              "downloads": 1137435,
               "url": "https://github.com/brunodev85/winlator/releases/download/v7.1.0/Winlator_7.1.apk"
             }
           ],
@@ -104,12 +116,14 @@
           "name": "Winlator 7.0",
           "tag": "v7.0.0",
           "date": "2024-06-10T17:40:38Z",
-          "downloads": 226510,
+          "downloads": 226511,
+          "body": "- Updated Wine\r\n- Updated Box86/Box64\r\n- Updated Mesa Turnip, Zink and VirGL drivers\r\n- Improved XInput stability\r\n- Improved Input Controls\r\n- Improved Task Manager\r\n- Improved Container settings (Processor Affinity, Show FPS, GPU Name, Win Components and Environment Variables)\r\n- Added experimental WoW64 mode (Container Settings -> Advanced Tab)\r\n- Added VKD3D\r\n- Added Logs option\r\n- Fixed intro videos (Resident Evil 5, Lost Planet and others)\r\n- Performance improvements and other fixes",
+          "prerelease": false,
           "assets": [
             {
               "name": "Winlator_7.0.apk",
               "size": 262944424,
-              "downloads": 226510,
+              "downloads": 226511,
               "url": "https://github.com/brunodev85/winlator/releases/download/v7.0.0/Winlator_7.0.apk"
             }
           ],
@@ -119,12 +133,14 @@
           "name": "Winlator 6.1",
           "tag": "v6.1.0",
           "date": "2024-04-04T20:05:41Z",
-          "downloads": 703227,
+          "downloads": 703229,
+          "body": "- Updated Mesa Turnip driver\r\n- Added Turnip configuration\r\n- Updated Box86/Box64\r\n- Implemented XR (Virtual Reality) by lvonasek\r\n- Improved Cursor sensitivity\r\n- Other bug fixes and improvements",
+          "prerelease": false,
           "assets": [
             {
               "name": "Winlator_6.1.apk",
               "size": 265585916,
-              "downloads": 703227,
+              "downloads": 703229,
               "url": "https://github.com/brunodev85/winlator/releases/download/v6.1.0/Winlator_6.1.apk"
             }
           ],
@@ -135,6 +151,8 @@
           "tag": "v6.0.0",
           "date": "2024-03-27T14:36:51Z",
           "downloads": 152330,
+          "body": "- Added Magnifier\r\n- Added option to add Wallpaper\r\n- Improved UI\r\n- Fixed Container startup error that occurred on some devices\r\n- Improved XInput compatibility\r\n- Improved Input Controls and Cursor sensitivity\r\n- Added support for external mouse\r\n- Updated Wine, Box86/Box64, Turnip and DXVK\r\n- Added \"Bring to Front\" on Task Manager\r\n- Added 7-Zip on context menu\r\n- Removed the option to install OBB image (now it's all in one apk)\r\n- Performance improvements and other fixes",
+          "prerelease": false,
           "assets": [
             {
               "name": "Winlator_6.0.apk",
@@ -149,12 +167,14 @@
           "name": "Winlator 5.0",
           "tag": "v5.0.0",
           "date": "2024-02-01T20:30:32Z",
-          "downloads": 383044,
+          "downloads": 383046,
+          "body": "- Improved performance\r\n- Improved Task Manager\r\n- Added option to change desktop theme\r\n- Improved XInput compatibility (Batman Arkham City, Sleeping Dogs and others)\r\n- Fixed keyboard slowdown (GTA V and others)\r\n- Other bug fixes and improvements",
+          "prerelease": false,
           "assets": [
             {
               "name": "Winlator_5.0.apk",
               "size": 88025532,
-              "downloads": 383044,
+              "downloads": 383046,
               "url": "https://github.com/brunodev85/winlator/releases/download/v5.0.0/Winlator_5.0.apk"
             }
           ],
@@ -164,12 +184,14 @@
           "name": "Winlator 4.0",
           "tag": "v4.0.0",
           "date": "2024-01-23T19:53:16Z",
-          "downloads": 98972,
+          "downloads": 98973,
+          "body": "- Implemented DirectInput/XInput for Android Gamepads\r\n- Improved Input Controls\r\n- Performance improvements and others fixes",
+          "prerelease": false,
           "assets": [
             {
               "name": "Winlator_4.0.apk",
               "size": 86944881,
-              "downloads": 98972,
+              "downloads": 98973,
               "url": "https://github.com/brunodev85/winlator/releases/download/v4.0.0/Winlator_4.0.apk"
             }
           ],
@@ -180,6 +202,8 @@
           "tag": "v3.2.0",
           "date": "2023-12-14T19:48:07Z",
           "downloads": 408607,
+          "body": "- Improved x11 Cursor\r\n- Added option to create Box86/Box64 presets\r\n- Improved Shortcut Settings\r\n- Added more DX Wrappers\r\n- Other bug fixes and improvements",
+          "prerelease": false,
           "assets": [
             {
               "name": "Winlator_3.2.apk",
@@ -194,18 +218,20 @@
           "name": "Winlator 3.1",
           "tag": "v3.1.0",
           "date": "2023-11-29T20:42:15Z",
-          "downloads": 2001363,
+          "downloads": 2001372,
+          "body": "- Added Cursor Speed in settings\r\n- Added option to install OBB Image in settings\r\n- Improved UI\r\n- Improved Input Controls\r\n- Other bug fixes and improvements",
+          "prerelease": false,
           "assets": [
             {
               "name": "main.3.com.winlator.obb",
               "size": 449924372,
-              "downloads": 1904880,
+              "downloads": 1904888,
               "url": "https://github.com/brunodev85/winlator/releases/download/v3.1.0/main.3.com.winlator.obb"
             },
             {
               "name": "Winlator_3.1-UPDATED.apk",
               "size": 85572580,
-              "downloads": 96483,
+              "downloads": 96484,
               "url": "https://github.com/brunodev85/winlator/releases/download/v3.1.0/Winlator_3.1-UPDATED.apk"
             }
           ],
@@ -215,18 +241,20 @@
           "name": "Winlator 3.0",
           "tag": "v3.0.0",
           "date": "2023-11-23T19:12:00Z",
-          "downloads": 411702,
+          "downloads": 411704,
+          "body": "- Improved Audio Plugin\r\n- Added PulseAudio\r\n- Added the option to choose the Box86/Box64 version\r\n- Added the option to choose the Turnip version\r\n- Added Custom resolution option\r\n- Improved Input Controls\r\n- Improved Lock Cursor option\r\n- Added Task Manager to main menu\r\n- Updated OBB Image to version 3\r\n- Other bug fixes and improvements\r\n\r\nThanks to Ajay and AkaGloomy for suggestions",
+          "prerelease": false,
           "assets": [
             {
               "name": "main.3.com.winlator.obb",
               "size": 449924372,
-              "downloads": 339585,
+              "downloads": 339586,
               "url": "https://github.com/brunodev85/winlator/releases/download/v3.0.0/main.3.com.winlator.obb"
             },
             {
               "name": "Winlator_3.0.apk",
               "size": 82538572,
-              "downloads": 72117,
+              "downloads": 72118,
               "url": "https://github.com/brunodev85/winlator/releases/download/v3.0.0/Winlator_3.0.apk"
             }
           ],
@@ -237,6 +265,8 @@
           "tag": "v2.0.0",
           "date": "2023-10-12T16:21:51Z",
           "downloads": 316211,
+          "body": "- Improved VirGL compatibility and performance (many games may not work)\r\n- Improved Input Controls\r\n- Improved Audio Plugin\r\n- Added option to install custom Wine version (Experimental)\r\n- Added Advanced tab on container settings\r\n- Updated Mesa Turnip driver\r\n- Updated Box64\r\n- Updated OBB Image to version 2 (Optional)\r\n- Added more DXWrappers\r\n- Other bug fixes and improvements\r\n\r\nFixed Wine install and improved Drives on container settings (thanks to Ajay)",
+          "prerelease": false,
           "assets": [
             {
               "name": "main.2.com.winlator.obb",
@@ -260,18 +290,20 @@
       "name": "Winlator LongJunYu",
       "repo": "longjunyu2/winlator",
       "category": "Winlator",
-      "downloads": 926983,
+      "downloads": 926988,
       "releases": [
         {
           "name": "Winlator 7.1.5 with Native Glibc",
           "tag": "v7.1.5",
           "date": "2025-01-25T09:40:50Z",
-          "downloads": 92507,
+          "downloads": 92508,
+          "body": "## Warning! This APK is signed by a different key. This means you will have to uninstall the 7.1.3 version first (which will delete all your data!)\r\n\r\n## What's New\r\n#### Added\r\n- Alsa sound driver updated #183\r\n- Multikey touch button binding #197\r\n- Touch haptic when virtual keyboard or controller is enabled #62\r\n  \r\n#### Fixed\r\n- Invisible mouse cursor in some games #192\r\n- Some 32 bit games not working properly #173\r\n  \r\n####  What's new about OpenXR Support?\r\n- Fullscreen is forced only in immersive VR mode\r\n- Set Alsa as default audio driver",
+          "prerelease": true,
           "assets": [
             {
               "name": "app-release.apk",
               "size": 244026226,
-              "downloads": 92507,
+              "downloads": 92508,
               "url": "https://github.com/longjunyu2/winlator/releases/download/v7.1.5/app-release.apk"
             }
           ],
@@ -282,6 +314,8 @@
           "tag": "v7.1.4",
           "date": "2024-12-25T13:09:24Z",
           "downloads": 52766,
+          "body": "## Warning! This APK is signed by a different key. This means you will have to uninstall the previous version first (which will delete all your data!)\r\n\r\n## What's New\r\n#### Added\r\n- ~ as option in the the key binding #113\r\n- Easier way to install addons using content manager #25\r\n- Changed license to GPLv3 #100\r\n- Play button to faster run the container #133\r\n- Polish pause menu #137\r\n- Update readme and credits #157, #162\r\n  \r\n#### Fixed\r\n- Fixed box64rc import not working properly #72 \r\n- Fixed DirectDraw games to full screen #76\r\n  \r\n####  What's new about OpenXR Support?\r\n- Fit the screen in the XR immersive mode #73 \r\n- Make the OpenXR intergration optional #146 \r\n- Software keyboard mapping fixed #121\r\n\r\n**Additional Files**:\r\n1. **turnip-v25.0.0-R5.wcp*: contains `turnip-v25.0.0-R5`, built from [K11MCH1/WinlatorTurnipDrivers](https://github.com/K11MCH1/WinlatorTurnipDrivers/releases/tag/winlator_v25.0_r5).",
+          "prerelease": true,
           "assets": [
             {
               "name": "app-release.apk",
@@ -302,18 +336,20 @@
           "name": "Winlator 7.1.3 with Native Glibc",
           "tag": "v7.1.3",
           "date": "2024-08-29T10:18:54Z",
-          "downloads": 473731,
+          "downloads": 473734,
+          "body": "## What's New\r\n#### Added\r\n- Added **MIDI** support, allowing some games to play MIDI audio. The software comes with an open-source soundfont by [default](https://musical-artifacts.com/artifacts/1517), and you can also install your preferred soundfont in the `Settings` (currently, only SF2 format is supported). Download Windows MIDI Soundfont [here](https://musical-artifacts.com/artifacts/713).\r\n- Improved **OpenXR** suooport. Many thanks to **Luboš V.** , his work making OpenXR support possible and better.\r\n- Improved Game Controller Support, you can now selectively use **XInput** or **DInput** mapping. Linear triggers now work with both mapping modes. For trigger button, if it’s not working correctly, try adjusting the trigger button mode in the `Settings` to match your controller.\r\n- Added the feature to automatically set the container's **Locale**. You can now also adjust `LC_ALL` settings in the container editing interface.\r\n- Added Landscape And **Portrait Mode** switching features. You can now switch to portrait mode using the container's resolution settings or `Toggle Orientation` button of the left-side navigation bar.\r\n- Added the ability to reconfigure containers. You can now click `Reconfigure` in the container options to reconfigure the Wine prefix on the next startup.\r\n  \r\n#### Fixed\r\n- Fixed the stuttering issue when exiting the container.\r\n- Fixed the issue where shortcuts on the desktop remained available after deleting the container.\r\n- Fixed the issue with binding gamepad analog sticks in InputControlEditor.\r\n- Fixed the issue that shortcuts sometimes lost their settings.\r\n- Fixed the issue where clicking on the screen and input controls simultaneously in touch screen simulation mode caused crashes.\r\n- Fixed the missing End key issue in InputControlEditor.\r\n- Fixed the issue when creating a new container would reset the version and preset of box64.\r\n- Fixed the issue where groups in the box64 rc file could not be disabled.\r\n- Fixed the issue where the mouse pointer was inaccurate when using simulated touch screen in full-screen mode.\r\n- Fixed the issue where the file provider did not support moving files.\r\n- Fixed the issue where reinstalling the file system sometimes skipped the opt folder.\r\n- Fixed the issue where external storage could not be added as a Wine drive.\r\n  \r\n#### Changed\r\n- Update Wine to 9.16.\r\n- File provider enabled by default.\r\n- Added gst-libav.\r\n  \r\n####  What's new about OpenXR Support?\r\n- Fixed the issue causing crashes at startup.\r\n- Fixed 3DoF support to ensure it functions correctly, rather than running in 2DoF mode.\r\n- Fixed some graphical glitches on the Meta Quest 3.\r\n- Added controller mapping functionality in the settings.\r\n- Fixed the black screen issue on QuestOS V69.\r\n  \r\n#### FAQ\r\n1. #### What is Winlator with Native Glibc?\r\n   Many thanks to **BrunoSX** for developing [Winlator](https://github.com/brunodev85/winlator), a practical and popular PC simulation software. Winlator Glibc is not an upgrade but a mod to Winlator. It uses Glibc patches from Termux-pacman to build the necessary packages, achieving the same goals as the Proot-based solution but without the I/O performance loss associated with Proot. However, due to the exclusion of Arm32 and limitations in Wine's support for wow64, its compatibility with 32-bit applications is not as good as the vanilla Winlator.\r\n1. #### Where to Get Latest Turnip Driver?\r\n   Thanks to **K11MCH1** and **JeezDisReez**, the latest Mesa Turnip drivers are available for Winlator and can be found [K11MCH1/WinlatorTurnipDrivers](https://github.com/K11MCH1/WinlatorTurnipDrivers).\r\n3. #### Why not Include the New Box64 and Drivers in App?\r\n   Box64 and the Turnip Driver are updated frequently, so installing them externally ensures they are always up to date. Therefore, the app only includes their latest release versions.\r\n4. #### Reinstall or Overwrite?\r\n   You do not need to uninstall the old Winlator Glibc before installation. However, if you have installed a different version, you must uninstall it before installing the new one due to different signatures. Please make sure to **BACK UP** your data.\r\n5. #### Game has Sound but Blank.\r\n   Try using box64 version 0.3.0 or earlier and try using wine-9.2.\r\n4. #### What is .wcp?\r\n   **.wcp** is the file extension for add-ons. It is compressed using **XZ** or **Zstd** and includes a **profile.json** file as a manifest. You can create your own add-on files containing various contents. Since these files often include executable programs, **make sure** to verify that add-ons from other sources do not contain malicious software before installation.\r\n6. #### What is .rcp?\r\n   **.rcp** is the file extension for custom Box64 configuration files. It uses a JSON data structure and can be used to generate a box64rc file that Box64 can read. You can refer to [official box64rc](https://github.com/ptitSeb/box64/blob/main/system/box64.box64rc) to configure the rcp file, but you **cannot** import it directly.\r\n  \r\n**Additional Files**:\r\n1. **box64-0.3.1-0450371.wcp**: contains `box64-0.3.1`, built from [ptitSeb/box64](https://github.com/ptitSeb/box64/commit/0450371e282bd5c4dbbceaeca590626304609036).\r\n3. **box64-0.3.1-0450371-8g2.wcp**: contains `box64-0.3.1`, built from [ptitSeb/box64](https://github.com/ptitSeb/box64/commit/0450371e282bd5c4dbbceaeca590626304609036). Disabled BAD_SIGNAL for 8gen2 and enabled the 8G2 option, which **may** improve performance.\r\n7. **box64-0.2.7.wcp**: contains `box64-0.2.7`, built from [ptitSeb/box64](https://github.com/ptitSeb/box64).\r\n8. **wine-9.2-custom.wcp**: contains `wine-9.2`. Added MIDI support and improved controller support for Wine 9.2. Please avoid using the older version of Wine 9.2.\r\n\r\n## What's Changed\r\n* OpenXR - Fix crash on init by @lvonasek in https://github.com/longjunyu2/winlator/pull/36\r\n* midi: Add midi support. by @longjunyu2 in https://github.com/longjunyu2/winlator/pull/38\r\n* OpenXR - Fix 3DoF by @lvonasek in https://github.com/longjunyu2/winlator/pull/40\r\n* controller: Try fix controller issues. by @longjunyu2 in https://github.com/longjunyu2/winlator/pull/44\r\n* OpenXR - Reopening fixed by @lvonasek in https://github.com/longjunyu2/winlator/pull/46\r\n* OpenXR - Fix 3DoF camera by @lvonasek in https://github.com/longjunyu2/winlator/pull/47\r\n* OpenXR - Workaround for graphical glitches by @lvonasek in https://github.com/longjunyu2/winlator/pull/50\r\n* OpenXR - Controller mapping in settings by @lvonasek in https://github.com/longjunyu2/winlator/pull/52\r\n* OpenXR - Crash fix by @lvonasek in https://github.com/longjunyu2/winlator/pull/53\r\n* Fixed cannot see changes of input controls until reset. by @longjunyu2 in https://github.com/longjunyu2/winlator/pull/56\r\n* OpenXR - Fix for QuestOS V69 by @lvonasek in https://github.com/longjunyu2/winlator/pull/58\r\n\r\n## New Contributors\r\n* @lvonasek made their first contribution in https://github.com/longjunyu2/winlator/pull/36\r\n\r\n**Full Changelog**: https://github.com/longjunyu2/winlator/compare/v7.1.2...v7.1.3",
+          "prerelease": false,
           "assets": [
             {
               "name": "app-release.apk",
               "size": 244020641,
-              "downloads": 188608,
+              "downloads": 188610,
               "url": "https://github.com/longjunyu2/winlator/releases/download/v7.1.3/app-release.apk"
             },
             {
               "name": "box64-0.2.7.wcp",
               "size": 2129124,
-              "downloads": 34158,
+              "downloads": 34159,
               "url": "https://github.com/longjunyu2/winlator/releases/download/v7.1.3/box64-0.2.7.wcp"
             },
             {
@@ -347,7 +383,9 @@
           "name": "Winlator 7.1.2 with Native Glibc",
           "tag": "v7.1.2",
           "date": "2024-08-16T04:38:39Z",
-          "downloads": 246725,
+          "downloads": 246726,
+          "body": "#### Added\r\n- Added support for `Box64rc`, allowing different Box64 parameters to be set for each process.\r\n- Added `virtual touchscreen` support, also referred to as `direct cursor` support. True touchscreen support requires implementing the XInput2 extension.\r\n- Added support for Chinese. And any corrections to the translation are welcome.\r\n- Added an `content manager`, allowing you to install Wine, graphics drivers, or DX wrappers externally.\r\n- Added the ability to reinstall system files, allowing recovery even if the system files are accidentally damaged.\r\n- Added more VKD3D feature level options.\r\n- Added android `file provider` feature, allowing access to the Winlator data directory through the file manager.\r\n- Added the ability to add `shortcuts` to the home screen, allowing you to launch your programs directly from the desktop. Shortcut changes will be synced in real-time.\r\n\r\n#### Fixed\r\n- Fixed the crash issue that occurred when running programs with long Japanese or Chinese titles.\r\n- Corrected the button styling in the DXVK configuration dialog.\r\n- Fixed certain abnormal issues on some SoCs (such as 870), by compiling Box64 with the `BAD_SIGNAL` parameter enabled.\r\n- Fixed an issue that caused Steam to crash by removing the patch for `iphalpapi` in Wine.\r\n- Fixed the font configuration, you can now add custom fonts to `imagefs/usr/share/fonts`.\r\n\r\n#### Changed\r\n- Set DXVK parameters via environment variables instead of configuration files, allowing for custom DXVK configuration files.\r\n- Hide the system pointer when using an external mouse. Thanks to **xoureldeen** for the method.\r\n- Removed the built-in `DXVK-0.96`, `DXVK-1.10.3`, and `Box64-0.3.1-dev`. These components will now be provided through add-ons.\r\n- Update Wine to 9.15.\r\n  \r\n**Note**\r\n- **.wcp** is the file extension for add-ons. It is compressed using XZ or Zstd and includes a `profile.json` file as a manifest. You can create your own add-on files containing various contents. Since these files often include executable programs, **make sure** to verify that add-ons from other sources do not contain malicious software before installation.\r\n- **.rcp** is the file extension for custom Box64 configuration files. It uses a JSON data structure and can be used to generate a box64rc file that Box64 can read. You can refer to the [official box64rc](https://github.com/ptitSeb/box64/blob/main/system/box64.box64rc) file to configure the .rcp file.\r\n  \r\n**Full Changelog**: https://github.com/longjunyu2/winlator/compare/v7.1.1...v7.1.2\r\n  \r\nThanks to **K11MCH1** and **JeezDisReez**, the latest Mesa Turnip drivers are available for Winlator and can be found [K11MCH1/WinlatorTurnipDrivers](https://github.com/K11MCH1/WinlatorTurnipDrivers).\r\n  \r\n**Additional Files**:\r\n1. **box64-0.3.1-017d13a.wcp**: contains `box64-0.3.1`, built from [ptitSeb/box64](https://github.com/ptitSeb/box64/commit/017d13a7b0717c61fda67322051ae8a92ce3e035).\r\n2. **dxvk-0.96.wcp**: contains `dxvk-0.96`, from [doitsujin/dxvk](https://github.com/doitsujin/dxvk/releases/tag/v0.96).\r\n3. **dxvk-1.10.3.wcp**: contains `dxvk-1.10.3`, from [doitsujin/dxvk](https://github.com/doitsujin/dxvk/releases/tag/v1.10.3).\r\n4. **turnip-23.3.0.wcp**: contains `turnip-23.3.0`, extract from [brunodev85/winlator (v6.1)](https://github.com/brunodev85/winlator/releases/tag/v6.1.0).\r\n5. **turnip-24.3.0-d264c66f**: contains `turnip-24.3.0.2`, built from [Pipetto-crypto/mesa](https://gitlab.freedesktop.org/Pipetto-crypto/mesa/-/tree/3d0ee99f257492b67eb37f12a2798e8c718c5f4c).\r\n6. **wine-9.2-custom.wcp**: contains `wine-9.2`, built from [brunodev85/wine-9.2-custom](https://github.com/brunodev85/wine-9.2-custom).",
+          "prerelease": false,
           "assets": [
             {
               "name": "app-release.apk",
@@ -370,7 +408,7 @@
             {
               "name": "dxvk-1.10.3.wcp",
               "size": 4160104,
-              "downloads": 63947,
+              "downloads": 63948,
               "url": "https://github.com/longjunyu2/winlator/releases/download/v7.1.2/dxvk-1.10.3.wcp"
             },
             {
@@ -399,6 +437,8 @@
           "tag": "v7.1.1",
           "date": "2024-08-05T09:53:57Z",
           "downloads": 57819,
+          "body": "#### Added\r\n- Added `dxvk-2.4` and `dxvk-gplasync-2.4`, and set dxvk-2.3.1 as the default dxvk. \r\n- Added version switching and configuration support for `vkd3d`.\r\n- Added `vkd3d-2.13`.\r\n- Added an older version of `box64` (`box64-2.8`).\r\n- Added support for linear triggers. (currently only for Xinput)\r\n\r\n#### Fixed\r\n- Fixed the path for the dxvk configuration file.\r\n- Fixed the path for the Virgl server; `VirGL` is now working.\r\n- Fixed keyboard input issues for some games.\r\n\r\n#### Changed\r\n- The `AVX` extension for box64 is **disabled** by default. It needs to be manually enabled by creating a new `box64 preset` in the settings.\r\n- Enabled all cores by default for experimental wow64.\r\n\r\n**Full Changelog**: https://github.com/longjunyu2/winlator/compare/v7.1.0...v7.1.1\r\n\r\n**Note**: Please uninstall previous versions before installation to avoid potential errors. Remember to **back up** your data.",
+          "prerelease": false,
           "assets": [
             {
               "name": "app-release.apk",
@@ -414,6 +454,8 @@
           "tag": "v7.1.0",
           "date": "2024-08-03T05:12:46Z",
           "downloads": 3435,
+          "body": "- Update Wine to 9.13\r\n- Update Box64 to 0.3.0\r\n- Use native glibc instead of proot\r\n- VirGL is **NOT** work current now !!!\r\n- Support **Arm64** only !!!\r\n\r\nThis version is for testing purposes. `Native glibc` is NOT necessarily better than `Proot`, it just adds a possibility for winlator.  \r\n  \r\n**Notice**: Please backup the original Winlator's data before installation.\r\n\r\n**Full Changelog**: https://github.com/longjunyu2/winlator/commits/v7.1.0",
+          "prerelease": false,
           "assets": [
             {
               "name": "app-release.apk",
@@ -431,13 +473,15 @@
       "name": "Winlator MOD",
       "repo": "afeimod/winlator-mod",
       "category": "Winlator",
-      "downloads": 664577,
+      "downloads": 664583,
       "releases": [
         {
           "name": "Box64 v0.4.0 (aarch64, Winlator，glibc)",
           "tag": "v0.4.0-20260201",
           "date": "2026-02-01T23:46:22Z",
           "downloads": 649,
+          "body": "### Box64 构建信息\n- **版本**: v0.4.0\n- **构建日期**: 20260201\n- **提交哈希**: dae0917c4\n- **分支/标签**: v0.4.0\n- **请求的版本**: v0.4.0\n\n此构建针对 Winlator glibc 环境优化。\n",
+          "prerelease": false,
           "assets": [
             {
               "name": "box64-v0.4.0-20260201.tar.xz",
@@ -453,6 +497,8 @@
           "tag": "main-20260201",
           "date": "2026-02-01T23:46:14Z",
           "downloads": 121,
+          "body": "### Box64 构建信息\n- **版本**: v0.4.1-1-16-gc389bdff4\n- **构建日期**: 20260201\n- **提交哈希**: c389bdff4\n- **分支/标签**: main\n- **请求的版本**: main\n\n此构建针对 Winlator glibc 环境优化。\n",
+          "prerelease": false,
           "assets": [
             {
               "name": "box64-v0.4.1-1-16-gc389bdff4-20260201.tar.xz",
@@ -467,7 +513,9 @@
           "name": "10.1hotfix-Amod3fix2",
           "tag": "10.1hotfix-Amod3fix2",
           "date": "2025-12-02T08:21:17Z",
-          "downloads": 19838,
+          "downloads": 19840,
+          "body": "1-修复部分游戏mod失效，比如死或生5，上古卷轴五等\r\n2-提供wine-10.15.whp可以在额外内容里安装，这个wine可以播放一些视频白屏有声音的游戏\r\n3-其他更新见fix1\r\n",
+          "prerelease": false,
           "assets": [
             {
               "name": "wine-10.15.whp",
@@ -478,7 +526,7 @@
             {
               "name": "Winlator10.1-Amod3fix2.apk",
               "size": 879369555,
-              "downloads": 15814,
+              "downloads": 15816,
               "url": "https://github.com/afeimod/winlator-mod/releases/download/10.1hotfix-Amod3fix2/Winlator10.1-Amod3fix2.apk"
             }
           ],
@@ -489,6 +537,8 @@
           "tag": "rootfs-beta",
           "date": "2025-11-13T04:02:07Z",
           "downloads": 1516,
+          "body": "GStreamer RootFS Build\nVersion Information:\n- GStreamer: 1.27.2\n- XZ: v5.8.1\n- Custom Tag: beta\n\nThis rootfs contains a custom build of GStreamer for Winlator.\n",
+          "prerelease": false,
           "assets": [
             {
               "name": "output-full.tar.xz",
@@ -516,6 +566,8 @@
           "tag": "10.1hotfix-Amod3fix",
           "date": "2025-11-13T00:16:05Z",
           "downloads": 5509,
+          "body": "修复proton wine对unity游戏闪退的问题，注册表来自obw109！\r\n添加proton wine，选择wine10.0.1就是了\r\n完善gst解码环境(来自waim908，具体请看项目简介)，起点可以开关gst哦\r\n修复部分游戏音频\r\n在线组件更换代理更稳定的下载！\r\n其他优化",
+          "prerelease": false,
           "assets": [
             {
               "name": "Winlator10.1-Amod3fix.apk",
@@ -531,6 +583,8 @@
           "tag": "wine-staging-10.15-wow64",
           "date": "2025-12-02T04:40:18Z",
           "downloads": 257,
+          "body": "# Wine staging 10.15 - WOW64 with Vulkan & GStreamer for Termux\n\n## 版本信息\n- **Wine 分支**: staging\n- **Wine 版本**: 10.15\n- **架构**: True WOW64 (同时支持 32 位和 64 位 Windows 应用程序)\n- **平台**: Termux (Android)\n- **图形 API**: Vulkan 支持已启用\n- **多媒体**: 完整 GStreamer 支持\n\n## 特性\n✓ 真正的 WOW64 架构\n✓ 同时支持 32 位和 64 位 Windows 应用程序\n✓ Vulkan 图形 API 支持\n✓ 完整的 GStreamer 支持\n✓ 中文环境支持\n✓ 应用了关键补丁提升兼容性\n\n## 安装说明\n解压后，将 `wine-wine-10.15-72dc2afb1a7-staging-wow64` 文件夹放置在 Termux 的合适位置，并设置环境变量。\n\n## 构建信息\n- 构建时间: \n- 提交: 47f15cb0b6754b22914cbd83fa504fd58c9a7f7f\n- 工作流: Wine and Proton 无bootBuilder\n",
+          "prerelease": false,
           "assets": [
             {
               "name": "checksums.txt",
@@ -552,6 +606,8 @@
           "tag": "rootfs-beta11-g2.39",
           "date": "2025-11-11T03:37:18Z",
           "downloads": 120,
+          "body": "GStreamer RootFS Build\nVersion Information:\n- GStreamer: 1.27.2\n- XZ: v5.8.1\n- libxkbcommon: xkbcommon-1.7.0\n- MangoHud: v0.7.1\n- Custom Tag: beta11-g2.39\n\nThis rootfs contains a custom build of GStreamer, libxkbcommon and MangoHud for Winlator.\n",
+          "prerelease": false,
           "assets": [
             {
               "name": "output-full.tar.xz",
@@ -585,6 +641,8 @@
           "tag": "proton-proton_10.0-wow64-xuser",
           "date": "2025-12-10T09:03:38Z",
           "downloads": 181,
+          "body": "# Proton proton_10.0 - WOW64 with Vulkan & GStreamer for Termux (xuser)\n\n## 版本信息\n- **Proton 分支**: proton_10.0\n- **架构**: True WOW64 (同时支持 32 位和 64 位 Windows 应用程序)\n- **平台**: Termux (Android)\n- **图形 API**: Vulkan 支持已启用\n- **多媒体**: 完整 GStreamer 支持\n- **用户名**: xuser (已移除 Steam 优化)\n\n## 特性\n✓ 真正的 WOW64 架构\n✓ 同时支持 32 位和 64 位 Windows 应用程序\n✓ Vulkan 图形 API 支持\n✓ 完整的 GStreamer 支持\n✓ 中文环境支持\n✓ 基于 Valve Proton，但移除了 Steam 特定优化\n✓ 默认用户名改为 xuser\n\n## 重要变更\n- 所有对 `steamuser` 的引用已改为 `xuser`\n- 移除了 Steam 特定的优化和组件\n- 更适合通用 Windows 应用程序运行\n\n## 安装说明\n解压后，将 `proton-proton-wine-10.0-3-eb63de9c3c0-wow64-xuser` 文件夹放置在 Termux 的合适位置，并设置环境变量。\n\n## 构建信息\n- 构建时间: \n- 提交: c8ef8ffb0012fa2023a129c5245ebea5a960e347\n- 工作流: Wine and Proton 无bootBuilder\n",
+          "prerelease": false,
           "assets": [
             {
               "name": "checksums.txt",
@@ -606,6 +664,8 @@
           "tag": "10.1hotfix-Amod2fix",
           "date": "2025-09-13T03:31:15Z",
           "downloads": 17372,
+          "body": "必须卸载重装！！！！\r\n重新修复视频解码，现在大多数游戏可以正常解码了\r\n更新内容:\r\n1-修复部分游戏闪退，比如pes2021(实况足球2021)，推荐T24.0.9！\r\n2-修复大部分游戏的解码问题\r\n3-添加屏幕旋转功能\r\n4-组件添加部分T驱动，在线组件不再需要v，挂载afeimod10.0组件库！随时更新！\r\n5-忘记修复大部分游戏不设置对应分辨率就无法正常显示的问题了，\r\n6-其他修复",
+          "prerelease": false,
           "assets": [
             {
               "name": "Winlator10.1-Amod2fix.apk",
@@ -621,6 +681,8 @@
           "tag": "10.1hotfix-Amod1",
           "date": "2025-09-10T08:22:15Z",
           "downloads": 2620,
+          "body": "更新内容:\r\n1-修复大部分游戏字体问题\r\n2-更改默认midi音色库，修复音频失真\r\n3-修复大部分游戏的解码问题\r\n4-添加屏幕旋转功能\r\n5-在线组件不再需要v，挂载afeimod10.0组件库！随时更新！\r\n6-修复大部分游戏不设置对应分辨率就无法正常显示的问题\r\n7-其他修复",
+          "prerelease": false,
           "assets": [
             {
               "name": "Winlator10.1-Amod1_10.1.apk",
@@ -636,6 +698,8 @@
           "tag": "10.0Hotfix-Amod1",
           "date": "2025-05-05T01:50:50Z",
           "downloads": 77048,
+          "body": "。",
+          "prerelease": false,
           "assets": [
             {
               "name": "wine-10.4-tkg-wlt10-test008.whp",
@@ -669,6 +733,8 @@
           "tag": "10.0-Amod5fix-2",
           "date": "2025-04-24T01:38:22Z",
           "downloads": 18408,
+          "body": "替换zink为22.2.0(来自obw109)\r\n加入屏幕旋转(同上)\r\n取消替换win32u.so，有些游戏人物缺失需要正确分辨率\r\n修改一些变量，修复部分游戏白屏\r\n其他修改同Amod5fix1",
+          "prerelease": false,
           "assets": [
             {
               "name": "wine9.16.whp",
@@ -690,6 +756,8 @@
           "tag": "10.0-Amod5fix",
           "date": "2025-04-21T01:03:54Z",
           "downloads": 6402,
+          "body": "默认turnip驱动，修复8e以下的高通骁龙处理器\r\n注意切换成vortek后需要新建容器使用turnip驱动，否则修复失效\r\n更新内容:\r\n1-可不挂v下载相关组件(例如box-dxvk-turnip-d3d等)，持续更新！\r\n2-天机用户可以正常使用dxvk了(官方作者提供的vor驱动，仅供测试)\r\n3-修复红警2等类似游戏遭遇战闪退！\r\n4-添加多数变量可供选择，dxvk-hud可以选择大小了！\r\n5-替换wine的32so文件，修复部分游戏一大一小的问题\r\n6-去除glibc挂载字体，解决大部分游戏字体虚化的问题！\r\n7-注意了，有些box和驱动需要安装wine9.16.whp后才可以用！\r\n8-添加xvid解码(在起点运行库处)，解决一些老游戏的视频播放问题\r\n9-其他特殊修改\r\n仅供测试，请支持原作者",
+          "prerelease": false,
           "assets": [
             {
               "name": "wine9.16.whp",
@@ -710,12 +778,14 @@
           "name": "9.0-amod3",
           "tag": "9.0-amod3",
           "date": "2025-02-23T11:12:13Z",
-          "downloads": 25932,
+          "downloads": 25933,
+          "body": "\r\n替换部分wine9.2文件，修复一些游戏没有人物或者轮廓，\r\n添加zink22.2.0(起点处，感谢obw109)修复一些游戏拖慢，\r\n修改部分注册表，修复一些游戏文本口口，\r\n添加mono和gecko离线包不需要联网安装了，\r\n其他修复等",
+          "prerelease": false,
           "assets": [
             {
               "name": "Winlator-9.0-Amod3.apk",
               "size": 715538128,
-              "downloads": 21209,
+              "downloads": 21210,
               "url": "https://github.com/afeimod/winlator-mod/releases/download/9.0-amod3/Winlator-9.0-Amod3.apk"
             },
             {
@@ -732,6 +802,8 @@
           "tag": "9.0-amod2fix",
           "date": "2025-03-01T10:10:20Z",
           "downloads": 17622,
+          "body": "old\r\n",
+          "prerelease": false,
           "assets": [
             {
               "name": "Winlator-9.0-Amod2fix.apk",
@@ -753,6 +825,8 @@
           "tag": "7.1.5glibc-amod1",
           "date": "2025-02-05T02:08:38Z",
           "downloads": 59611,
+          "body": "内容:删除按键振动，\r\n修复部分游戏的问题，\r\n添加zink22.2.0(在起点处)用于部分32位游戏拖慢，\r\n添加mono和gecko离线包修复不能直接安装，\r\n默认zink22.2.2有需要的可以起点处更改22.2.5，\r\n在线组件随时更新！更多选择！\r\n其他修复！",
+          "prerelease": false,
           "assets": [
             {
               "name": "winlator7.1.5amod1.apk",
@@ -767,7 +841,9 @@
           "name": "8.0-proot-Amod1",
           "tag": "8.0-proot-Amod1",
           "date": "2024-10-03T07:55:32Z",
-          "downloads": 77123,
+          "downloads": 77124,
+          "body": "由于最近在搞debian所以简单修改一下\r\n添加box64-0.2.7和0.2.9，默认0.2.9更快更稳定\r\n添加更多dxvk和tz\r\n修改部分变量设置，更好的去设置\r\n由于没有了86环境可能对32游戏有些兼容不好，\r\n请尝试添加MESA_EXTENSION_MAX_YEAR=2003\r\n其他修改",
+          "prerelease": false,
           "assets": [
             {
               "name": "8.0_Amod1.apk",
@@ -778,7 +854,7 @@
             {
               "name": "8.0_Amod1_AI.apk",
               "size": 704337054,
-              "downloads": 30870,
+              "downloads": 30871,
               "url": "https://github.com/afeimod/winlator-mod/releases/download/8.0-proot-Amod1/8.0_Amod1_AI.apk"
             }
           ],
@@ -788,12 +864,14 @@
           "name": "7.1.3glibc-Amodfix5",
           "tag": "7.1.3glibc-Amodfix5",
           "date": "2024-09-17T23:25:54Z",
-          "downloads": 110038,
+          "downloads": 110040,
+          "body": "简单更新！\r\n按键使用图标后不再有轮廓，\r\n更改部分数据包补丁，\r\n修复一点点问题！",
+          "prerelease": false,
           "assets": [
             {
               "name": "7.13glibc-Amodfix5.apk",
               "size": 881155538,
-              "downloads": 110038,
+              "downloads": 110040,
               "url": "https://github.com/afeimod/winlator-mod/releases/download/7.1.3glibc-Amodfix5/7.13glibc-Amodfix5.apk"
             }
           ],
@@ -804,6 +882,8 @@
           "tag": "7.1.3glibc-Amodfix3",
           "date": "2024-09-06T00:48:49Z",
           "downloads": 43530,
+          "body": "添加不支持gst的wine9.13，解决部分游戏进不去(8g1-8g2等处理器)\r\n修复编辑驱动不生效的问题\r\n修复部分变量\r\n更多更改自行体验\r\n",
+          "prerelease": false,
           "assets": [
             {
               "name": "7.13glibc-Amodfix3.apk",
@@ -819,6 +899,8 @@
           "tag": "7.1.3glibc-Amod",
           "date": "2024-08-30T03:58:56Z",
           "downloads": 65071,
+          "body": "原版更新重要内容，以及Amod内容:\r\n~~~~增加了MIDI支持，允许部分游戏播放 MIDI 音频\r\n~~~~改进了游戏控制器支持，您现在可以选择性地使用XInput或DInput映射。线性触发器现在适用于两种 \r\n       映射模式。对于触发器按钮，如果它无法正常工作，请尝试调整触发器按钮模式以Settings匹配您的控 \r\n      制器。\r\n~~~~增加了自动设置容器Locale的功能，现在您也可以LC_ALL在容器编辑界面中调整设置。\r\n~~~~增加了横屏和竖屏模式切换功能，现在您可以使用容器的分辨率设置或Toggle Orientation左侧导航栏 \r\n       的按钮切换到竖屏模式。\r\n~~~~改进了OpenXR支持。非常感谢Luboš V.\r\n~~~~修复了导致启动时崩溃的问题。\r\n~~~~修复 3DoF 支持以确保其正常运行，而不是在 2DoF 模式下运行。\r\n~~~~修复了 Meta Quest 3 的一些图形故障。\r\n~~~~在设置中添加了控制器映射功能。\r\n~~~~修复了QuestOS V69上的黑屏问题。\r\n~~~~添加了 gst-libav。\r\n\r\nAmod更改内容:\r\n~~~~默认wine9.2，以及wine9.16\r\n~~~~关于gst解码。9.2比较完善，9.16目前没有画面只有声音！\r\n~~~~添加dosbox模拟器！使用方法大概是盘符(比如e:)回车，cd 游戏文件夹，play回车！\r\n~~~~添加更多小游戏和补丁\r\n~~~~添加更多dxvk和驱动，box64等\r\n~~~~添加media补丁和注册表听说可以解决生化危机8\r\n~~~~添加部分变量，比如tu_allow_oob_indirect_ubo_loads和PULSE_LATENCY_MSEC\r\n~~~~添加box64maxcpu，分为0-4-8-16-32\r\n~~~~更改部分默认组件和其他设置\r\n~~~~提供sw选项，\r\n~~~~提供tu-debug另一个指令nofsdt，部分游戏会有提速！\r\n~~~~添加更多虚拟按键皮肤图标！\r\n~~~~其他部分更改！",
+          "prerelease": false,
           "assets": [
             {
               "name": "glibc7.1.3-Amod.apk",
@@ -840,6 +922,8 @@
           "tag": "7.1.2-glibc-Amod",
           "date": "2024-08-17T07:02:46Z",
           "downloads": 56298,
+          "body": "mod内容\r\n修改额外内容安装目录，方便mod用户二次修改整合\r\n添加默认wine为9.2和9.15共存\r\n添加24.0.9和24.3.0驱动并提供额外内容的24.3.0-R2作为模板\r\n添加部分dxvk，比如仙剑4所需的0.40.1等\r\n修改部分变量，添加部分变量可能会提速，添加box64-maxcpu，方便不用性能模式也可以提速\r\n起点添加更多补丁和小游戏！\r\n修复中文右键出现口口口的问题\r\n添加默认字体，修复大多数游戏没有文本的问题\r\n此次更新较多，可能存在一些问题，还请等待改版作者\"如果我是linus\"的下次更新\r\n等等",
+          "prerelease": false,
           "assets": [
             {
               "name": "glibc7.1.2-Amod1.apk",
@@ -873,6 +957,8 @@
           "tag": "7.1prootAmod13fix",
           "date": "2024-10-09T23:59:12Z",
           "downloads": 12931,
+          "body": "修复部分游戏进不去的问题\r\n默认box64为0.2.8，更稳定\r\n删除控制器使用图标时的轮廓\r\n修复部分游戏无法使用mod的问题\r\n更多更改自行体验！",
+          "prerelease": false,
           "assets": [
             {
               "name": "7.1proot-Amod13fix.apk",
@@ -894,6 +980,8 @@
           "tag": "7.1proot-Amod12",
           "date": "2024-08-25T02:55:33Z",
           "downloads": 7079,
+          "body": "添加midi音效解析，修复32位游戏midi播放，全局设置里自己开启，并设置音频为pulse！\r\n感谢补补大佬，如果我是linus等，比如暴力摩托，大富翁4等\r\n添加管理全部文件权限，在全局设置下自己开启\r\n添加media注册表修复，解决部分游戏闪退，比如生化危机8\r\n修复部分变量，修改部分变量的选项\r\n添加dxvk_hud的缩放选项，默认提供0.7和0.5\r\n添加dosbox模拟器，在实用工具里，使用方法盘符(比如e:)回车，cd 文件夹回车，play回车(根据启动文件)\r\n添加驱动24.3.0，r2,r3\r\n修复部分游戏的L2 R2，仅供测试\r\n添加xaudio修复，可能解决部分游戏音频。来自ajay\r\n修复部分控件问题\r\n添加wine9.15wow64供8g3更正常的游玩一些32位游戏\r\n还有需要更改忘记了！",
+          "prerelease": false,
           "assets": [
             {
               "name": "7.1proot-Amod12-AI.apk",
@@ -927,6 +1015,8 @@
           "tag": "7.1Amod11(proot)",
           "date": "2024-08-09T00:46:31Z",
           "downloads": 7428,
+          "body": "测试新proot，\r\n8g3用户可以试试，感谢补补大佬，\r\n新增驱动24.3.0。仅有64位！起点处可以打！\r\n增加新的变量。有提速！",
+          "prerelease": false,
           "assets": [
             {
               "name": "7.1-Amod11-Andro2.apk",
@@ -948,6 +1038,8 @@
           "tag": "7.1Amod10-A3",
           "date": "2024-08-03T01:52:31Z",
           "downloads": 3769,
+          "body": "修复语言环境\r\n添加屏幕旋转，屏幕点击，简易终端等\r\n添加海豚测试(d3d8)\r\n更新prootload，解决其他wine-wow64版本无法兼容32位的问题\r\n更新proot用于更好的兼容8g3请选择8g3版本\r\n添加dxvk2.4系列\r\n添加box64 0.2.9，部分游戏比较快\r\n添加box64 0.3.1，仍然有问题！仅供测试\r\n修复变量导致的游戏进不去的问题",
+          "prerelease": false,
           "assets": [
             {
               "name": "7.1-8g3-AI.apk",
@@ -981,6 +1073,8 @@
           "tag": "6.1Amod20-A3",
           "date": "2024-07-27T06:40:48Z",
           "downloads": 8698,
+          "body": "6.1最后一版了！\r\n缩短数据包，降低解压时间\r\n添加海豚测试(d3d8)\r\n更新prootload，解决其他wine-wow64版本无法兼容32位的问题\r\n更新proot用于更好的兼容8g3请选择8g3版本\r\n添加dxvk2.4系列\r\n添加box64 0.3.1\r\n修复变量导致的游戏进不去的问题\r\n等等",
+          "prerelease": false,
           "assets": [
             {
               "name": "6.1Amod20-A3-8g3.apk",
@@ -1038,6 +1132,8 @@
           "tag": "7.1Amod9",
           "date": "2024-07-15T06:10:22Z",
           "downloads": 3742,
+          "body": "修复部分卡死\r\n尝试修复部分手机vgl渲染发黑\r\n尝试添加所有文件访问权限（来自coffincolor）\r\n添加box64-0.3.1开发版和box86-0.3.1\r\n添加dxvk2.4\r\n其他更改",
+          "prerelease": false,
           "assets": [
             {
               "name": "7.1Amod9.apk",
@@ -1059,6 +1155,8 @@
           "tag": "7.1Amod10和6.1Amod20(end)",
           "date": "2024-07-17T09:15:00Z",
           "downloads": 5401,
+          "body": "重整数据包\r\n提高部分游戏兼容。解决卡死！\r\n和之前版本配合使用！",
+          "prerelease": false,
           "assets": [
             {
               "name": "6.1Amod20.apk",
@@ -1092,6 +1190,8 @@
           "tag": "7.1fix6和6.1fix16",
           "date": "2024-06-28T08:05:19Z",
           "downloads": 7795,
+          "body": "同步7.1R最新内容\r\n添加更多的预设\r\n重整数据包，修复任务管理器\r\n修复兼容性，减少卡死\r\n",
+          "prerelease": false,
           "assets": [
             {
               "name": "6.1fix16-8g3_AI.apk",
@@ -1125,6 +1225,8 @@
           "tag": "7.1Amod8和6.1Amod18",
           "date": "2024-07-05T08:48:10Z",
           "downloads": 2468,
+          "body": "修复7.1字体问题和6.1的任务管理器\r\n修复部分变量导致的兼容问题\r\n更改proot可以让8g3得到使用\r\n提高游戏运行速度\r\nbox预设新建后使用比默认更快哦！\r\n其他修复！",
+          "prerelease": false,
           "assets": [
             {
               "name": "6.1Amod18.apk",
@@ -1160,13 +1262,15 @@
       "name": "Winlator Coffin",
       "repo": "coffincolors/winlator",
       "category": "Winlator",
-      "downloads": 648551,
+      "downloads": 648557,
       "releases": [
         {
           "name": "Winlator Cmod v13.1.1",
           "tag": "cmod_v13.1",
           "date": "2025-08-07T07:49:41Z",
-          "downloads": 271990,
+          "downloads": 271996,
+          "body": "_Minor update v13.1.1 fixed custom icons, default renderer, and warning prompt handling on new installs_ \r\n\r\n------------------------------\r\n\r\n-   **`evshim` Rewrite:** The entire controller shim (`libevshim.so`) has been rewritten, **completely eliminating the use of shared memory (`mmap`)**, resulting in a massive reduction in CPU overhead and a significant performance boost, especially on lower-end devices. Box64 3.2 and 3.6 are now compatible, and have been restored.\r\n\r\n-   **ALSA-Reflector Improved** The pacer's ring buffer and reconnection logic have been refined, expect better performance and reliability.\r\n\r\n-   **Universal CPU Overhead Reduction:** I've gone through the code to find and eliminate performance bottlenecks, once again, big thanks to @Pipetto-crypto as always for the guidance and his improvements to the Graphics Wrapper. \r\n\r\n### ✨ New Feature: VkBasalt Integration\r\n\r\n-   **Per-Shortcut Sharpening & Effects:** Thanks to @Pipetto-crypto You can now enable VkBasalt on a per-shortcut basis to apply CAS and DLS to your games.\r\n\r\n### 🐞 Stability & Bug Fixes:\r\n\r\nThis update includes a huge number of fixes for a smoother experience.\r\n\r\n-   **Corrupted Shortcut Crash Fixed:** Implemented safety checks to prevent the app from crashing when parsing corrupted `.desktop` files.\r\n\r\n-   **Proton & Frontend Fixes:** Resolved issues that caused crashes when launching the frontend or using XrActivity.\r\n\r\n-   **Input Controls Fixed:** Corrected bugs with toggle switches and range buttons in the input controls overlay.\r\n\r\n-   **Gyro Zeroing Improved:** The gyroscope now has better logic for finding its origin point, resulting in more responsive and accurate motion controls.\r\n\r\n-   **Renderer Selection for DDraw:** Added a renderer selection option to fix black screens in older DDraw games, thanks to some last minute insight to **@Pipetto-Crypto**.\r\n\r\n### ⚙️ Core & Asset Updates\r\n\r\n-   **Proton 10 Support:** The codebase is now prepared for the next major Proton release. Stay tuned. (...and Wine 9.20)\r\n\r\n-   **Updated Assets:** The default Box64, Proton packs, and other core assets have been updated with the latest fixes and improvements. Additional .wcp have been added to Contents: updated DXVK (+ Stripped, Sarek for lower end devices), updated VKD3D, and Turnip. Thank you @K11MCH1 for your excellent repository.\r\n\r\nThe list goes on actually. More planned as always- now get to testing! Spin up GTA IV and watch it fly! 🫡\r\n\r\n-Alex\r\n\r\n**WARNING: _Make new Containers_.** And if you were fast enough to get the apk within the first 5 minutes, please re-download it.\r\n\r\n",
+          "prerelease": false,
           "assets": [
             {
               "name": "cmod-hotfix-checklist-08-07-2025.png",
@@ -1177,7 +1281,7 @@
             {
               "name": "Winlator-Cmod-v13.1.1.apk",
               "size": 699660031,
-              "downloads": 245281,
+              "downloads": 245287,
               "url": "https://github.com/coffincolors/winlator/releases/download/cmod_v13.1/Winlator-Cmod-v13.1.1.apk"
             }
           ],
@@ -1188,6 +1292,8 @@
           "tag": "cmod_v13",
           "date": "2025-07-29T04:27:06Z",
           "downloads": 43362,
+          "body": "<img width=\"460\" height=\"128\" alt=\"logo-git\" src=\"https://github.com/user-attachments/assets/644584a3-928a-4652-830e-3f50b00357e0\" />\r\n\r\n\r\n\r\nThe wait is over. After months of work the next major evolution of Winlator Cmod has arrived. I teased that a controller revolution was coming, but the reality is so much bigger. This isn't just an update; it's a top-to-bottom overhaul focused on bringing a native, seamless gaming experience to your device.\r\n\r\nThis release is the culmination of a journey, and I'm proud to share it with you.\r\n\r\n✨ What's New in Cmod v13 ✨\r\n--------------------------\r\n\r\n### 🎮 The Controller Revolution: Native Gamepad Support is Here!\r\n\r\nThe old input methods are gone (sorta), replaced by a completely new, from-the-ground-up controller implementation built on a native SDL2 backend.\r\n\r\n-   **Native XInput & DInput Support:** No more switching settings per game! Controllers are now treated like real controllers. If it works on a PC, it should just work here.\r\n\r\n-   **Multiplayer (Up to 4 Players!):** You heard that right. Connect up to four controllers and they will be properly recognized as Player 1, 2, 3, and 4.\r\n\r\n-   **Vibration / Rumble:** Feel the action with full haptic feedback support. It can be toggled on or off.\r\n\r\n-   **Advanced Motion Controls (Gyro):** A completely revamped and customizable gyroscope implementation. Map it to the left or right stick, fine-tune sensitivity, deadzone, and smoothing, and set an activation button.\r\n\r\n-   **Turbo & Macros:** Set up autofire for any button (including triggers!) for each of your controllers.\r\n\r\n-   **Virtual Gamepad Enhancements:** The on-screen controls are now more responsive than ever, with reactive visual feedback to show when a button is pressed.\r\n\r\n### 🔊 ALSA-Reflector: The Unbreakable Audio Engine\r\n\r\nSo- you're in a game, you connect your Bluetooth headphones or a phone call comes in, and the audio dies, forcing a restart. **Those days are over.**\r\n\r\n-   **Introducing \"ALSA-Reflector\":** A new, optional audio driver that creates a virtual, unbreakable audio sink. It provides stable back-pressure to Wine, completely immune to Android's device changes.\r\n\r\n-   **Seamless Recovery:** Real audio is mirrored to your hardware. If the connection breaks, the playback stream is automatically rebuilt in the background without interrupting the game's audio flow. The music never stops. (Well... it might, it's a work in progress!)\r\n\r\n### 🚀 Core System & Proton Enhancements\r\n\r\n-   **Bionic Native Libs:** Thanks to **@Pipetto-Crypto**, Winlator Cmod now uses native Bionic libraries.\r\n\r\n### 🎨 UI & Quality-of-Life Tsunami\r\n\r\n-   **Favorite Shortcut Launcher:** See that new star icon in the toolbar? Set your favorite game shortcut and launch it with a single tap from the main screen.\r\n\r\n-   **\"Disable Touchscreen Mouse\" Option:** You can now completely disable the touchscreen as a mouse input device when using a virtual gamepad.\r\n\r\n-   **Countless Fixes:** From custom shortcut icons and `.lnk` file parsing to a smarter app shutdown process and dozens of UI polish updates, nearly every corner of the app has been refined.\r\n\r\nThe Journey & Thank You\r\n-----------------------\r\n\r\nThis release absolutely would not have been possible alone.\r\n\r\n-   A massive thank you to **@Pipetto-crypto** for his phenomenal work on the graphics wrappers, Bionic native libraries, for taking the time to teach me the intricacies of compiling bionic native libraries, and for keeping the Cmod torch lit while I was on break.\r\n\r\n-   To **@K11MCH1** for pushing me to learn how to compile Bionic libs in the first place and [his excellent videos,](https://www.youtube.com/@Zerokimchii) and the entire **EmuGear Discord community**: Your endless testing, feedback, bug reports, and encouragement were the fuel for this entire project. You guys make this all worth it.\r\n\r\n-   And finally, a shout-out to my digital homies Gemini and GPT. For the countless late-night debugging sessions, untangling the multithreaded madness of the ALSA-Reflector, and providing the sanity checks I needed that kept this project on the rails---I genuinely couldn't have done it without you.\r\n\r\nThis release is for all of you. Now, go play some games!\r\n\r\n*Alex*\r\n\r\n*ps: I'll write some helpful release notes tomorrow... time to rest haha...*\r\n**ALSO - IMPORTANT: CONTROLLERS REQUIRE NORMAL OR ESSENTIAL START-UP FOR SERVICES!** And box64 MUST be 3.7- it's a special patched version. Working on that next!",
+          "prerelease": false,
           "assets": [
             {
               "name": "Winlator-Cmod-v13.apk",
@@ -1203,6 +1309,8 @@
           "tag": "winlator_mangohud_glibc_v1",
           "date": "2025-01-20T03:38:20Z",
           "downloads": 22103,
+          "body": "Huge thanks to @hisham2630 of DarkOS for providing the source code for his implementation for certain hardware stats, which made this release possible (or significantly faster).\r\n\r\n---\r\n\r\n### Notes:\r\n- **Battery Stats:** Requires root access and SELinux enforcement disabled. Other stats do not require root access.**\r\n- **Limitations:** I/O RW is not implemented, and some features might not work on Android.\r\n- **Fork:** Source code will be available on my MangoHub repo for contributions as soon as I prepare it.\r\n- **Compatibility:** Currently works only with Glibc environments. **GPU Load on the Adreno a618 and a619 is currently not supported.\r\n- **OpenGL:** _Can_ be enabled with `MANGOHUD_DLSYM` however, I cannot get it working in my testing. If you get different results, let me know. \r\n---\r\n\r\n### Installation Instructions:\r\n\r\n1. Set the following environment variables in your Winlator container settings:\r\n   - `MANGOHUD=1`\r\n   - _Optionally_: `MANGOHUD_CONFIG=engine_version,gpu_temp,fps,frametime,ram,vulkan_driver,arch`\r\n     *(You can customize these. See [MangoHud Parameters](https://github.com/flightlessmango/MangoHud))*.\r\n\r\n2. Download and unzip `Winlator_Mangohud_Glibc_Release.zip` somewhere on your storage.\r\n\r\n3. Launch a _Glibc_ 😉 container, and Run the provided `install_mangohud.bat`:\r\n   - This will merge the `usr` directory with the existing `usr` directory in Wine's Z: drive.\r\n\r\n4. Alternatively:\r\n   - Copy the `usr` directory manually to your Wine Z:/ drive and merge it.\r\n\r\n5. You're all set! Launch your Wine application to enjoy MangoHud overlays.\r\n\r\nThis will be included by default in the next Winlator Cmod release.\r\n\r\n---\r\n\r\n### Screenshot:\r\n![mangohud](https://github.com/user-attachments/assets/6510bde3-86e7-4a4b-9e35-c103e01d65b0)\r\n![mangohud](https://github.com/user-attachments/assets/ed10f365-5c0d-4403-8666-10b492a69f6f)\r\n\r\n",
+          "prerelease": false,
           "assets": [
             {
               "name": "Winlator_Mangohud_Glibc_Release.zip",
@@ -1218,6 +1326,8 @@
           "tag": "winlator_corefonts_pack_v1",
           "date": "2024-11-23T20:04:38Z",
           "downloads": 67967,
+          "body": "While I continue working on Cmod V12 and my implementation of Winetricks I've got a little surprise.  This pack will fix the UI issues in Steam, Epic Games Launcher, and others. Follow the instructions per the folder names, or read this short guide:\r\n\r\n1. Download the Winlator Corefonts Pack.zip\r\n2. Extract it\r\n3. Launch a 9.2 container in Cmod, Amod, or Frost, (might work in others idk - but it must be Winlator Glibc)\r\n4. Copy the contents of folder 1 directly to Drive Z, (the home, usr, and opt directories)\r\n5. Import the registry files I included from Folder 2 by going to Start Menu \\ System Tools \\ Registry Editor, then File \\ Import Registry File and import the files, 1.reg, 2.reg, and 3.reg\r\n6. Launch Steam\r\n\r\n(Step 3 and 4 are optional if you have issues)\r\n\r\nLogin by typing your credentials, no more QR code, and now working fonts in Steam and other source engine games! \r\n\r\nLatest Steam (Use steam.cfg from [Longjunyu2 old steam](https://github.com/longjunyu2/OldSteam/releases) to prevent updates. Or just use Longjunyu2's old steam with \"-vgui\" added to the included 1.bat file:\r\n![image](https://github.com/user-attachments/assets/a8d2f9a5-0399-422f-bb4a-e2db8bb59905)\r\n\r\nEpic Games Launcher (Install on PC and copy files directly to Winlator, then use WineD3D to see the Store/Library):\r\n![image](https://github.com/user-attachments/assets/9c4d1271-a28b-44d4-898a-56d02919a260)\r\n",
+          "prerelease": false,
           "assets": [
             {
               "name": "Winlator.Corefonts.Pack.zip",
@@ -1233,6 +1343,8 @@
           "tag": "wine_9.2_winlator8",
           "date": "2024-12-20T16:02:52Z",
           "downloads": 11934,
+          "body": "This is Bruno's latest commits from his wine-custom repo for Winlator 8.0, but recompiled to work on Glibc. This means it contains the latest Winlator 8.0 patches and workarounds (except for his Xinput/Dinput implementation, as that won't work without changes to Winlator itself). It will likely be the included default in  Cmod v12. In the meantime, I've been able to run a few games that would not work without this Wine specifically. Make sure to add the following Environmental Variables:\r\n\r\n**Key = Value**\r\n\r\nWINEFORCENTCONTINUE = 1\r\nWINEVMEMMAXSIZE = 16384 \r\n\r\nThere are a few other env vars worth looking into but games I've tested successfully so far:\r\n\r\n**Deus Ex - Mankind Divided** (DX12 only, requires WINEVMEMMAXSIZE)\r\n**GRIP: Combat Racing** - Requires (WINEFORCENTCONTINUE)\r\n**Need for Speed ProStreet** - Fixes the UI in the menu by default\r\n\r\nThere are I'm sure plenty of more games/apps to be tested. But think of this as a preview of things to come. \r\n\r\nOther features added to wine:\r\n\r\nRestart/Reconfigure Container via Start Menu\r\nWINEOVERRIDEAFFINITYMASK which I haven't quite figured out how to use yet, but it forces the task affinity to a value you set\r\nWINVERSION forces the selected windows version as Wine's current default, such as \"winxp\" or \"win7\"\r\n\r\nI will push the source code for this to my wine-custom forked repo. In the meantime, you can download the .wcp here! \r\n\r\nDeus Ex - Mankind Divided (DX12, Glibc):\r\n![image](https://github.com/user-attachments/assets/e1e89af8-2492-4bf6-ab8a-1efd8d470df1)\r\n\r\nGRIP: Combat Racing:\r\n![image](https://github.com/user-attachments/assets/7e4d3a9f-1b56-4d22-b5ca-e0ba3fbb2b0a)\r\n\r\nNeed for Speed ProStreet:\r\n![image](https://github.com/user-attachments/assets/5d14572b-cbb6-45c4-911b-827faeebb8dc)\r\n\r\nNote: For GRIP and Deus Ex, I highly recommend turning OFF debug logs. Make sure you use VKD3D for Deus Ex, and turn on DirectX 12 in the splash screen configuration. \r\n",
+          "prerelease": false,
           "assets": [
             {
               "name": "wine-9.2-winlator8.wcp",
@@ -1248,6 +1360,8 @@
           "tag": "box64_f651b7b",
           "date": "2024-11-04T18:35:24Z",
           "downloads": 8225,
+          "body": "Update: Future releases can be found here: https://github.com/coffincolors/box64/releases\r\n\r\nPer PtitSeb: \"FYI, I have just pushed a commit on box64 to improve handling of memory protection bit. It should improve behaviour with DRM/Encrypted stuffs like UPlay, Denuvo and co ... but it doesn't seems enough for now. It still should be a step in the right direction ...\"\r\n\r\nCommit Hash: https://github.com/ptitSeb/box64/commit/f651b7bfb033ac0b3dd8313a7d1781d84e8ecbdd\r\n\r\nYou can install via Contents Manager on any Winlator Glibc. I compiled it directly from source https://github.com/ptitSeb/box64/\r\n\r\nTested and working but I've not tried anything that might benefit from this yet. Big thanks to **PtitSeb** for all that he does! No box64 = no Winlator\r\n\r\n![image](https://github.com/user-attachments/assets/dd02200e-5df8-415b-9dd0-0fb3ba18f8c3)\r\n",
+          "prerelease": false,
           "assets": [
             {
               "name": "box64-0.3.1-f651b7b.wcp",
@@ -1263,6 +1377,8 @@
           "tag": "box64_4e10cd6",
           "date": "2024-10-19T23:53:40Z",
           "downloads": 7381,
+          "body": "Update: I had to fix an issue with the string for the name of the version once installed. It added an extra space before \"-1\" to the version name, causing it have issues when being saved as a shortcut setting\r\n\r\nPer PtitSeb: Improved 0F 0D opcode ([ARM64_DYNAREC] too) (FF7RI now have sound)\r\n\r\nCommit hash: https://github.com/ptitSeb/box64/commit/4e10cd654f4c9c0a106a9c5bfae0fe3d86d815e5\r\n\r\nYou can install via Contents Manager on any Winlator Glibc. I compiled it directly from source https://github.com/ptitSeb/box64/\r\n\r\nTested and launches Container but I have not yet tested games extensively. Hopefully this fixes audio issues in Final Fantasy VII Remake!\r\n\r\n",
+          "prerelease": false,
           "assets": [
             {
               "name": "box64-0.3.1-4e10cd6.wcp",
@@ -1278,6 +1394,8 @@
           "tag": "Winlator-7.1.3x-Cmod-GLIBC-v11R2",
           "date": "2024-10-21T21:48:56Z",
           "downloads": 149049,
+          "body": "Separate apk for those having issues with triggers on your controller or bindings in general. Gamepad Configurator has been disabled. \r\n\r\n**Added:**\r\n-Turnip 24.3.0r9 by K1MCH11\r\n-Box64 latest commit for FFVII Remake audio fix preinstalled (labeled as 0.3.1.4e10cd6)\r\n-A Reset Properties button has been added to Shortcut Properties (Reset Playtime stats and Play count)\r\n-VB 6.0 added to fix issues with installing repacks, thanks to Frost for the fix and Dark_Cobalt for the tip. It is listed in the Start Menu under Patches (unarc dependency)\r\n\r\n**Fixed:**\r\n-Xbox controller triggers can be bound to input controls again\r\n-Xbox controllers will now work properly when using Trigger Is Button (Where most controls send a keycode for the triggers even with axis, Xbox One controller's do not. I now simulate a full axis press when Trigger is Button is enabled for Xbox controllers)\r\n\r\n**Changed:**\r\n-The apk is smaller and uses the Winlator 8.0 container pattern without crashing\r\n-Gamepad Configurator has been disabled for the time being until I can fix issues with input processing, this should resolve issues triggers getting stuck or bindings not mapping unexpectedly.\r\n-Memory Management has been changed back to my implementation in the proot build and will no longer cause random crashing. (Same as v11fix1)\r\n\r\nAll in all, this may be better for some people until I can fix trigger handling for Gamepad Configurator. Sometimes less is more\r\n",
+          "prerelease": false,
           "assets": [
             {
               "name": "Winlator_7.1.3x_Cmod_GLIBC_v11R2.apk",
@@ -1293,6 +1411,8 @@
           "tag": "Winlator-7.1.3x-Cmod-GLIBC-v11fix1",
           "date": "2024-10-18T02:44:03Z",
           "downloads": 25815,
+          "body": "**FIX 1 is Live, use that version or v11R2**\r\n\r\nWinlator Cmod has a theme song! **Big shout out and thanks to my good friend Dale Melvin Blevens III (Fumer) for his exclusive track specifically for Cmod!** Yeah that's right, Big Picture Mode has default music. But hey you can set you're own as well! Customize it how you see fit. Change your wallpaper. Remap your controls! Go CRAZY\r\n\r\n**Added:**\r\n\r\n-Big Picture Mode has been reworked, with custom wallpaper, custom music via YouTube or Mp3, better controls with a controller, and better screen layout on larger displays. I created 3 animated wallpapers you can try out but you can also set your own. \r\n-Gyro Implementation Re-work: I've adjusted the sensitivity and added a pseudo calibration tool so you can get an idea of the sensitivity before you start the container. You can also remap most buttons to be your Gyro activator (L3 and R3 aren't working yet, sorry!). Great for that L1 Uncharted Golden Abyss gyro feel ;)\r\n-Gamepad Configurator: Input Controls and Xidi isn't doing the trick? Forcefully remap your buttons to process as other buttons. This is brand new and still in beta but it's fairly useful for those games that just don't want to cooperate. You can find it in the container menu\r\n-I've added a new NTSC Screen Effect filter for that old school CRT vibe (gamma is still broken, again, sorry!)\r\n-The home button on Xbox and PS controllers and others will now open the Menu within Containers\r\n-Turnip 24.3.0r7 and r8 by K1MCH11\r\n-I've compiled Box64 3.1 on my own for Glibc with whatever latest nightly fixes are available. It's labeled as 3.2 for testing. \r\n**Fixes:**\r\n\r\n**-Mice are no longer detected and considered Input Controllers, overriding your default input device and confusing applications** My favorite fix TBH\r\n-The included DXVK 2.4.1 and others are now properly packaged and should actually improve performance in some games like Far Cry 3 and others in my testing. **Big thanks to Ajay for his guidance and providing the packages**\r\n-VirGL should work correctly now if it wasn't before, however, I have no way to test it. \r\n-S̶l̶i̶g̶h̶t̶l̶y̶ ̶s̶m̶a̶l̶l̶e̶r̶ ̶A̶P̶K̶ ̶u̶s̶i̶n̶g̶ ̶W̶i̶n̶l̶a̶t̶o̶r̶ ̶8̶.̶0̶ ̶c̶o̶n̶t̶a̶i̶n̶e̶r̶ ̶p̶a̶t̶t̶e̶r̶n̶ ̶a̶n̶d̶ ̶D̶L̶L̶ ̶O̶v̶e̶r̶r̶i̶d̶e̶s̶.̶ ̶W̶o̶r̶k̶s̶ ̶w̶e̶l̶l̶ ̶b̶y̶ ̶d̶e̶f̶a̶u̶l̶t̶ ̶i̶n̶ ̶m̶y̶ ̶t̶e̶s̶t̶i̶n̶g̶\r\n-FIX 1 Undoes this ^ it was causing hard crashes \r\n-Lots of things, I should have made more commits\r\n\r\nThere will be bugs, I'll be on Discord and will try to address things when I have time. And then I have to work on Proot. I'm still trying to implement MangoHud support, I've compiled it but it crashes in my testing. If anyone has guidance on understanding swapchains and vk_instance layers feel free to reach out, it's much appreciated. And as always, enjoy! \r\n\r\n-Alex\r\n\r\n\r\nBig Picture Upgrade:\r\n![image](https://github.com/user-attachments/assets/c3d55757-12fd-4bac-8bca-f245af7b6231)\r\n\r\nNTSC Screen Effect\r\n![image](https://github.com/user-attachments/assets/b08158cd-acc7-45a0-a21b-f4ca8feb9d45)\r\n\r\nGamepad Configurator\r\n![image](https://github.com/user-attachments/assets/904e3c13-4ffd-4ddc-a4c5-f78577f19eee)\r\n\r\n\r\n\r\n",
+          "prerelease": false,
           "assets": [
             {
               "name": "Winlator-7.1.3x-Cmod-GLIBC-v11fix1.apk",
@@ -1308,6 +1428,8 @@
           "tag": "Winlator-7.1.3x-Cmod-GLIBC-v10",
           "date": "2024-09-28T18:36:51Z",
           "downloads": 28445,
+          "body": "I've reverse engineered the new Screen Effects feature from Winlator 8.0 and added one of my own, a simple ToonShader! I'm very happy with the results. This means you now get Brightness/Contrast/Gamma controls, FXAA, and CRT screen filters as well. I've made a lot of changes to the Wine prefix, making this more of an Amod/Frost hybrid. I've also made some tweaks of my own, to fix issues with Mono and Gecko, like adding in an override for mscorre. This release also includes an offline installer for Mono and Gecko in the Runtime Libraries section of the start menu. I can't directly port over every new feature from Winlator 8.0 yet, but when Bruno releases the source code I will try my best. Which is why this remains 7.1.3. I call it 7.1.3x because it's basically a halfway point to 8.0, and still going by Longjunyu2's numbering scheme for Glibc specific changes.\r\n\r\nHowever, this prefix I can guarantee a couple of major fixes, namely, no more UE4 Fatal Error for some games. Halo MCC is working! Fixes for FMV's in some titles. No more .Net warnings for new containers when Mono and Gecko are installed. I've also made a bug fixes to existing features of Cmod. I really think this is solid build. This is now a full on Frost/Amod hybrid! You'll get best results with new containers, in my experience, but start menu and prefix tweaks should still apply to existing containers to an extent. \r\n\r\n**Added:**\r\n-DXVK 2.4.1 and 2.4.1-gplasync built-in\r\n-Screen Effects (Brightness controls, FXAA, CRT) from Winlator 8.0!\r\n-ToonShader for ScreenEffects  \r\n-Import and Export containers! For recovering containers, or importing a friend's! \r\n-Box64 Version Switching for shortcuts! Ignore the \"2.7\" when you first open a new shortcut, it goes by preferences in Setting until you set it yourself.\r\n-Modified custom Wine - with optimizations from Frost Glibc, but merged with Amod hybrid, resulting in what you might call, AFCMod. lol. This brings Flash Player, Windows Media Player, Registry tweaks, and other neat additions\r\n-ReactOS App Store shortcut is now functional. TBH I didn't even know this was a thing until this week!\r\n-Offline installers for Mono and Gecko added to \"4-Runtime Libraries\" in start menu. \r\n-Container Launching UI is adopted from Winlator 8.0\r\n\r\n**Fixes:**\r\n-No more UE4 Fatal Errors! Halo Master Chief Collection is working!\r\n-Fixed Green screen for FMVs in some titles\r\n-mscoree set to built-in then native, applied by default for new containers, correcting some issues with .net framework games and apps like HedgeModManager. Meaning, full support for Sonic Generations D3D11 Mod\r\n-Fixed long text re-sizing for game titles in Big Picture Mode \r\n-Fixed issues with Frontend Export path needing to be resaved every time you close and re-open the app\r\n-Fixed Dark Mode theme sometimes randomly switching off half-way leaving a broken light theme interface until app restart\r\n-many other changes and tweaks that I once again can't remember...\r\n\r\n**Still upcoming:**\r\n-Better menu control for Big Picture Mode when using a controller\r\n-Background music for BPM\r\n-Custom wallpaper for BPM\r\n-Settings changes in BPM\r\n-Custom game icons \r\n-Hopefully reactive buttons for input controls from Winlator 8.0, though I may have to dissect some .smali \r\n\r\nThe source code is not up yet, as I use it to port my changes to Proot. I will of course upload it so others can adopt in the near future! As always, let me know of bugs and things via discord or other means and I'll see what I can do! \r\n\r\nImport Containers:\r\n![image](https://github.com/user-attachments/assets/c211201a-d788-4923-8423-0adf8ab3c389)\r\nToon Shader:\r\n![image](https://github.com/user-attachments/assets/ec3a038c-1ba1-4645-a282-17c9944ef276)\r\n\r\n",
+          "prerelease": false,
           "assets": [
             {
               "name": "Winlator-7.1.3x-Cmod-GLIBC-v10-release.apk",
@@ -1323,6 +1445,8 @@
           "tag": "Winlator-7.1.3-Cmod-GLIBC-v9",
           "date": "2024-09-23T17:49:31Z",
           "downloads": 3123,
+          "body": "My biggest update by far is also the most stable. I've fixed many glitches and completely reworked turnip driver switching for shortcuts and containers, to stop all the nonsense. I've implemented the all new experimental work in progress Big Picture Mode as with Proot, as well as Dark Mode, which was the most extensive of the changes. But there are also many quality of life fixes as well, new animations for all the menus, and just overall- more stability. I think you'll find that this is release is _the_ definitive **Winlator Cmod** \r\n\r\n**Added:**\r\n-Big Picture Mode with custom cover art and definable SteamGrid API Key button\r\n-Dark Mode\r\n-Frontend path defining\r\n-Fullscreen Stretched Toggle\r\n-Xinput Disabler for shortcuts\r\n-Turnip 24.3.0r5 and 24.3.0r6 as 24.3.0.5 and 24.3.0.6 by K11MCH1\r\n-UI Animations\r\n\r\n**Fixed:**\r\n-Xinput and Dinput switching for shortcuts\r\n-TURNIP DRIVER SWITCHING FOR SHORTCUTS IS ENTIRELY REWORKED FROM THE GROUND UP\r\n-Lots of things, so many I can't remember them all. \r\n\r\nThere may be spots i missed in dark mode. Also if the app glitches and thinks its in light mode in dark mode, just close and re-open it. Not sure if that's just a result of debugging and restarting the activity manually or something else. I hope you enjoy, cheers to STABILITY and NEW FEATURES! \r\n\r\nMore to come, especially for Big Picture Mode. Stay tuned!\r\n\r\n![image](https://github.com/user-attachments/assets/85779fb7-11d4-469b-8ee7-23697ea2edd8)\r\n![image](https://github.com/user-attachments/assets/bf680a8f-e48b-486c-aaec-604cc468f9a1)\r\n",
+          "prerelease": false,
           "assets": [
             {
               "name": "Winlator-7.1.3-Cmod-GLIBC-v9-release.apk",
@@ -1338,6 +1462,8 @@
           "tag": "Winlator-7.1.3b-Cmod-PROOT-v9fix1",
           "date": "2024-09-21T23:55:29Z",
           "downloads": 1919,
+          "body": "**Fix 1 is live:**\r\n-Custom screen size text is now properly displayed in Dark Mode\r\n-Turnip Driver Selection is now accurate based on the selection (finally)\r\n-The navigation panel (main menu) text is now white\r\n-The help buttons in the Box64 preset dialog are fixed\r\n\r\n**Not fixed:**\r\n-Input Controls changes while in-game still require you to restart the game. That will be fix2\r\n\r\nThis is a lot, I've added a \"Big Picture Mode.\" It is accessible on the main menu via the new Screen Icon. It's essentially another Shortcuts menu that is a WIP- and sort of acts like a built-in Frontend. It's easy to use with a controller, and it will automatically download Cover Art for your Shortcut. You can also click on the image, and replace it with your own Custom Cover Art. This works using SteamGridDB's API. You can enter your own SteamGrid API Key in the Settings. If you click the Help button in Settings, you'll be taken to your SteamGrid profile where you can retrieve your key. I've also reorganized settings to clean it up into Tabs. I hope you find some use out of it! I plan to make it look nicer, add background music, fullscreen wallpaper, custom wallpaper, and more over time. \r\n\r\nI've also added a dark mode throughout the program. I may have missed a few spots here and there. But it's...mostly done. This can also be enabled in settings under the new Interface Tab. Other settings have been relocated to Input and Advanced. \r\n\r\n**Added**\r\n-Big Picture Mode\r\n-Dark Mode\r\n-Turnip Driver Switching for Shortcuts\r\n-New UI animations for all menus, slide in slide out all that\r\n-Other things I can't remember right now\r\n\r\n**Fixes**\r\n-Updated Box86/Box64 versions and replaced non-working ones on Proot\r\n-Removed Turnip 24.3.0r5 and r6 because they appear incompatible with Proot currently.\r\n-Fixed issues with auto hide input controls and mouse input. \r\n-Many many backend changes and tweaks\r\n\r\n**Upcoming**\r\n-Hopefully all this and more on Glibc. \r\n-Enhancements for big picture mode, I need ideas!\r\n-UI Tweaks\r\n-General ideas I have for enhancements but I'm open to suggestions\r\n\r\n\r\nSource code is not updated yet (for dark mode at least) because I need to reference modifications easily when porting to Glibc which may be a minute. \r\n\r\n![image](https://github.com/user-attachments/assets/aa700c6e-90b6-4d35-910a-7c8046926947)\r\n![image](https://github.com/user-attachments/assets/bb938d06-eda0-49f0-b156-0a23f17da03a)\r\n",
+          "prerelease": false,
           "assets": [
             {
               "name": "Winlator-7.1.3b-Cmod-PROOT-v9fix1-release.apk",
@@ -1353,6 +1479,8 @@
           "tag": "Winlator-7.1.3b-Cmod-PROOT-v8.2fix1",
           "date": "2024-09-14T21:24:34Z",
           "downloads": 1114,
+          "body": "**Fix1 Updated 9.16.2024**\r\n\r\nThis is a minor release to add some new features I've been wanting to add for a long time, before I port them over to Glibc. \r\n\r\n**Added:**\r\n-Fix1: Added Fullscreen Stretched toggle for shortcuts and containers \r\n-Playtime Stats tracking and Play count are now tracked when launched via Intent (Homescreen Shortcuts / Frontend support!)\r\n-A timeout checkbox has been added to input controls when in-game, adding a 5 second timer to the touchscreen controls \r\n-Haptic Feedback is now enabled for Touchscreen buttons, and can also be enabled via a new checkbox in the input controls window while in-game \r\n\r\n**Fixed:**\r\n-Fix1: Fixed issue with touchscreen cursor unusable until confirming input controls dialog\r\n-Fix1: Fixed issue where cursor was hidden when opening the XServer menu while in Wine\r\n-Fix1: Enabled haptics for analog stick digital buttons, d-pad and others \r\n\r\n\r\nAs always, please let me know if there are bugs. I'll do my best to address them one at a time!\r\n",
+          "prerelease": false,
           "assets": [
             {
               "name": "Winlator-7.1.3b-Cmod-PROOT-v8.2fix1-release.apk",
@@ -1368,6 +1496,8 @@
           "tag": "Winlator-7.1.3-Cmod-GLIBC-v8.5fix1",
           "date": "2024-09-16T13:56:42Z",
           "downloads": 1757,
+          "body": "**Fix1 is live**\r\n\r\nMinor release to add some useful QoL features, ported from my latest Proot release. As always, let me know if you encounter any bugs and whatnot but nothing else major has changed.\r\n\r\n\r\n**Added:**\r\n-Clone Shortcuts between Containers! This will create a duplicate Shortcut with an identical file name and a new container ID in the destination container. Useful for a fresh start for a specific game and no need to boot into the new container on it's own.\r\n-Playtime stats and play count tracking is now enabled for Homescreen Shortcuts and Frontend launching!\r\n-A timeout for the touchscreen controls has been added. This will auto hide the touchscreen controls after 5 seconds. To disable it, make sure it is unchecked and restart the shortcut.\r\n-Haptic feedback for all touchscreen control buttons has been added and can be enabled via check box \r\n\r\n**Fixed:**\r\n-Fix1:  Fixed issue with touchscreen cursor unusable until confirming input controls dialog",
+          "prerelease": false,
           "assets": [
             {
               "name": "turnip-24.3.0-R5.wcp",
@@ -1389,6 +1519,8 @@
           "tag": "Winlator-7.1.3-Cmod-GLIBC-v8fix2",
           "date": "2024-09-11T16:48:42Z",
           "downloads": 2290,
+          "body": "**Fixed:**\r\n-Fixed issue where Turnip driver reset upon opening Shortcut Settings for Shortcuts\r\n-Fixed issue where Container driver selection was overridden by the Shortcut Turnip driver selection\r\n\r\n**Added:**\r\n-Selected Turnip Version is now displayed in Shortcut settings (NOTE: This won't update until you save the Shortcut)\r\n-Including Ajay's Wine 9.13 .wcp file with this release (fixes booting Metal Gear Solid: Ground Zeroes v1.0.5)\r\n\r\n",
+          "prerelease": false,
           "assets": [
             {
               "name": "wine-9.13-custom.wcp",
@@ -1410,6 +1542,8 @@
           "tag": "Winlator-7.1.3-Cmod-GLIBC-v8",
           "date": "2024-09-10T02:41:26Z",
           "downloads": 1030,
+          "body": "**I am resurrected.**\r\nI finally have an account again but properly pushing this branch after moving from a different branch from a different repo was quite confusing, and I'm still pretty new to all of this. Keep in mind, this is a major shift from Glibc Cmod v8 Alpha if you've used that, with an entirely new Wine Prefix, meaning- existing containers WILL be affected in my testing. I recommend clearing the cache on existing container, using the reconfigure option if you encounter errors. You will have best results with a new container, again, in my testing. If you're worried about losing your current configuration, well now is that perfect time make a backup ;)\r\n\r\nUninstall of official or other Glibc Winlator forks is still required as this uses the Official package name com.winlator (it is a hard coded path)\r\n\r\n**Standard Cmod Features**\r\nTrue Mouse Control, Xinput Disabler, Touchscreen Mode, Basic Stylus Support, Gyro Support, Frontend Support, Playtime Stats Tracking per Shortcut, Saves Manager, and all other existing Glibc features such as Longjunyu2's Contents Manager and Box64rc Files + Midi Support\r\n\r\n**Added:**\r\n-Turnip 24.3.0r4 by K11MCHI (24.3.0.4 in-app)\r\n-Latest DXVK 2.4.1 gplasync\r\n-New Wine Prefix, 9.2 Custom from Afei but modded for English, includes nearly all features from Afei's build (Winlator 7.1.3 Glibc Fix3 - Except for commands for TU_DEBUG and pre-installed Contents). This means hopefully a performance boost. I've also found this fixes the font and handling of applications that use .net and prevents a black screen in many cases where Gecko/Mono is involved!\r\n-7.1.2 Legacy Input mode (Longjunyu2's 7.1.2 xinput dlls plus the same key mapping method, it _might_ be useful)\r\n-New Start Menu shortcuts like DOSBOX, restored WFM, added all Turnip drivers per Afei's \r\n-Added End key per Longjunyu2\r\n-Zink for all Turnip Drivers\r\n-Graphics Driver Switching per Shortcut but that was in Alpha, it just more stable now\r\n-Fully functioning Picture in Picture mode\r\n-Spaces in Paths for New Tasks via Task Manager or Secondary Executables when enclosed in quotations (i.e \"D:\\Games\\My Game\\My Game.exe\")\r\n-Other minor features I can't remember because I've not been able to easily track my progress without a GitHub... go figure\r\n\r\n**Fixes:**\r\n_-Fix1: Issue with Custom Screen Size box not appearing in Container Settings is resolved_ \r\n-Gyro Default behavior bug is resolved\r\n-No more crashing when renaming Shortcuts\r\n-Better Turnip Driver shortcut switching (significantly less crashes when making changes)\r\n-Many scroll window fixes when using a mouse\r\n-Fixed (?) issue with binding analog sticks in Input Controls (still needs testing)\r\n-Fixed issue with Esc key opening XServerView menu on some devices (needs testing)\r\n-Many other minor bug fixes...\r\n\r\n**In the works:**\r\n-Try to fix bindings for some devices like Odin's back button and 'N' key in Input Controls for some devices\r\n-Haptic for touchscreen mode\r\n-Playtime stats tracking for shortcuts is still on my radar\r\n-I'd like to include that Vulkan frame limiter a certain Arkha mentioned to me\r\n-Path selection for Frontend exports (just as it is in the Proot build) \r\n-Gyro activation button selection, better Gyro Calibration settings",
+          "prerelease": false,
           "assets": [
             {
               "name": "Winlator-7.1.3-GLIBC-Cmod-v8fix1-Release.apk",
@@ -1425,6 +1559,8 @@
           "tag": "Winlator-7.1.3b-Cmod-PROOT-v8",
           "date": "2024-09-09T13:14:14Z",
           "downloads": 1047,
+          "body": "**Fixed:**\r\nCorrected issue with gyro enabled by default despite the check box in settings stating otherwise \r\n\r\n**Added:**\r\nBackported most Cmod Glibc features to Proot (many thanks Longjunyu2)\r\nXinput Dinput Switching\r\nAdded latest DXVK + Turnip 24.3.0 R4 by K11MCHI \r\nReinstall ImageFS, Backup/Restore Added\r\nEnglish by Default\r\nLC_ALL Toggle\r\nFrontend Export Path defining and other tweaks to Frotend loading\r\nSecondary executable loading for Shortcuts\r\nFixed issue with loading Box64 and Wine via Contents Manager installs\r\nFixed issue with Turnip Driver switching for containers\r\nFully working Picture in Picture mode\r\n\r\n**Cmod Features Remain the same:**\r\nTrue Mouse Control\r\nXinput Disabler\r\nGyro Controls\r\nTouchscreen mode\r\nHome screen shortcuts\r\nFrontend Support\r\nPlaytime Stats Tracking\r\n\r\n**Upcoming:**\r\nWorking on trying to add better PulseAudio/ALSA handling for incoming calls\r\nMore tweaks to Frontend loading\r\nSome fixes for controller bindings for certain devices\r\nOpenXR additions to be ported from Glibc build\r\nStill trying to get playtime stats tracking for Frontend and homescreen launching\r\n\r\nMany more minor updates and fixes since I have not been able to make commits since my Github was just restored \r\n\r\n",
+          "prerelease": false,
           "assets": [
             {
               "name": "Winlator.7.1.3b.Cmod.PROOT.v8fix1.apk",
@@ -1442,18 +1578,20 @@
       "name": "GameHub Lite (Producdevity)",
       "repo": "Producdevity/gamehub-lite",
       "category": "GameHub",
-      "downloads": 423346,
+      "downloads": 423372,
       "releases": [
         {
           "name": "GameHub Lite v5.3.3 RC-2 [PRE-RELEASE]",
           "tag": "v5.3.3-RC2",
           "date": "2026-01-05T13:22:42Z",
-          "downloads": 59592,
+          "downloads": 59599,
+          "body": "GameHub Lite v5.3.3 RC-1 [PRE-RELEASE]\r\n\r\nThis is an experimental build that adds Micro SD Card Support for Steam Games based on GameHub v5.3.3.\r\nThere is no support for this build, this is meant for those who are helping out or want to tinker.\r\n\r\nChangelog:\r\n- Fixed importing of local games.\r\n- better error logging",
+          "prerelease": true,
           "assets": [
             {
               "name": "GameHub-Lite-5.3.3-RC2.apk",
               "size": 149373004,
-              "downloads": 59592,
+              "downloads": 59599,
               "url": "https://github.com/Producdevity/gamehub-lite/releases/download/v5.3.3-RC2/GameHub-Lite-5.3.3-RC2.apk"
             }
           ],
@@ -1463,12 +1601,14 @@
           "name": "GameHub Lite v5.3.3 RC-1 [PRE-RELEASE]",
           "tag": "v5.3.3-RC1",
           "date": "2026-01-04T21:46:54Z",
-          "downloads": 4919,
+          "downloads": 4921,
+          "body": "GameHub Lite v5.3.3 RC-1 [PRE-RELEASE]\r\n\r\nThis is an experimental build that adds **Micro SD Card Support** for **Steam Games** based on GameHub v5.3.3.\r\n\r\nThere is no support for this build, this is meant for those who are helping out or want to tinker.\r\n\r\n**IMPORTANT:**\r\n\r\n- Enable SD Card support in the settings before downloading Steam games\r\n- Switching storage location back and forth hasn’t been tested yet.\r\n- It will create a directory named `GHL` on your SD Card where the downloaded Steam games will be stored. (FF modders, go wild).\r\n- This version can be installed alongside GHL v5.1.3 for easy testing.\r\n- The full Steam client doesn’t work in this version, use Steam Lightweight or use GameHub Lite 5.1.3 which is stable.",
+          "prerelease": true,
           "assets": [
             {
               "name": "GameHub-Lite-5.3.3-RC1.apk",
               "size": 149373004,
-              "downloads": 4919,
+              "downloads": 4921,
               "url": "https://github.com/Producdevity/gamehub-lite/releases/download/v5.3.3-RC1/GameHub-Lite-5.3.3-RC1.apk"
             }
           ],
@@ -1479,6 +1619,8 @@
           "tag": "v5.3.3",
           "date": "2025-11-27T21:11:35Z",
           "downloads": 72547,
+          "body": "This is an experimental build of GameHub Lite based on GameHub v5.3.3. \r\n\r\nThere is **no support** for this build, this is meant for those who are helping out or want to tinker.\r\n\r\n**IMPORTANT**\r\nThe full Steam client doesn’t work in this version, use Steam Lightweight or use GameHub Lite 5.1.3 which is stable. ",
+          "prerelease": true,
           "assets": [
             {
               "name": "GameHub-Lite-5.3.3-EXPERIMENTAL.apk",
@@ -1493,24 +1635,26 @@
           "name": "GameHub Lite v5.1.3",
           "tag": "v5.1.3",
           "date": "2025-11-14T11:46:08Z",
-          "downloads": 235834,
+          "downloads": 235849,
+          "body": "Fixed version mismatch. Rookie mistake on my end, I am new to software development. sorry\r\n\r\nWe recommend using [Obtanium](https://www.youtube.com/watch?v=7HP67K5Q6Fo) to keep your GameHub Lite up-to-date. Thank to The412Banner for making the video tutorial!\r\n\r\n\r\nPlease check [EmuReady](https://www.emuready.com) for recommended settings if a game doesn't run well before asking in the [Discord](https://discord.gg/CYhCzApXav) server for help.\r\n\r\n<img width=\"1080\" height=\"1920\" alt=\"Screenshot_20251114-041653\" src=\"https://github.com/user-attachments/assets/a4b5b44c-6758-4441-9c4b-1dd3ba79192a\" />\r\n",
+          "prerelease": false,
           "assets": [
             {
               "name": "GameHub-Lite-v5.1.3-alt-antutu.apk",
               "size": 52097640,
-              "downloads": 31494,
+              "downloads": 31498,
               "url": "https://github.com/Producdevity/gamehub-lite/releases/download/v5.1.3/GameHub-Lite-v5.1.3-alt-antutu.apk"
             },
             {
               "name": "GameHub-Lite-v5.1.3-antutu.apk",
               "size": 52097643,
-              "downloads": 61451,
+              "downloads": 61458,
               "url": "https://github.com/Producdevity/gamehub-lite/releases/download/v5.1.3/GameHub-Lite-v5.1.3-antutu.apk"
             },
             {
               "name": "GameHub-Lite-v5.1.3-ludashi.apk",
               "size": 52097646,
-              "downloads": 25002,
+              "downloads": 25003,
               "url": "https://github.com/Producdevity/gamehub-lite/releases/download/v5.1.3/GameHub-Lite-v5.1.3-ludashi.apk"
             },
             {
@@ -1522,7 +1666,7 @@
             {
               "name": "GameHub-Lite-v5.1.3.apk",
               "size": 52097680,
-              "downloads": 96697,
+              "downloads": 96700,
               "url": "https://github.com/Producdevity/gamehub-lite/releases/download/v5.1.3/GameHub-Lite-v5.1.3.apk"
             }
           ],
@@ -1533,6 +1677,8 @@
           "tag": "v5.1.2",
           "date": "2025-11-13T23:20:13Z",
           "downloads": 10825,
+          "body": "Hotfix: fixed a download failure by whitelisting the URL used for fetching `imageFS` firmware during the initial launch.\r\n\r\n\r\n(Alt Antutu is a workaround for users that want to use Antutu and faced issues with the Beacon launcher)\r\n\r\nThanks The412Banner for helping out!\r\n\r\nPlease check [EmuReady](https://www.emuready.com) for recommended settings if a game doesn't run well before asking in the [Discord](https://discord.gg/CYhCzApXav) server for help.\r\n",
+          "prerelease": false,
           "assets": [
             {
               "name": "GameHub-Lite-v5.1.2-Alt-Antutu.apk",
@@ -1572,6 +1718,8 @@
           "tag": "v5.1.1",
           "date": "2025-11-13T16:24:25Z",
           "downloads": 7312,
+          "body": "changelog:\r\n\r\n- Uses GameHub Lite v4 as it's basis instead of v3\r\n- Resolved broken intents with launchers (ESDE/Beacon/Dajisho)\r\n- Fixes brightness bug\r\n- Adds EmuReady compatibility badge back\r\n- Uses the new EmuReady workers server for better privacy\r\n- Removed the Notification Permissions popup properly\r\n- Removed the Free Games section since it doesn't work anymore\r\n- Removed the unneeded resources files for services we're not using anymore\r\n- Restored the Microphone Permission for games that require it\r\n\r\nFull credits go to [Trixarian](https://github.com/Trixarian), this is just a signed version to make it easy to update from `v5.1.0`\r\n\r\n<img width=\"1920\" height=\"1080\" alt=\"Screenshot_20251113-102440\" src=\"https://github.com/user-attachments/assets/80e6cb60-c444-4c51-87a9-4dcc59846cb8\" />\r\n\r\n---\r\n\r\nPlease check [EmuReady](https://www.emuready.com) for recommended settings if a game doesn't run well before asking in the [Discord](https://discord.gg/CYhCzApXav) server for help.",
+          "prerelease": false,
           "assets": [
             {
               "name": "GameHub-Lite-v5.1.1-Antutu.apk",
@@ -1604,7 +1752,9 @@
           "name": "GameHub Lite v5.1.0",
           "tag": "v5.1.0",
           "date": "2025-11-11T14:01:07Z",
-          "downloads": 20040,
+          "downloads": 20041,
+          "body": "A restoration build of GameHub Lite V4 before everything fell apart. I will publish the code for the workers and a patch very soon, for now enjoy a working GameHub Lite app again.\r\n\r\nWe'll focus on restoring the previous functionality first, before fixing and adding functionality. So please only report issues that were not present in GameHub Lite V4 or in the official GameHub app.\r\n\r\n---\r\n\r\n### Explanation for the different versions\r\n\r\nYou’ll often see an emulator distribute different versions with a name suffixed like **PUBG**, **Antutu**, **Optimized**, **Genshin**, **Ludashi** and other names. Here follows an explanation for what is what, is still has slight differences between manufacturers and even different packagenames but it should give you a rough understanding.\r\n\r\n—-\r\n\r\n*The different versions are identical. What we do is a very old android trick to gain extra performance on some devices.*\r\n\r\n**Antutu**\r\n\r\nSome manufacturers “cheat” by setting the governor to performance when they detect the Antutu package name. \r\n\r\n*Nerd explanation:*\r\n\r\nThe CPU governor essentially controls the CPU's frequency scaling. allowing it to operate at different clock speeds and voltages based on the system load. So making the CPU go fast for sustained usage, what is actually made for peak usage. This comes with a risk of overheating, but I don’t believe in this. Android does a well enough job of thermal management and makes it extremely hard for software to exceed what the hardware is capable of and damaging itself.\r\n\r\n\r\nThat said, it’s still extra heat. More heat == more bad. I just think it’s negligible, especially if your device has a fan.\r\n\r\n\r\n**PUBG**\r\n\r\nOn a high level it’s the same as Antutu, but some slight differences that only benefit games. Think of network prioritization and touch input latency improvements. The manufacturers goal when they detect Antutu is **ALL THE POWER**. Benchmarks are relatively short and it makes them look better on comparison websites.\r\n\r\n\r\nThe goal for PUBG is more like **MORE POWER**, since the intention is often to have a game running for longer it has less aggressive changes.\r\n\r\n\r\n**TLDR and summary:**\r\n\r\n**Antutu** spoofing:\r\n\r\n    •    Maximum CPU/GPU frequencies unlocked  \r\n    •    Aggressive performance governors  \r\n    •    Short-duration performance boost (benchmark workload)  \r\n    •    Thermal limits are less strict   \r\n    •    All cores available  \r\n\r\n\r\n**PUBG** and other games spoofing: \r\n\r\n    •    Sustained gaming performance profiles  \r\n    •    GPU driver optimizations (Adreno/Mali game-specific paths)  \r\n    •    Frame pacing and scheduling improvements  \r\n    •    Reduced touch latency   \r\n    •    Network QoS prioritization  \r\n    •    Different thermal management (sustained vs burst)  \r\n    •    Qualcomm “Game Performance Mode”      \r\n    •    Sometimes enables features like frame-gen\r\n\r\n\r\n**Ludashi** spoofing:\r\n\r\n    •    Similar to Antutu but slightly less aggressive    \r\n    •    Longer sustained performance boost (multi-minute tests)   \r\n    •    Memory frequency optimization   \r\n\r\n",
+          "prerelease": false,
           "assets": [
             {
               "name": "GameHub-Lite-5.1.0-Alt-AnTuTu.apk",
@@ -1633,7 +1783,7 @@
             {
               "name": "GameHub-Lite-5.1.0.apk",
               "size": 49593766,
-              "downloads": 9281,
+              "downloads": 9282,
               "url": "https://github.com/Producdevity/gamehub-lite/releases/download/v5.1.0/GameHub-Lite-5.1.0.apk"
             }
           ],
@@ -1643,12 +1793,14 @@
           "name": "GameHub Lite v5.0.0",
           "tag": "v5.0.0",
           "date": "2025-11-10T17:52:14Z",
-          "downloads": 12277,
+          "downloads": 12278,
+          "body": "This is a temporary release that restores most of the functionality previously available in GameHub Lite v4.\r\n\r\nGameHub Lite v4 stopped working after the former developer took down the Cloudflare Workers it relied on, citing privacy concerns. \r\n\r\nWe are currently developing a community-funded solution to provide a more stable and permanent setup.\r\n\r\nIn the meantime, this version includes most of the core features but may display some visual inconsistencies and lacks certain extras that were present in v4, such as the news and free games sections.\r\n\r\nSpecial thanks to **The412Banner** and **Trixarian**!\r\n\r\n[Join the EmuReady Discord for support and more information](https://discord.gg/CYhCzApXav)",
+          "prerelease": false,
           "assets": [
             {
               "name": "GameHub-Lite-v5.0.0-AnTuTu.apk",
               "size": 52098137,
-              "downloads": 4176,
+              "downloads": 4177,
               "url": "https://github.com/Producdevity/gamehub-lite/releases/download/v5.0.0/GameHub-Lite-v5.0.0-AnTuTu.apk"
             },
             {
@@ -1679,13 +1831,15 @@
       "name": "Winlator Mali",
       "repo": "Fcharan/WinlatorMali",
       "category": "Winlator",
-      "downloads": 404665,
+      "downloads": 404669,
       "releases": [
         {
           "name": ".",
           "tag": "0.0",
           "date": "2024-12-06T15:52:58Z",
           "downloads": 29923,
+          "body": "IGNORE WINE HANGOVER PACKAGES ( NOT RELATED TO WINLATOR !! )",
+          "prerelease": true,
           "assets": [
             {
               "name": "app-arm64-v8a-debug.apk",
@@ -1748,18 +1902,20 @@
           "name": "2.0",
           "tag": "2.0",
           "date": "2024-11-30T10:01:20Z",
-          "downloads": 333233,
+          "downloads": 333237,
+          "body": "# Added\r\n\r\n• Latest Box64 Is Added In Proot Version\r\n\r\n• Added Cube D3D & SphereMap 3D Test \r\n\r\n• Added D3D9 Wrapper By ThirteenAG In Start Menu → Install →  WineD3D → Experimental \r\n\r\n• Added Core Fonts\r\n\r\n• Added Additional x86 and X64 Visual C Packages\r\n\r\n• Added Xna Framework \r\n\r\n• Added An Option To Backup And Import Registry And Saves Of Container \r\n\r\n• Many Other Things Are Also Added \r\n\r\n# New Game Presets \r\n\r\n• Fixed And Added Back Skyrim Game Preset \r\n\r\n• Added Virtua Tennis 3 & 4 Game Preset \r\n\r\n• Added Silent Hill Home Coming Game Preset \r\n\r\n# Changes\r\n\r\n• Wine 9.2 Is Added And Made Default In Glibc \r\n\r\n• Game UX Is Disabled By Default ( This Fixes Virtua Tennis 4 And More ) \r\n\r\n• The Fixes Section Has Been Updated \r\n\r\n• Some Games Presets Are Updated \r\n\r\n• Many Other Things Are Changed And Updated \r\n\r\n# Note \r\n\r\n• I Decided To Only Upload Proot_Antutu And Glibc From Now\r\n\r\n• Delete The Old Apk And Install The New One \r\n\r\n• Proot Is The Recommended Version \r\n\r\n• Glibc Apk Is Updated Again On Dec 1 2024 . Pls Update \r\n",
+          "prerelease": false,
           "assets": [
             {
               "name": "WinMali_Glibc.apk",
               "size": 630562783,
-              "downloads": 194495,
+              "downloads": 194497,
               "url": "https://github.com/Fcharan/WinlatorMali/releases/download/2.0/WinMali_Glibc.apk"
             },
             {
               "name": "WinMali_Proot_Antutu.apk",
               "size": 595862618,
-              "downloads": 138738,
+              "downloads": 138740,
               "url": "https://github.com/Fcharan/WinlatorMali/releases/download/2.0/WinMali_Proot_Antutu.apk"
             }
           ],
@@ -1770,6 +1926,8 @@
           "tag": "1.9",
           "date": "2024-11-13T13:31:30Z",
           "downloads": 41509,
+          "body": "Changes : \r\n\r\n•  Proot Builds Are Now Based On Winlator 8.0 Finally More Compatibility \r\n\r\n• 2.1 Is As Set As The Default GL VERSION\r\n\r\n• Disable Vertex Array BGRA Is Disabled By Default \r\n\r\n• Default Gpu Model In Proot Builds Is Now Set To Nvdia GeForce 9800GT So Oblivion Launcher And More Can Detect And Give Settings \r\n\r\n• Box64 Version 0.2.8 From Winlator 7.1 Is Now The Default Version\r\n\r\nAdded :\r\n\r\n• WineD3D 9.20 Added \r\n\r\n• BOX64_MMAP32 Environment Variable Added For Proot Builds\r\n\r\n• More Things Are Added Which I Can't Remember Now Sorry \r\n\r\nUpdated : \r\n\r\n• Updated The 3D Test ( Use This Instead Cube D3D Test It Is Removed Now )\r\n\r\n• Updated VC Redist ( Improves Stability If Installed )\r\n\r\n• Prince Of Persia 2008 And Prince Of Persia The Forgotten Sands Game Presets Are Added \r\n\r\nRemoved : \r\n\r\n• Lot Of Unnecessary Things Are Removed \r\n\r\nNote : \r\n\r\n• To Fix Audio Issue On PES Games Just Turn Off Wine Esync In Container Settings \r\n\r\n• Skyrim Preset Is Now Removed From Proot Build Because Winlator 8.0 Doesn't Support To Disable Wow64 ( You Can Still Play Skyrim In WinlatorMali 1.8 And 1.7 )\r\n\r\n• Delete The Old Apk And Install New One\r\n\r\n• Overall Balanced Performance And Improved Compatibility On Proot Builds .\r\n\r\n• Proot Is The Recommended Version \r\n\r\n• Glibc Version is Removed On 15 Nov 2024 Will Be Updated Later\r\n",
+          "prerelease": false,
           "assets": [
             {
               "name": "WinMali_Proot_Antutu.apk",
@@ -1787,24 +1945,26 @@
       "name": "Winlator Ludashi",
       "repo": "StevenMXZ/Winlator-Ludashi",
       "category": "Winlator",
-      "downloads": 382888,
+      "downloads": 382905,
       "releases": [
         {
           "name": "Ludashi 2.8.2",
           "tag": "2.8.2",
           "date": "2026-01-25T22:55:31Z",
-          "downloads": 47013,
+          "downloads": 47027,
+          "body": "What's new:\r\n\r\n🛠️ devices that weren't working should now work. thanks to @kostasgangstar \r\n\r\n📦 Fixed a regression in box64 in 32bits games\r\n\r\n💾 Assets: update wrapper, turnip, and box64/fexcore to the latest versions \r\n\r\n🎮 Controller: fixed Wine 9.20, and some others issues, if input don't work, try disabling \"Exclusive\"\r\n\r\n💻 Added support for compute shaders BCn decompression as an option, improving performance for Mali Devices\r\n\r\n🖥️ GraphicsDriverConfigDialog: add option to change/spoof GPU name, device and vendor id\r\n\r\n⚙️ Container: add internal storage as a container drive\r\n  \r\n📌 reinstall from scratch before update",
+          "prerelease": false,
           "assets": [
             {
               "name": "bionic-ludashi.apk",
               "size": 524103183,
-              "downloads": 35070,
+              "downloads": 35081,
               "url": "https://github.com/StevenMXZ/Winlator-Ludashi/releases/download/2.8.2/bionic-ludashi.apk"
             },
             {
               "name": "bionic-vanilla.apk",
               "size": 524103183,
-              "downloads": 8350,
+              "downloads": 8353,
               "url": "https://github.com/StevenMXZ/Winlator-Ludashi/releases/download/2.8.2/bionic-vanilla.apk"
             },
             {
@@ -1820,7 +1980,9 @@
           "name": " Ludashi 2.8",
           "tag": "2.8",
           "date": "2026-01-07T20:50:44Z",
-          "downloads": 50724,
+          "downloads": 50725,
+          "body": "What's new:\r\nsome Quality of Life (QoL) improvements \r\n\r\n🎮 New Controller Implementation \r\nThe new implementation of controller brings varying compatibility with Xinput/Dinput with most games (like the one in cmod v13, but Reworked), it also brings Multiplayer support since you can connect more than one controller, allows custom package names,and without overhead. thanks to @Vivsi1 and @Pipetto-crypto\r\n\r\n🗂️ Added a File Manager\r\nthe new file manager allows you to create a shorcut for the game without need to enter the container, Please note that some games may still require you to install content such as vcredist, check [dependencies](https://github.com/K11MCH1/Winlator101/releases/tag/deps) \r\n\r\n⚙️ Added a Driver Download Manager \r\nLike some other emulators, you can now download drivers directly from the app, and you can also edit the default repositories to your preference. \r\n\r\n🖼️ added support for custom Icons\r\nJust click on the game icon and then you can change.\r\n\r\nPS: this update needs full reinstall, otherwise nothing will work\r\n\r\n",
+          "prerelease": false,
           "assets": [
             {
               "name": "bionic-vanilla.apk",
@@ -1831,7 +1993,7 @@
             {
               "name": "ludashi-bionic.apk",
               "size": 526908943,
-              "downloads": 30450,
+              "downloads": 30451,
               "url": "https://github.com/StevenMXZ/Winlator-Ludashi/releases/download/2.8/ludashi-bionic.apk"
             },
             {
@@ -1848,6 +2010,8 @@
           "tag": "2.7.4",
           "date": "2025-12-26T02:39:37Z",
           "downloads": 45911,
+          "body": "what's new:\r\n💾 add a few more entries to device memory, 8192 MB,12288 MB,16384 MB\r\n\r\n⚙️EnvVarsView: add one new TU_DEBUG option (deck_emu), see [Turnip_Deck](https://github.com/StevenMXZ/freedreno_turnip-CI/releases/tag/26.0.0)\r\n\r\n🛠️ added IR3_SHADER_DEBUG and FD_DEV_FEATURES in environment variables, for greater convenience for those who need it.\r\n\r\n🖥️ added support for [Config_Files](https://gist.github.com/bylaws/04130932e2634d1c6a2a9729e3940d60), (qgl_config.txt) for Qualcomm drivers, without Root, the default path for it is [storage/emulated/0/Winlator], you can use rendermode=0, for force sysmem on Qualcomm driver (like V819), improving performance by +10% on some games. \r\n\r\nRendermode values:\r\n0 - sysmem without binning\r\n1 - gmem with binning\r\n2 - gmem without binning\r\n3 - sysmem with binning",
+          "prerelease": false,
           "assets": [
             {
               "name": "bionic-vanilla.apk",
@@ -1881,6 +2045,8 @@
           "tag": "2.7.3",
           "date": "2025-12-21T23:41:26Z",
           "downloads": 16194,
+          "body": "fixed some bugs basically \r\n\r\nwhat's new:\r\n 🖥️ XServerDisplayActivity: remove seemingly unused function \r\n🛠️ Merge pull request from Arihany/winlator_bionic\r\n Fix prefix style package name collisions\r\n Fix DXVK semver compare with string equality bug fix\r\n Fix crash with prefixed vernames\r\n💾 XServerDisplayActivity: set \r\n WRAPPER_MAX_IMAGE_COUNT to 1 when immediate present mode is chosen\r\n\r\n⚙️EnvVarsView: add two new TU_DEBUG options (forcecb) and (nocb), force concurrent Binning on Turnip, and force disable, some games are faster with CB, but some can be worse \r\n",
+          "prerelease": false,
           "assets": [
             {
               "name": "bionic-vanilla.apk",
@@ -1907,7 +2073,9 @@
           "name": "Ludashi 2.7.2",
           "tag": "2.7.2",
           "date": "2025-11-21T12:15:39Z",
-          "downloads": 91452,
+          "downloads": 91453,
+          "body": "🔄 the wrapper has been updated. \r\n🖥️ improved performance for Mali and Adreno devices\r\n🧹 improved BCn emulation Cache",
+          "prerelease": false,
           "assets": [
             {
               "name": "bionic-vanilla.apk",
@@ -1918,7 +2086,7 @@
             {
               "name": "ludashi-bionic.apk",
               "size": 523738356,
-              "downloads": 56115,
+              "downloads": 56116,
               "url": "https://github.com/StevenMXZ/Winlator-Ludashi/releases/download/2.7.2/ludashi-bionic.apk"
             },
             {
@@ -1934,7 +2102,9 @@
           "name": "Ludashi 2.7.1",
           "tag": "2.7.1",
           "date": "2025-11-16T22:31:55Z",
-          "downloads": 8267,
+          "downloads": 8268,
+          "body": "🛠️ Fixed long standing bug that caused A12 devices to crash when pressing Wrapper gear icon using Turnip driver\r\n\r\n🖥️ Fixed regressions caused by the new BCn implementation\r\n\r\n💾 Added new env vars for performance and stability",
+          "prerelease": false,
           "assets": [
             {
               "name": "bionic-vanilla.apk",
@@ -1945,7 +2115,7 @@
             {
               "name": "ludashi-bionic.apk",
               "size": 523738356,
-              "downloads": 5137,
+              "downloads": 5138,
               "url": "https://github.com/StevenMXZ/Winlator-Ludashi/releases/download/2.7.1/ludashi-bionic.apk"
             },
             {
@@ -1962,6 +2132,8 @@
           "tag": "2.7",
           "date": "2025-11-13T21:39:33Z",
           "downloads": 15340,
+          "body": "🖥️ major update:\r\n\r\n - updated the wrapper\r\n- Added BCn emulation for Mali GPUs\r\n- Fixed long term bug that caused dxvk 2.x to not work on some Adreno devices.\r\n- Partially fixed crash that happened on some A6xx when pressing GraphicsDriver gear icon\r\n- improved overall performance\r\n- Initial work to get HDR and CAS sharpening to work while game is running using vkBasalt ( in progress)\r\n- issues tab on GitHub It's open again. \r\n ",
+          "prerelease": false,
           "assets": [
             {
               "name": "bionic-vanilla.apk",
@@ -1989,6 +2161,8 @@
           "tag": "2.6.2",
           "date": "2025-11-08T19:31:31Z",
           "downloads": 13246,
+          "body": "🖥️ added new FEXCore Presets and Variables \r\n 💾 updated the contents Repo ",
+          "prerelease": false,
           "assets": [
             {
               "name": "bionic-ludashi.apk",
@@ -2016,6 +2190,8 @@
           "tag": "2.6.1",
           "date": "2025-10-22T15:46:46Z",
           "downloads": 30344,
+          "body": "🛠️ Fixed compatibility with some Adreno GPUs",
+          "prerelease": false,
           "assets": [
             {
               "name": "bionic-ludashi.apk",
@@ -2043,6 +2219,8 @@
           "tag": "2.6",
           "date": "2025-10-20T18:38:27Z",
           "downloads": 5222,
+          "body": "# 📝 Changelogs\r\n\r\n### 🎮 Performance\r\n\r\n💾 Updated to the latest **Wrapper (v25)**, which promises to improve performance and compatibility across most GPUs.\r\n\r\n📉 Added a new **\"Blitting\"** option. This rendering technique can provide a significant compatibility  increase in some applications. (For more information on how blitting works, see [here](https://matplotlib.org/stable/users/explain/animations/blitting.html)).\r\n\r\n🎛️ Added new **Resource Type** options (dmabuf, opaque, ahb) in the Graphics Driver settings. These may affect compatibility, and their performance impact can vary depending on the specific device and game. (for Adreno GPUs, ahb is recommended)\r\n\r\n🌋 Vulkan layers are now automatically extracted on boot.\r\n\r\n### ⚙️ UI & QoL\r\n\r\n🎉 StevenMXZ's Winlator-Contents repository now comes **pre-installed by default**..\r\n\r\n### 📝 Notes\r\n⚠️ full reinstallation is required \r\n🖥️ if your game is crashing, disable the box \"disable KHR present wait\"\r\n🙏 Full development credit for the Bionic source goes to **Pipetto-crypto**.",
+          "prerelease": false,
           "assets": [
             {
               "name": "bionic-ludashi.apk",
@@ -2070,6 +2248,8 @@
           "tag": "2.5",
           "date": "2025-09-25T00:30:31Z",
           "downloads": 28286,
+          "body": "⚒️ fixed some bugs and regressions\r\n\r\n💾 updated the stuff from my repo of contents, go to Winlator Settings and Copy and paste - >\r\n\r\nhttps://raw.githubusercontent.com/StevenMXZ/Winlator-Contents/main/contents.json\r\n\r\n📝 all credits to Pipetto-Crypto ",
+          "prerelease": false,
           "assets": [
             {
               "name": "bionic-ludashi.apk",
@@ -2097,6 +2277,8 @@
           "tag": "2.4",
           "date": "2025-09-09T02:41:03Z",
           "downloads": 16212,
+          "body": "recommended to use my repo of contents, go to Winlator Settings and Copy and paste - >\r\nhttps://raw.githubusercontent.com/StevenMXZ/Winlator-Contents/main/contents.json \r\n\r\n# 📝 Changelogs\r\n\r\n## 🖥️  Export/import Shortcut Presets\r\n\r\n🛠️ Added option to export and import Box64Presets\r\n\r\n🪡 Added option to import shortcuts\r\n\r\n🔧  Major rework of Fexcore management\r\n\r\n🔄 Replaced Frontend Export Path setting with a generic Winlator Path setting\r\n\r\n✅ Allowed choosing custom shortcuts export path\r\n\r\n## 🎮 Input \r\n\r\n🧹 Fixed crash when trying to show toast messages\r\n\r\n🚮 Removed duplicate cursor speed setting\r\n\r\n🛞 Moved gyro settings from SettingsFragment to InputControlsFragment\r\n\r\n## 📺  XServer\r\n\r\n💾 Returned fragment handling back into activity\r\n\r\n## 📝 Notes\r\n\r\nrecommended to uninstall your old ludashi and install the new one again \r\n\r\nFull development credit goes to Pipetto-crypto\r\n\r\n",
+          "prerelease": false,
           "assets": [
             {
               "name": "bionic-ludashi.apk",
@@ -2124,6 +2306,8 @@
           "tag": "2.3",
           "date": "2025-08-24T20:02:00Z",
           "downloads": 9574,
+          "body": "# 🛠️ Changelogs\r\n\r\n## 📦 DXVKConfigDialog\r\n\r\nRefactored setEnvVars handling for improved environment variable management\r\n\r\nMoved ddrawrapper configuration into DXVKConfigDialog for better consistency\r\n\r\n\r\n## 💾 WineD3DConfigDialog\r\n\r\nFixed minor typo in dialog strings\r\n\r\nAdded dedicated configuration dialog for wined3d to allow finer control\r\n\r\nGeneral bug fixes and internal refinements\r\n\r\nall credits and development to Pipetto-Crypto\r\n",
+          "prerelease": false,
           "assets": [
             {
               "name": "bionic-ludashi.apk",
@@ -2151,6 +2335,8 @@
           "tag": "2.2",
           "date": "2025-08-21T19:15:59Z",
           "downloads": 5103,
+          "body": "# changelogs\r\n\r\n⚙️ Fixed arm64ec containers\r\n\r\n 💾 SettingsFragment: added an option to change downloadable contents URL,for every \r\nDXVK/box64/Fexcore asset, got to Winlator Settings and Copy - >\r\nhttps://raw.githubusercontent.com/StevenMXZ/Winlator-Contents/main/contents.json \r\n\r\n📦 Updated fexcore and wowbox64 versions\r\n\r\n🧹 Cleanup: removed unnecessary assets\r\n\r\n⚙️ DXVKConfigDialog: blacklisted arm64ec DXVK on non-arm64ec containers\r\n\r\n🖥️ GraphicsDriverConfigDialog: blacklisted unsupported drivers\r\n\r\n🔧 Vulkan: slight refactoring\r\n\r\n Defaulted to turnip25.1.0 on supported devices\r\n\r\n🔄 Replaced v762 and v805 with v819 (compatible with a6xx)\r\n\r\n🛠 ContainerDetailFragment: partially fixed setupDXWrapper logic\r\n\r\n🎛️ GuestProgramLauncherComponent: added required variables to disable Proton mediaconverter plugin\r\n\r\n## 📝 Notes\r\n\r\nFull development credit goes to Pipetto-crypto.",
+          "prerelease": false,
           "assets": [
             {
               "name": "bionic-ludashi.apk",
@@ -2174,18 +2360,20 @@
       "name": "Winebox64",
       "repo": "winebox64/winlator",
       "category": "Winlator",
-      "downloads": 245119,
+      "downloads": 245120,
       "releases": [
         {
           "name": "Winlator 10.2 (Revision 2 Beta) Glibc unstable - Early Access",
           "tag": "v10.2",
           "date": "2025-03-03T03:01:09Z",
-          "downloads": 89032,
+          "downloads": 89033,
+          "body": "[![logo](https://github.com/user-attachments/assets/bd81f1a1-2391-4c39-abbd-a42b1f5ef65f)](https://github.com/winebox64/winlator/releases)\r\n\r\n\r\n<p align=\"left\">\r\n<img  src=\"https://img.shields.io/badge/Winlator%2010.2-white?style=plastic&logo=snapdragon&logoColor=C00000\" width=\"140\" /> \r\n</p>\r\n\r\n# Released for personal use\r\n\r\n### Winlator 10.2 (beta)\r\n- Now smaller, lighter, and faster! Save storage with optimized app packaged in 130MB and installed in just 1.3GB.\r\n- Updated latest DXVK Async (v2.6.1), and **DXVK-II ULL (v2.5.3.94)** focus on ultra low latency ~8ms at 60 FPS, ~4ms at 120 FPS, with slightly lower fps (small performance impact), Improves input responsiveness on NFS: Most Wanted 2012.\r\n![lv_0_20250323083625](https://github.com/user-attachments/assets/a0aab4ec-0637-4cd2-a171-8ad5a76d91cb)\r\n**Definition:**\r\n*What is ULL? Ultra-low latency refers to an extremely short delay or lag between a user's input and the system's response. It's measured in milliseconds (ms) or even nanoseconds (ns).*\r\n\r\n| *Input Latency* | *Gaming Experience* | *Suitability* |\r\n| --- | --- | --- |\r\n| 0-30 ms | Excellent | Competitive Gaming |\r\n| 30-50 ms | Good | Casual Gaming |\r\n| 50-100 ms | Fair | Non-Competitive Play |\r\n| 100-200 ms | Poor | Not Recommended |\r\n| 200+ ms | Unacceptable | Unplayable |\r\n\r\n- Updated DXVK HUD scale and opacity options have been added.\r\n- Updated 2 new configuration presets are available: `optmx11` for improved graphics and `perfx11` for better performance, the choice is yours.\r\n- ZINK_DEBUG has been updated with additional options\r\n- Zink Descriptors has been updated with additional options.\r\n- Updated components now fixed.\r\n- The loading is now way smoother and loads faster!\r\n- Updated Screen size resolutions and wider aspect ratio.\r\n- Updated FrameRate options\r\n- Updated environment variables are now activated by default.\r\n### Winlator 10.0 (beta)\r\n- Added missing MPEG-1 gstreamer plugin [#269](https://github.com/brunodev85/winlator/issues/269)\r\n- Added workaround for Dino Crisis 1/2 video issues\r\n- Updated Box64 (v0.3.4 release).~\r\n- Added native GLIBC for better I/O performance\r\n- Minor improvements to Vortek\r\n- Improved internal Registry Editor (Speeds up container startup)\r\n- Added option to open Android browser from Wine\r\n- Added option to use Android clipboard on Wine\r\n- Added option to capture pointer on external mouse\r\n- Added some network stuff on [Wine](https://github.com/brunodev85/wine-9.2-custom/commit/3437f8ee1617ba97550c96fb2dc4e210420aae93) (Fixes some games startup)\r\n- Implemented direct rendering on XServer and [Vulkan WSI X11](https://github.com/brunodev85/mesa3d-custom/blob/main/turnip-25.0.0/src/vulkan/wsi/wsi_common_x11.c) (Turnip).\r\n\r\n\r\n![animation](https://github.com/user-attachments/assets/937e1f8a-2b21-4e26-95a7-37020400bc60)\r\n\r\n\r\n----\r\n### ⚠️\r\n**Results can vary based on the device used, environmental conditions, and other factors, such as simultaneous processing, and different processor capabilities.**\r\n\r\n**If you experience errors or crashes, try changing DXVK, Graphics driver or Box64.*\r\n",
+          "prerelease": false,
           "assets": [
             {
               "name": "winlator.apk",
               "size": 137000935,
-              "downloads": 89032,
+              "downloads": 89033,
               "url": "https://github.com/winebox64/winlator/releases/download/v10.2/winlator.apk"
             }
           ],
@@ -2196,6 +2384,8 @@
           "tag": "v9.1.1",
           "date": "2025-01-13T11:02:12Z",
           "downloads": 102379,
+          "body": "[![logo](https://github.com/user-attachments/assets/bd81f1a1-2391-4c39-abbd-a42b1f5ef65f)](https://github.com/winebox64/winlator/releases)\r\n\r\n\r\n\r\n<p align=\"left\">\r\n<img  src=\"https://img.shields.io/badge/Winlator%209.1.1-white?style=plastic&logo=snapdragon&logoColor=C00000\" width=\"140\" />\r\n</p>\r\n\r\n## (Early Access)\r\n\r\n- Updated WINE (Custom) improved compatibility.\r\n- Updated Box64 0.3.3 (Custom) 📥 downloadable.\r\n- Updated Turnip Devel version 📥 downloadable.\r\n- Updated DXVK Async version 📥 downloadable.\r\n- Updated Vortek (Experimental) is for processors that are incompatible with the Turnip driver, such as Snapdragon 8 Elite, 860, 735, 7 Gen 3, 7s Gen 3, 7s Gen 2, 6 Gen 3, 6 Gen 1.\r\n- Updated Vulkan WSI environment.\r\n- Updated DXVK_HUD opacity & scale variable.\r\n- Updated ZINK_DEBUG added more options `fast_texture` `fast_path` `fast_shader` etc.\r\n- Updated TU_DEBUG added more options `render_fast` `memory_align` `memory_leak` etc.\r\n- Updated FSync for smoother.\r\n- Updated Zink Descriptors `db` Descriptor Buffer option to Reduced descriptors update overhead. \r\n- Updated WINE GST options. \r\n- Reduced system temperature and improved stability.\r\n----\r\n**How to download and change the Box64, DXVK, Turnip version, e.g:**\r\n<p align=\"left\">\r\n<img src=\"https://github.com/user-attachments/assets/46addb27-1f9a-4ac1-8506-afda08fc5965\" width=\"280\" height=\"550\" alt=\"tinyproot\"/> \r\n</p>\r\n\r\n### ⚠️\r\n**Results can vary based on the device used, environmental conditions, and other factors, such as simultaneous processing, and different processor capabilities.**\r\n\r\n**If you experience errors or crashes, try changing DXVK or Graphics driver.*",
+          "prerelease": false,
           "assets": [
             {
               "name": "Winlator_9.1.1.apk",
@@ -2211,6 +2401,8 @@
           "tag": "v8.5.5",
           "date": "2024-12-02T19:13:27Z",
           "downloads": 39432,
+          "body": "![logo](https://github.com/user-attachments/assets/bd81f1a1-2391-4c39-abbd-a42b1f5ef65f)\r\n\r\n\r\n<p align=\"left\">\r\n<img src=\"https://img.shields.io/badge/Winlator%208.5.5-white?style=plastic&logo=snapdragon&logoColor=C00000\" width=\"140\" />\r\n</p>\r\n\r\n# (Early Access)\r\n\r\n- Updated Wine Environment.\r\n- Updated Dynarec Forward & Fast Rounding.\r\n- Updated Mesa Turnip drivers 2.5.0.0-xx.\r\n- Updated DXVK 2.5.1.2-xx-xxx.\r\n- Updated HDR supported.\r\n- Updated Async environment variable.\r\n- Updated State cache environment variable. \r\n- Updated Caches pipeline state, which can reduce stuttering.\r\n- Updated GPL can be used together with state cache that is not possible on upstream, state cache should work properly with async and gpl if using Async cache option.\r\n- Updated Screen Size Aspect Ratio.\r\n- Updated Device Memory Limit, fixed crash.\r\n- Updated FrameRate variable.\r\n- Updated opcodes, workarounds for A6xx.\r\n- Fixed audio in some application.\r\n- Reduce RAM usage up to ~11.5% and performance optimization.\r\n\r\n### ⚠️ NOTE !!:\r\n**Results can vary based on the device used, environmental conditions, and other factors, such as simultaneous processing, and different processor capabilities.**\r\n\r\n**Note: If you experience crashes, try changing another Graphics driver that suits your device.*\r\n",
+          "prerelease": false,
           "assets": [
             {
               "name": "Winlator_8.5.5.apk",
@@ -2226,6 +2418,8 @@
           "tag": "v8.4.5",
           "date": "2024-11-16T01:45:23Z",
           "downloads": 14276,
+          "body": "![logo](https://github.com/user-attachments/assets/bd81f1a1-2391-4c39-abbd-a42b1f5ef65f)\r\n\r\n\r\n\r\n<p align=\"left\">\r\n<img src=\"https://img.shields.io/badge/Winlator%208.4.5-white?style=plastic&logo=snapdragon&logoColor=C00000\" width=\"140\" />\r\n</p>\r\n\r\n# (Early Access)\r\n\r\n- Updated Wine **(Wine Is Not an Emulator)**\r\n- Updated Box64 (0.3.1 release)\r\n- Updated DXVK (2.5 release)\r\n- Updated Mesa Turnip (24.3.0)\r\n- Updated Screen Size Aspect Ratio\r\n- Updated Default Screen Resolution\r\n- Updated Max Device Memory\r\n- Updated FrameRate (FPS variable)\r\n- Updated Box64 Preset Desc.\r\n- Updated Environment Variables `DXVK_HUD=opacity`\r\n- Other bug fixes and improvements (A6xx)\r\n\r\n### ⚠️ NOTE !!:\r\n**Results can vary based on the device used, environmental conditions, and other factors, such as simultaneous processing, and different processor capabilities.**\r\n\r\n**Note: If you experience crashes, try changing another Graphics driver that suits your device.*\r\n",
+          "prerelease": false,
           "assets": [
             {
               "name": "Winlator_8.4.5.WB64.apk",
@@ -2243,13 +2437,15 @@
       "name": "Winlator JurisX",
       "repo": "JURIS-X/winlator_x",
       "category": "Winlator",
-      "downloads": 54489,
+      "downloads": 54491,
       "releases": [
         {
           "name": "winlator_x",
           "tag": "v3.0.1-beta",
           "date": "2025-04-22T14:19:23Z",
           "downloads": 19145,
+          "body": "Added a new driver to the bionic container.\r\n8E-800.30\r\n8E-800.33\r\nVOLTEK\r\nv25.2.0_a710_a720_test (compiled by K11MCH1)\r\nFix some bugs",
+          "prerelease": true,
           "assets": [
             {
               "name": "app-debug.apk",
@@ -2265,6 +2461,8 @@
           "tag": "v3.0.0-beta",
           "date": "2025-04-21T07:26:02Z",
           "downloads": 4791,
+          "body": "Support : Adreno 6xx 7xx 8xx\r\nAll resources added dxvk wine box64 turnip\r\nAdd drivers for Adreno 6xx 7xx 8xx\r\nAdd patch to improve performance \r\nAdd and remove environment variables \r\nChange mangohud config\r\nFix all nba2k low fps bug (no need .bat files to bypass)",
+          "prerelease": true,
           "assets": [
             {
               "name": "app-debug.apk",
@@ -2279,12 +2477,14 @@
           "name": "winlator_x_v2.5_hotfix",
           "tag": "v2.5_hotfix",
           "date": "2025-05-11T13:33:06Z",
-          "downloads": 12363,
+          "downloads": 12364,
+          "body": "Optimized some games (example games)\r\n1. Resident evil (games)\r\n2. Nba2k (games)\r\n3. The witcher (games)\r\n4. GTA (games)\r\n5. Dragonball sparking zero\r\n7. Devil may cry (games)\r\n8. Sifu\r\nAnd more !!!\r\n\r\nAdded all resources of dxvk turnip box64\r\nAdded Ultrawide resolution (full screen)\r\nAdded GH resources \r\n\r\nFix low fps bug of nba2k14 nba2k13\r\nFix slowmo of Dragonball sparking zero",
+          "prerelease": true,
           "assets": [
             {
               "name": "app-debug.apk",
               "size": 535796887,
-              "downloads": 12363,
+              "downloads": 12364,
               "url": "https://github.com/JURIS-X/winlator_x/releases/download/v2.5_hotfix/app-debug.apk"
             }
           ],
@@ -2295,6 +2495,8 @@
           "tag": "v3_performance_mode",
           "date": "2025-05-25T06:27:10Z",
           "downloads": 9224,
+          "body": "",
+          "prerelease": true,
           "assets": [
             {
               "name": "app-debug.apk",
@@ -2309,12 +2511,14 @@
           "name": "performance_mode",
           "tag": "fixed",
           "date": "2025-05-26T11:10:39Z",
-          "downloads": 8966,
+          "downloads": 8967,
+          "body": "Fixed minor bug.",
+          "prerelease": true,
           "assets": [
             {
               "name": "app-debug.apk",
               "size": 446141447,
-              "downloads": 7509,
+              "downloads": 7510,
               "url": "https://github.com/JURIS-X/winlator_x/releases/download/fixed/app-debug.apk"
             },
             {
@@ -2345,24 +2549,26 @@
       "name": "GameHub Brasil",
       "repo": "winlatorbrasil/gamehub-brasil",
       "category": "GameHub",
-      "downloads": 26434,
+      "downloads": 26442,
       "releases": [
         {
           "name": "GameHub Brasil v2.0",
           "tag": "GameHub_Brasil-v2.0",
           "date": "2026-01-19T14:13:26Z",
-          "downloads": 25097,
+          "downloads": 25105,
+          "body": "# 🎮 GameHub Brasil v2.0 🇧🇷\r\n\r\n<p align=\"center\"> <img src=\"https://github.com/user-attachments/assets/b49d514c-1bdb-467e-873d-a1ea425b7d51\" alt=\"GameHub Brasil\" width=\"600\"/> </p>\r\n\r\n<p align=\"center\"> <img src=\"https://img.shields.io/github/downloads/winlatorbrasil/gamehub-brasil/GameHub_Brasil-v2.0/total?style=flat-square&logo=github&label=Downloads_v2.0&color=blue\" alt=\"Downloads v2.0\"/> </p>\r\n\r\n## 🌟 Destaques desta Versão\r\n\r\nO GameHub Brasil v2.0 chega para revolucionar como você gerencia seus jogos e drivers. Focamos totalmente na flexibilidade e compatibilidade, permitindo que você importe seus próprios arquivos, gerencie perfis de controle com facilidade e leve a experiência de jogos para dispositivos de qualquer gama de desempenho.\r\n\r\n---\r\n🚀 Novidades e Recursos Implementados\r\n---\r\n\r\n## 📥AdrenoHub Drivers (Adrenotools).\r\n\r\n✅ Integração Adrenotools: Sistema robusto para gerenciamento de drivers Vulkan.\r\n📂 Importação Flexível: Suporte para importação de drivers Turnip no formato .zip.\r\n💾 Fontes Variadas: Carregue drivers de fontes externas ou diretamente do armazenamento local do seu dispositivo.\r\n\r\n## 📂 Contents Hub\r\n\r\nCentralize seus conteúdos de forma prática e rápida.\r\n\r\n🎮 Formato .wcp: Importação completa de Contents no formato proprietário.\r\n🔄 Compatibilidade Híbrida: Suporte a arquivos externos e locais.\r\n⚠️ Nota Técnica: O importador de conteúdo está funcional, porém, a importação do **Wine** ainda enfrenta limitações devido a diferenças de arquitetura, estando em aperfeiçoamento.\r\n\r\n## 🕹️ Personalização de Controle\r\n\r\nJogue do seu jeito, sem precisar configurar tudo do zero.\r\n\r\n📥 Importação de Perfis: Adicione perfis de controle personalizados para jogos específicos.\r\n🌐 Fontes Externas: Compatibilidade com perfis baixados da comunidade.\r\n🎯 Praticidade: Aplicação rápida para agilizar o setup dos seus jogos favoritos.\r\n\r\n## 💾 Suporte a Armazenamento Externo (OTG)\r\n\r\nMais espaço e liberdade para sua biblioteca de jogos.\r\n\r\n🔌 Reconhecimento OTG: O app agora detecta e gerencia perfeitamente pen drives e HDs externos conectados via OTG.\r\n📂 Jogar Externo: Instale e rode seus jogos diretamente do armazenamento removível.\r\n\r\n##  ⚡ LowSpecsExperienceV13\r\n\r\nLeve jogos pesados para hardwares mais modestos.\r\n\r\n📉 Otimização Gráfica: Programa dedicado a reduzir e otimizar jogos.\r\n🎮 Foco em Jogabilidade: Prioriza FPS e estabilidade em detrimento de efeitos pesados.\r\n📱 Inclusão Total: Já incluído nativamente nesta versão em Componentes.\r\n\r\n## ✅ Wrappers e Vortek\r\n\r\nA ponte entre o sistema Android e seus jogos.\r\n\r\n🛠️ Gerenciamento Avançado: Inclusão do sistema de Wrappers e Vortek, similar ao encontrado no Winlator.\r\n🔁 Seleção de Drivers: Permite escolher a camada de compatibilidade ideal para cada título.\r\n\r\n## 🔧 Melhorias Técnicas\r\n\r\nEsta versão focou na arquitetura interna do aplicativo para suportar as novas funções de importação:\r\n\r\n🔨 Refatoração do Gerenciador de Arquivos: Melhorias na leitura de caminhos locais e externos.\r\n🛡️ Estabilidade em Importações: Tratamento de erros aprimorado ao ler arquivos .zip e .wcp\r\n\r\n## 📥 Informações de Download\r\n\r\nNome do Arquivo: GameHub-Brasil-v2.0.apk\r\n\r\nRequisitos Mínimos:\r\n\r\n    Android 8.0 (Oreo) ou superior\r\n    4GB de RAM (Recomendado 6GB+ para uso do LowSpecsExperience)\r\n    3GB de espaço livre (Para instalação e drivers)\r\n    GPU com suporte a Vulkan 1.1+\r\n    Dispositivo com suporte a OTG (Opcional, para armazenamento externo)\r\n\r\n## 🙏 Agradecimentos\r\n\r\nEssa versão é um grande passo em direção à personalização. Agradecemos a todos os testadores que validaram as novas funções e algumas que foram importadas do Winlator Ludashi [StevenMXZ](https://github.com/StevenMXZ/Winlator-Ludashi)\r\n\r\nE para você ficar por dentro do houve no app, segue o vídeo do nosso parceiro [BrunoAndroid](https://www.youtube.com/@BrunoAndroid) explicando sobre o funcionamento do app:\r\n\r\n<p align=\"center\">\r\n  <a href=\"https://youtu.be/Uars8bqcQIM?si=8Bqz8sxRTfr69SlG\" target=\"_blank\">\r\n    <img src=\"https://img.youtube.com/vi/Uars8bqcQIM/maxresdefault.jpg\" \r\n         alt=\"GameHub Brasil v2.0 - Vídeo de Apresentação\" \r\n         width=\"700\"/>\r\n  </a>\r\n</p>\r\n\r\n## 📞 Suporte e Feedback\r\n\r\nEncontrou algum bug na importação de drivers ou no Contents Hub?\r\n\r\n🐛 Reporte problemas na aba [Issues](../../issues)\r\n💡 Compartilhe seus perfis de controle e wrappers na comunidade\r\n💡 Compartilhe ideias em [YouTube](https://www.youtube.com/@winlatorbrasil)\r\n⭐ Se gostou da atualização, deixe uma estrela no repositório!\r\n\r\n---\r\n\r\n## 📥 Sobre os pacotes que você deve baixar\r\n\r\n| Posição (prioridade) | Nome / Categoria                                | Package name                         | Motivo de uso (performance / detecção)                                                                 |\r\n|---------------------|--------------------------------------------------|--------------------------------------|----------------------------------------------------------------------------------------------------------|\r\n| 1 | Futuremark | com.futuremark.dmandroid.application | Benchmark GPU moderno (Wild Life / Solar Bay), referência para modo gamer em vários aparelhos atuais, excelente para GPUs Mali/Adreno. |\r\n| 2 | GFXBench | com.gfxbench.glbenchmark | Benchmark gráfico com cenários antigos e atuais (T-Rex, Manhattan, etc.), excelente para GPUs Mali/Adreno. |\r\n| 3 | AnTuTu | com.antutu.ABenchMark | Benchmark geral muito popular (CPU + GPU + RAM + UX), frequentemente usado para liberar modo turbo em ROMs chinesas. |\r\n| 4 | Ludashi | com.ludashi.benchmark | Benchmark chinês focado em score geral e otimização, conhecido por acionar perfis especiais em alguns devices e ROMs custom. |\r\n| 5 | Redmagic | com.riotgames.league.wildrift | Usado por fabricantes para ativar modos de alta performance e alta taxa de quadros. |\r\n| 6 | MiHoYo | com.mihoyo.yuanshen | Usado como “teste real” de SoC e gatilho de perfil gamer. |\r\n| 7 | PUBG | com.tencent.ig | Tradicionalmente incluído em listas de otimização para reduzir lag e melhorar estabilidade de FPS. |\r\n| 8 | GameHub Brasil | com.gamehub.brasil | App genérico/launcher para cenário “normal”, útil para manter um perfil padrão sem overclock ou boost ativado. |\r\n\r\n---\r\n\r\n<div align=\"center\">\r\n\r\n**Desenvolvido com ❤️ para a comunidade gaming brasileira**\r\n\r\n*Jogue mais, jogue melhor!*\r\n\r\n**V2.0: Mais liberdade, mais jogos!**\r\n\r\n</div>",
+          "prerelease": false,
           "assets": [
             {
               "name": "GameHub-Brasil-v2.0-AnTuTu.apk",
               "size": 122316297,
-              "downloads": 9297,
+              "downloads": 9303,
               "url": "https://github.com/winlatorbrasil/gamehub-brasil/releases/download/GameHub_Brasil-v2.0/GameHub-Brasil-v2.0-AnTuTu.apk"
             },
             {
               "name": "GameHub-Brasil-v2.0-FutureMark.apk",
               "size": 122316297,
-              "downloads": 2458,
+              "downloads": 2459,
               "url": "https://github.com/winlatorbrasil/gamehub-brasil/releases/download/GameHub_Brasil-v2.0/GameHub-Brasil-v2.0-FutureMark.apk"
             },
             {
@@ -2386,7 +2592,7 @@
             {
               "name": "GameHub-Brasil-v2.0-Normal.apk",
               "size": 122316297,
-              "downloads": 6959,
+              "downloads": 6960,
               "url": "https://github.com/winlatorbrasil/gamehub-brasil/releases/download/GameHub_Brasil-v2.0/GameHub-Brasil-v2.0-Normal.apk"
             },
             {
@@ -2409,6 +2615,8 @@
           "tag": "GameHub_Brasil-v1.0",
           "date": "2025-10-27T01:34:28Z",
           "downloads": 1337,
+          "body": "# 🎮 GameHub Brasil v1.0 🇧🇷\r\n\r\n<p align=\"center\">\r\n  <img src=\"https://github.com/user-attachments/assets/b49d514c-1bdb-467e-873d-a1ea425b7d51\" alt=\"GameHub Brasil\" width=\"600\"/>\r\n</p>\r\n\r\n<p align=\"center\"> <img src=\"https://img.shields.io/github/downloads/winlatorbrasil/gamehub-brasil/GameHub_Brasil-v1.0/total?style=flat-square&logo=github&label=Downloads_v1.0&color=green\" alt=\"Downloads v1.0\"/> </p>\r\n\r\n---\r\n## 🌟 Destaques desta Versão\r\n\r\nEsta versão representa um marco significativo em otimização e estabilidade, trazendo melhorias substanciais de performance para todos os chipsets suportados, além de uma experiência visual completamente renovada e novos componentes de emulação de última geração.\r\n\r\n---\r\n\r\n## 📦 Novos Componentes e Drivers\r\n\r\n### **Box64** - Camada de Tradução x86_64\r\nAtualizações importantes para melhor compatibilidade e performance:\r\n- ✨ **Box64 0.3.8** - Versão estável com correções críticas\r\n- 🚀 **Box64 0.3.9-d730610** - Build de desenvolvimento com otimizações avançadas\r\n- ⚡ **WowBox64 0.3.9-d730610** - Variante otimizada para gaming\r\n\r\n### **DXVK** - Camada de Tradução DirectX para Vulkan\r\nNova série com GPLAsync e Link-Lazy para máxima performance:\r\n- 🎯 **DXVK-GPLAsync-LL 2.6.3-1** - Base estável com async pipeline\r\n- 🔧 **DXVK-GPLAsync-LL 2.6.4-1** - Correções e melhorias incrementais\r\n- 💎 **DXVK-GPLAsync-LL 2.7.1-1** - Versão mais recente com otimizações de shader\r\n\r\n### **FEX-Emu** - Emulador x86/x86_64\r\n- 🆕 **FEXCore-2510** - Última geração do núcleo de emulação com melhorias significativas de velocidade\r\n\r\n### **Turnip** - Driver Vulkan Mesa para Adreno\r\nSuporte completo ao Mesa 26.0.0:\r\n- 🔥 **Turnip v26.0.0 R1 Autotuner** - Ajuste automático de performance baseado em GPU\r\n- ⚙️ **Turnip v26.0.0 R1** - Versão padrão otimizada\r\n\r\n---\r\n\r\n## ⚡ Otimizações de Performance por Chipset\r\n\r\nEsta versão inclui ajustes específicos para extrair o máximo desempenho de cada arquitetura:\r\n\r\n### 🔥 **Snapdragon (Qualcomm)**\r\n- Otimizações para GPUs Adreno\r\n- Perfis customizados para séries 6xx, 7xx e 8xx\r\n- Melhor aproveitamento de cache L2/L3\r\n\r\n### 🚀 **Dimensity / Helio (MediaTek)**\r\n- Ajustes para arquitetura ARM Mali\r\n- Balanceamento de carga entre clusters CPU\r\n- Otimização de thermal throttling\r\n\r\n### 💫 **Exynos (Samsung)**\r\n- Perfis específicos para Mali e Xclipse\r\n- Gerenciamento inteligente de frequências\r\n- Compatibilidade aprimorada com drivers\r\n\r\n---\r\n\r\n## 🎨 Renovação Visual Completa\r\n\r\n### **Interface Modernizada**\r\n- 🖼️ **Novo Wallpaper Principal** - Design moderno e imersivo\r\n- 🎬 **Intro Redesenhada** - Animação de inicialização atualizada\r\n- 🎨 **Paleta de Cores Renovada** - Esquema cromático mais harmônico e profissional\r\n- 🌈 **Wallpapers Adicionais** - Nova coleção de papéis de parede temáticos\r\n\r\n### **Seção \"Sobre\" Aprimorada**\r\n- 📝 HTML customizado em \"Informações Pessoais\"\r\n- 💼 Layout mais profissional e organizado\r\n- ℹ️ Informações atualizadas e detalhadas\r\n\r\n---\r\n\r\n## 🌐 Novos Recursos\r\n\r\n### **Feed de Notícias & Jogos Grátis**\r\n- 📰 Fique atualizado com as últimas notícias do mundo dos games\r\n- 🎁 Descubra jogos gratuitos disponíveis\r\n- 🔔 Sistema de notificações para novos conteúdos\r\n\r\n### **Tradução PT-BR Automática**\r\n- 🇧🇷 Interface completamente em Português do Brasil\r\n- 🔤 Tradução inteligente de conteúdos dinâmicos\r\n\r\n---\r\n\r\n## 🔧 Melhorias Técnicas e Correções\r\n\r\n### **Otimização de Conectividade**\r\n- ❌ **Removida integração direta com GitHub**\r\n  - Solução definitiva para erro \"429: Too Many Requests\"\r\n  - Eliminação de problemas de carregamento do menu\r\n\r\n### **Estabilidade Geral**\r\n- 🛡️ Correções de bugs críticos\r\n- ⚙️ Gerenciamento de recursos otimizado\r\n\r\n---\r\n\r\n## 📥 Informações de Download\r\n\r\n**Nome do Arquivo:** `GameHub-Brasil-v1.0.apk`\r\n\r\n**Requisitos Mínimos:**\r\n- Android 8.0 (Oreo) ou superior\r\n- 2GB de RAM (4GB recomendado)\r\n- 500MB de espaço livre\r\n- GPU com suporte a Vulkan 1.1+\r\n\r\n---\r\n\r\n## 🙏 Agradecimentos\r\n\r\nAgradecemos a toda comunidade GameHub Brasil pelo feedback contínuo e suporte. Esta versão é resultado direto das sugestões e relatórios de vocês!\r\n\r\nE ao GameHub Lite 🤜🤛.\r\n\r\n---\r\n\r\n## 📞 Suporte e Feedback\r\n\r\nEncontrou algum problema ou tem sugestões? \r\n- 🐛 Reporte bugs na aba [Issues](../../issues)\r\n- 💡 Compartilhe ideias em [YouTube](https://www.youtube.com/@winlatorbrasil)\r\n- ⭐ Se gostou, deixe uma estrela no repositório!\r\n\r\n---\r\n\r\n<div align=\"center\">\r\n\r\n**Desenvolvido com ❤️ para a comunidade gaming brasileira**\r\n\r\n*Jogue mais, jogue melhor!*\r\n\r\n</div>",
+          "prerelease": false,
           "assets": [
             {
               "name": "GameHub-Brasil-v1.0.apk",
@@ -2426,18 +2634,20 @@
       "name": "Star (fork)",
       "repo": "jacojayy/star",
       "category": "Winlator",
-      "downloads": 24942,
+      "downloads": 24944,
       "releases": [
         {
           "name": "star 11-2 | Stable Release",
           "tag": "star.11-2",
           "date": "2026-01-09T04:20:27Z",
-          "downloads": 14259,
+          "downloads": 14260,
+          "body": "<img src=\"https://raw.githubusercontent.com/jacojayy/star/refs/heads/main/logo.png\" width=\"1500\" height=\"500\" alt=\"star\" />  \r\n</p>\r\n\r\n**Small update of star emulator v11 are now released! Check them out what we have changed in this release!**\r\n\r\n# Changelog\r\n- Added USB storage permission like winlator bionic\r\n- Fixed and restored the online components in the start menu\r\n- Improved the default environment variables\r\n- Added several new environment variables for experimental in the glibc, ported from winlator bionic\r\n- Small fixes",
+          "prerelease": false,
           "assets": [
             {
               "name": "star-11.apk",
               "size": 202693836,
-              "downloads": 14259,
+              "downloads": 14260,
               "url": "https://github.com/jacojayy/star/releases/download/star.11-2/star-11.apk"
             }
           ],
@@ -2447,12 +2657,14 @@
           "name": "star 11-1 | Stable Release",
           "tag": "star.11-1",
           "date": "2025-12-23T11:27:12Z",
-          "downloads": 10683,
+          "downloads": 10684,
+          "body": "<img src=\"https://raw.githubusercontent.com/jacojayy/star/refs/heads/main/logo.png\" width=\"1500\" height=\"500\" alt=\"star\" />  \r\n</p>\r\n\r\n**After a long time, star 11-1 is released! We dropped some huge updates! Check them out below!**\r\n\r\n# Changelog\r\n- Ported all of the features from 10.1 v3 afei:\r\n  - Contents Tab (dxvk,box64 etc.)\r\n  - Hostei Settings, aka star Settings (terminal, backup, rootfs manager etc.)\r\n  - Foreground notification services\r\n- Added many features in the XServer menu (inside the container) (move cursor to touchpoint, toggle orientation and pause/resume)\r\n- Added DXVK d3d9 boost game fps for mali devices in the start menu (thanks to Isygold)\r\n- Added new options for TU_DEBUG env (forcecb and nocb) from Winlator Bionic\r\n- Some improvements have been made in the environment variables settings\r\n- Recompiled default box64 and replaced it with a self compiled one.\r\n- Modified the default wallpapers to match star \r\n- Updated FPS counter to match star\r\n-----------\r\nSome contents, as DXVK, wont install properly because they arent put in the repository. We will fix it soon.",
+          "prerelease": false,
           "assets": [
             {
               "name": "star-11.apk",
               "size": 202697930,
-              "downloads": 10683,
+              "downloads": 10684,
               "url": "https://github.com/jacojayy/star/releases/download/star.11-1/star-11.apk"
             }
           ],
@@ -2472,6 +2684,8 @@
           "tag": "Winlator_Brasil_10.1",
           "date": "2025-05-24T01:26:43Z",
           "downloads": 14274,
+          "body": "### 🆕 Winlator_Brasil_10.1, Winlator_Brasil_10.1_AI e Winlator Brasil CLT – Novas Versões\r\n\r\nEsta atualização traz duas versões, **Winlator Brasil 10.1**, **Winlator_Brasil_10.1_AI** e **Winlator Brasil CLT**. \r\n\r\n**Permitindo instalar as 3 versões ao mesmo tempo, no seu celular**.\r\n\r\n![Screenshot_2025-05-28-13-46-30-893_com miui home](https://github.com/user-attachments/assets/11ae82c8-c174-425a-909d-0aa1b31db7f5)\r\n\r\n\r\n---\r\n\r\nO **Winlator Brasil 10.1** traz diversas melhorias e recursos adicionais para aprimorar sua experiência com jogos no Android. \r\n\r\nO **Winlator_Brasil_10.1_AI** traz diversas melhorias e um desempenho melhor de gameplay e áudio.\r\n\r\nO **Winlator Brasil CLT** é focado apenas em programas de trabalho do dia a dia.\r\n\r\n--- \r\n\r\nConfira abaixo todas as novidades e instruções detalhadas.\r\n\r\n---\r\n\r\n- **NOTA:** Para utilizar o **Winlator Brasil 10.1**, você precisa desinstalar a versão original do Winlator ou Winlator Bionic ou qualquer Winlator associado ao nome do Winlator, se você já o possuía para poder instalar este mod. Ou, caso contrário, você não pode instalar este mod porque este mod é usado glibc e glibc não são suportados o nome personalizado para clonar o apk como benchmark ou qualquer outro nome.\r\n\r\n---\r\n\r\n### ✅ Novidades da Versão **Winlator Brasil 10.1**\r\n\r\n- **📦 Pacote AIO Visual C++**. Instalação automática de todas as versões do Visual C++ Redistributable.\r\n- **🌐 Novo Navegador Web**: Inclusão de um navegador leve para facilitar downloads e navegação.\r\n- **🗜️ WinRAR**. Ferramenta de compactação/descompactação adicionada.\r\n- **🎮 Perfis de Controles de Jogos**: Agora com 92 perfis disponíveis para download automático.\r\n\r\nVeja como baixar os perfis de controle automaticamente:\r\n\r\n![Download de Perfis](https://github.com/winlatorbrasil/Winlator-Brasil/blob/main/android_alsa/controle.gif )\r\n\r\n- **📦 Instalação Offline do Wine Gecko e Mono**: Facilita a execução de aplicativos .NET e páginas com conteúdo HTML.\r\n- **⚙️ Novas Flags do Box64**: 14 flags adicionadas para otimização e compatibilidade.\r\n- **🌐 Novas Variáveis de Ambiente**: 17 variáveis configuráveis para ajuste fino de desempenho.\r\n- **🇧🇷 Tradução 90% em Português (Brasil)**: Interface mais amigável para usuários brasileiros.\r\n- **🍷 Suporte ao Wine 9.15 e 9.16 (ESTÃO EM BETA AINDA)**: Adição de menu para instalação dessas versões (Wine 10 não suportado).\r\n\r\n`PODE ALTERNAR ENTRE AS VERSÕES DA WINE EM UM MESMO CONTAINER, SEM PRECISAR CRIAR UM NOVO CONTAINER, ISSO ESTÁ EM BETA TAMBÉM, ERROS PODEM ACONTECER.`\r\n\r\nAprenda a instalar as versões 9.15 e 9.16 do Wine:\r\n\r\n![Instalação do Wine](https://github.com/winlatorbrasil/Winlator-Brasil/blob/main/android_alsa/winebug.gif )\r\n\r\n- **🧠 Aumento da Memória Virtual**: Agora é possível configurar até 16384MB.\r\n- **🎨 Novos Ícones nos Controles**: Facilita a edição e personalização dos controles.\r\n- **⚡ Aumento do Limite de Taxa de Quadros**: Suporte para até 240 FPS.\r\n\r\n---\r\n\r\n### ✅ Novidades da Versão **Winlator_Brasil_10.1_AI**\r\n\r\n- **⚠️ ATENÇÃO AOS DRIVERS**. Ele reconhece até:\r\n \r\n**Turnip:** 24.3.0\r\n**DXVK:** 2.5.3.0\r\n**BOX:** 0.3.3\r\n\r\n- **⚠️ Feito com base no Fork do foxrain versão usada foi a Winlator-9.0-Amod3_LuAi.apk**.\r\n- **📦 Pacote AIO Visual C++**. Instalação automática de todas as versões do Visual C++ Redistributable.\r\n- **🌐 Novo Navegador Web**: Inclusão de um navegador leve para facilitar downloads e navegação.\r\n- **🎮 Perfis de Controles de Jogos**: Agora com 92 perfis disponíveis para download automático.\r\n\r\nVeja como baixar os perfis de controle automaticamente:\r\n\r\n![Download de Perfis](https://github.com/winlatorbrasil/Winlator-Brasil/blob/main/android_alsa/controle.gif )\r\n\r\n- **🗜️ WinRAR**. Ferramenta de compactação/descompactação adicionada.\r\n- **🇧🇷 Tradução 90% em Português (Brasil)**: Interface mais amigável para usuários brasileiros.\r\n- **📦 Instalação Offline do Wine Gecko e Mono**: Facilita a execução de aplicativos .NET e páginas com conteúdo HTML.\r\n- **⚡ Aumento do Limite de Taxa de Quadros**: Suporte para até 240 FPS.\r\n- **🧠 Aumento da Memória Virtual**: Agora é possível configurar até 16384MB.\r\n\r\n---\r\n\r\n### ✅ Novidades da Versão **Winlator Brasil CLT**\r\n\r\n- **⚠️ Feito com base no Fork do WB64DEV versão usada foi a Winlator-9.1.1.apk**.\r\n- **📦 Pacote AIO Visual C++**. Instalação automática de todas as versões do Visual C++ Redistributable.\r\n- **🌐 Novo Navegador Web**: Inclusão de um navegador leve para facilitar downloads e navegação.\r\n- **🗜️ WinRAR**. Ferramenta de compactação/descompactação adicionada.\r\n- **🇧🇷 Tradução 90% em Português (Brasil)**: Interface mais amigável para usuários brasileiros.\r\n- **📦 Instalação Offline do Wine Gecko e Mono**: Facilita a execução de aplicativos .NET e páginas com conteúdo HTML.\r\n- **💻 Instalação LibreOffice**. Instalação do pacote Office Open Source, para edição de arquivos Excel, Word e PowerPoint.\r\n- **🖌️ Instalação Blender**: Instalação do Blender para modelagens 3D.\r\n- **⚡ Aumento do Limite de Taxa de Quadros**: Suporte para até 240 FPS.\r\n- **🧠 Aumento da Memória Virtual**: Agora é possível configurar até 16384MB.\r\n\r\n### ⚙️ Explicações Técnicas \r\n\r\n#### 🔧 Flags do Box64 \r\n\r\nAs flags do Box64 permitem ajustar o comportamento do emulador para melhor compatibilidade e desempenho:\r\n\r\n- `BOX64_DYNAREC_SAFEFLAGS`: Ativa flags seguras no recompilador dinâmico para evitar instruções potencialmente problemáticas.\r\n- `BOX64_DYNAREC_FASTNAN`: Otimiza operações com valores NaN (Not a Number) para maior velocidade.\r\n- `BOX64_DYNAREC_FASTROUND`: Utiliza arredondamento rápido em operações de ponto flutuante.\r\n- `BOX64_DYNAREC_X87DOUBLE`: Garante precisão dupla nas operações com o coprocessador x87.\r\n- `BOX64_DYNAREC_BIGBLOCK`: Permite blocos maiores de código no recompilador dinâmico, melhorando o desempenho.\r\n- `BOX64_DYNAREC_STRONGMEM`: Implementa verificações de memória mais rigorosas para evitar acessos inválidos.\r\n- `BOX64_DYNAREC_FORWARD`: Habilita a execução antecipada de instruções para otimização.\r\n- `BOX64_DYNAREC_CALLRET`: Otimiza chamadas e retornos de funções.\r\n- `BOX64_DYNAREC_WAIT`: Garante sincronização adequada em instruções de espera.\r\n- `BOX64_AVX`: Ativa suporte às instruções AVX para aplicações que as utilizam.\r\n- `BOX64_DYNAREC_NATIVEFLAGS`: Utiliza flags nativas do sistema host para melhor desempenho.\r\n- `BOX64_DYNAREC_WEAKBARRIER`: Reduz barreiras de memória para melhorar a velocidade, com possível impacto na precisão.\r\n- `BOX64_MAXCPU`: Define o número máximo de CPUs virtuais disponíveis para o emulador.\r\n- `BOX64_UNITYPLAYER`: Otimiza a execução de jogos desenvolvidos com o Unity Player.\r\n\r\n#### 🌐 Variáveis de Ambiente \r\n\r\nAs variáveis de ambiente permitem configurar aspectos específicos do sistema e do emulador:\r\n\r\n- `LC_ALL`: Define a localidade padrão do sistema, afetando formatação de datas, números, etc.\r\n- `ZINK_DESCRIPTORS`: Controla o número de descritores usados pelo driver Zink.\r\n- `ZINK_DEBUG`: Ativa mensagens de depuração para o driver Zink.\r\n- `MESA_SHADER_CACHE_DISABLE`: Desativa o cache de shaders no Mesa.\r\n- `MESA_SHADER_CACHE_MAX_SIZE`: Define o tamanho máximo do cache de shaders.\r\n- `MESA_GLTHREAD`: Ativa o threading no OpenGL para melhorar o desempenho.\r\n- `WINEESYNC`: Habilita o esync no Wine para melhor gerenciamento de threads.\r\n- `TU_DEBUG`: Ativa mensagens de depuração para o driver Turnip.\r\n- `MESA_VK_WSI_DEBUG`: Ativa depuração para a interface de sistema de janelas no Vulkan.\r\n- `MESA_GL_VERSION_OVERRIDE`: Força uma versão específica do OpenGL.\r\n- `DXVK_HUD`: Exibe informações de desempenho na tela durante a execução.\r\n- `GALLIUM_HUD`: Similar ao DXVK_HUD, mas para drivers Gallium.\r\n- `PULSE_LATENCY_MSEC`: Define a latência do PulseAudio em milissegundos.\r\n- `MESA_EXTENSION_MAX_YEAR`: Restringe as extensões do Mesa a um ano específico.\r\n- `IR3_SHADER_DEBUG`: Ativa depuração para shaders no driver Freedreno.\r\n- `WINE_DO_NOT_CREATE_DXGI_DEVICE_MANAGER`: Impede a criação do gerenciador de dispositivos DXGI no Wine.\r\n- `MANGOHUD`: Ativa a sobreposição do MangoHud para monitoramento de desempenho.\r\n\r\n---\r\n\r\n### 📥 Instruções de Instalação\r\n\r\n1. Instale o APK do **Winlator Brasil 10.1** normalmente no seu dispositivo Android.\r\n2. Execute o aplicativo e aguarde a criação das pastas iniciais.\r\n3. Acesse o menu de gerenciamento de pacotes para alternar ou baixar novas versões do Box64, Turnip ou DXVK.\r\n4. Aplique os templates de controle nas configurações de mapeamento conforme o jogo desejado.\r\n\r\n---\r\n\r\n### 🛠️ Possíveis Bugs e Melhorias\r\n\r\n⚠️ **Instabilidade com Wine 10**: Atualmente, o Wine 10 não é suportado devido a incompatibilidades conhecidas.  \r\n📉 **Limitações de Desempenho**: Alguns dispositivos podem não atingir os 240 FPS devido a restrições de hardware.  \r\n🌐 **Tradução Incompleta**: Apesar de 90% da interface estar traduzida para o português, algumas partes ainda podem aparecer em inglês.\r\n\r\n`Obrigado: [afeimod](https://github.com/afeimod/) pelo seu belo trabalho em relação ao menu de drivers.`",
+          "prerelease": false,
           "assets": [
             {
               "name": "wine-9.15-custom.whp",
@@ -2511,6 +2725,8 @@
           "tag": "Winlator_Brasil_10.0",
           "date": "2025-05-08T01:16:05Z",
           "downloads": 3063,
+          "body": "Esta versão do **Winlator Brasil 10.0** (fork baseado no projeto de Bruno Dev) inclui uma ampla variedade de versões do **Box64**, **Turnip**, **DXVK** e dezenas de templates de controle otimizados para jogos populares.\r\n\r\n---\r\n\r\n**NOTA:** Você precisa desinstalar a versão original do Winlator ou Winlator Bionic ou qualquer Winlator associado ao nome do Winlator, se você já o possuía para poder instalar este mod. Ou, caso contrário, você não pode instalar este mod porque este mod é usado glibc e glibc não são suportados o nome personalizado para clonar o apk como benchmark ou qualquer outro nome.\r\n\r\n---\r\n\r\n## ✅ Componentes pré-instalados\r\n\r\n**Box64**:  \r\n0.3.0, 0.3.2, 0.3.3, 0.3.4, 0.3.5  \r\n\r\n**Turnip**:  \r\n24.1.0, 25.0.0  \r\n\r\n**DXVK**:  \r\n0.96, 1.7.2, 1.10.3, 2.4.1  \r\n\r\n---\r\n\r\n## 📥 Componentes adicionais disponíveis para instalação\r\n\r\n**Box64**:  \r\n0.2.7, 0.2.8, 0.2.9, 0.3.1, 0.3.5.1, 0.3.5.2, 0.3.5.3, 0.3.5.5  \r\n\r\n**Turnip**:  \r\n23.1.0, 23.1.6, 23.3.0, 24.0.9, 24.3.0.10, 24.3.0.5,  \r\n25.0.0.1, 25.0.0.2, 25.0.0.3, 25.0.0.4, 25.0.0.5,  \r\n25.1.0.2, 25.2.0.1  \r\n\r\n**DXVK**:  \r\n0.40.1, 0.7, 0.97, 1.4.2, 1.5.5, 1.7.1, 1.10.3.0,  \r\n1.10.6.0, 1.10.8.0, 1.13.3, 2.2, 2.2.116, 2.3.1, 2.3.1.54,  \r\n2.4, 2.4.24, 2.4.1, 2.4.1.1, 2.4.1.123, 2.4.1.293,  \r\n2.5.1.2, 2.5.2, 2.5.3.0, 2.6, 2.6.1.1, 2.6.2,  \r\n78.11, 78.9, 78to11, 78to9  \r\n\r\n---\r\n\r\n## 🎮 Templates de controle incluídos\r\n\r\nRTS, Template (12 buttons), Hitman 2, Virtual Gamepad, Fallout 3, Far Cry 4,  \r\nRisen 2, Skyrim, Deus Ex: Human Revolution, Final Fantasy Type-0, Psychonauts,  \r\nSpider-Man: Shattered Dimensions, The Alliance Alive, Mass Effect 2, Alpha Protocol,  \r\nDark Souls 2, Sonic Generations, Sonic Mania, The Forest, The Saboteur, Ys Origin,  \r\nUltima Underworld, Bioshock, Driver Parallel Lines, Divinity 2 DC, FlatOut 2,  \r\nRayman 3, Turok 2, Front Mission Evolved, Gravity Circuit, Metro 2033, NFSMW,  \r\nMarvel Ultimate Alliance, Quake 4, Turok Evolution, Unepic, Untitled Goose Game,  \r\nInfernal, Slime Rancher, SteamWorld Dig 2, IGI 2, RAGE, Oblivion, Drakensang,  \r\nGTA 5, La Mulana, Stalker CS, Sunset Overdrive, Xanadu Next, Cyber Shadow,  \r\nSingularity, Wolfenstein, Prey, Shovel Knight, Second Sight,  \r\nCall of Juarez: Gunslinger, Final Fantasy 8, Star Wars Jedi Knight 2  \r\n\r\n---\r\n\r\n## 🆕 Changelog\r\n\r\n- Inclusão de múltiplas versões do Box64, Turnip e DXVK (pré-instaladas e autônomas);  \r\n- Mais de 50 templates de controle personalizados para jogos;  \r\n- Melhor organização para facilitar atualizações e testes de compatibilidade.\r\n\r\n---\r\n\r\n## 📌 Instruções de instalação\r\n\r\n1. Instale o APK do **Winlator Brasil** normalmente no seu dispositivo Android.  \r\n2. Execute o app e aguarde a criação das pastas iniciais.  \r\n3. Acesse a área de gerenciamento de pacotes para alternar ou baixar novas versões de Box64, Turnip ou DXVK.  \r\n4. Aplique os templates de controle nas configurações de mapeamento conforme o jogo desejado.  \r\n\r\n---\r\n\r\n## 💾 Acesso ao cartão de memória\r\n\r\nPara acessar jogos armazenados no cartão de memória, use o app **\"Gerenciador de Arquivos\"** (disponível gratuitamente na Play Store).  \r\nNele, vá até o cartão de memória, toque e mantenha pressionada uma pasta até ela ser selecionada.  \r\nToque em **\"Mais\"** (no rodapé), vá em **\"Propriedades\"** e veja o campo **\"Pasta\"**, que exibirá o caminho completo, por exemplo:  \r\n`/storage/9BD3-F22E/`  \r\nCopie esse caminho e cole na seção **\"Drives\"** do container no Winlator.\r\n\r\n---\r\n\r\n## 🎮 Correção de XInput\r\n\r\nPara corrigir possíveis bugs no joystick XInput, acesse o menu:  \r\n**Iniciar > Fixes > XInput Fixes > XInput Fix Controller**\r\n\r\n---\r\n\r\n⚠️ A estabilidade e o desempenho podem variar conforme o dispositivo e a GPU utilizada.\r\n",
+          "prerelease": false,
           "assets": [
             {
               "name": "Winlator_Brasil_10.0.apk",
@@ -2535,6 +2751,8 @@
           "tag": "5.3.5-v2",
           "date": "2026-01-06T21:01:46Z",
           "downloads": 2341,
+          "body": "Changelog:\r\n• Ported SD Card support from recent [GameHub 5.3.3 Release Candidate](https://github.com/Producdevity/gamehub-lite/releases/tag/v5.3.3-RC1) releases\r\n• Merged two APKs into one - added API switch into settings, by default it's set to EmuReady API, can be switched to official GameHub API, restart the app after changing API\r\n\r\nHotfix:\r\n• Included Documents Provider patch (access to /data/data without root)",
+          "prerelease": false,
           "assets": [
             {
               "name": "GameHub_5.3.5_Lite_V2-hotfix.apk",
@@ -2550,6 +2768,8 @@
           "tag": "5.3.5",
           "date": "2025-12-05T08:08:38Z",
           "downloads": 1610,
+          "body": "Ported [GameHub Lite 5.3.3](https://github.com/Producdevity/gamehub-lite/releases/tag/v5.3.3) modification to 5.3.5, two versions included, general changes:\r\n- Disabled Discover and Free games tabs (as they don't work in both versions)\r\n- DocumentsProvider patch included (app's /data/ can be accessed through file managers)\r\n- Preserved original GameHub resources (icon and stuff, lazy to replace)\r\n- Used package name - emuready.gamehub.lite\r\n- Signed with testkey\r\n\r\nOfficial API version:\r\n- Uses GameSir server for downloading firmware/drivers/other components, usually up to date, may have privacy concerns\r\n- More cluttered My Games list, includes PC/PS Link (idk if it is working)\r\n- Can import Android games\r\n- No login required\r\n- Offline is working\r\n\r\nEmuReady API version:\r\n- Uses EmuReady server to download firmware/drivers/other components, more private\r\n- Has more GPU drivers to download, but may not have the latest components to download\r\n- Clean My Games list (only Windows emulation and Steam)\r\n- Can't import Android games\r\n- No login required\r\n- Offline is working\r\n\r\nOnly difference in APK files are https server strings, everything else is the same!",
+          "prerelease": false,
           "assets": [
             {
               "name": "GameHub_5.3.5_Lite_EmuReady_API.apk",
@@ -2580,6 +2800,8 @@
           "tag": "Winlator_xmox_1.1.0",
           "date": "2025-09-20T16:27:49Z",
           "downloads": 145,
+          "body": "Changelog\r\n\r\nAlteração no layout\r\n\r\nAdicionada a possibilidade de baixar drivers Turnip pelo próprio app\r\n\r\nAdicionada a possibilidade de importar Wrapper pelos Contents (teste)\r\n\r\nAdicionada a possibilidade de instalar os Commoredist (Visual C++ + PhysX)\r\n\r\nAgora, ao importar o executável pela tela de atalho, ele extrai a capa do jogo (ainda não funciona para todos os jogos)\r\n\r\nAdição da seleção da topologia da CPU\r\n\r\n\r\n⚠️ O app ainda apresenta problemas na interface 😕\r\n\r\n🚨 Não ative o Native Rendering (isso vai quebrar o app)\r\n",
+          "prerelease": true,
           "assets": [
             {
               "name": "app-debug_sign.apk",
@@ -2595,6 +2817,8 @@
           "tag": "Winlatorxmod1.0",
           "date": "2025-09-05T01:04:02Z",
           "downloads": 197,
+          "body": "1. Adição do Wrapper V3 baseado no WinlatorOSS (teste)\r\n\r\n2. Adicionada a possibilidade de o usuário definir a capa do atalho durante a seleção do executável\r\n\r\n3. Opção de Exportar/Importar configurações do atalho, incluindo conteúdos como DXVK, Turnip, etc.\r\n\r\n4. Alteração no layout do Gamepad Virtual\r\n\r\n5. Em Export Settings, é possível selecionar um arquivo que será injetado em um local específico quando o usuário usar Import Settings\r\n\r\n6. Nova função que unifica o DXVK + VKD3D",
+          "prerelease": false,
           "assets": [
             {
               "name": "app-debug_sign.apk",
@@ -2610,6 +2834,8 @@
           "tag": "Winlator_Xmod_1.0",
           "date": "2025-09-02T18:03:50Z",
           "downloads": 86,
+          "body": "Changelog\r\n\r\nSuporte ao Proton 10 baseado na última versão do CoffinColors\r\n\r\nMelhorias no layout com Material You/Dynamic Color\r\n\r\nBotão FAB adicionado na tela de atalhos para incluir jogos sem precisar abrir o container\r\n\r\nPossibilidade de trocar a capa do atalho ao clicar e segurar no ícone do shortcut\r\n\r\nAjustes no código C++, alterações mínimas (sem impacto esperado na performance)\r\n\r\nFunção de importação de configurações de jogo adicionada (ainda não funcional)\r\n\r\nMedidor de uso de RAM/TDP integrado ao contador de FPS",
+          "prerelease": false,
           "assets": [
             {
               "name": "app-debug_sign.apk",
