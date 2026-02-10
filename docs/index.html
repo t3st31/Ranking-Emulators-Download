@@ -392,15 +392,18 @@
 
     .top-news-badge {
       background: linear-gradient(135deg, #ff0080, #ff8c00);
-      padding: 4px 15px;
+      padding: 0 15px;
+      height: 28px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
       border-radius: 20px;
-      font-size: 0.9em;
+      font-size: 0.85em;
       font-weight: 800;
       color: white;
       white-space: nowrap;
       box-shadow: 0 0 15px rgba(255, 0, 128, 0.4);
       animation: newBadgePulse 2s ease-in-out infinite;
-      display: inline-block;
     }
 
     @keyframes newBadgePulse {
@@ -2868,38 +2871,36 @@
           `;
           document.getElementById('lastUpdate').innerHTML = statusHtml;
 
-          // --- Contadores Reais via CounterAPI.dev ---
+          // --- Contadores Reais ---
 
-          // 'Online Agora': janela de 5 minutos
+          // 'Online Agora': janela de 5 minutos via CounterAPI
           const d = new Date();
-          const windowKey = `${d.getFullYear()}${(d.getMonth() + 1).toString().padStart(2, '0')}${d.getDate().toString().padStart(2, '0')}-${d.getHours().toString().padStart(2, '0')}${(Math.floor(d.getMinutes() / 5) * 5).toString().padStart(2, '0')}`;
-          fetch(`https://api.counterapi.dev/v1/ranking-emulators-hub/online-${windowKey}/up`)
+          const winKey = `${d.getHours()}${(Math.floor(d.getMinutes() / 5) * 5)}`;
+          fetch(`https://api.counterapi.dev/v1/tp-rank/online-${winKey}/up`)
             .then(res => res.json())
             .then(data => {
               const el = document.getElementById('onlineNow');
               if (el && data && data.count) {
                 el.innerText = `${data.count} ${data.count === 1 ? 'Usuário' : 'Usuários'}`;
-              } else if (el) {
-                el.innerText = '1 Usuário';
-              }
+              } else if (el) { el.innerText = '1 Usuário'; }
             })
             .catch(() => {
               const el = document.getElementById('onlineNow');
               if (el) el.innerText = '1 Usuário';
             });
 
-          // 'Total de Visitas': incrementa a cada visita real
-          fetch('https://api.counterapi.dev/v1/ranking-emulators-hub/total-visits/up')
+          // 'Total de Visitas': Hits API (dwyl) - Muito mais estável para GitHub Pages
+          fetch('https://hits.dwyl.com/t3st31/Ranking-Emulators-Download.json')
             .then(res => res.json())
             .then(data => {
-              if (data && data.count) {
-                document.getElementById('totalVisits').innerText = data.count.toLocaleString('pt-BR');
-              } else {
-                document.getElementById('totalVisits').innerText = '0';
-              }
+              const el = document.getElementById('totalVisits');
+              if (el && data && data.count) {
+                el.innerText = data.count.toLocaleString('pt-BR');
+              } else if (el) { el.innerText = '0'; }
             })
             .catch(() => {
-              document.getElementById('totalVisits').innerText = '0';
+              const el = document.getElementById('totalVisits');
+              if (el) el.innerText = '0';
             });
 
           // Destaque na aba de Novidades
