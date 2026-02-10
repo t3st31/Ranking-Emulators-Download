@@ -2154,10 +2154,11 @@
     /* ==================== NOVAS NOVIDADES & DRIVERS ==================== */
     #recentReleasesContainer,
     #recentDriversContainer {
-      display: grid;
-      grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+      display: grid !important;
+      grid-template-columns: repeat(auto-fill, minmax(320px, 1fr)) !important;
       gap: 20px;
       padding: 10px 0;
+      width: 100%;
     }
 
     .news-item {
@@ -4321,7 +4322,34 @@
         renderRanking(allData);
         renderRecentReleases(allData);
         renderRecentDrivers(allData);
-        renderCategorizedDrivers(json.manifestDrivers || {});
+
+        // Mesclar drivers do GitHub com os do Manifest para a Biblioteca
+        const manifestDrivers = json.manifestDrivers || {};
+        allData.forEach(p => {
+          if (p.category === 'Drivers') {
+            const githubType = 'GitHub GitHub';
+            if (!manifestDrivers[githubType]) manifestDrivers[githubType] = [];
+
+            // Evitar duplicados se já estiver no manifest por algum motivo
+            const exists = manifestDrivers[githubType].some(m => m.name === p.name);
+            if (!exists && p.releases && p.releases.length > 0) {
+              const latest = p.releases[0];
+              const validExts = getValidExtensions(p);
+              const asset = latest.assets.find(a => assetMatchesExtensions(a.name, validExts));
+
+              if (asset) {
+                manifestDrivers[githubType].push({
+                  name: p.name,
+                  version: latest.tag,
+                  url: asset.url,
+                  isGitHub: true
+                });
+              }
+            }
+          }
+        });
+
+        renderCategorizedDrivers(manifestDrivers);
         renderDashboardOverview(allData);
 
         // Atualizar timestamp e HUB de Status
