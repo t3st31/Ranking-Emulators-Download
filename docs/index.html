@@ -334,6 +334,26 @@
       text-shadow: 0 0 10px rgba(0, 247, 255, 0.6);
     }
 
+    .project-logo {
+      width: 32px;
+      height: 32px;
+      border-radius: 50%;
+      object-fit: cover;
+      border: 2px solid rgba(0, 247, 255, 0.4);
+      box-shadow: 0 0 8px rgba(0, 247, 255, 0.3);
+      flex-shrink: 0;
+    }
+
+    .card-logo {
+      width: 40px;
+      height: 40px;
+      border-radius: 50%;
+      object-fit: cover;
+      border: 2px solid rgba(0, 247, 255, 0.4);
+      box-shadow: 0 0 10px rgba(0, 247, 255, 0.3);
+      flex-shrink: 0;
+    }
+
     .click-hint {
       opacity: 0.6;
       font-size: 0.85em;
@@ -348,6 +368,7 @@
       font-weight: 600;
       text-transform: uppercase;
       letter-spacing: 0.5px;
+      white-space: nowrap;
     }
 
     .category-GameHub {
@@ -358,6 +379,70 @@
     .category-Winlator {
       background: linear-gradient(135deg, #f093fb 0%, #f5576c 100%);
       box-shadow: 0 0 10px rgba(240, 147, 251, 0.4);
+    }
+
+    .category-GameNative {
+      background: linear-gradient(135deg, #43e97b 0%, #38f9d7 100%);
+      color: #0a0a0f;
+      box-shadow: 0 0 10px rgba(67, 233, 123, 0.4);
+    }
+
+    .category-PC-Emulator {
+      background: linear-gradient(135deg, #fa709a 0%, #fee140 100%);
+      color: #0a0a0f;
+      box-shadow: 0 0 10px rgba(250, 112, 154, 0.4);
+    }
+
+    .category-Wii-U-Emulator {
+      background: linear-gradient(135deg, #009fff 0%, #ec2f4b 100%);
+      box-shadow: 0 0 10px rgba(0, 159, 255, 0.4);
+    }
+
+    .category-Nintendo-Switch-Emulator {
+      background: linear-gradient(135deg, #e60012 0%, #1a1a2e 50%, #00c3e3 100%);
+      box-shadow: 0 0 10px rgba(230, 0, 18, 0.4);
+    }
+
+    .category-Nintendo-3DS {
+      background: linear-gradient(135deg, #e60012 0%, #ff6b6b 100%);
+      box-shadow: 0 0 10px rgba(230, 0, 18, 0.4);
+    }
+
+    .category-Emulator-PS3 {
+      background: linear-gradient(135deg, #0070d1 0%, #00439c 100%);
+      box-shadow: 0 0 10px rgba(0, 112, 209, 0.4);
+    }
+
+    .category-Emulator-PS4 {
+      background: linear-gradient(135deg, #003087 0%, #0070d1 100%);
+      box-shadow: 0 0 10px rgba(0, 48, 135, 0.4);
+    }
+
+    .category-Emulator-PS2 {
+      background: linear-gradient(135deg, #003087 0%, #5c5cff 100%);
+      box-shadow: 0 0 10px rgba(0, 48, 135, 0.4);
+    }
+
+    .category-PSVITA {
+      background: linear-gradient(135deg, #005aa7 0%, #00d2ff 100%);
+      box-shadow: 0 0 10px rgba(0, 90, 167, 0.4);
+    }
+
+    .category-Nintendo-GameCube-Wii {
+      background: linear-gradient(135deg, #6f42c1 0%, #a855f7 100%);
+      box-shadow: 0 0 10px rgba(111, 66, 193, 0.4);
+    }
+
+    .category-Sega-Dreamcast {
+      background: linear-gradient(135deg, #ff6600 0%, #ff9900 100%);
+      color: #0a0a0f;
+      box-shadow: 0 0 10px rgba(255, 102, 0, 0.4);
+    }
+
+    .category-All-In-One {
+      background: linear-gradient(135deg, #f7971e 0%, #ffd200 100%);
+      color: #0a0a0f;
+      box-shadow: 0 0 10px rgba(247, 151, 30, 0.4);
     }
 
     .downloads-count {
@@ -1403,6 +1488,11 @@
       return html;
     }
 
+    function sanitizeCategory(cat) {
+      if (!cat) return 'Other';
+      return cat.replace(/[^a-zA-Z0-9]/g, '-').replace(/-+/g, '-').replace(/-$/g, '');
+    }
+
     function isNewRelease(dateString, daysThreshold = 7) {
       const releaseDate = new Date(dateString);
       const now = new Date();
@@ -1411,12 +1501,26 @@
       return diffDays <= daysThreshold;
     }
 
+    function getValidExtensions(project) {
+      const exts = ['.apk'];
+      if (project.extensions && Array.isArray(project.extensions)) {
+        project.extensions.forEach(e => { if (!exts.includes(e)) exts.push(e); });
+      }
+      return exts;
+    }
+
+    function assetMatchesExtensions(assetName, extensions) {
+      const name = assetName.toLowerCase();
+      return extensions.some(ext => name.endsWith(ext));
+    }
+
     function hasNewReleases(project, daysThreshold = 7) {
       if (!project.releases || project.releases.length === 0) return false;
+      const exts = getValidExtensions(project);
       return project.releases.some(release => {
         const isRecent = isNewRelease(release.date, daysThreshold);
-        const hasApk = release.assets && release.assets.some(a => a.name.toLowerCase().endsWith('.apk'));
-        return isRecent && hasApk;
+        const hasValidAsset = release.assets && release.assets.some(a => assetMatchesExtensions(a.name, exts));
+        return isRecent && hasValidAsset;
       });
     }
 
@@ -1480,7 +1584,8 @@
             <div class="assets-header">📦 Arquivos para Download:</div>
       `;
 
-          release.assets.filter(a => a.name.toLowerCase().endsWith('.apk')).forEach(asset => {
+          const validExts = getValidExtensions(projectData);
+          release.assets.filter(a => assetMatchesExtensions(a.name, validExts)).forEach(asset => {
             releasesHTML += `
           <div class="asset-item">
             <span class="asset-name">${asset.name}</span>
@@ -1494,8 +1599,8 @@
         `;
           });
 
-          if (release.assets.filter(a => a.name.toLowerCase().endsWith('.apk')).length === 0) {
-            releasesHTML += `<div style="color: #aaa; padding: 10px 0; font-size: 0.9em;">📭 Nenhum APK disponível nesta release</div>`;
+          if (release.assets.filter(a => assetMatchesExtensions(a.name, validExts)).length === 0) {
+            releasesHTML += `<div style="color: #aaa; padding: 10px 0; font-size: 0.9em;">📭 Nenhum arquivo disponível nesta release</div>`;
           }
 
           releasesHTML += `
@@ -1560,10 +1665,11 @@
       data.forEach(project => {
         if (!project.releases || project.releases.length === 0) return;
 
+        const validExts = getValidExtensions(project);
         project.releases.forEach(release => {
           const releaseDate = new Date(release.date);
-          const hasApk = release.assets.some(a => a.name.toLowerCase().endsWith('.apk'));
-          if (releaseDate >= thirtyDaysAgo && hasApk) {
+          const hasValidAsset = release.assets.some(a => assetMatchesExtensions(a.name, validExts));
+          if (releaseDate >= thirtyDaysAgo && hasValidAsset) {
             recentReleases.push({
               projectName: project.name,
               category: project.category,
@@ -1593,7 +1699,8 @@
 
       recentReleases.forEach(item => {
         const r = item.release;
-        const apks = r.assets.filter(a => a.name.toLowerCase().endsWith('.apk'));
+        const recentExts = getValidExtensions(item.projectData);
+        const validAssets = r.assets.filter(a => assetMatchesExtensions(a.name, recentExts));
         const itemJson = JSON.stringify(item.projectData).replace(/'/g, "&#39;");
 
         html += `
@@ -1601,7 +1708,7 @@
             <div class="recent-item-top">
               <div>
                 <div class="recent-project-name">${item.projectName}</div>
-                <span class="category-badge category-${item.category || 'Other'}" style="margin-top: 6px;">
+                <span class="category-badge category-${sanitizeCategory(item.category)}" style="margin-top: 6px;">
                   ${item.category || '-'}
                 </span>
               </div>
@@ -1617,19 +1724,19 @@
             <div class="recent-bottom">
               <div class="recent-downloads">📥 ${r.downloads.toLocaleString('pt-BR')} downloads</div>
               <div class="recent-apks-container">
-                ${apks.map(apk => {
-          let cleanedName = apk.name
+                ${validAssets.map(asset => {
+          let cleanedName = asset.name
             .replace(item.projectName, '')
             .replace(r.tag, '')
             .replace(/[_\-\s]+/g, ' ')
-            .replace('.apk', '')
+            .replace(/\.(apk|tar\.gz|zip|exe)$/i, '')
             .trim();
 
-          if (!cleanedName || cleanedName.length < 2) cleanedName = "APK";
+          if (!cleanedName || cleanedName.length < 2) cleanedName = "Download";
 
           return `
-                    <a href="${apk.url}" target="_blank" class="recent-download-btn" onclick="event.stopPropagation();" title="${apk.name}">
-                      ⬇ ${cleanedName} (${formatBytes(apk.size)})
+                    <a href="${asset.url}" target="_blank" class="recent-download-btn" onclick="event.stopPropagation();" title="${asset.name}">
+                      ⬇ ${cleanedName} (${formatBytes(asset.size)})
                     </a>
                   `;
         }).join('')}
@@ -1687,10 +1794,13 @@
           const hasNew = hasNewReleases(item);
           const itemJson = JSON.stringify(item).replace(/'/g, "&#39;");
 
+          const logoHtml = item.logo ? `<img src="logos/${item.logo}" alt="${item.name}" class="project-logo" onerror="this.style.display='none'">` : '';
+
           tableHTML += `
         <tr onclick='openModal(${itemJson})' class="${hasNew ? 'has-new-release' : ''}">
           <td class="rank ${medalClass}">${medal}</td>
           <td class="project-name">
+            ${logoHtml}
             <div>
               ${item.name}
               ${hasNew ? '<span class="table-new-badge">🔥 NOVO APK LANÇADO!</span>' : ''}
@@ -1698,7 +1808,7 @@
             </div>
           </td>
           <td>
-            <span class="category-badge category-${item.category || 'Other'}">
+            <span class="category-badge category-${sanitizeCategory(item.category)}">
               ${item.category || "-"}
             </span>
           </td>
@@ -1727,16 +1837,19 @@
           const hasNew = hasNewReleases(item);
           const itemJson = JSON.stringify(item).replace(/'/g, "&#39;");
 
+          const cardLogoHtml = item.logo ? `<img src="logos/${item.logo}" alt="${item.name}" class="card-logo" onerror="this.style.display='none'">` : '';
+
           cardsHTML += `
         <div class="ranking-card-item" onclick='openModal(${itemJson})'>
           ${hasNew ? '<div class="new-indicator">🔥 Novo</div>' : ''}
           <div class="card-header">
+            ${cardLogoHtml}
             <div class="card-rank ${medalClass}">${medal}</div>
             <div class="card-info">
               <div class="card-name">${item.name}</div>
               ${hasNew ? '<div class="card-new-badge">🔥 NOVO APK LANÇADO!</div>' : ''}
               <div class="card-category">
-                <span class="category-badge category-${item.category || 'Other'}">
+                <span class="category-badge category-${sanitizeCategory(item.category)}">
                   ${item.category || "-"}
                 </span>
               </div>
