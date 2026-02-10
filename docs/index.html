@@ -445,6 +445,151 @@
       box-shadow: 0 0 10px rgba(247, 151, 30, 0.4);
     }
 
+    /* SISTEMA DE ABAS */
+    .tabs-container {
+      display: flex;
+      justify-content: center;
+      gap: 10px;
+      margin: 20px auto 30px;
+      padding: 0 20px;
+      flex-wrap: wrap;
+    }
+
+    .tab-btn {
+      background: rgba(22, 33, 62, 0.7);
+      border: 1px solid rgba(0, 247, 255, 0.3);
+      color: #00d4ff;
+      padding: 12px 25px;
+      border-radius: 30px;
+      cursor: pointer;
+      font-weight: 600;
+      transition: all 0.3s ease;
+      text-transform: uppercase;
+      letter-spacing: 1px;
+      font-size: 0.9em;
+      display: flex;
+      align-items: center;
+      gap: 8px;
+    }
+
+    .tab-btn:hover {
+      background: rgba(0, 247, 255, 0.1);
+      border-color: #00f7ff;
+      box-shadow: 0 0 15px rgba(0, 247, 255, 0.3);
+    }
+
+    .tab-btn.active {
+      background: linear-gradient(135deg, #00f7ff, #00d4ff);
+      color: #0a0a0f;
+      border-color: transparent;
+      box-shadow: 0 0 20px rgba(0, 247, 255, 0.5);
+    }
+
+    .tab-content {
+      display: none;
+      animation: fadeIn 0.5s ease;
+    }
+
+    .tab-content.active {
+      display: block;
+    }
+
+    @keyframes fadeIn {
+      from {
+        opacity: 0;
+        transform: translateY(10px);
+      }
+
+      to {
+        opacity: 1;
+        transform: translateY(0);
+      }
+    }
+
+    /* BARRA DE FILTROS */
+    .filter-bar {
+      background: rgba(15, 52, 96, 0.5);
+      border: 1px solid rgba(0, 247, 255, 0.2);
+      border-radius: 15px;
+      padding: 20px;
+      margin-bottom: 25px;
+      display: flex;
+      gap: 15px;
+      flex-wrap: wrap;
+      align-items: flex-end;
+    }
+
+    .filter-group {
+      display: flex;
+      flex-direction: column;
+      gap: 8px;
+      flex: 1;
+      min-width: 200px;
+    }
+
+    .filter-group label {
+      font-size: 0.8em;
+      color: #ff6bff;
+      text-transform: uppercase;
+      letter-spacing: 1px;
+      font-weight: bold;
+    }
+
+    .filter-input,
+    .filter-select {
+      background: rgba(10, 10, 15, 0.8);
+      border: 1px solid rgba(0, 247, 255, 0.3);
+      color: white;
+      padding: 10px 15px;
+      border-radius: 8px;
+      outline: none;
+      transition: all 0.3s ease;
+    }
+
+    .filter-input:focus,
+    .filter-select:focus {
+      border-color: #00f7ff;
+      box-shadow: 0 0 10px rgba(0, 247, 255, 0.3);
+    }
+
+    /* GRID DE GRÁFICOS */
+    .charts-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(450px, 1fr));
+      gap: 25px;
+    }
+
+    @media (max-width: 768px) {
+      .charts-grid {
+        grid-template-columns: 1fr;
+      }
+
+      .filter-group {
+        min-width: 100%;
+      }
+    }
+
+    .chart-card {
+      background: rgba(22, 33, 62, 0.6);
+      border: 1px solid rgba(0, 247, 255, 0.1);
+      border-radius: 15px;
+      padding: 20px;
+      min-height: 350px;
+    }
+
+    .chart-card h3 {
+      font-size: 1.1em;
+      margin-bottom: 20px;
+      color: #00d4ff;
+      border-left: 4px solid #ff6bff;
+      padding-left: 10px;
+    }
+
+    canvas {
+      width: 100% !important;
+      height: 300px !important;
+    }
+
     .downloads-count {
       font-size: 1.2em;
       font-weight: bold;
@@ -1389,32 +1534,107 @@
     ⏱️ Carregando dados...
   </div>
 
+  <nav class="tabs-container">
+    <button class="tab-btn active" id="btn-ranking" onclick="switchTab('ranking')">🏆 Ranking</button>
+    <button class="tab-btn" id="btn-charts" onclick="switchTab('charts')">📊 Dashboard</button>
+    <button class="tab-btn" id="btn-news" onclick="switchTab('news')">🆕 Novidades</button>
+  </nav>
+
   <section>
 
-    <!-- RANKING -->
-    <div class="card">
-      <h2>🏆 Ranking Global de Downloads</h2>
-      <div id="rankingContainer">
-        <div class="loading">
-          <div class="spinner"></div>
-          Carregando ranking...
+    <!-- CONTENT: RANKING -->
+    <div id="tab-ranking" class="tab-content active">
+      <div class="card">
+        <h2>🏆 Ranking Global de Downloads</h2>
+
+        <!-- BARRA DE FILTROS -->
+        <div class="filter-bar">
+          <div class="filter-group">
+            <label>🔍 Buscar Projeto</label>
+            <input type="text" id="searchInput" class="filter-input" placeholder="Ex: Winlator, Cemu..."
+              oninput="updateFilters()">
+          </div>
+          <div class="filter-group">
+            <label>📁 Categoria</label>
+            <select id="categoryFilter" class="filter-select" onchange="updateFilters()">
+              <option value="all">Todas as Categorias</option>
+            </select>
+          </div>
+          <div class="filter-group">
+            <label>⇅ Ordenar Por</label>
+            <select id="sortOrder" class="filter-select" onchange="updateFilters()">
+              <option value="downloads-desc">Downloads (Maior p/ Menor)</option>
+              <option value="downloads-asc">Downloads (Menor p/ Maior)</option>
+              <option value="name-asc">Nome (A-Z)</option>
+              <option value="name-desc">Nome (Z-A)</option>
+            </select>
+          </div>
+        </div>
+
+        <div id="rankingContainer">
+          <div class="loading">
+            <div class="spinner"></div>
+            Carregando ranking...
+          </div>
         </div>
       </div>
     </div>
 
-    <!-- GRÁFICO -->
-    <div class="card">
-      <h2>📊 Comparativo de Downloads</h2>
-      <canvas id="chart"></canvas>
+    <!-- CONTENT: DASHBOARD -->
+    <div id="tab-charts" class="tab-content">
+      <div class="charts-grid">
+        <div class="chart-card">
+          <h3>📊 Downloads por Projeto</h3>
+          <div style="height: 300px;"><canvas id="chart-downloads"></canvas></div>
+        </div>
+        <div class="chart-card">
+          <h3>🍕 Participação por Categoria</h3>
+          <div style="height: 300px;"><canvas id="chart-categories-pie"></canvas></div>
+        </div>
+        <div class="chart-card">
+          <h3>🔥 Top 10 Mais Populares</h3>
+          <div style="height: 300px;"><canvas id="chart-top10"></canvas></div>
+        </div>
+        <div class="chart-card">
+          <h3>📦 Volume de Releases</h3>
+          <div style="height: 300px;"><canvas id="chart-releases-count"></canvas></div>
+        </div>
+        <div class="chart-card">
+          <h3>📈 Downloads Médios por Release</h3>
+          <div style="height: 300px;"><canvas id="chart-avg-downloads"></canvas></div>
+        </div>
+        <div class="chart-card">
+          <h3>🎯 Comparativo Top 5 (Downloads & Releases)</h3>
+          <div style="height: 300px;"><canvas id="chart-radar"></canvas></div>
+        </div>
+        <div class="chart-card">
+          <h3>🌐 Visão Polar de Categorias</h3>
+          <div style="height: 300px;"><canvas id="chart-polar"></canvas></div>
+        </div>
+        <div class="chart-card">
+          <h3>🫧 Popularidade vs Atividade</h3>
+          <div style="height: 300px;"><canvas id="chart-bubble"></canvas></div>
+        </div>
+        <div class="chart-card">
+          <h3>📉 Histórico de Downloads</h3>
+          <div style="height: 300px;"><canvas id="chart-line-total"></canvas></div>
+        </div>
+        <div class="chart-card">
+          <h3>📚 Distribuição de Assets</h3>
+          <div style="height: 300px;"><canvas id="chart-stacked"></canvas></div>
+        </div>
+      </div>
     </div>
 
-    <!-- RELEASES RECENTES -->
-    <div class="card">
-      <h2>🆕 Releases Recentes</h2>
-      <div id="recentReleasesContainer">
-        <div class="loading">
-          <div class="spinner"></div>
-          Buscando releases recentes...
+    <!-- CONTENT: NOVIDADES -->
+    <div id="tab-news" class="tab-content">
+      <div class="card">
+        <h2>🆕 Lançamentos Recentes (Últimos 30 dias)</h2>
+        <div id="recentReleasesContainer">
+          <div class="loading">
+            <div class="spinner"></div>
+            Buscando novidades...
+          </div>
         </div>
       </div>
     </div>
@@ -1441,6 +1661,61 @@
 
   <script>
     let allData = [];
+    let currentTab = 'ranking';
+    let charts = {}; // Para gerenciar as instâncias do Chart.js
+
+    function switchTab(tabName) {
+      currentTab = tabName;
+
+      // Update buttons
+      document.querySelectorAll('.tab-btn').forEach(btn => btn.classList.remove('active'));
+      document.getElementById(`btn-${tabName}`).classList.add('active');
+
+      // Update content
+      document.querySelectorAll('.tab-content').forEach(content => content.classList.remove('active'));
+      document.getElementById(`tab-${tabName}`).classList.add('active');
+
+      // Se mudar para aba de charts e eles não estiverem renderizados, renderiza
+      if (tabName === 'charts') {
+        renderCharts(allData);
+      }
+    }
+
+    function populateFilters(data) {
+      const categorySelect = document.getElementById('categoryFilter');
+      const categories = [...new Set(data.map(item => item.category))].filter(Boolean).sort();
+
+      categories.forEach(cat => {
+        const option = document.createElement('option');
+        option.value = cat;
+        option.textContent = cat;
+        categorySelect.appendChild(option);
+      });
+    }
+
+    function updateFilters() {
+      const searchTerm = document.getElementById('searchInput').value.toLowerCase();
+      const category = document.getElementById('categoryFilter').value;
+      const sortOrder = document.getElementById('sortOrder').value;
+
+      let filtered = allData.filter(item => {
+        const matchesSearch = item.name.toLowerCase().includes(searchTerm) ||
+          item.category.toLowerCase().includes(searchTerm);
+        const matchesCategory = category === 'all' || item.category === category;
+        return matchesSearch && matchesCategory;
+      });
+
+      // Ordenação
+      filtered.sort((a, b) => {
+        if (sortOrder === 'downloads-desc') return b.downloads - a.downloads;
+        if (sortOrder === 'downloads-asc') return a.downloads - b.downloads;
+        if (sortOrder === 'name-asc') return a.name.localeCompare(b.name);
+        if (sortOrder === 'name-desc') return b.name.localeCompare(a.name);
+        return 0;
+      });
+
+      renderRanking(filtered);
+    }
 
     function formatBytes(bytes) {
       if (bytes === 0) return '0 B';
@@ -1659,12 +1934,10 @@
       const thirtyDaysAgo = new Date(now.getTime() - 30 * 24 * 60 * 60 * 1000);
       const sevenDaysAgo = new Date(now.getTime() - 7 * 24 * 60 * 60 * 1000);
 
-      // Coletar todas as releases dos últimos 30 dias
       const recentReleases = [];
 
       data.forEach(project => {
         if (!project.releases || project.releases.length === 0) return;
-
         const validExts = getValidExtensions(project);
         project.releases.forEach(release => {
           const releaseDate = new Date(release.date);
@@ -1683,20 +1956,14 @@
         });
       });
 
-      // Ordenar por data mais recente primeiro
       recentReleases.sort((a, b) => b.releaseDate - a.releaseDate);
 
       if (recentReleases.length === 0) {
-        container.innerHTML = `
-          <div class="no-recent-releases">
-            😴 Nenhuma release nova nos últimos 30 dias
-          </div>
-        `;
+        container.innerHTML = '<div class="no-recent-releases">😴 Nenhuma release nova nos últimos 30 dias</div>';
         return;
       }
 
       let html = '<div class="recent-releases-grid">';
-
       recentReleases.forEach(item => {
         const r = item.release;
         const recentExts = getValidExtensions(item.projectData);
@@ -1731,23 +1998,294 @@
             .replace(/[_\-\s]+/g, ' ')
             .replace(/\.(apk|tar\.gz|zip|exe)$/i, '')
             .trim();
-
           if (!cleanedName || cleanedName.length < 2) cleanedName = "Download";
-
-          return `
-                    <a href="${asset.url}" target="_blank" class="recent-download-btn" onclick="event.stopPropagation();" title="${asset.name}">
-                      ⬇ ${cleanedName} (${formatBytes(asset.size)})
-                    </a>
-                  `;
+          return `<a href="${asset.url}" target="_blank" class="recent-download-btn" onclick="event.stopPropagation();" title="${asset.name}">⬇ ${cleanedName} (${formatBytes(asset.size)})</a>`;
         }).join('')}
               </div>
             </div>
           </div>
         `;
       });
-
       html += '</div>';
       container.innerHTML = html;
+    }
+
+    function renderCharts(data) {
+      if (!window.Chart) return;
+
+      // Destruir instâncias antigas para evitar bugs de hover/memória
+      Object.values(charts).forEach(c => c.destroy());
+      charts = {};
+
+      const projects = [...data].sort((a, b) => b.downloads - a.downloads);
+      const top10 = projects.slice(0, 10);
+      const top5 = projects.slice(0, 5);
+
+      const categoriesMap = {};
+      data.forEach(p => {
+        categoriesMap[p.category] = (categoriesMap[p.category] || 0) + p.downloads;
+      });
+
+      const themeColors = ['#00f7ff', '#ff6bff', '#00ff88', '#ffcc00', '#ff4d4d', '#a855f7', '#3b82f6', '#10b981', '#f59e0b', '#ef4444'];
+
+      // 1. Bar Chart: Downloads por Projeto
+      charts.downloads = new Chart(document.getElementById('chart-downloads'), {
+        type: 'bar',
+        data: {
+          labels: projects.slice(0, 15).map(p => p.name),
+          datasets: [{
+            label: 'Total Downloads',
+            data: projects.slice(0, 15).map(p => p.downloads),
+            backgroundColor: 'rgba(0, 247, 255, 0.5)',
+            borderColor: '#00f7ff',
+            borderWidth: 1
+          }]
+        },
+        options: { responsive: true, maintainAspectRatio: false, scales: { y: { beginAtZero: true } } }
+      });
+
+      // 2. Pie Chart: Categorias
+      charts.categories = new Chart(document.getElementById('chart-categories-pie'), {
+        type: 'pie',
+        data: {
+          labels: Object.keys(categoriesMap),
+          datasets: [{
+            data: Object.values(categoriesMap),
+            backgroundColor: themeColors
+          }]
+        },
+        options: { responsive: true, maintainAspectRatio: false }
+      });
+
+      // 3. Horizontal Bar: Top 10
+      charts.top10 = new Chart(document.getElementById('chart-top10'), {
+        type: 'bar',
+        indexAxis: 'y',
+        data: {
+          labels: top10.map(p => p.name),
+          datasets: [{
+            label: 'Downloads',
+            data: top10.map(p => p.downloads),
+            backgroundColor: 'rgba(255, 107, 255, 0.5)',
+            borderColor: '#ff6bff',
+            borderWidth: 1
+          }]
+        },
+        options: { responsive: true, maintainAspectRatio: false }
+      });
+
+      // 4. Bar: Volume de Releases
+      charts.releases = new Chart(document.getElementById('chart-releases-count'), {
+        type: 'bar',
+        data: {
+          labels: projects.slice(0, 15).map(p => p.name),
+          datasets: [{
+            label: 'Total Releases',
+            data: projects.slice(0, 15).map(p => p.releases ? p.releases.length : 0),
+            backgroundColor: 'rgba(0, 255, 136, 0.5)',
+            borderColor: '#00ff88',
+            borderWidth: 1
+          }]
+        },
+        options: { responsive: true, maintainAspectRatio: false }
+      });
+
+      // 5. Line: Downloads Médios
+      charts.avg = new Chart(document.getElementById('chart-avg-downloads'), {
+        type: 'line',
+        data: {
+          labels: projects.slice(0, 12).map(p => p.name),
+          datasets: [{
+            label: 'Média Downloads/Release',
+            data: projects.slice(0, 12).map(p => p.releases && p.releases.length > 0 ? p.downloads / p.releases.length : 0),
+            borderColor: '#ffcc00',
+            backgroundColor: 'rgba(255, 204, 0, 0.2)',
+            fill: true,
+            tension: 0.4
+          }]
+        },
+        options: { responsive: true, maintainAspectRatio: false }
+      });
+
+      // 6. Radar Chart: Top 5
+      charts.radar = new Chart(document.getElementById('chart-radar'), {
+        type: 'radar',
+        data: {
+          labels: ['Downloads', 'Releases', 'Novidade', 'Popularidade'],
+          datasets: top5.map((p, i) => ({
+            label: p.name,
+            data: [
+              (p.downloads / projects[0].downloads) * 100,
+              (p.releases ? p.releases.length / 50 : 0) * 100,
+              hasNewReleases(p) ? 100 : 20,
+              100 - (i * 15)
+            ],
+            borderColor: themeColors[i],
+            backgroundColor: themeColors[i] + '22'
+          }))
+        },
+        options: { responsive: true, maintainAspectRatio: false }
+      });
+
+      // 7. Polar Area: Categorias (Quantidade de projetos por categoria)
+      const catCount = {};
+      data.forEach(p => catCount[p.category] = (catCount[p.category] || 0) + 1);
+      charts.polar = new Chart(document.getElementById('chart-polar'), {
+        type: 'polarArea',
+        data: {
+          labels: Object.keys(catCount),
+          datasets: [{
+            data: Object.values(catCount),
+            backgroundColor: themeColors.map(c => c + '88')
+          }]
+        },
+        options: { responsive: true, maintainAspectRatio: false }
+      });
+
+      // 8. Bubble Chart: Atividade vs Popularidade
+      charts.bubble = new Chart(document.getElementById('chart-bubble'), {
+        type: 'bubble',
+        data: {
+          datasets: projects.slice(0, 20).map((p, i) => ({
+            label: p.name,
+            data: [{
+              x: p.releases ? p.releases.length : 0, // Atividade
+              y: p.downloads,                        // Popularidade
+              r: 10 + (Math.random() * 10)           // Aleatório apenas para visual
+            }],
+            backgroundColor: themeColors[i % themeColors.length] + '88'
+          }))
+        },
+        options: {
+          responsive: true,
+          maintainAspectRatio: false,
+          scales: {
+            x: { title: { display: true, text: 'Total de Releases' } },
+            y: { title: { display: true, text: 'Total Downloads' } }
+          }
+        }
+      });
+
+      // 9. Line (Accumulated): Timeline imaginária baseada em releases
+      charts.line = new Chart(document.getElementById('chart-line-total'), {
+        type: 'line',
+        data: {
+          labels: top10.map(p => p.name),
+          datasets: [{
+            label: 'Volume de Downloads (Log)',
+            data: top10.map(p => Math.log10(p.downloads || 1)),
+            borderColor: '#ff4d4d',
+            tension: 0.1
+          }]
+        },
+        options: { responsive: true, maintainAspectRatio: false }
+      });
+
+      // 10. Stacked Bar: Downloads vs Releases (Normalizado)
+      charts.stacked = new Chart(document.getElementById('chart-stacked'), {
+        type: 'bar',
+        data: {
+          labels: projects.slice(0, 10).map(p => p.name),
+          datasets: [
+            { label: 'Downloads (Proporção)', data: projects.slice(0, 10).map(p => 50), backgroundColor: '#00f7ff' },
+            { label: 'Releases (Proporção)', data: projects.slice(0, 10).map(p => p.releases ? p.releases.length : 0), backgroundColor: '#00ff88' }
+          ]
+        },
+        options: { responsive: true, maintainAspectRatio: false, scales: { x: { stacked: true }, y: { stacked: true } } }
+      });
+    }
+
+    function renderRanking(data) {
+      const container = document.getElementById('rankingContainer');
+
+      if (data.length === 0) {
+        container.innerHTML = '<div class="loading">🔍 Nenhum projeto encontrado com esses filtros.</div>';
+        return;
+      }
+
+      const isMobile = window.innerWidth <= 768;
+
+      if (isMobile) {
+        let cardsHtml = '<div class="ranking-cards">';
+        data.forEach((item, index) => {
+          const rank = index + 1;
+          const hasNew = hasNewReleases(item);
+          const itemJson = JSON.stringify(item).replace(/'/g, "&#39;");
+
+          cardsHtml += `
+            <div class="ranking-card-item" onclick='openModal(${itemJson})'>
+              <div class="card-rank">${rank}</div>
+              <div class="card-logo-container">
+                ${item.logo ? `<img src="${item.logo}" class="card-logo" onerror="this.style.display='none'">` : ''}
+              </div>
+              <div class="card-info">
+                <div class="card-name">
+                  ${item.name}
+                  ${hasNew ? '<span class="card-new-badge">🔥 NOVO APK LANÇADO!</span>' : ''}
+                </div>
+                <div class="card-meta">
+                  <span class="category-badge category-${sanitizeCategory(item.category)}">${item.category || '-'}</span>
+                </div>
+              </div>
+              <div class="card-downloads">
+                ${item.downloads.toLocaleString('pt-BR')}
+                <div style="font-size: 0.6em; opacity: 0.6; margin-top: 4px;">⬇ DOWNLOADS</div>
+              </div>
+            </div>
+          `;
+        });
+        cardsHtml += '</div>';
+        container.innerHTML = cardsHtml;
+      } else {
+        // Desktop Table
+        let tableHtml = `
+          <table>
+            <thead>
+              <tr>
+                <th style="width: 80px; text-align: center;">RANK</th>
+                <th>PROJETO</th>
+                <th style="width: 250px;">CATEGORIA</th>
+                <th style="text-align: right; width: 200px;">TOTAL DOWNLOADS</th>
+              </tr>
+            </thead>
+            <tbody>
+        `;
+
+        data.forEach((item, index) => {
+          const rank = index + 1;
+          const hasNew = hasNewReleases(item);
+          const itemJson = JSON.stringify(item).replace(/'/g, "&#39;");
+
+          tableHtml += `
+            <tr onclick='openModal(${itemJson})'>
+              <td style="text-align: center;">
+                <span class="rank-number rank-${rank <= 3 ? rank : 'other'}">${rank}</span>
+              </td>
+              <td>
+                <div class="project-cell">
+                  ${item.logo ? `<img src="${item.logo}" class="project-logo" onerror="this.style.display='none'">` : ''}
+                  <div class="project-name">
+                    ${item.name}
+                    ${hasNew ? '<span class="new-release-badge">🔥 NOVO APK!</span>' : ''}
+                    <div class="click-hint">Clique para ver downloads</div>
+                  </div>
+                </div>
+              </td>
+              <td>
+                <span class="category-badge category-${sanitizeCategory(item.category)}">
+                  ${item.category || "-"}
+                </span>
+              </td>
+              <td style="text-align: right;">
+                <span class="downloads-count">${item.downloads.toLocaleString('pt-BR')}</span>
+              </td>
+            </tr>
+          `;
+        });
+
+        tableHtml += '</tbody></table>';
+        container.innerHTML = tableHtml;
+      }
     }
 
     async function loadData() {
@@ -1756,6 +2294,13 @@
         const json = await res.json();
 
         allData = Array.isArray(json) ? json : json.results;
+
+        // Populate category dropdown
+        populateFilters(allData);
+
+        // Initial render
+        renderRanking(allData);
+        renderRecentReleases(allData);
 
         // Atualizar timestamp
         if (json.updatedAt) {
@@ -1767,210 +2312,26 @@
             `⏱️ Última atualização: ${formatDate(json.updatedAt)}${newBadge}`;
         }
 
-        // ===== RANKING TABELA (DESKTOP) =====
-        let tableHTML = `
-      <div class="ranking-table-wrapper">
-        <table id="ranking">
-          <thead>
-            <tr>
-              <th>#</th>
-              <th>Projeto</th>
-              <th>Categoria</th>
-              <th>Downloads</th>
-            </tr>
-          </thead>
-          <tbody>
-    `;
-
-        allData.forEach((item, index) => {
-          let medal = index + 1;
-          let medalClass = "";
-
-          if (index === 0) { medal = "🥇"; medalClass = "gold"; }
-          else if (index === 1) { medal = "🥈"; medalClass = "silver"; }
-          else if (index === 2) { medal = "🥉"; medalClass = "bronze"; }
-
-          const hasReleases = item.releases && item.releases.length > 0;
-          const hasNew = hasNewReleases(item);
-          const itemJson = JSON.stringify(item).replace(/'/g, "&#39;");
-
-          const logoHtml = item.logo ? `<img src="logos/${item.logo}" alt="${item.name}" class="project-logo" onerror="this.style.display='none'">` : '';
-
-          tableHTML += `
-        <tr onclick='openModal(${itemJson})' class="${hasNew ? 'has-new-release' : ''}">
-          <td class="rank ${medalClass}">${medal}</td>
-          <td class="project-name">
-            ${logoHtml}
-            <div>
-              ${item.name}
-              ${hasNew ? '<span class="table-new-badge">🔥 NOVO APK LANÇADO!</span>' : ''}
-              ${hasReleases ? '<div class="click-hint">👆 clique para ver releases</div>' : ''}
-            </div>
-          </td>
-          <td>
-            <span class="category-badge category-${sanitizeCategory(item.category)}">
-              ${item.category || "-"}
-            </span>
-          </td>
-          <td class="downloads-count">${item.downloads.toLocaleString('pt-BR')}</td>
-        </tr>
-      `;
-        });
-
-        tableHTML += `
-          </tbody>
-        </table>
-      </div>
-    `;
-
-        // ===== RANKING CARDS (MOBILE) =====
-        let cardsHTML = '<div class="ranking-cards">';
-
-        allData.forEach((item, index) => {
-          let medal = index + 1;
-          let medalClass = "";
-
-          if (index === 0) { medal = "🥇"; medalClass = "gold"; }
-          else if (index === 1) { medal = "🥈"; medalClass = "silver"; }
-          else if (index === 2) { medal = "🥉"; medalClass = "bronze"; }
-
-          const hasNew = hasNewReleases(item);
-          const itemJson = JSON.stringify(item).replace(/'/g, "&#39;");
-
-          const cardLogoHtml = item.logo ? `<img src="logos/${item.logo}" alt="${item.name}" class="card-logo" onerror="this.style.display='none'">` : '';
-
-          cardsHTML += `
-        <div class="ranking-card-item" onclick='openModal(${itemJson})'>
-          ${hasNew ? '<div class="new-indicator">🔥 Novo</div>' : ''}
-          <div class="card-header">
-            ${cardLogoHtml}
-            <div class="card-rank ${medalClass}">${medal}</div>
-            <div class="card-info">
-              <div class="card-name">${item.name}</div>
-              ${hasNew ? '<div class="card-new-badge">🔥 NOVO APK LANÇADO!</div>' : ''}
-              <div class="card-category">
-                <span class="category-badge category-${sanitizeCategory(item.category)}">
-                  ${item.category || "-"}
-                </span>
-              </div>
-            </div>
-          </div>
-          <div class="card-downloads">
-            📥 ${item.downloads.toLocaleString('pt-BR')} downloads
-          </div>
-        </div>
-      `;
-        });
-
-        cardsHTML += '</div>';
-
-        // Inserir ambos
-        const container = document.getElementById('rankingContainer');
-        container.innerHTML = tableHTML + cardsHTML;
-
-        // ===== GRÁFICO =====
-        const ctx = document.getElementById('chart');
-
-        new Chart(ctx, {
-          type: "bar",
-          data: {
-            labels: allData.map(d => d.name),
-            datasets: [{
-              label: "Downloads",
-              data: allData.map(d => d.downloads),
-              backgroundColor: allData.map((_, i) => {
-                if (i === 0) return 'rgba(255, 215, 0, 0.8)';
-                if (i === 1) return 'rgba(192, 192, 192, 0.8)';
-                if (i === 2) return 'rgba(205, 127, 50, 0.8)';
-                return 'rgba(0, 247, 255, 0.6)';
-              }),
-              borderColor: allData.map((_, i) => {
-                if (i === 0) return 'rgba(255, 215, 0, 1)';
-                if (i === 1) return 'rgba(192, 192, 192, 1)';
-                if (i === 2) return 'rgba(205, 127, 50, 1)';
-                return 'rgba(0, 247, 255, 1)';
-              }),
-              borderWidth: 2,
-              borderRadius: 8,
-              borderSkipped: false,
-            }]
-          },
-          options: {
-            responsive: true,
-            maintainAspectRatio: true,
-            plugins: {
-              legend: {
-                display: true,
-                labels: {
-                  color: "#fff",
-                  font: { size: 14, weight: 'bold' }
-                }
-              },
-              tooltip: {
-                backgroundColor: 'rgba(0, 0, 0, 0.9)',
-                titleColor: '#00f7ff',
-                bodyColor: '#fff',
-                borderColor: '#00f7ff',
-                borderWidth: 1,
-                padding: 12,
-                displayColors: false,
-                callbacks: {
-                  label: function (context) {
-                    return 'Downloads: ' + context.parsed.y.toLocaleString('pt-BR');
-                  }
-                }
-              }
-            },
-            scales: {
-              x: {
-                ticks: {
-                  color: "#ccc",
-                  font: { size: 10 },
-                  maxRotation: 45,
-                  minRotation: 45,
-                  autoSkip: true,
-                  padding: 5
-                },
-                grid: {
-                  color: "rgba(0, 247, 255, 0.1)",
-                  drawBorder: false
-                }
-              },
-              y: {
-                ticks: {
-                  color: "#ccc",
-                  font: { size: 12 },
-                  callback: function (value) {
-                    return value.toLocaleString('pt-BR');
-                  }
-                },
-                grid: {
-                  color: "rgba(0, 247, 255, 0.1)",
-                  drawBorder: false
-                },
-                beginAtZero: true
-              }
-            },
-            animation: {
-              duration: 2000,
-              easing: 'easeInOutQuart'
-            }
-          }
-        });
-
-        // ===== RELEASES RECENTES (últimos 30 dias) =====
-        renderRecentReleases(allData);
-
-      } catch (err) {
-        console.error("Erro ao carregar ranking:", err);
+        // Inserir ambos (removido duplicata manual aqui)
+      } catch (error) {
+        console.error("Erro ao carregar dados:", error);
         document.getElementById('rankingContainer').innerHTML = `
-      <div class="no-releases">
-        ❌ Erro ao carregar dados<br>
-        <small>${err.message}</small>
-      </div>
-    `;
+          <div class="loading" style="color: #ff4d4d;">
+            ❌ Erro ao carregar os rankings. Por favor, tente novamente mais tarde.
+          </div>
+        `;
       }
     }
+
+    // Responsividade: Redesenhar ranking ao mudar tamanho da tela
+    window.addEventListener('resize', () => {
+      if (currentTab === 'ranking') {
+        renderRanking(allData);
+      }
+      if (currentTab === 'charts') {
+        renderCharts(allData);
+      }
+    });
 
     loadData();
   </script>
