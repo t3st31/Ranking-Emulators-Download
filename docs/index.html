@@ -10,7 +10,7 @@
     rel="stylesheet">
 
   <!-- Chart.js -->
-  <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/4.4.1/chart.umd.js"></script>
 
   <style>
     * {
@@ -2947,7 +2947,8 @@
 
     async function trackVisitorLocation() {
       try {
-        const geoRes = await fetch('https://freeipapi.com/api/json');
+        const CORS_PROXY = 'https://api.codetabs.com/v1/proxy?quest=';
+        const geoRes = await fetch(CORS_PROXY + encodeURIComponent('https://freeipapi.com/api/json'));
         const geoData = await geoRes.json();
         const countryCode = geoData.countryCode;
 
