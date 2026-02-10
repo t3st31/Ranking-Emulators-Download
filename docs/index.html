@@ -1381,21 +1381,18 @@
     }
 
     .recent-item-top {
-      display: flex;
-      justify-content: space-between;
-      align-items: flex-start;
       margin-bottom: 12px;
-      gap: 10px;
-      flex-wrap: wrap;
     }
 
-    .recent-status-container {
+    .recent-row {
       display: flex;
-      flex-direction: column;
-      align-items: flex-end;
-      gap: 8px;
-      min-width: 140px;
-      /* Garante que o container tenha largura suficiente para empilhar */
+      justify-content: space-between;
+      align-items: center;
+      gap: 10px;
+    }
+
+    .recent-row+.recent-row {
+      margin-top: 8px;
     }
 
     .recent-project-name {
@@ -1766,7 +1763,7 @@
   <div class="grid-bg"></div>
 
   <header>
-    <h1>🎮 HUB EMULATORS</h1>
+    <h1>🎮 HUB EMULATORS/h1>
     <p>Rankings Automáticos • Alerta de Novas Releases • Atualizado à cada 1h</p>
   </header>
 
@@ -2223,14 +2220,14 @@
         html += `
           <div class="recent-release-item ${item.isHot ? 'is-hot' : ''}" onclick='openModal(${itemJson})'>
             <div class="recent-item-top">
-              <div>
+              <div class="recent-row">
                 <div class="recent-project-name">${item.projectName}</div>
-                <span class="category-badge category-${sanitizeCategory(item.category)}" style="margin-top: 6px;">
+                <div class="recent-time-ago">📅 ${timeAgo(r.date)}</div>
+              </div>
+              <div class="recent-row">
+                <span class="category-badge category-${sanitizeCategory(item.category)}">
                   ${item.category || '-'}
                 </span>
-              </div>
-              <div class="recent-status-container">
-                <div class="recent-time-ago">📅 ${timeAgo(r.date)}</div>
                 ${item.isHot ? '<div class="recent-hot-flame">🔥 LANÇAMENTO RECENTE!</div>' : ''}
               </div>
             </div>
