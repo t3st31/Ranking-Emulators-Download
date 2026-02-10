@@ -2948,19 +2948,30 @@
 
     async function trackVisitorLocation() {
       try {
-        const CORS_PROXY = 'https://api.codetabs.com/v1/proxy?quest=';
-        const geoRes = await fetch(CORS_PROXY + encodeURIComponent('https://freeipapi.com/api/json'));
+        // Tentar ipapi.co primeiro (geralmente mais preciso e permite CORS direto)
+        const geoRes = await fetch('https://ipapi.co/json/');
         const geoData = await geoRes.json();
-        const countryCode = geoData.countryCode;
+        const countryCode = geoData.country_code;
 
-        console.log('🌍 Detecção de Localização:', geoData.countryName || countryCode);
+        console.log('🌍 Detecção de Localização:', geoData.country_name || countryCode);
 
         if (countryCode) {
+          const CORS_PROXY = 'https://api.codetabs.com/v1/proxy?quest=';
           const upUrl = `https://api.counterapi.dev/v1/${VISITOR_NAMESPACE}/${countryCode}/up`;
           await fetch(CORS_PROXY + encodeURIComponent(upUrl));
         }
       } catch (e) {
-        console.error('Erro na detecção/track do visitante:', e);
+        console.warn('Fallback: Erro no ipapi, tentando freeipapi...');
+        try {
+          const CORS_PROXY = 'https://api.codetabs.com/v1/proxy?quest=';
+          const geoRes = await fetch(CORS_PROXY + encodeURIComponent('https://freeipapi.com/api/json'));
+          const geoData = await geoRes.json();
+          const countryCode = geoData.countryCode;
+          if (countryCode) {
+            const upUrl = `https://api.counterapi.dev/v1/${VISITOR_NAMESPACE}/${countryCode}/up`;
+            await fetch(CORS_PROXY + encodeURIComponent(upUrl));
+          }
+        } catch (err) { }
       }
     }
 
@@ -2991,14 +3002,14 @@
           map: 'world_merc',
           backgroundColor: 'transparent',
           regionStyle: {
-            initial: { fill: '#2a2a2a', stroke: 'rgba(0, 255, 249, 0.3)', strokeWidth: 1 },
+            initial: { fill: '#1a1a1a', stroke: 'rgba(0, 255, 249, 0.1)', strokeWidth: 1 },
             hover: { fill: '#00fff9', fillOpacity: 0.5 }
           },
           series: {
             regions: [{
               values: stats,
               attribute: 'fill',
-              scale: ['#444444', '#ff0080'],
+              scale: ['#333333', '#ff0080'],
               normalizeFunction: 'linear'
             }]
           },
