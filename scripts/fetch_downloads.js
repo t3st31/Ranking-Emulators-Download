@@ -5,6 +5,7 @@ const repos = [
   { name: "GameHub Lite (Producdevity)", repo: "Producdevity/gamehub-lite", category: "GameHub" },
   { name: "GameHub Lite (ItzDFPlayer)", repo: "ItzDFPlayer/gamehub-lite", category: "GameHub" },
   { name: "GameHub Brasil", repo: "winlatorbrasil/gamehub-brasil", category: "GameHub" },
+  
   // WINLATOR
   { name: "Winlator Ludashi", repo: "StevenMXZ/Winlator-Ludashi", category: "Winlator" },
   { name: "Winlator Oficial", repo: "brunodev85/winlator", category: "Winlator" },
@@ -15,55 +16,86 @@ const repos = [
   { name: "Winlator LongJunYu", repo: "longjunyu2/winlator", category: "Winlator" },
   { name: "Winebox64", repo: "winebox64/winlator", category: "Winlator" },
   { name: "Winlator Mali", repo: "Fcharan/WinlatorMali", category: "Winlator" },
-  { name: "Winlator Brasil", repo: "winlatorbrasil/Winlator-Brasil", category: "Winlator" },
-  { name: "Star (fork)", repo: "jacojayy/star", category: "Winlator" }
+  { name: "Star (fork)", repo: "jacojayy/star", category: "Winlator" },
+  { name: "Winlator Brasil", repo: "winlatorbrasil/Winlator-Brasil", category: "Winlator" }
 ];
 
 async function getReleasesData(repo) {
-  const res = await fetch(`https://api.github.com/repos/${repo}/releases`);
-  if (!res.ok) return { total: 0, releases: [] };
-  
-  const releases = await res.json();
-  let total = 0;
-  const releasesList = [];
+  try {
+    console.log(`  → Buscando releases de ${repo}...`);
+    
+    const res = await fetch(`https://api.github.com/repos/${repo}/releases`, {
+      headers: {
+        'Accept': 'application/vnd.github.v3+json',
+        'User-Agent': 'Emulator-Battle-Arena'
+      }
+    });
+    
+    if (!res.ok) {
+      console.log(`  ⚠️  Status ${res.status} para ${repo}`);
+      return { total: 0, releases: [] };
+    }
+    
+    const releases = await res.json();
+    
+    if (!Array.isArray(releases) || releases.length === 0) {
+      console.log(`  ℹ️  Nenhuma release encontrada para ${repo}`);
+      return { total: 0, releases: [] };
+    }
+    
+    let total = 0;
+    const releasesList = [];
 
-  for (const r of releases) {
-    let releaseDownloads = 0;
-    const assets = [];
+    for (const r of releases) {
+      let releaseDownloads = 0;
+      const assets = [];
 
-    for (const a of r.assets || []) {
-      const count = a.download_count || 0;
-      total += count;
-      releaseDownloads += count;
-      
-      assets.push({
-        name: a.name,
-        size: a.size,
-        downloads: count,
-        url: a.browser_download_url
-      });
+      // Processar cada asset da release
+      for (const a of r.assets || []) {
+        const count = a.download_count || 0;
+        total += count;
+        releaseDownloads += count;
+        
+        assets.push({
+          name: a.name,
+          size: a.size,
+          downloads: count,
+          url: a.browser_download_url
+        });
+      }
+
+      // Só adiciona releases que têm assets
+      if (assets.length > 0) {
+        releasesList.push({
+          name: r.name || r.tag_name,
+          tag: r.tag_name,
+          date: r.published_at,
+          downloads: releaseDownloads,
+          assets: assets,
+          htmlUrl: r.html_url
+        });
+      }
     }
 
-    if (assets.length > 0) {
-      releasesList.push({
-        name: r.name,
-        tag: r.tag_name,
-        date: r.published_at,
-        downloads: releaseDownloads,
-        assets: assets,
-        htmlUrl: r.html_url
-      });
-    }
+    console.log(`  ✅ ${releasesList.length} releases encontradas (${total} downloads totais)`);
+    return { total, releases: releasesList };
+    
+  } catch (error) {
+    console.error(`  ❌ Erro ao buscar ${repo}:`, error.message);
+    return { total: 0, releases: [] };
   }
-
-  return { total, releases: releasesList };
 }
 
 (async () => {
+  console.log("\n🎮 EMULATOR BATTLE ARENA - Buscando dados...\n");
+  
   const results = [];
+  let successCount = 0;
+  let errorCount = 0;
   
   for (const r of repos) {
-    console.log(`Fetching ${r.name}...`);
+    console.log(`\n📦 ${r.name}`);
+    
     const data = await getReleasesData(r.repo);
     
     results.push({
@@ -75,17 +107,48 @@ async function getReleasesData(repo) {
       repoUrl: `https://github.com/${r.repo}`
     });
     
-    // Delay para evitar rate limit
-    await new Promise(resolve => setTimeout(resolve, 500));
+    if (data.total > 0) {
+      successCount++;
+    } else {
+      errorCount++;
+    }
+    
+    // Delay para evitar rate limit do GitHub (máximo 60 req/hora sem auth)
+    await new Promise(resolve => setTimeout(resolve, 1100));
   }
 
+  // Ordenar por downloads (decrescente)
   results.sort((a, b) => b.downloads - a.downloads);
 
+  // Criar diretório data se não existir
   fs.mkdirSync("data", { recursive: true });
-  fs.writeFileSync("data/rankings.json", JSON.stringify({
+  
+  // Salvar JSON
+  const output = {
     updatedAt: new Date().toISOString(),
-    results
-  }, null, 2));
+    totalProjects: results.length,
+    projectsWithReleases: successCount,
+    projectsWithoutReleases: errorCount,
+    results: results
+  };
+  
+  fs.writeFileSync("data/rankings.json", JSON.stringify(output, null, 2));
 
-  console.log("✅ Rankings updated with releases data!");
+  console.log("\n" + "=".repeat(60));
+  console.log("✅ Rankings atualizados com sucesso!");
+  console.log("=".repeat(60));
+  console.log(`📊 Total de projetos: ${results.length}`);
+  console.log(`✅ Com releases: ${successCount}`);
+  console.log(`⚠️  Sem releases: ${errorCount}`);
+  console.log(`💾 Arquivo salvo em: data/rankings.json`);
+  console.log("=".repeat(60) + "\n");
+  
+  // Mostrar top 3
+  console.log("🏆 TOP 3:");
+  results.slice(0, 3).forEach((item, index) => {
+    const medals = ['🥇', '🥈', '🥉'];
+    console.log(`${medals[index]} ${item.name}: ${item.downloads.toLocaleString('pt-BR')} downloads`);
+  });
+  console.log("");
+  
 })();
