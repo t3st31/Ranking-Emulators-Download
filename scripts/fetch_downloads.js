@@ -21,7 +21,7 @@ const repos = [
   { name: "Winlator Glibc", repo: "longjunyu2/winlator", category: "Winlator", logo: "winlator.png" },
   { name: "Wb64dev", repo: "winebox64/winlator", category: "Winlator", logo: "winlator.png" },
   { name: "Winlator Mali", repo: "Fcharan/WinlatorMali", category: "Winlator", logo: "winlator.png" },
-  { name: "Star (fork)", repo: "jacojayy/star", category: "Winlator", logo: "winlator.png" },
+  { name: "Star (fork)", repo: "jacojayy/star", category: "Winlator", logo: "star.png" },
   { name: "Winlator Brasil", repo: "winlatorbrasil/Winlator-Brasil", category: "Winlator", logo: "winlator-brasil.png" },
   { name: "Steamlator", repo: "slaker222/Steamlator", category: "Winlator", logo: "winlator.png" },
 
