@@ -2874,13 +2874,20 @@
           // --- Contadores Reais ---
 
           // 'Online Agora': janela de 5 minutos via CounterAPI
-          const d = new Date();
-          const winKey = `${d.getFullYear()}${(d.getMonth() + 1)}${d.getDate()}-${d.getHours()}${(Math.floor(d.getMinutes() / 5) * 5)}`;
-          fetch(`https://api.counterapi.dev/v1/ranking-emul-hub-t3st31/online-${winKey}/up`)
+          const _now = new Date();
+          const _winKey = [
+            _now.getUTCFullYear(),
+            String(_now.getUTCMonth() + 1).padStart(2, '0'),
+            String(_now.getUTCDate()).padStart(2, '0'),
+            'h', String(_now.getUTCHours()).padStart(2, '0'),
+            'm', String(Math.floor(_now.getUTCMinutes() / 5) * 5).padStart(2, '0')
+          ].join('');
+
+          fetch(`https://api.countapi.xyz/hit/t3st31-ranking-emulators/online-${_winKey}`)
             .then(res => res.json())
             .then(data => {
               const el = document.getElementById('onlineNow');
-              const count = data.count || data.value || 1;
+              const count = (data && data.value) ? data.value : 1;
               if (el) {
                 el.innerText = `${count} ${count === 1 ? 'Usuário' : 'Usuários'}`;
               }
@@ -2891,19 +2898,19 @@
             });
 
           // 'Total de Visitas': Hits API (dwyl) - O valor vem no campo 'message'
-          fetch('https://hits.dwyl.com/t3st31/Ranking-Emulators-Download.json')
+          fetch('https://api.countapi.xyz/hit/t3st31-ranking-emulators/visits')
             .then(res => res.json())
             .then(data => {
               const el = document.getElementById('totalVisits');
-              if (el && data && data.message) {
-                // message vem como string "123", convertemos para número para formatar
-                const count = parseInt(data.message) || 0;
-                el.innerText = count.toLocaleString('pt-BR');
-              } else if (el) { el.innerText = '0'; }
+              if (el && data && data.value !== undefined) {
+                el.innerText = Number(data.value).toLocaleString('pt-BR');
+              } else if (el) {
+                el.innerText = '—';
+              }
             })
             .catch(() => {
               const el = document.getElementById('totalVisits');
-              if (el) el.innerText = '0';
+              if (el) el.innerText = '—';
             });
 
           // Destaque na aba de Novidades
