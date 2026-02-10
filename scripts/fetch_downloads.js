@@ -15,6 +15,7 @@ const repos = [
   { name: "Winlator LongJunYu", repo: "longjunyu2/winlator", category: "Winlator" },
   { name: "Winebox64", repo: "winebox64/winlator", category: "Winlator" },
   { name: "Winlator Mali", repo: "Fcharan/WinlatorMali", category: "Winlator" },
+  { name: "Winlator Brasil", repo: "winlatorbrasil/Winlator-Brasil", category: "Winlator" },
   { name: "Star (fork)", repo: "jacojayy/star", category: "Winlator" }
 ];
 
