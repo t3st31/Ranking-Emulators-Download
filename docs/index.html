@@ -2983,6 +2983,8 @@
 
       const commonCountries = ['BR', 'US', 'ES', 'FR', 'DE', 'IT', 'PT', 'GB', 'AR', 'MX', 'CL', 'CO', 'PE', 'RU', 'CN', 'JP', 'KR', 'IN'];
       const stats = {};
+      const countryColors = {};
+      const neonPalette = ['#00fff9', '#ff0080', '#ffea00', '#00ff66', '#7000ff', '#ff8a00', '#009dff', '#ff0055', '#9dff00'];
 
       try {
         // Buscar todos os dados em paralelo ANTES de renderizar
@@ -2990,10 +2992,13 @@
           try {
             const res = await fetch(CORS_PROXY + encodeURIComponent(`https://api.counterapi.dev/v1/${VISITOR_NAMESPACE}/${code}`));
             const data = await res.json();
-            stats[code] = (data && data.count) ? data.count : 0;
-          } catch (err) {
-            stats[code] = 0;
-          }
+            const count = (data && data.count) ? parseInt(data.count) : 0;
+            if (count > 0) {
+              stats[code] = count;
+              // Atribuir cor aleatória da paleta neon
+              countryColors[code] = neonPalette[Math.floor(Math.random() * neonPalette.length)];
+            }
+          } catch (err) { }
         }));
 
         container.innerHTML = '';
@@ -3002,20 +3007,19 @@
           map: 'world_merc',
           backgroundColor: 'transparent',
           regionStyle: {
-            initial: { fill: '#1a1a1a', stroke: 'rgba(0, 255, 249, 0.1)', strokeWidth: 1 },
-            hover: { fill: '#00fff9', fillOpacity: 0.5 }
+            initial: { fill: '#1a1a1a', stroke: 'rgba(255, 255, 255, 0.05)', strokeWidth: 1 },
+            hover: { fill: '#ffffff', fillOpacity: 0.3 }
           },
           series: {
             regions: [{
-              values: stats,
-              attribute: 'fill',
-              scale: ['#333333', '#ff0080'],
-              normalizeFunction: 'linear'
+              values: countryColors,
+              attribute: 'fill'
             }]
           },
           onRegionTooltipShow(event, tooltip, code) {
             const count = stats[code] || 0;
-            tooltip.text(`<b>${tooltip.text()}</b><br/><span style="color:#00fff9">Visitas: ${count}</span>`, true);
+            const color = countryColors[code] || '#00fff9';
+            tooltip.text(`<b>${tooltip.text()}</b><br/><span style="color:${color}">Visitas: ${count}</span>`, true);
           }
         });
       } catch (err) {
