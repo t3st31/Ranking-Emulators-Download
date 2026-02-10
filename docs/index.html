@@ -2077,6 +2077,11 @@
     function renderCharts(data) {
       if (!window.Chart) return;
 
+      // Configurações globais de legibilidade para tema escuro
+      Chart.defaults.color = '#e0e0e0';
+      Chart.defaults.borderColor = 'rgba(255, 255, 255, 0.1)';
+      Chart.defaults.font.family = "'Segoe UI', Roboto, Helvetica, Arial, sans-serif";
+
       // Destruir instâncias antigas para evitar bugs de hover/memória
       Object.values(charts).forEach(c => c.destroy());
       charts = {};
@@ -2105,7 +2110,17 @@
             borderWidth: 1
           }]
         },
-        options: { responsive: true, maintainAspectRatio: false, scales: { y: { beginAtZero: true } } }
+        options: {
+          responsive: true,
+          maintainAspectRatio: false,
+          scales: {
+            y: { beginAtZero: true, grid: { color: 'rgba(255, 255, 255, 0.1)' } },
+            x: { grid: { display: false } }
+          },
+          plugins: {
+            legend: { labels: { color: '#ffffff' } }
+          }
+        }
       });
 
       // 2. Pie Chart: Categorias
@@ -2188,7 +2203,21 @@
             backgroundColor: themeColors[i] + '22'
           }))
         },
-        options: { responsive: true, maintainAspectRatio: false }
+        options: {
+          responsive: true,
+          maintainAspectRatio: false,
+          scales: {
+            r: {
+              angleLines: { color: 'rgba(255, 255, 255, 0.2)' },
+              grid: { color: 'rgba(255, 255, 255, 0.2)' },
+              pointLabels: { color: '#ffffff', font: { size: 12, weight: 'bold' } },
+              ticks: { backdropColor: 'transparent', color: '#00f7ff' }
+            }
+          },
+          plugins: {
+            legend: { labels: { color: '#ffffff' } }
+          }
+        }
       });
 
       // 7. Polar Area: Categorias (Quantidade de projetos por categoria)
@@ -2203,7 +2232,19 @@
             backgroundColor: themeColors.map(c => c + '88')
           }]
         },
-        options: { responsive: true, maintainAspectRatio: false }
+        options: {
+          responsive: true,
+          maintainAspectRatio: false,
+          scales: {
+            r: {
+              grid: { color: 'rgba(255, 255, 255, 0.2)' },
+              ticks: { backdropColor: 'transparent', color: '#ffffff' }
+            }
+          },
+          plugins: {
+            legend: { labels: { color: '#ffffff' } }
+          }
+        }
       });
 
       // 8. Bubble Chart: Atividade vs Popularidade
@@ -2224,8 +2265,17 @@
           responsive: true,
           maintainAspectRatio: false,
           scales: {
-            x: { title: { display: true, text: 'Total de Releases' } },
-            y: { title: { display: true, text: 'Total Downloads' } }
+            x: {
+              title: { display: true, text: 'Total de Releases', color: '#00f7ff', font: { weight: 'bold' } },
+              grid: { color: 'rgba(255, 255, 255, 0.1)' }
+            },
+            y: {
+              title: { display: true, text: 'Total Downloads', color: '#00f7ff', font: { weight: 'bold' } },
+              grid: { color: 'rgba(255, 255, 255, 0.1)' }
+            }
+          },
+          plugins: {
+            legend: { labels: { color: '#ffffff' } }
           }
         }
       });
@@ -2255,7 +2305,17 @@
             { label: 'Releases (Proporção)', data: projects.slice(0, 10).map(p => p.releases ? p.releases.length : 0), backgroundColor: '#00ff88' }
           ]
         },
-        options: { responsive: true, maintainAspectRatio: false, scales: { x: { stacked: true }, y: { stacked: true } } }
+        options: {
+          responsive: true,
+          maintainAspectRatio: false,
+          scales: {
+            x: { stacked: true, grid: { display: false } },
+            y: { stacked: true, grid: { color: 'rgba(255, 255, 255, 0.1)' } }
+          },
+          plugins: {
+            legend: { labels: { color: '#ffffff' } }
+          }
+        }
       });
     }
 
