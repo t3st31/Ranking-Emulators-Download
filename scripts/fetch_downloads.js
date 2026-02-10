@@ -5,7 +5,6 @@ const repos = [
   { name: "GameHub Lite (Producdevity)", repo: "Producdevity/gamehub-lite", category: "GameHub" },
   { name: "GameHub Lite (ItzDFPlayer)", repo: "ItzDFPlayer/gamehub-lite", category: "GameHub" },
   { name: "GameHub Brasil", repo: "winlatorbrasil/gamehub-brasil", category: "GameHub" },
-
   // WINLATOR
   { name: "Winlator Ludashi", repo: "StevenMXZ/Winlator-Ludashi", category: "Winlator" },
   { name: "Winlator Oficial", repo: "brunodev85/winlator", category: "Winlator" },
@@ -19,32 +18,64 @@ const repos = [
   { name: "Star (fork)", repo: "jacojayy/star", category: "Winlator" }
 ];
 
-async function getDownloads(repo) {
+async function getReleasesData(repo) {
   const res = await fetch(`https://api.github.com/repos/${repo}/releases`);
-  if (!res.ok) return 0;
-
+  if (!res.ok) return { total: 0, releases: [] };
+  
   const releases = await res.json();
   let total = 0;
+  const releasesList = [];
 
   for (const r of releases) {
+    let releaseDownloads = 0;
+    const assets = [];
+
     for (const a of r.assets || []) {
-      total += a.download_count || 0;
+      const count = a.download_count || 0;
+      total += count;
+      releaseDownloads += count;
+      
+      assets.push({
+        name: a.name,
+        size: a.size,
+        downloads: count,
+        url: a.browser_download_url
+      });
+    }
+
+    if (assets.length > 0) {
+      releasesList.push({
+        name: r.name,
+        tag: r.tag_name,
+        date: r.published_at,
+        downloads: releaseDownloads,
+        assets: assets,
+        htmlUrl: r.html_url
+      });
     }
   }
-  return total;
+
+  return { total, releases: releasesList };
 }
 
 (async () => {
   const results = [];
-
+  
   for (const r of repos) {
-    const downloads = await getDownloads(r.repo);
+    console.log(`Fetching ${r.name}...`);
+    const data = await getReleasesData(r.repo);
+    
     results.push({
       name: r.name,
       repo: r.repo,
       category: r.category,
-      downloads
+      downloads: data.total,
+      releases: data.releases,
+      repoUrl: `https://github.com/${r.repo}`
     });
+    
+    // Delay para evitar rate limit
+    await new Promise(resolve => setTimeout(resolve, 500));
   }
 
   results.sort((a, b) => b.downloads - a.downloads);
@@ -55,5 +86,5 @@ async function getDownloads(repo) {
     results
   }, null, 2));
 
-  console.log("Rankings updated");
+  console.log("✅ Rankings updated with releases data!");
 })();
