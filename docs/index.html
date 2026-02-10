@@ -2036,8 +2036,7 @@
 
         <div id="rankingContainer">
           <div class="loading" data-i18n="loadingRanking">
-            <div class="spinner"></div>
-            Carregando ranking...
+            ⏱️ Carregando ranking...
           </div>
         </div>
       </div>
@@ -4137,6 +4136,9 @@
         renderVisitorMap();
       }
     });
+
+    // Inicializar traduções estáticas
+    applyTranslations();
 
     loadData();
     trackVisitorLocation();
