@@ -1,83 +1,2627 @@
 {
-  "updatedAt": "2026-02-10T02:12:10.947Z",
+  "updatedAt": "2026-02-10T02:35:19.237Z",
+  "totalProjects": 14,
+  "projectsWithReleases": 14,
+  "projectsWithoutReleases": 0,
   "results": [
     {
       "name": "Winlator Oficial",
       "repo": "brunodev85/winlator",
       "category": "Winlator",
-      "downloads": 12489627
+      "downloads": 12489878,
+      "releases": [
+        {
+          "name": "Winlator 11.0 (Beta)",
+          "tag": "v11.0.0",
+          "date": "2025-09-26T20:20:22Z",
+          "downloads": 814420,
+          "assets": [
+            {
+              "name": "Winlator_11.0.apk",
+              "size": 152225524,
+              "downloads": 814420,
+              "url": "https://github.com/brunodev85/winlator/releases/download/v11.0.0/Winlator_11.0.apk"
+            }
+          ],
+          "htmlUrl": "https://github.com/brunodev85/winlator/releases/tag/v11.0.0"
+        },
+        {
+          "name": "Winlator 10.1 (Hotfix)",
+          "tag": "v10.1.0",
+          "date": "2025-07-08T18:12:38Z",
+          "downloads": 2328603,
+          "assets": [
+            {
+              "name": "Winlator_10.1.apk",
+              "size": 147778434,
+              "downloads": 2328603,
+              "url": "https://github.com/brunodev85/winlator/releases/download/v10.1.0/Winlator_10.1.apk"
+            }
+          ],
+          "htmlUrl": "https://github.com/brunodev85/winlator/releases/tag/v10.1.0"
+        },
+        {
+          "name": "Winlator 10.0 (Hotfix)",
+          "tag": "v10.0.0",
+          "date": "2025-02-28T19:17:37Z",
+          "downloads": 1033346,
+          "assets": [
+            {
+              "name": "Winlator_10.0.apk",
+              "size": 147685565,
+              "downloads": 1033346,
+              "url": "https://github.com/brunodev85/winlator/releases/download/v10.0.0/Winlator_10.0.apk"
+            }
+          ],
+          "htmlUrl": "https://github.com/brunodev85/winlator/releases/tag/v10.0.0"
+        },
+        {
+          "name": "Winlator 9.0",
+          "tag": "v9.0.0",
+          "date": "2025-01-03T19:44:34Z",
+          "downloads": 1531662,
+          "assets": [
+            {
+              "name": "Winlator_9.0.apk",
+              "size": 199652248,
+              "downloads": 1531662,
+              "url": "https://github.com/brunodev85/winlator/releases/download/v9.0.0/Winlator_9.0.apk"
+            }
+          ],
+          "htmlUrl": "https://github.com/brunodev85/winlator/releases/tag/v9.0.0"
+        },
+        {
+          "name": "Winlator 8.0 (Revision 1)",
+          "tag": "v8.0.0",
+          "date": "2024-09-26T16:41:52Z",
+          "downloads": 942449,
+          "assets": [
+            {
+              "name": "Winlator_8.0.Revision.1.apk",
+              "size": 197836693,
+              "downloads": 942449,
+              "url": "https://github.com/brunodev85/winlator/releases/download/v8.0.0/Winlator_8.0.Revision.1.apk"
+            }
+          ],
+          "htmlUrl": "https://github.com/brunodev85/winlator/releases/tag/v8.0.0"
+        },
+        {
+          "name": "Winlator 7.1",
+          "tag": "v7.1.0",
+          "date": "2024-06-21T17:13:51Z",
+          "downloads": 1137432,
+          "assets": [
+            {
+              "name": "Winlator_7.1.apk",
+              "size": 266057025,
+              "downloads": 1137432,
+              "url": "https://github.com/brunodev85/winlator/releases/download/v7.1.0/Winlator_7.1.apk"
+            }
+          ],
+          "htmlUrl": "https://github.com/brunodev85/winlator/releases/tag/v7.1.0"
+        },
+        {
+          "name": "Winlator 7.0",
+          "tag": "v7.0.0",
+          "date": "2024-06-10T17:40:38Z",
+          "downloads": 226510,
+          "assets": [
+            {
+              "name": "Winlator_7.0.apk",
+              "size": 262944424,
+              "downloads": 226510,
+              "url": "https://github.com/brunodev85/winlator/releases/download/v7.0.0/Winlator_7.0.apk"
+            }
+          ],
+          "htmlUrl": "https://github.com/brunodev85/winlator/releases/tag/v7.0.0"
+        },
+        {
+          "name": "Winlator 6.1",
+          "tag": "v6.1.0",
+          "date": "2024-04-04T20:05:41Z",
+          "downloads": 703227,
+          "assets": [
+            {
+              "name": "Winlator_6.1.apk",
+              "size": 265585916,
+              "downloads": 703227,
+              "url": "https://github.com/brunodev85/winlator/releases/download/v6.1.0/Winlator_6.1.apk"
+            }
+          ],
+          "htmlUrl": "https://github.com/brunodev85/winlator/releases/tag/v6.1.0"
+        },
+        {
+          "name": "Winlator 6.0",
+          "tag": "v6.0.0",
+          "date": "2024-03-27T14:36:51Z",
+          "downloads": 152330,
+          "assets": [
+            {
+              "name": "Winlator_6.0.apk",
+              "size": 261744107,
+              "downloads": 152330,
+              "url": "https://github.com/brunodev85/winlator/releases/download/v6.0.0/Winlator_6.0.apk"
+            }
+          ],
+          "htmlUrl": "https://github.com/brunodev85/winlator/releases/tag/v6.0.0"
+        },
+        {
+          "name": "Winlator 5.0",
+          "tag": "v5.0.0",
+          "date": "2024-02-01T20:30:32Z",
+          "downloads": 383044,
+          "assets": [
+            {
+              "name": "Winlator_5.0.apk",
+              "size": 88025532,
+              "downloads": 383044,
+              "url": "https://github.com/brunodev85/winlator/releases/download/v5.0.0/Winlator_5.0.apk"
+            }
+          ],
+          "htmlUrl": "https://github.com/brunodev85/winlator/releases/tag/v5.0.0"
+        },
+        {
+          "name": "Winlator 4.0",
+          "tag": "v4.0.0",
+          "date": "2024-01-23T19:53:16Z",
+          "downloads": 98972,
+          "assets": [
+            {
+              "name": "Winlator_4.0.apk",
+              "size": 86944881,
+              "downloads": 98972,
+              "url": "https://github.com/brunodev85/winlator/releases/download/v4.0.0/Winlator_4.0.apk"
+            }
+          ],
+          "htmlUrl": "https://github.com/brunodev85/winlator/releases/tag/v4.0.0"
+        },
+        {
+          "name": "Winlator 3.2",
+          "tag": "v3.2.0",
+          "date": "2023-12-14T19:48:07Z",
+          "downloads": 408607,
+          "assets": [
+            {
+              "name": "Winlator_3.2.apk",
+              "size": 85891901,
+              "downloads": 408607,
+              "url": "https://github.com/brunodev85/winlator/releases/download/v3.2.0/Winlator_3.2.apk"
+            }
+          ],
+          "htmlUrl": "https://github.com/brunodev85/winlator/releases/tag/v3.2.0"
+        },
+        {
+          "name": "Winlator 3.1",
+          "tag": "v3.1.0",
+          "date": "2023-11-29T20:42:15Z",
+          "downloads": 2001363,
+          "assets": [
+            {
+              "name": "main.3.com.winlator.obb",
+              "size": 449924372,
+              "downloads": 1904880,
+              "url": "https://github.com/brunodev85/winlator/releases/download/v3.1.0/main.3.com.winlator.obb"
+            },
+            {
+              "name": "Winlator_3.1-UPDATED.apk",
+              "size": 85572580,
+              "downloads": 96483,
+              "url": "https://github.com/brunodev85/winlator/releases/download/v3.1.0/Winlator_3.1-UPDATED.apk"
+            }
+          ],
+          "htmlUrl": "https://github.com/brunodev85/winlator/releases/tag/v3.1.0"
+        },
+        {
+          "name": "Winlator 3.0",
+          "tag": "v3.0.0",
+          "date": "2023-11-23T19:12:00Z",
+          "downloads": 411702,
+          "assets": [
+            {
+              "name": "main.3.com.winlator.obb",
+              "size": 449924372,
+              "downloads": 339585,
+              "url": "https://github.com/brunodev85/winlator/releases/download/v3.0.0/main.3.com.winlator.obb"
+            },
+            {
+              "name": "Winlator_3.0.apk",
+              "size": 82538572,
+              "downloads": 72117,
+              "url": "https://github.com/brunodev85/winlator/releases/download/v3.0.0/Winlator_3.0.apk"
+            }
+          ],
+          "htmlUrl": "https://github.com/brunodev85/winlator/releases/tag/v3.0.0"
+        },
+        {
+          "name": "Winlator 2.0",
+          "tag": "v2.0.0",
+          "date": "2023-10-12T16:21:51Z",
+          "downloads": 316211,
+          "assets": [
+            {
+              "name": "main.2.com.winlator.obb",
+              "size": 447461063,
+              "downloads": 173499,
+              "url": "https://github.com/brunodev85/winlator/releases/download/v2.0.0/main.2.com.winlator.obb"
+            },
+            {
+              "name": "Winlator_2.0-UPDATED.apk",
+              "size": 69408822,
+              "downloads": 142712,
+              "url": "https://github.com/brunodev85/winlator/releases/download/v2.0.0/Winlator_2.0-UPDATED.apk"
+            }
+          ],
+          "htmlUrl": "https://github.com/brunodev85/winlator/releases/tag/v2.0.0"
+        }
+      ],
+      "repoUrl": "https://github.com/brunodev85/winlator"
     },
     {
       "name": "Winlator LongJunYu",
       "repo": "longjunyu2/winlator",
       "category": "Winlator",
-      "downloads": 926981
+      "downloads": 926983,
+      "releases": [
+        {
+          "name": "Winlator 7.1.5 with Native Glibc",
+          "tag": "v7.1.5",
+          "date": "2025-01-25T09:40:50Z",
+          "downloads": 92507,
+          "assets": [
+            {
+              "name": "app-release.apk",
+              "size": 244026226,
+              "downloads": 92507,
+              "url": "https://github.com/longjunyu2/winlator/releases/download/v7.1.5/app-release.apk"
+            }
+          ],
+          "htmlUrl": "https://github.com/longjunyu2/winlator/releases/tag/v7.1.5"
+        },
+        {
+          "name": "Winlator 7.1.4 with Native Glibc",
+          "tag": "v7.1.4",
+          "date": "2024-12-25T13:09:24Z",
+          "downloads": 52766,
+          "assets": [
+            {
+              "name": "app-release.apk",
+              "size": 244025326,
+              "downloads": 40281,
+              "url": "https://github.com/longjunyu2/winlator/releases/download/v7.1.4/app-release.apk"
+            },
+            {
+              "name": "turnip-v25.0.0-R5.wcp",
+              "size": 4640604,
+              "downloads": 12485,
+              "url": "https://github.com/longjunyu2/winlator/releases/download/v7.1.4/turnip-v25.0.0-R5.wcp"
+            }
+          ],
+          "htmlUrl": "https://github.com/longjunyu2/winlator/releases/tag/v7.1.4"
+        },
+        {
+          "name": "Winlator 7.1.3 with Native Glibc",
+          "tag": "v7.1.3",
+          "date": "2024-08-29T10:18:54Z",
+          "downloads": 473731,
+          "assets": [
+            {
+              "name": "app-release.apk",
+              "size": 244020641,
+              "downloads": 188608,
+              "url": "https://github.com/longjunyu2/winlator/releases/download/v7.1.3/app-release.apk"
+            },
+            {
+              "name": "box64-0.2.7.wcp",
+              "size": 2129124,
+              "downloads": 34158,
+              "url": "https://github.com/longjunyu2/winlator/releases/download/v7.1.3/box64-0.2.7.wcp"
+            },
+            {
+              "name": "box64-0.3.1-0450371-8g2.wcp",
+              "size": 2574924,
+              "downloads": 43975,
+              "url": "https://github.com/longjunyu2/winlator/releases/download/v7.1.3/box64-0.3.1-0450371-8g2.wcp"
+            },
+            {
+              "name": "box64-0.3.1-0450371.wcp",
+              "size": 2544596,
+              "downloads": 60417,
+              "url": "https://github.com/longjunyu2/winlator/releases/download/v7.1.3/box64-0.3.1-0450371.wcp"
+            },
+            {
+              "name": "wine-9.15-custom.wcp",
+              "size": 82243500,
+              "downloads": 57016,
+              "url": "https://github.com/longjunyu2/winlator/releases/download/v7.1.3/wine-9.15-custom.wcp"
+            },
+            {
+              "name": "wine-9.2-custom.wcp",
+              "size": 81403064,
+              "downloads": 89557,
+              "url": "https://github.com/longjunyu2/winlator/releases/download/v7.1.3/wine-9.2-custom.wcp"
+            }
+          ],
+          "htmlUrl": "https://github.com/longjunyu2/winlator/releases/tag/v7.1.3"
+        },
+        {
+          "name": "Winlator 7.1.2 with Native Glibc",
+          "tag": "v7.1.2",
+          "date": "2024-08-16T04:38:39Z",
+          "downloads": 246725,
+          "assets": [
+            {
+              "name": "app-release.apk",
+              "size": 211915373,
+              "downloads": 42209,
+              "url": "https://github.com/longjunyu2/winlator/releases/download/v7.1.2/app-release.apk"
+            },
+            {
+              "name": "box64-0.3.1-017d13a.wcp",
+              "size": 2530556,
+              "downloads": 31709,
+              "url": "https://github.com/longjunyu2/winlator/releases/download/v7.1.2/box64-0.3.1-017d13a.wcp"
+            },
+            {
+              "name": "dxvk-0.96.wcp",
+              "size": 2973549,
+              "downloads": 32344,
+              "url": "https://github.com/longjunyu2/winlator/releases/download/v7.1.2/dxvk-0.96.wcp"
+            },
+            {
+              "name": "dxvk-1.10.3.wcp",
+              "size": 4160104,
+              "downloads": 63947,
+              "url": "https://github.com/longjunyu2/winlator/releases/download/v7.1.2/dxvk-1.10.3.wcp"
+            },
+            {
+              "name": "turnip-23.3.0.wcp",
+              "size": 4338292,
+              "downloads": 26001,
+              "url": "https://github.com/longjunyu2/winlator/releases/download/v7.1.2/turnip-23.3.0.wcp"
+            },
+            {
+              "name": "turnip-24.3.0-d264c66f.wcp",
+              "size": 4530856,
+              "downloads": 40023,
+              "url": "https://github.com/longjunyu2/winlator/releases/download/v7.1.2/turnip-24.3.0-d264c66f.wcp"
+            },
+            {
+              "name": "wine-9.2-custom.wcp",
+              "size": 81412768,
+              "downloads": 10492,
+              "url": "https://github.com/longjunyu2/winlator/releases/download/v7.1.2/wine-9.2-custom.wcp"
+            }
+          ],
+          "htmlUrl": "https://github.com/longjunyu2/winlator/releases/tag/v7.1.2"
+        },
+        {
+          "name": "Winlator 7.1.1 with Native Glibc",
+          "tag": "v7.1.1",
+          "date": "2024-08-05T09:53:57Z",
+          "downloads": 57819,
+          "assets": [
+            {
+              "name": "app-release.apk",
+              "size": 229574419,
+              "downloads": 57819,
+              "url": "https://github.com/longjunyu2/winlator/releases/download/v7.1.1/app-release.apk"
+            }
+          ],
+          "htmlUrl": "https://github.com/longjunyu2/winlator/releases/tag/v7.1.1"
+        },
+        {
+          "name": "Winlator 7.1 with Native Glibc",
+          "tag": "v7.1.0",
+          "date": "2024-08-03T05:12:46Z",
+          "downloads": 3435,
+          "assets": [
+            {
+              "name": "app-release.apk",
+              "size": 216603678,
+              "downloads": 3435,
+              "url": "https://github.com/longjunyu2/winlator/releases/download/v7.1.0/app-release.apk"
+            }
+          ],
+          "htmlUrl": "https://github.com/longjunyu2/winlator/releases/tag/v7.1.0"
+        }
+      ],
+      "repoUrl": "https://github.com/longjunyu2/winlator"
     },
     {
       "name": "Winlator MOD",
       "repo": "afeimod/winlator-mod",
       "category": "Winlator",
-      "downloads": 664573
+      "downloads": 664577,
+      "releases": [
+        {
+          "name": "Box64 v0.4.0 (aarch64, Winlator，glibc)",
+          "tag": "v0.4.0-20260201",
+          "date": "2026-02-01T23:46:22Z",
+          "downloads": 649,
+          "assets": [
+            {
+              "name": "box64-v0.4.0-20260201.tar.xz",
+              "size": 2785168,
+              "downloads": 649,
+              "url": "https://github.com/afeimod/winlator-mod/releases/download/v0.4.0-20260201/box64-v0.4.0-20260201.tar.xz"
+            }
+          ],
+          "htmlUrl": "https://github.com/afeimod/winlator-mod/releases/tag/v0.4.0-20260201"
+        },
+        {
+          "name": "Box64 v0.4.1-1-16-gc389bdff4 (aarch64, Winlator，glibc)",
+          "tag": "main-20260201",
+          "date": "2026-02-01T23:46:14Z",
+          "downloads": 121,
+          "assets": [
+            {
+              "name": "box64-v0.4.1-1-16-gc389bdff4-20260201.tar.xz",
+              "size": 2885304,
+              "downloads": 121,
+              "url": "https://github.com/afeimod/winlator-mod/releases/download/main-20260201/box64-v0.4.1-1-16-gc389bdff4-20260201.tar.xz"
+            }
+          ],
+          "htmlUrl": "https://github.com/afeimod/winlator-mod/releases/tag/main-20260201"
+        },
+        {
+          "name": "10.1hotfix-Amod3fix2",
+          "tag": "10.1hotfix-Amod3fix2",
+          "date": "2025-12-02T08:21:17Z",
+          "downloads": 19838,
+          "assets": [
+            {
+              "name": "wine-10.15.whp",
+              "size": 148947384,
+              "downloads": 4024,
+              "url": "https://github.com/afeimod/winlator-mod/releases/download/10.1hotfix-Amod3fix2/wine-10.15.whp"
+            },
+            {
+              "name": "Winlator10.1-Amod3fix2.apk",
+              "size": 879369555,
+              "downloads": 15814,
+              "url": "https://github.com/afeimod/winlator-mod/releases/download/10.1hotfix-Amod3fix2/Winlator10.1-Amod3fix2.apk"
+            }
+          ],
+          "htmlUrl": "https://github.com/afeimod/winlator-mod/releases/tag/10.1hotfix-Amod3fix2"
+        },
+        {
+          "name": "rootfs-beta",
+          "tag": "rootfs-beta",
+          "date": "2025-11-13T04:02:07Z",
+          "downloads": 1516,
+          "assets": [
+            {
+              "name": "output-full.tar.xz",
+              "size": 45451228,
+              "downloads": 1098,
+              "url": "https://github.com/afeimod/winlator-mod/releases/download/rootfs-beta/output-full.tar.xz"
+            },
+            {
+              "name": "output-lite.tar.xz",
+              "size": 32139444,
+              "downloads": 194,
+              "url": "https://github.com/afeimod/winlator-mod/releases/download/rootfs-beta/output-lite.tar.xz"
+            },
+            {
+              "name": "rootfs.tzst",
+              "size": 235,
+              "downloads": 224,
+              "url": "https://github.com/afeimod/winlator-mod/releases/download/rootfs-beta/rootfs.tzst"
+            }
+          ],
+          "htmlUrl": "https://github.com/afeimod/winlator-mod/releases/tag/rootfs-beta"
+        },
+        {
+          "name": "10.1hotfix-Amod3fix",
+          "tag": "10.1hotfix-Amod3fix",
+          "date": "2025-11-13T00:16:05Z",
+          "downloads": 5509,
+          "assets": [
+            {
+              "name": "Winlator10.1-Amod3fix.apk",
+              "size": 879373651,
+              "downloads": 5509,
+              "url": "https://github.com/afeimod/winlator-mod/releases/download/10.1hotfix-Amod3fix/Winlator10.1-Amod3fix.apk"
+            }
+          ],
+          "htmlUrl": "https://github.com/afeimod/winlator-mod/releases/tag/10.1hotfix-Amod3fix"
+        },
+        {
+          "name": "Wine staging 10.15 (WOW64 with Vulkan & GStreamer for Termux)",
+          "tag": "wine-staging-10.15-wow64",
+          "date": "2025-12-02T04:40:18Z",
+          "downloads": 257,
+          "assets": [
+            {
+              "name": "checksums.txt",
+              "size": 293,
+              "downloads": 29,
+              "url": "https://github.com/afeimod/winlator-mod/releases/download/wine-staging-10.15-wow64/checksums.txt"
+            },
+            {
+              "name": "wine-wine-10.15-72dc2afb1a7-staging-wow64.tar.xz",
+              "size": 94244460,
+              "downloads": 228,
+              "url": "https://github.com/afeimod/winlator-mod/releases/download/wine-staging-10.15-wow64/wine-wine-10.15-72dc2afb1a7-staging-wow64.tar.xz"
+            }
+          ],
+          "htmlUrl": "https://github.com/afeimod/winlator-mod/releases/tag/wine-staging-10.15-wow64"
+        },
+        {
+          "name": "rootfs-beta11-g2.39",
+          "tag": "rootfs-beta11-g2.39",
+          "date": "2025-11-11T03:37:18Z",
+          "downloads": 120,
+          "assets": [
+            {
+              "name": "output-full.tar.xz",
+              "size": 95615428,
+              "downloads": 46,
+              "url": "https://github.com/afeimod/winlator-mod/releases/download/rootfs-beta11-g2.39/output-full.tar.xz"
+            },
+            {
+              "name": "output-lite.1.tar.xz",
+              "size": 32140500,
+              "downloads": 23,
+              "url": "https://github.com/afeimod/winlator-mod/releases/download/rootfs-beta11-g2.39/output-lite.1.tar.xz"
+            },
+            {
+              "name": "output-lite.tar.xz",
+              "size": 87194212,
+              "downloads": 22,
+              "url": "https://github.com/afeimod/winlator-mod/releases/download/rootfs-beta11-g2.39/output-lite.tar.xz"
+            },
+            {
+              "name": "rootfs.tzst",
+              "size": 173120801,
+              "downloads": 29,
+              "url": "https://github.com/afeimod/winlator-mod/releases/download/rootfs-beta11-g2.39/rootfs.tzst"
+            }
+          ],
+          "htmlUrl": "https://github.com/afeimod/winlator-mod/releases/tag/rootfs-beta11-g2.39"
+        },
+        {
+          "name": "Proton proton_10.0 (WOW64 with Vulkan & GStreamer for Termux - xuser)",
+          "tag": "proton-proton_10.0-wow64-xuser",
+          "date": "2025-12-10T09:03:38Z",
+          "downloads": 181,
+          "assets": [
+            {
+              "name": "checksums.txt",
+              "size": 301,
+              "downloads": 23,
+              "url": "https://github.com/afeimod/winlator-mod/releases/download/proton-proton_10.0-wow64-xuser/checksums.txt"
+            },
+            {
+              "name": "proton-proton-wine-10.0-3-eb63de9c3c0-wow64-xuser.tar.xz",
+              "size": 91744140,
+              "downloads": 158,
+              "url": "https://github.com/afeimod/winlator-mod/releases/download/proton-proton_10.0-wow64-xuser/proton-proton-wine-10.0-3-eb63de9c3c0-wow64-xuser.tar.xz"
+            }
+          ],
+          "htmlUrl": "https://github.com/afeimod/winlator-mod/releases/tag/proton-proton_10.0-wow64-xuser"
+        },
+        {
+          "name": "10.1hotfix-Amod2fix",
+          "tag": "10.1hotfix-Amod2fix",
+          "date": "2025-09-13T03:31:15Z",
+          "downloads": 17372,
+          "assets": [
+            {
+              "name": "Winlator10.1-Amod2fix.apk",
+              "size": 732720467,
+              "downloads": 17372,
+              "url": "https://github.com/afeimod/winlator-mod/releases/download/10.1hotfix-Amod2fix/Winlator10.1-Amod2fix.apk"
+            }
+          ],
+          "htmlUrl": "https://github.com/afeimod/winlator-mod/releases/tag/10.1hotfix-Amod2fix"
+        },
+        {
+          "name": "10.1hotfix-Amod1",
+          "tag": "10.1hotfix-Amod1",
+          "date": "2025-09-10T08:22:15Z",
+          "downloads": 2620,
+          "assets": [
+            {
+              "name": "Winlator10.1-Amod1_10.1.apk",
+              "size": 728595621,
+              "downloads": 2620,
+              "url": "https://github.com/afeimod/winlator-mod/releases/download/10.1hotfix-Amod1/Winlator10.1-Amod1_10.1.apk"
+            }
+          ],
+          "htmlUrl": "https://github.com/afeimod/winlator-mod/releases/tag/10.1hotfix-Amod1"
+        },
+        {
+          "name": "10.0Hotfix-Amod1",
+          "tag": "10.0Hotfix-Amod1",
+          "date": "2025-05-05T01:50:50Z",
+          "downloads": 77048,
+          "assets": [
+            {
+              "name": "wine-10.4-tkg-wlt10-test008.whp",
+              "size": 146723064,
+              "downloads": 13246,
+              "url": "https://github.com/afeimod/winlator-mod/releases/download/10.0Hotfix-Amod1/wine-10.4-tkg-wlt10-test008.whp"
+            },
+            {
+              "name": "Wine-10.7-tkg-wlt10-test0.1.whp",
+              "size": 140395088,
+              "downloads": 4577,
+              "url": "https://github.com/afeimod/winlator-mod/releases/download/10.0Hotfix-Amod1/Wine-10.7-tkg-wlt10-test0.1.whp"
+            },
+            {
+              "name": "wine-9.16.whp",
+              "size": 117061920,
+              "downloads": 2394,
+              "url": "https://github.com/afeimod/winlator-mod/releases/download/10.0Hotfix-Amod1/wine-9.16.whp"
+            },
+            {
+              "name": "Winlator_10.0Hotfix_Amod.apk",
+              "size": 692544649,
+              "downloads": 56831,
+              "url": "https://github.com/afeimod/winlator-mod/releases/download/10.0Hotfix-Amod1/Winlator_10.0Hotfix_Amod.apk"
+            }
+          ],
+          "htmlUrl": "https://github.com/afeimod/winlator-mod/releases/tag/10.0Hotfix-Amod1"
+        },
+        {
+          "name": "10.0-Amod5fix-2",
+          "tag": "10.0-Amod5fix-2",
+          "date": "2025-04-24T01:38:22Z",
+          "downloads": 18408,
+          "assets": [
+            {
+              "name": "wine9.16.whp",
+              "size": 41522768,
+              "downloads": 2812,
+              "url": "https://github.com/afeimod/winlator-mod/releases/download/10.0-Amod5fix-2/wine9.16.whp"
+            },
+            {
+              "name": "Winlator_10.0-Amod5fix-2.apk",
+              "size": 674837641,
+              "downloads": 15596,
+              "url": "https://github.com/afeimod/winlator-mod/releases/download/10.0-Amod5fix-2/Winlator_10.0-Amod5fix-2.apk"
+            }
+          ],
+          "htmlUrl": "https://github.com/afeimod/winlator-mod/releases/tag/10.0-Amod5fix-2"
+        },
+        {
+          "name": "10.0-Amod5fix",
+          "tag": "10.0-Amod5fix",
+          "date": "2025-04-21T01:03:54Z",
+          "downloads": 6402,
+          "assets": [
+            {
+              "name": "wine9.16.whp",
+              "size": 41522768,
+              "downloads": 1125,
+              "url": "https://github.com/afeimod/winlator-mod/releases/download/10.0-Amod5fix/wine9.16.whp"
+            },
+            {
+              "name": "Winlator_10.0-Amod5fix.apk",
+              "size": 667796617,
+              "downloads": 5277,
+              "url": "https://github.com/afeimod/winlator-mod/releases/download/10.0-Amod5fix/Winlator_10.0-Amod5fix.apk"
+            }
+          ],
+          "htmlUrl": "https://github.com/afeimod/winlator-mod/releases/tag/10.0-Amod5fix"
+        },
+        {
+          "name": "9.0-amod3",
+          "tag": "9.0-amod3",
+          "date": "2025-02-23T11:12:13Z",
+          "downloads": 25932,
+          "assets": [
+            {
+              "name": "Winlator-9.0-Amod3.apk",
+              "size": 715538128,
+              "downloads": 21209,
+              "url": "https://github.com/afeimod/winlator-mod/releases/download/9.0-amod3/Winlator-9.0-Amod3.apk"
+            },
+            {
+              "name": "Winlator-9.0-Amod3_LuAi.apk",
+              "size": 715538128,
+              "downloads": 4723,
+              "url": "https://github.com/afeimod/winlator-mod/releases/download/9.0-amod3/Winlator-9.0-Amod3_LuAi.apk"
+            }
+          ],
+          "htmlUrl": "https://github.com/afeimod/winlator-mod/releases/tag/9.0-amod3"
+        },
+        {
+          "name": "9.0-amod2fix",
+          "tag": "9.0-amod2fix",
+          "date": "2025-03-01T10:10:20Z",
+          "downloads": 17622,
+          "assets": [
+            {
+              "name": "Winlator-9.0-Amod2fix.apk",
+              "size": 587062992,
+              "downloads": 15035,
+              "url": "https://github.com/afeimod/winlator-mod/releases/download/9.0-amod2fix/Winlator-9.0-Amod2fix.apk"
+            },
+            {
+              "name": "Winlator-9.0-Amod2fix_LuAI.apk",
+              "size": 587062992,
+              "downloads": 2587,
+              "url": "https://github.com/afeimod/winlator-mod/releases/download/9.0-amod2fix/Winlator-9.0-Amod2fix_LuAI.apk"
+            }
+          ],
+          "htmlUrl": "https://github.com/afeimod/winlator-mod/releases/tag/9.0-amod2fix"
+        },
+        {
+          "name": "7.1.5glibc-amod1",
+          "tag": "7.1.5glibc-amod1",
+          "date": "2025-02-05T02:08:38Z",
+          "downloads": 59611,
+          "assets": [
+            {
+              "name": "winlator7.1.5amod1.apk",
+              "size": 749864910,
+              "downloads": 59611,
+              "url": "https://github.com/afeimod/winlator-mod/releases/download/7.1.5glibc-amod1/winlator7.1.5amod1.apk"
+            }
+          ],
+          "htmlUrl": "https://github.com/afeimod/winlator-mod/releases/tag/7.1.5glibc-amod1"
+        },
+        {
+          "name": "8.0-proot-Amod1",
+          "tag": "8.0-proot-Amod1",
+          "date": "2024-10-03T07:55:32Z",
+          "downloads": 77123,
+          "assets": [
+            {
+              "name": "8.0_Amod1.apk",
+              "size": 704337054,
+              "downloads": 46253,
+              "url": "https://github.com/afeimod/winlator-mod/releases/download/8.0-proot-Amod1/8.0_Amod1.apk"
+            },
+            {
+              "name": "8.0_Amod1_AI.apk",
+              "size": 704337054,
+              "downloads": 30870,
+              "url": "https://github.com/afeimod/winlator-mod/releases/download/8.0-proot-Amod1/8.0_Amod1_AI.apk"
+            }
+          ],
+          "htmlUrl": "https://github.com/afeimod/winlator-mod/releases/tag/8.0-proot-Amod1"
+        },
+        {
+          "name": "7.1.3glibc-Amodfix5",
+          "tag": "7.1.3glibc-Amodfix5",
+          "date": "2024-09-17T23:25:54Z",
+          "downloads": 110038,
+          "assets": [
+            {
+              "name": "7.13glibc-Amodfix5.apk",
+              "size": 881155538,
+              "downloads": 110038,
+              "url": "https://github.com/afeimod/winlator-mod/releases/download/7.1.3glibc-Amodfix5/7.13glibc-Amodfix5.apk"
+            }
+          ],
+          "htmlUrl": "https://github.com/afeimod/winlator-mod/releases/tag/7.1.3glibc-Amodfix5"
+        },
+        {
+          "name": "7.1.3glibc-Amodfix3",
+          "tag": "7.1.3glibc-Amodfix3",
+          "date": "2024-09-06T00:48:49Z",
+          "downloads": 43530,
+          "assets": [
+            {
+              "name": "7.13glibc-Amodfix3.apk",
+              "size": 875167186,
+              "downloads": 43530,
+              "url": "https://github.com/afeimod/winlator-mod/releases/download/7.1.3glibc-Amodfix3/7.13glibc-Amodfix3.apk"
+            }
+          ],
+          "htmlUrl": "https://github.com/afeimod/winlator-mod/releases/tag/7.1.3glibc-Amodfix3"
+        },
+        {
+          "name": "7.1.3glibc-Amod",
+          "tag": "7.1.3glibc-Amod",
+          "date": "2024-08-30T03:58:56Z",
+          "downloads": 65071,
+          "assets": [
+            {
+              "name": "glibc7.1.3-Amod.apk",
+              "size": 733597502,
+              "downloads": 56588,
+              "url": "https://github.com/afeimod/winlator-mod/releases/download/7.1.3glibc-Amod/glibc7.1.3-Amod.apk"
+            },
+            {
+              "name": "gm.sf2",
+              "size": 3208108,
+              "downloads": 8483,
+              "url": "https://github.com/afeimod/winlator-mod/releases/download/7.1.3glibc-Amod/gm.sf2"
+            }
+          ],
+          "htmlUrl": "https://github.com/afeimod/winlator-mod/releases/tag/7.1.3glibc-Amod"
+        },
+        {
+          "name": "7.1.2-glibc-Amod",
+          "tag": "7.1.2-glibc-Amod",
+          "date": "2024-08-17T07:02:46Z",
+          "downloads": 56298,
+          "assets": [
+            {
+              "name": "glibc7.1.2-Amod1.apk",
+              "size": 645819449,
+              "downloads": 41399,
+              "url": "https://github.com/afeimod/winlator-mod/releases/download/7.1.2-glibc-Amod/glibc7.1.2-Amod1.apk"
+            },
+            {
+              "name": "turnip-24.3.0-R2.wcp",
+              "size": 5041448,
+              "downloads": 8711,
+              "url": "https://github.com/afeimod/winlator-mod/releases/download/7.1.2-glibc-Amod/turnip-24.3.0-R2.wcp"
+            },
+            {
+              "name": "turnip-24.3.0-R3.wcp",
+              "size": 5015156,
+              "downloads": 3392,
+              "url": "https://github.com/afeimod/winlator-mod/releases/download/7.1.2-glibc-Amod/turnip-24.3.0-R3.wcp"
+            },
+            {
+              "name": "turnip-24.3.0-R4.wcp",
+              "size": 4581896,
+              "downloads": 2796,
+              "url": "https://github.com/afeimod/winlator-mod/releases/download/7.1.2-glibc-Amod/turnip-24.3.0-R4.wcp"
+            }
+          ],
+          "htmlUrl": "https://github.com/afeimod/winlator-mod/releases/tag/7.1.2-glibc-Amod"
+        },
+        {
+          "name": "7.1prootAmod13fix",
+          "tag": "7.1prootAmod13fix",
+          "date": "2024-10-09T23:59:12Z",
+          "downloads": 12931,
+          "assets": [
+            {
+              "name": "7.1proot-Amod13fix.apk",
+              "size": 892849902,
+              "downloads": 9910,
+              "url": "https://github.com/afeimod/winlator-mod/releases/download/7.1prootAmod13fix/7.1proot-Amod13fix.apk"
+            },
+            {
+              "name": "7.1proot-Amod13fix_AI.apk",
+              "size": 892849902,
+              "downloads": 3021,
+              "url": "https://github.com/afeimod/winlator-mod/releases/download/7.1prootAmod13fix/7.1proot-Amod13fix_AI.apk"
+            }
+          ],
+          "htmlUrl": "https://github.com/afeimod/winlator-mod/releases/tag/7.1prootAmod13fix"
+        },
+        {
+          "name": "7.1proot-Amod12",
+          "tag": "7.1proot-Amod12",
+          "date": "2024-08-25T02:55:33Z",
+          "downloads": 7079,
+          "assets": [
+            {
+              "name": "7.1proot-Amod12-AI.apk",
+              "size": 867627519,
+              "downloads": 3979,
+              "url": "https://github.com/afeimod/winlator-mod/releases/download/7.1proot-Amod12/7.1proot-Amod12-AI.apk"
+            },
+            {
+              "name": "7.1proot-Amod12-Andro2.apk",
+              "size": 867627519,
+              "downloads": 1723,
+              "url": "https://github.com/afeimod/winlator-mod/releases/download/7.1proot-Amod12/7.1proot-Amod12-Andro2.apk"
+            },
+            {
+              "name": "wine-9.15-exp-wow64-amd64.tar.xz",
+              "size": 56165428,
+              "downloads": 997,
+              "url": "https://github.com/afeimod/winlator-mod/releases/download/7.1proot-Amod12/wine-9.15-exp-wow64-amd64.tar.xz"
+            },
+            {
+              "name": "wt_210k_G.sf2",
+              "size": 1351896,
+              "downloads": 380,
+              "url": "https://github.com/afeimod/winlator-mod/releases/download/7.1proot-Amod12/wt_210k_G.sf2"
+            }
+          ],
+          "htmlUrl": "https://github.com/afeimod/winlator-mod/releases/tag/7.1proot-Amod12"
+        },
+        {
+          "name": "7.1Amod11(proot)",
+          "tag": "7.1Amod11(proot)",
+          "date": "2024-08-09T00:46:31Z",
+          "downloads": 7428,
+          "assets": [
+            {
+              "name": "7.1-Amod11-Andro2.apk",
+              "size": 829688583,
+              "downloads": 4764,
+              "url": "https://github.com/afeimod/winlator-mod/releases/download/7.1Amod11%28proot%29/7.1-Amod11-Andro2.apk"
+            },
+            {
+              "name": "7.1-Amod11.apk",
+              "size": 829688583,
+              "downloads": 2664,
+              "url": "https://github.com/afeimod/winlator-mod/releases/download/7.1Amod11%28proot%29/7.1-Amod11.apk"
+            }
+          ],
+          "htmlUrl": "https://github.com/afeimod/winlator-mod/releases/tag/7.1Amod11(proot)"
+        },
+        {
+          "name": "7.1Amod10-A3",
+          "tag": "7.1Amod10-A3",
+          "date": "2024-08-03T01:52:31Z",
+          "downloads": 3769,
+          "assets": [
+            {
+              "name": "7.1-8g3-AI.apk",
+              "size": 827926366,
+              "downloads": 1487,
+              "url": "https://github.com/afeimod/winlator-mod/releases/download/7.1Amod10-A3/7.1-8g3-AI.apk"
+            },
+            {
+              "name": "7.1-8g3.apk",
+              "size": 827926366,
+              "downloads": 664,
+              "url": "https://github.com/afeimod/winlator-mod/releases/download/7.1Amod10-A3/7.1-8g3.apk"
+            },
+            {
+              "name": "7.1-no8g3-AI.apk",
+              "size": 827922270,
+              "downloads": 903,
+              "url": "https://github.com/afeimod/winlator-mod/releases/download/7.1Amod10-A3/7.1-no8g3-AI.apk"
+            },
+            {
+              "name": "7.1-no8g3.apk",
+              "size": 827922270,
+              "downloads": 715,
+              "url": "https://github.com/afeimod/winlator-mod/releases/download/7.1Amod10-A3/7.1-no8g3.apk"
+            }
+          ],
+          "htmlUrl": "https://github.com/afeimod/winlator-mod/releases/tag/7.1Amod10-A3"
+        },
+        {
+          "name": "6.1Amod20-A3",
+          "tag": "6.1Amod20-A3",
+          "date": "2024-07-27T06:40:48Z",
+          "downloads": 8698,
+          "assets": [
+            {
+              "name": "6.1Amod20-A3-8g3.apk",
+              "size": 881512402,
+              "downloads": 2649,
+              "url": "https://github.com/afeimod/winlator-mod/releases/download/6.1Amod20-A3/6.1Amod20-A3-8g3.apk"
+            },
+            {
+              "name": "6.1Amod20-A3-8g3_AI.apk",
+              "size": 881512402,
+              "downloads": 773,
+              "url": "https://github.com/afeimod/winlator-mod/releases/download/6.1Amod20-A3/6.1Amod20-A3-8g3_AI.apk"
+            },
+            {
+              "name": "6.1Amod20-A3-no8g3.apk",
+              "size": 881520594,
+              "downloads": 1152,
+              "url": "https://github.com/afeimod/winlator-mod/releases/download/6.1Amod20-A3/6.1Amod20-A3-no8g3.apk"
+            },
+            {
+              "name": "6.1Amod20-A3-no8g3_AI.apk",
+              "size": 881520594,
+              "downloads": 855,
+              "url": "https://github.com/afeimod/winlator-mod/releases/download/6.1Amod20-A3/6.1Amod20-A3-no8g3_AI.apk"
+            },
+            {
+              "name": "KLite.exe",
+              "size": 61996683,
+              "downloads": 270,
+              "url": "https://github.com/afeimod/winlator-mod/releases/download/6.1Amod20-A3/KLite.exe"
+            },
+            {
+              "name": "wine-gecko-2.47.4-x86_64.msi",
+              "size": 53898752,
+              "downloads": 387,
+              "url": "https://github.com/afeimod/winlator-mod/releases/download/6.1Amod20-A3/wine-gecko-2.47.4-x86_64.msi"
+            },
+            {
+              "name": "wine-mono-9.1.0-x86.msi",
+              "size": 84623872,
+              "downloads": 374,
+              "url": "https://github.com/afeimod/winlator-mod/releases/download/6.1Amod20-A3/wine-mono-9.1.0-x86.msi"
+            },
+            {
+              "name": "x40r2.0.20.msi",
+              "size": 7054336,
+              "downloads": 2238,
+              "url": "https://github.com/afeimod/winlator-mod/releases/download/6.1Amod20-A3/x40r2.0.20.msi"
+            }
+          ],
+          "htmlUrl": "https://github.com/afeimod/winlator-mod/releases/tag/6.1Amod20-A3"
+        },
+        {
+          "name": "7.1Amod9",
+          "tag": "7.1Amod9",
+          "date": "2024-07-15T06:10:22Z",
+          "downloads": 3742,
+          "assets": [
+            {
+              "name": "7.1Amod9.apk",
+              "size": 881536344,
+              "downloads": 2429,
+              "url": "https://github.com/afeimod/winlator-mod/releases/download/7.1Amod9/7.1Amod9.apk"
+            },
+            {
+              "name": "7.1Amod9_AI.apk",
+              "size": 881536344,
+              "downloads": 1313,
+              "url": "https://github.com/afeimod/winlator-mod/releases/download/7.1Amod9/7.1Amod9_AI.apk"
+            }
+          ],
+          "htmlUrl": "https://github.com/afeimod/winlator-mod/releases/tag/7.1Amod9"
+        },
+        {
+          "name": "7.1Amod10和6.1Amod20(end)",
+          "tag": "7.1Amod10和6.1Amod20(end)",
+          "date": "2024-07-17T09:15:00Z",
+          "downloads": 5401,
+          "assets": [
+            {
+              "name": "6.1Amod20.apk",
+              "size": 833189707,
+              "downloads": 803,
+              "url": "https://github.com/afeimod/winlator-mod/releases/download/7.1Amod10%E5%92%8C6.1Amod20%28end%29/6.1Amod20.apk"
+            },
+            {
+              "name": "6.1Amod20_AI.apk",
+              "size": 833189707,
+              "downloads": 388,
+              "url": "https://github.com/afeimod/winlator-mod/releases/download/7.1Amod10%E5%92%8C6.1Amod20%28end%29/6.1Amod20_AI.apk"
+            },
+            {
+              "name": "7.1_Amod10-AI.apk",
+              "size": 806473025,
+              "downloads": 2780,
+              "url": "https://github.com/afeimod/winlator-mod/releases/download/7.1Amod10%E5%92%8C6.1Amod20%28end%29/7.1_Amod10-AI.apk"
+            },
+            {
+              "name": "7.1_Amod10.apk",
+              "size": 806473025,
+              "downloads": 1430,
+              "url": "https://github.com/afeimod/winlator-mod/releases/download/7.1Amod10%E5%92%8C6.1Amod20%28end%29/7.1_Amod10.apk"
+            }
+          ],
+          "htmlUrl": "https://github.com/afeimod/winlator-mod/releases/tag/7.1Amod10%E5%92%8C6.1Amod20(end)"
+        },
+        {
+          "name": "7.1fix6和6.1fix16",
+          "tag": "7.1fix6和6.1fix16",
+          "date": "2024-06-28T08:05:19Z",
+          "downloads": 7795,
+          "assets": [
+            {
+              "name": "6.1fix16-8g3_AI.apk",
+              "size": 830764422,
+              "downloads": 1859,
+              "url": "https://github.com/afeimod/winlator-mod/releases/download/7.1fix6%E5%92%8C6.1fix16/6.1fix16-8g3_AI.apk"
+            },
+            {
+              "name": "6.1fix16-no8g3_AI.apk",
+              "size": 830752134,
+              "downloads": 1000,
+              "url": "https://github.com/afeimod/winlator-mod/releases/download/7.1fix6%E5%92%8C6.1fix16/6.1fix16-no8g3_AI.apk"
+            },
+            {
+              "name": "7.1fix6-8g3_AI.apk",
+              "size": 804825621,
+              "downloads": 2310,
+              "url": "https://github.com/afeimod/winlator-mod/releases/download/7.1fix6%E5%92%8C6.1fix16/7.1fix6-8g3_AI.apk"
+            },
+            {
+              "name": "7.1fix6-no8g3_AI.apk",
+              "size": 804817429,
+              "downloads": 2626,
+              "url": "https://github.com/afeimod/winlator-mod/releases/download/7.1fix6%E5%92%8C6.1fix16/7.1fix6-no8g3_AI.apk"
+            }
+          ],
+          "htmlUrl": "https://github.com/afeimod/winlator-mod/releases/tag/7.1fix6%E5%92%8C6.1fix16"
+        },
+        {
+          "name": "7.1Amod8和6.1Amod18",
+          "tag": "7.1Amod8和6.1Amod18",
+          "date": "2024-07-05T08:48:10Z",
+          "downloads": 2468,
+          "assets": [
+            {
+              "name": "6.1Amod18.apk",
+              "size": 874706689,
+              "downloads": 511,
+              "url": "https://github.com/afeimod/winlator-mod/releases/download/7.1Amod8%E5%92%8C6.1Amod18/6.1Amod18.apk"
+            },
+            {
+              "name": "6.1Amod18_AI.apk",
+              "size": 874706689,
+              "downloads": 661,
+              "url": "https://github.com/afeimod/winlator-mod/releases/download/7.1Amod8%E5%92%8C6.1Amod18/6.1Amod18_AI.apk"
+            },
+            {
+              "name": "7.1Amod8.apk",
+              "size": 848861293,
+              "downloads": 807,
+              "url": "https://github.com/afeimod/winlator-mod/releases/download/7.1Amod8%E5%92%8C6.1Amod18/7.1Amod8.apk"
+            },
+            {
+              "name": "7.1Amod8_Andro2.apk",
+              "size": 848861293,
+              "downloads": 489,
+              "url": "https://github.com/afeimod/winlator-mod/releases/download/7.1Amod8%E5%92%8C6.1Amod18/7.1Amod8_Andro2.apk"
+            }
+          ],
+          "htmlUrl": "https://github.com/afeimod/winlator-mod/releases/tag/7.1Amod8%E5%92%8C6.1Amod18"
+        }
+      ],
+      "repoUrl": "https://github.com/afeimod/winlator-mod"
     },
     {
       "name": "Winlator Coffin",
       "repo": "coffincolors/winlator",
       "category": "Winlator",
-      "downloads": 648541
+      "downloads": 648551,
+      "releases": [
+        {
+          "name": "Winlator Cmod v13.1.1",
+          "tag": "cmod_v13.1",
+          "date": "2025-08-07T07:49:41Z",
+          "downloads": 271990,
+          "assets": [
+            {
+              "name": "cmod-hotfix-checklist-08-07-2025.png",
+              "size": 161893,
+              "downloads": 26709,
+              "url": "https://github.com/coffincolors/winlator/releases/download/cmod_v13.1/cmod-hotfix-checklist-08-07-2025.png"
+            },
+            {
+              "name": "Winlator-Cmod-v13.1.1.apk",
+              "size": 699660031,
+              "downloads": 245281,
+              "url": "https://github.com/coffincolors/winlator/releases/download/cmod_v13.1/Winlator-Cmod-v13.1.1.apk"
+            }
+          ],
+          "htmlUrl": "https://github.com/coffincolors/winlator/releases/tag/cmod_v13.1"
+        },
+        {
+          "name": "Winlator Cmod v13: The Controller Revolution is Here! (And much more...)",
+          "tag": "cmod_v13",
+          "date": "2025-07-29T04:27:06Z",
+          "downloads": 43362,
+          "assets": [
+            {
+              "name": "Winlator-Cmod-v13.apk",
+              "size": 645227063,
+              "downloads": 43362,
+              "url": "https://github.com/coffincolors/winlator/releases/download/cmod_v13/Winlator-Cmod-v13.apk"
+            }
+          ],
+          "htmlUrl": "https://github.com/coffincolors/winlator/releases/tag/cmod_v13"
+        },
+        {
+          "name": "MangoHud for Winlator Glibc - Fixed** GPU/CPU stats",
+          "tag": "winlator_mangohud_glibc_v1",
+          "date": "2025-01-20T03:38:20Z",
+          "downloads": 22103,
+          "assets": [
+            {
+              "name": "Winlator_Mangohud_Glibc_Release.zip",
+              "size": 10072315,
+              "downloads": 22103,
+              "url": "https://github.com/coffincolors/winlator/releases/download/winlator_mangohud_glibc_v1/Winlator_Mangohud_Glibc_Release.zip"
+            }
+          ],
+          "htmlUrl": "https://github.com/coffincolors/winlator/releases/tag/winlator_mangohud_glibc_v1"
+        },
+        {
+          "name": "Winlator Corefonts Pack (Fixes Steam UI, Epic Games Launcher, and others in Winlator Glibc)",
+          "tag": "winlator_corefonts_pack_v1",
+          "date": "2024-11-23T20:04:38Z",
+          "downloads": 67967,
+          "assets": [
+            {
+              "name": "Winlator.Corefonts.Pack.zip",
+              "size": 78982816,
+              "downloads": 67967,
+              "url": "https://github.com/coffincolors/winlator/releases/download/winlator_corefonts_pack_v1/Winlator.Corefonts.Pack.zip"
+            }
+          ],
+          "htmlUrl": "https://github.com/coffincolors/winlator/releases/tag/winlator_corefonts_pack_v1"
+        },
+        {
+          "name": "Wine 9.2 from Winlator 8.0r1 for Glibc - BrunoSX latest commits + Longjunyu2 Xinput/Dinput ",
+          "tag": "wine_9.2_winlator8",
+          "date": "2024-12-20T16:02:52Z",
+          "downloads": 11934,
+          "assets": [
+            {
+              "name": "wine-9.2-winlator8.wcp",
+              "size": 149602696,
+              "downloads": 11934,
+              "url": "https://github.com/coffincolors/winlator/releases/download/wine_9.2_winlator8/wine-9.2-winlator8.wcp"
+            }
+          ],
+          "htmlUrl": "https://github.com/coffincolors/winlator/releases/tag/wine_9.2_winlator8"
+        },
+        {
+          "name": "Box64 3.1 f651b7b for Winlator Glibc (Better DRM Handling)",
+          "tag": "box64_f651b7b",
+          "date": "2024-11-04T18:35:24Z",
+          "downloads": 8225,
+          "assets": [
+            {
+              "name": "box64-0.3.1-f651b7b.wcp",
+              "size": 2536952,
+              "downloads": 8225,
+              "url": "https://github.com/coffincolors/winlator/releases/download/box64_f651b7b/box64-0.3.1-f651b7b.wcp"
+            }
+          ],
+          "htmlUrl": "https://github.com/coffincolors/winlator/releases/tag/box64_f651b7b"
+        },
+        {
+          "name": "Box64 3.1 4e10cd6 for Winlator Glibc (FFVII + KH Audio Fix)",
+          "tag": "box64_4e10cd6",
+          "date": "2024-10-19T23:53:40Z",
+          "downloads": 7381,
+          "assets": [
+            {
+              "name": "box64-0.3.1-4e10cd6.wcp",
+              "size": 8195036,
+              "downloads": 7381,
+              "url": "https://github.com/coffincolors/winlator/releases/download/box64_4e10cd6/box64-0.3.1-4e10cd6.wcp"
+            }
+          ],
+          "htmlUrl": "https://github.com/coffincolors/winlator/releases/tag/box64_4e10cd6"
+        },
+        {
+          "name": "Winlator 7.1.3x Cmod GLIBC v11R2 - Revision - Removed Gamepad Configurator ",
+          "tag": "Winlator-7.1.3x-Cmod-GLIBC-v11R2",
+          "date": "2024-10-21T21:48:56Z",
+          "downloads": 149049,
+          "assets": [
+            {
+              "name": "Winlator_7.1.3x_Cmod_GLIBC_v11R2.apk",
+              "size": 968668240,
+              "downloads": 149049,
+              "url": "https://github.com/coffincolors/winlator/releases/download/Winlator-7.1.3x-Cmod-GLIBC-v11R2/Winlator_7.1.3x_Cmod_GLIBC_v11R2.apk"
+            }
+          ],
+          "htmlUrl": "https://github.com/coffincolors/winlator/releases/tag/Winlator-7.1.3x-Cmod-GLIBC-v11R2"
+        },
+        {
+          "name": "Winlator 7.1.3x Cmod GLIBC v11fix1 - Big Picture Upgrade, NTSC Effect, Gamepad Configurator Beta, Gyro Revamp, Animated Wallpapers, Features and Fixes and More",
+          "tag": "Winlator-7.1.3x-Cmod-GLIBC-v11fix1",
+          "date": "2024-10-18T02:44:03Z",
+          "downloads": 25815,
+          "assets": [
+            {
+              "name": "Winlator-7.1.3x-Cmod-GLIBC-v11fix1.apk",
+              "size": 1074257287,
+              "downloads": 25815,
+              "url": "https://github.com/coffincolors/winlator/releases/download/Winlator-7.1.3x-Cmod-GLIBC-v11fix1/Winlator-7.1.3x-Cmod-GLIBC-v11fix1.apk"
+            }
+          ],
+          "htmlUrl": "https://github.com/coffincolors/winlator/releases/tag/Winlator-7.1.3x-Cmod-GLIBC-v11fix1"
+        },
+        {
+          "name": "Winlator 7.1.3x Cmod GLIBC v10 - Compatibility Fixes! Screen Effects! Toon Shader! Import/Export Containers! Box64 Version Switching! Bugfixes and more!",
+          "tag": "Winlator-7.1.3x-Cmod-GLIBC-v10",
+          "date": "2024-09-28T18:36:51Z",
+          "downloads": 28445,
+          "assets": [
+            {
+              "name": "Winlator-7.1.3x-Cmod-GLIBC-v10-release.apk",
+              "size": 1029535869,
+              "downloads": 28445,
+              "url": "https://github.com/coffincolors/winlator/releases/download/Winlator-7.1.3x-Cmod-GLIBC-v10/Winlator-7.1.3x-Cmod-GLIBC-v10-release.apk"
+            }
+          ],
+          "htmlUrl": "https://github.com/coffincolors/winlator/releases/tag/Winlator-7.1.3x-Cmod-GLIBC-v10"
+        },
+        {
+          "name": "Winlator 7.1.3 Cmod Glibc v9 - Big Picture Mode, Dark Mode, and MORE",
+          "tag": "Winlator-7.1.3-Cmod-GLIBC-v9",
+          "date": "2024-09-23T17:49:31Z",
+          "downloads": 3123,
+          "assets": [
+            {
+              "name": "Winlator-7.1.3-Cmod-GLIBC-v9-release.apk",
+              "size": 843101342,
+              "downloads": 3123,
+              "url": "https://github.com/coffincolors/winlator/releases/download/Winlator-7.1.3-Cmod-GLIBC-v9/Winlator-7.1.3-Cmod-GLIBC-v9-release.apk"
+            }
+          ],
+          "htmlUrl": "https://github.com/coffincolors/winlator/releases/tag/Winlator-7.1.3-Cmod-GLIBC-v9"
+        },
+        {
+          "name": "Winlator 7.1.3b Cmod PROOT v9fix1 - Big Picture Mode, Dark Mode, UI Animations, Turnip Driver Switching for Shortcuts",
+          "tag": "Winlator-7.1.3b-Cmod-PROOT-v9fix1",
+          "date": "2024-09-21T23:55:29Z",
+          "downloads": 1919,
+          "assets": [
+            {
+              "name": "Winlator-7.1.3b-Cmod-PROOT-v9fix1-release.apk",
+              "size": 1058320844,
+              "downloads": 1919,
+              "url": "https://github.com/coffincolors/winlator/releases/download/Winlator-7.1.3b-Cmod-PROOT-v9fix1/Winlator-7.1.3b-Cmod-PROOT-v9fix1-release.apk"
+            }
+          ],
+          "htmlUrl": "https://github.com/coffincolors/winlator/releases/tag/Winlator-7.1.3b-Cmod-PROOT-v9fix1"
+        },
+        {
+          "name": "Winlator 7.1.3b Cmod PROOT v8.2fix1 Release - Playtime Stats Tracking for Frontends, Touchscreen Controls Timeout, Touchscreen Controls Haptics",
+          "tag": "Winlator-7.1.3b-Cmod-PROOT-v8.2fix1",
+          "date": "2024-09-14T21:24:34Z",
+          "downloads": 1114,
+          "assets": [
+            {
+              "name": "Winlator-7.1.3b-Cmod-PROOT-v8.2fix1-release.apk",
+              "size": 1001805984,
+              "downloads": 1114,
+              "url": "https://github.com/coffincolors/winlator/releases/download/Winlator-7.1.3b-Cmod-PROOT-v8.2fix1/Winlator-7.1.3b-Cmod-PROOT-v8.2fix1-release.apk"
+            }
+          ],
+          "htmlUrl": "https://github.com/coffincolors/winlator/releases/tag/Winlator-7.1.3b-Cmod-PROOT-v8.2fix1"
+        },
+        {
+          "name": "Winlator 7.1.3 Cmod GLIBC v8.5fix1 - Shortcut Cloning, Playtime Stats tracking for Frontends, Touchscreen Controls Timeout and Haptic Feedback ",
+          "tag": "Winlator-7.1.3-Cmod-GLIBC-v8.5fix1",
+          "date": "2024-09-16T13:56:42Z",
+          "downloads": 1757,
+          "assets": [
+            {
+              "name": "turnip-24.3.0-R5.wcp",
+              "size": 4540608,
+              "downloads": 416,
+              "url": "https://github.com/coffincolors/winlator/releases/download/Winlator-7.1.3-Cmod-GLIBC-v8.5fix1/turnip-24.3.0-R5.wcp"
+            },
+            {
+              "name": "Winlator-7.1.3-Cmod-GLIBC-v8.5fix1-release.apk",
+              "size": 825911963,
+              "downloads": 1341,
+              "url": "https://github.com/coffincolors/winlator/releases/download/Winlator-7.1.3-Cmod-GLIBC-v8.5fix1/Winlator-7.1.3-Cmod-GLIBC-v8.5fix1-release.apk"
+            }
+          ],
+          "htmlUrl": "https://github.com/coffincolors/winlator/releases/tag/Winlator-7.1.3-Cmod-GLIBC-v8.5fix1"
+        },
+        {
+          "name": "Winlator 7.1.3 Cmod GLIBC v8fix2 - Turnip Driver Switching Fixes for Shortcuts",
+          "tag": "Winlator-7.1.3-Cmod-GLIBC-v8fix2",
+          "date": "2024-09-11T16:48:42Z",
+          "downloads": 2290,
+          "assets": [
+            {
+              "name": "wine-9.13-custom.wcp",
+              "size": 101019792,
+              "downloads": 686,
+              "url": "https://github.com/coffincolors/winlator/releases/download/Winlator-7.1.3-Cmod-GLIBC-v8fix2/wine-9.13-custom.wcp"
+            },
+            {
+              "name": "Winlator-7.1.3-Cmod-GLIBC-v8fix2-release.apk",
+              "size": 825907003,
+              "downloads": 1604,
+              "url": "https://github.com/coffincolors/winlator/releases/download/Winlator-7.1.3-Cmod-GLIBC-v8fix2/Winlator-7.1.3-Cmod-GLIBC-v8fix2-release.apk"
+            }
+          ],
+          "htmlUrl": "https://github.com/coffincolors/winlator/releases/tag/Winlator-7.1.3-Cmod-GLIBC-v8fix2"
+        },
+        {
+          "name": "Winlator 7.1.3 Cmod GLIBC v8fix1 - Release - The Amod Hybrid, Bug fixes and more...",
+          "tag": "Winlator-7.1.3-Cmod-GLIBC-v8",
+          "date": "2024-09-10T02:41:26Z",
+          "downloads": 1030,
+          "assets": [
+            {
+              "name": "Winlator-7.1.3-GLIBC-Cmod-v8fix1-Release.apk",
+              "size": 825906441,
+              "downloads": 1030,
+              "url": "https://github.com/coffincolors/winlator/releases/download/Winlator-7.1.3-Cmod-GLIBC-v8/Winlator-7.1.3-GLIBC-Cmod-v8fix1-Release.apk"
+            }
+          ],
+          "htmlUrl": "https://github.com/coffincolors/winlator/releases/tag/Winlator-7.1.3-Cmod-GLIBC-v8"
+        },
+        {
+          "name": "Winlator 7.1.3b Cmod PROOT v8fix1 Release - I'm back! Backup and restore, dinput / xinput switching, secondary executables, Frontend Export path changes and lots more...",
+          "tag": "Winlator-7.1.3b-Cmod-PROOT-v8",
+          "date": "2024-09-09T13:14:14Z",
+          "downloads": 1047,
+          "assets": [
+            {
+              "name": "Winlator.7.1.3b.Cmod.PROOT.v8fix1.apk",
+              "size": 1000124705,
+              "downloads": 1047,
+              "url": "https://github.com/coffincolors/winlator/releases/download/Winlator-7.1.3b-Cmod-PROOT-v8/Winlator.7.1.3b.Cmod.PROOT.v8fix1.apk"
+            }
+          ],
+          "htmlUrl": "https://github.com/coffincolors/winlator/releases/tag/Winlator-7.1.3b-Cmod-PROOT-v8"
+        }
+      ],
+      "repoUrl": "https://github.com/coffincolors/winlator"
     },
     {
       "name": "GameHub Lite (Producdevity)",
       "repo": "Producdevity/gamehub-lite",
       "category": "GameHub",
-      "downloads": 423295
+      "downloads": 423346,
+      "releases": [
+        {
+          "name": "GameHub Lite v5.3.3 RC-2 [PRE-RELEASE]",
+          "tag": "v5.3.3-RC2",
+          "date": "2026-01-05T13:22:42Z",
+          "downloads": 59592,
+          "assets": [
+            {
+              "name": "GameHub-Lite-5.3.3-RC2.apk",
+              "size": 149373004,
+              "downloads": 59592,
+              "url": "https://github.com/Producdevity/gamehub-lite/releases/download/v5.3.3-RC2/GameHub-Lite-5.3.3-RC2.apk"
+            }
+          ],
+          "htmlUrl": "https://github.com/Producdevity/gamehub-lite/releases/tag/v5.3.3-RC2"
+        },
+        {
+          "name": "GameHub Lite v5.3.3 RC-1 [PRE-RELEASE]",
+          "tag": "v5.3.3-RC1",
+          "date": "2026-01-04T21:46:54Z",
+          "downloads": 4919,
+          "assets": [
+            {
+              "name": "GameHub-Lite-5.3.3-RC1.apk",
+              "size": 149373004,
+              "downloads": 4919,
+              "url": "https://github.com/Producdevity/gamehub-lite/releases/download/v5.3.3-RC1/GameHub-Lite-5.3.3-RC1.apk"
+            }
+          ],
+          "htmlUrl": "https://github.com/Producdevity/gamehub-lite/releases/tag/v5.3.3-RC1"
+        },
+        {
+          "name": "GameHub Lite v5.3.3 [PRE-RELEASE]",
+          "tag": "v5.3.3",
+          "date": "2025-11-27T21:11:35Z",
+          "downloads": 72547,
+          "assets": [
+            {
+              "name": "GameHub-Lite-5.3.3-EXPERIMENTAL.apk",
+              "size": 192910252,
+              "downloads": 72547,
+              "url": "https://github.com/Producdevity/gamehub-lite/releases/download/v5.3.3/GameHub-Lite-5.3.3-EXPERIMENTAL.apk"
+            }
+          ],
+          "htmlUrl": "https://github.com/Producdevity/gamehub-lite/releases/tag/v5.3.3"
+        },
+        {
+          "name": "GameHub Lite v5.1.3",
+          "tag": "v5.1.3",
+          "date": "2025-11-14T11:46:08Z",
+          "downloads": 235834,
+          "assets": [
+            {
+              "name": "GameHub-Lite-v5.1.3-alt-antutu.apk",
+              "size": 52097640,
+              "downloads": 31494,
+              "url": "https://github.com/Producdevity/gamehub-lite/releases/download/v5.1.3/GameHub-Lite-v5.1.3-alt-antutu.apk"
+            },
+            {
+              "name": "GameHub-Lite-v5.1.3-antutu.apk",
+              "size": 52097643,
+              "downloads": 61451,
+              "url": "https://github.com/Producdevity/gamehub-lite/releases/download/v5.1.3/GameHub-Lite-v5.1.3-antutu.apk"
+            },
+            {
+              "name": "GameHub-Lite-v5.1.3-ludashi.apk",
+              "size": 52097646,
+              "downloads": 25002,
+              "url": "https://github.com/Producdevity/gamehub-lite/releases/download/v5.1.3/GameHub-Lite-v5.1.3-ludashi.apk"
+            },
+            {
+              "name": "GameHub-Lite-v5.1.3-pubg.apk",
+              "size": 52097654,
+              "downloads": 21190,
+              "url": "https://github.com/Producdevity/gamehub-lite/releases/download/v5.1.3/GameHub-Lite-v5.1.3-pubg.apk"
+            },
+            {
+              "name": "GameHub-Lite-v5.1.3.apk",
+              "size": 52097680,
+              "downloads": 96697,
+              "url": "https://github.com/Producdevity/gamehub-lite/releases/download/v5.1.3/GameHub-Lite-v5.1.3.apk"
+            }
+          ],
+          "htmlUrl": "https://github.com/Producdevity/gamehub-lite/releases/tag/v5.1.3"
+        },
+        {
+          "name": "GameHub Lite v5.1.2",
+          "tag": "v5.1.2",
+          "date": "2025-11-13T23:20:13Z",
+          "downloads": 10825,
+          "assets": [
+            {
+              "name": "GameHub-Lite-v5.1.2-Alt-Antutu.apk",
+              "size": 52097637,
+              "downloads": 1700,
+              "url": "https://github.com/Producdevity/gamehub-lite/releases/download/v5.1.2/GameHub-Lite-v5.1.2-Alt-Antutu.apk"
+            },
+            {
+              "name": "GameHub-Lite-v5.1.2.apk",
+              "size": 52098966,
+              "downloads": 5934,
+              "url": "https://github.com/Producdevity/gamehub-lite/releases/download/v5.1.2/GameHub-Lite-v5.1.2.apk"
+            },
+            {
+              "name": "GameHub-Lite-v5.1.2_Antutu.apk",
+              "size": 52098927,
+              "downloads": 1442,
+              "url": "https://github.com/Producdevity/gamehub-lite/releases/download/v5.1.2/GameHub-Lite-v5.1.2_Antutu.apk"
+            },
+            {
+              "name": "GameHub-Lite-v5.1.2_Ludashi.apk",
+              "size": 52098932,
+              "downloads": 832,
+              "url": "https://github.com/Producdevity/gamehub-lite/releases/download/v5.1.2/GameHub-Lite-v5.1.2_Ludashi.apk"
+            },
+            {
+              "name": "GameHub-Lite-v5.1.2_PUBG.apk",
+              "size": 52098940,
+              "downloads": 917,
+              "url": "https://github.com/Producdevity/gamehub-lite/releases/download/v5.1.2/GameHub-Lite-v5.1.2_PUBG.apk"
+            }
+          ],
+          "htmlUrl": "https://github.com/Producdevity/gamehub-lite/releases/tag/v5.1.2"
+        },
+        {
+          "name": "GameHub Lite v5.1.1",
+          "tag": "v5.1.1",
+          "date": "2025-11-13T16:24:25Z",
+          "downloads": 7312,
+          "assets": [
+            {
+              "name": "GameHub-Lite-v5.1.1-Antutu.apk",
+              "size": 52098399,
+              "downloads": 1955,
+              "url": "https://github.com/Producdevity/gamehub-lite/releases/download/v5.1.1/GameHub-Lite-v5.1.1-Antutu.apk"
+            },
+            {
+              "name": "GameHub-Lite-v5.1.1-Ludashi.apk",
+              "size": 52098403,
+              "downloads": 718,
+              "url": "https://github.com/Producdevity/gamehub-lite/releases/download/v5.1.1/GameHub-Lite-v5.1.1-Ludashi.apk"
+            },
+            {
+              "name": "GameHub-Lite-v5.1.1-PuBG.apk",
+              "size": 52098411,
+              "downloads": 722,
+              "url": "https://github.com/Producdevity/gamehub-lite/releases/download/v5.1.1/GameHub-Lite-v5.1.1-PuBG.apk"
+            },
+            {
+              "name": "GameHub-Lite-v5.1.1.apk",
+              "size": 52098434,
+              "downloads": 3917,
+              "url": "https://github.com/Producdevity/gamehub-lite/releases/download/v5.1.1/GameHub-Lite-v5.1.1.apk"
+            }
+          ],
+          "htmlUrl": "https://github.com/Producdevity/gamehub-lite/releases/tag/v5.1.1"
+        },
+        {
+          "name": "GameHub Lite v5.1.0",
+          "tag": "v5.1.0",
+          "date": "2025-11-11T14:01:07Z",
+          "downloads": 20040,
+          "assets": [
+            {
+              "name": "GameHub-Lite-5.1.0-Alt-AnTuTu.apk",
+              "size": 49592725,
+              "downloads": 3077,
+              "url": "https://github.com/Producdevity/gamehub-lite/releases/download/v5.1.0/GameHub-Lite-5.1.0-Alt-AnTuTu.apk"
+            },
+            {
+              "name": "GameHub-Lite-5.1.0-AnTuTu.apk",
+              "size": 49593752,
+              "downloads": 3397,
+              "url": "https://github.com/Producdevity/gamehub-lite/releases/download/v5.1.0/GameHub-Lite-5.1.0-AnTuTu.apk"
+            },
+            {
+              "name": "GameHub-Lite-5.1.0-Ludashi.apk",
+              "size": 49593746,
+              "downloads": 1857,
+              "url": "https://github.com/Producdevity/gamehub-lite/releases/download/v5.1.0/GameHub-Lite-5.1.0-Ludashi.apk"
+            },
+            {
+              "name": "GameHub-Lite-5.1.0-PuBG.apk",
+              "size": 49593757,
+              "downloads": 2428,
+              "url": "https://github.com/Producdevity/gamehub-lite/releases/download/v5.1.0/GameHub-Lite-5.1.0-PuBG.apk"
+            },
+            {
+              "name": "GameHub-Lite-5.1.0.apk",
+              "size": 49593766,
+              "downloads": 9281,
+              "url": "https://github.com/Producdevity/gamehub-lite/releases/download/v5.1.0/GameHub-Lite-5.1.0.apk"
+            }
+          ],
+          "htmlUrl": "https://github.com/Producdevity/gamehub-lite/releases/tag/v5.1.0"
+        },
+        {
+          "name": "GameHub Lite v5.0.0",
+          "tag": "v5.0.0",
+          "date": "2025-11-10T17:52:14Z",
+          "downloads": 12277,
+          "assets": [
+            {
+              "name": "GameHub-Lite-v5.0.0-AnTuTu.apk",
+              "size": 52098137,
+              "downloads": 4176,
+              "url": "https://github.com/Producdevity/gamehub-lite/releases/download/v5.0.0/GameHub-Lite-v5.0.0-AnTuTu.apk"
+            },
+            {
+              "name": "GameHub-Lite-v5.0.0-Ludashi.apk",
+              "size": 52098145,
+              "downloads": 1342,
+              "url": "https://github.com/Producdevity/gamehub-lite/releases/download/v5.0.0/GameHub-Lite-v5.0.0-Ludashi.apk"
+            },
+            {
+              "name": "GameHub-Lite-v5.0.0-PuBG.apk",
+              "size": 52098145,
+              "downloads": 1108,
+              "url": "https://github.com/Producdevity/gamehub-lite/releases/download/v5.0.0/GameHub-Lite-v5.0.0-PuBG.apk"
+            },
+            {
+              "name": "GameHub-Lite-v5.0.0.apk",
+              "size": 51959957,
+              "downloads": 5651,
+              "url": "https://github.com/Producdevity/gamehub-lite/releases/download/v5.0.0/GameHub-Lite-v5.0.0.apk"
+            }
+          ],
+          "htmlUrl": "https://github.com/Producdevity/gamehub-lite/releases/tag/v5.0.0"
+        }
+      ],
+      "repoUrl": "https://github.com/Producdevity/gamehub-lite"
     },
     {
       "name": "Winlator Mali",
       "repo": "Fcharan/WinlatorMali",
       "category": "Winlator",
-      "downloads": 404663
+      "downloads": 404665,
+      "releases": [
+        {
+          "name": ".",
+          "tag": "0.0",
+          "date": "2024-12-06T15:52:58Z",
+          "downloads": 29923,
+          "assets": [
+            {
+              "name": "app-arm64-v8a-debug.apk",
+              "size": 5821313,
+              "downloads": 10386,
+              "url": "https://github.com/Fcharan/WinlatorMali/releases/download/0.0/app-arm64-v8a-debug.apk"
+            },
+            {
+              "name": "install_wine_hangover.sh",
+              "size": 854,
+              "downloads": 2790,
+              "url": "https://github.com/Fcharan/WinlatorMali/releases/download/0.0/install_wine_hangover.sh"
+            },
+            {
+              "name": "libvulkan_wrapper.so",
+              "size": 4091848,
+              "downloads": 1881,
+              "url": "https://github.com/Fcharan/WinlatorMali/releases/download/0.0/libvulkan_wrapper.so"
+            },
+            {
+              "name": "mesa.deb",
+              "size": 4903360,
+              "downloads": 6268,
+              "url": "https://github.com/Fcharan/WinlatorMali/releases/download/0.0/mesa.deb"
+            },
+            {
+              "name": "mesa2.deb",
+              "size": 804328,
+              "downloads": 468,
+              "url": "https://github.com/Fcharan/WinlatorMali/releases/download/0.0/mesa2.deb"
+            },
+            {
+              "name": "mesa3.deb",
+              "size": 804328,
+              "downloads": 874,
+              "url": "https://github.com/Fcharan/WinlatorMali/releases/download/0.0/mesa3.deb"
+            },
+            {
+              "name": "mesalatest.deb",
+              "size": 301372,
+              "downloads": 931,
+              "url": "https://github.com/Fcharan/WinlatorMali/releases/download/0.0/mesalatest.deb"
+            },
+            {
+              "name": "termux-app_v0.118.1+github-debug_arm64-v8a.apk",
+              "size": 33172989,
+              "downloads": 3443,
+              "url": "https://github.com/Fcharan/WinlatorMali/releases/download/0.0/termux-app_v0.118.1%2Bgithub-debug_arm64-v8a.apk"
+            },
+            {
+              "name": "wine_hangover_menu.sh",
+              "size": 28085,
+              "downloads": 2882,
+              "url": "https://github.com/Fcharan/WinlatorMali/releases/download/0.0/wine_hangover_menu.sh"
+            }
+          ],
+          "htmlUrl": "https://github.com/Fcharan/WinlatorMali/releases/tag/0.0"
+        },
+        {
+          "name": "2.0",
+          "tag": "2.0",
+          "date": "2024-11-30T10:01:20Z",
+          "downloads": 333233,
+          "assets": [
+            {
+              "name": "WinMali_Glibc.apk",
+              "size": 630562783,
+              "downloads": 194495,
+              "url": "https://github.com/Fcharan/WinlatorMali/releases/download/2.0/WinMali_Glibc.apk"
+            },
+            {
+              "name": "WinMali_Proot_Antutu.apk",
+              "size": 595862618,
+              "downloads": 138738,
+              "url": "https://github.com/Fcharan/WinlatorMali/releases/download/2.0/WinMali_Proot_Antutu.apk"
+            }
+          ],
+          "htmlUrl": "https://github.com/Fcharan/WinlatorMali/releases/tag/2.0"
+        },
+        {
+          "name": "1.9",
+          "tag": "1.9",
+          "date": "2024-11-13T13:31:30Z",
+          "downloads": 41509,
+          "assets": [
+            {
+              "name": "WinMali_Proot_Antutu.apk",
+              "size": 504173656,
+              "downloads": 41509,
+              "url": "https://github.com/Fcharan/WinlatorMali/releases/download/1.9/WinMali_Proot_Antutu.apk"
+            }
+          ],
+          "htmlUrl": "https://github.com/Fcharan/WinlatorMali/releases/tag/1.9"
+        }
+      ],
+      "repoUrl": "https://github.com/Fcharan/WinlatorMali"
     },
     {
       "name": "Winlator Ludashi",
       "repo": "StevenMXZ/Winlator-Ludashi",
       "category": "Winlator",
-      "downloads": 382852
+      "downloads": 382888,
+      "releases": [
+        {
+          "name": "Ludashi 2.8.2",
+          "tag": "2.8.2",
+          "date": "2026-01-25T22:55:31Z",
+          "downloads": 47013,
+          "assets": [
+            {
+              "name": "bionic-ludashi.apk",
+              "size": 524103183,
+              "downloads": 35070,
+              "url": "https://github.com/StevenMXZ/Winlator-Ludashi/releases/download/2.8.2/bionic-ludashi.apk"
+            },
+            {
+              "name": "bionic-vanilla.apk",
+              "size": 524103183,
+              "downloads": 8350,
+              "url": "https://github.com/StevenMXZ/Winlator-Ludashi/releases/download/2.8.2/bionic-vanilla.apk"
+            },
+            {
+              "name": "Redmagic-build.apk",
+              "size": 524103183,
+              "downloads": 3593,
+              "url": "https://github.com/StevenMXZ/Winlator-Ludashi/releases/download/2.8.2/Redmagic-build.apk"
+            }
+          ],
+          "htmlUrl": "https://github.com/StevenMXZ/Winlator-Ludashi/releases/tag/2.8.2"
+        },
+        {
+          "name": " Ludashi 2.8",
+          "tag": "2.8",
+          "date": "2026-01-07T20:50:44Z",
+          "downloads": 50724,
+          "assets": [
+            {
+              "name": "bionic-vanilla.apk",
+              "size": 526908943,
+              "downloads": 16701,
+              "url": "https://github.com/StevenMXZ/Winlator-Ludashi/releases/download/2.8/bionic-vanilla.apk"
+            },
+            {
+              "name": "ludashi-bionic.apk",
+              "size": 526908943,
+              "downloads": 30450,
+              "url": "https://github.com/StevenMXZ/Winlator-Ludashi/releases/download/2.8/ludashi-bionic.apk"
+            },
+            {
+              "name": "Redmagic-build.apk",
+              "size": 526908943,
+              "downloads": 3573,
+              "url": "https://github.com/StevenMXZ/Winlator-Ludashi/releases/download/2.8/Redmagic-build.apk"
+            }
+          ],
+          "htmlUrl": "https://github.com/StevenMXZ/Winlator-Ludashi/releases/tag/2.8"
+        },
+        {
+          "name": "ludashi 2.7.4",
+          "tag": "2.7.4",
+          "date": "2025-12-26T02:39:37Z",
+          "downloads": 45911,
+          "assets": [
+            {
+              "name": "bionic-vanilla.apk",
+              "size": 527482100,
+              "downloads": 12261,
+              "url": "https://github.com/StevenMXZ/Winlator-Ludashi/releases/download/2.7.4/bionic-vanilla.apk"
+            },
+            {
+              "name": "ludashi-bionic.apk",
+              "size": 527482100,
+              "downloads": 29683,
+              "url": "https://github.com/StevenMXZ/Winlator-Ludashi/releases/download/2.7.4/ludashi-bionic.apk"
+            },
+            {
+              "name": "qgl_config.txt",
+              "size": 77,
+              "downloads": 1694,
+              "url": "https://github.com/StevenMXZ/Winlator-Ludashi/releases/download/2.7.4/qgl_config.txt"
+            },
+            {
+              "name": "Redmagic-build.apk",
+              "size": 527482100,
+              "downloads": 2273,
+              "url": "https://github.com/StevenMXZ/Winlator-Ludashi/releases/download/2.7.4/Redmagic-build.apk"
+            }
+          ],
+          "htmlUrl": "https://github.com/StevenMXZ/Winlator-Ludashi/releases/tag/2.7.4"
+        },
+        {
+          "name": "Ludashi 2.7.3",
+          "tag": "2.7.3",
+          "date": "2025-12-21T23:41:26Z",
+          "downloads": 16194,
+          "assets": [
+            {
+              "name": "bionic-vanilla.apk",
+              "size": 523742452,
+              "downloads": 4585,
+              "url": "https://github.com/StevenMXZ/Winlator-Ludashi/releases/download/2.7.3/bionic-vanilla.apk"
+            },
+            {
+              "name": "ludashi-bionic.apk",
+              "size": 523742452,
+              "downloads": 10618,
+              "url": "https://github.com/StevenMXZ/Winlator-Ludashi/releases/download/2.7.3/ludashi-bionic.apk"
+            },
+            {
+              "name": "Redmagic-build.apk",
+              "size": 523742452,
+              "downloads": 991,
+              "url": "https://github.com/StevenMXZ/Winlator-Ludashi/releases/download/2.7.3/Redmagic-build.apk"
+            }
+          ],
+          "htmlUrl": "https://github.com/StevenMXZ/Winlator-Ludashi/releases/tag/2.7.3"
+        },
+        {
+          "name": "Ludashi 2.7.2",
+          "tag": "2.7.2",
+          "date": "2025-11-21T12:15:39Z",
+          "downloads": 91452,
+          "assets": [
+            {
+              "name": "bionic-vanilla.apk",
+              "size": 523738356,
+              "downloads": 29736,
+              "url": "https://github.com/StevenMXZ/Winlator-Ludashi/releases/download/2.7.2/bionic-vanilla.apk"
+            },
+            {
+              "name": "ludashi-bionic.apk",
+              "size": 523738356,
+              "downloads": 56115,
+              "url": "https://github.com/StevenMXZ/Winlator-Ludashi/releases/download/2.7.2/ludashi-bionic.apk"
+            },
+            {
+              "name": "redmagic-build.apk",
+              "size": 523738356,
+              "downloads": 5601,
+              "url": "https://github.com/StevenMXZ/Winlator-Ludashi/releases/download/2.7.2/redmagic-build.apk"
+            }
+          ],
+          "htmlUrl": "https://github.com/StevenMXZ/Winlator-Ludashi/releases/tag/2.7.2"
+        },
+        {
+          "name": "Ludashi 2.7.1",
+          "tag": "2.7.1",
+          "date": "2025-11-16T22:31:55Z",
+          "downloads": 8267,
+          "assets": [
+            {
+              "name": "bionic-vanilla.apk",
+              "size": 523738356,
+              "downloads": 2630,
+              "url": "https://github.com/StevenMXZ/Winlator-Ludashi/releases/download/2.7.1/bionic-vanilla.apk"
+            },
+            {
+              "name": "ludashi-bionic.apk",
+              "size": 523738356,
+              "downloads": 5137,
+              "url": "https://github.com/StevenMXZ/Winlator-Ludashi/releases/download/2.7.1/ludashi-bionic.apk"
+            },
+            {
+              "name": "Redmagic-build.apk",
+              "size": 523738356,
+              "downloads": 500,
+              "url": "https://github.com/StevenMXZ/Winlator-Ludashi/releases/download/2.7.1/Redmagic-build.apk"
+            }
+          ],
+          "htmlUrl": "https://github.com/StevenMXZ/Winlator-Ludashi/releases/tag/2.7.1"
+        },
+        {
+          "name": "Ludashi 2.7",
+          "tag": "2.7",
+          "date": "2025-11-13T21:39:33Z",
+          "downloads": 15340,
+          "assets": [
+            {
+              "name": "bionic-vanilla.apk",
+              "size": 523738356,
+              "downloads": 6202,
+              "url": "https://github.com/StevenMXZ/Winlator-Ludashi/releases/download/2.7/bionic-vanilla.apk"
+            },
+            {
+              "name": "ludashi-bionic.apk",
+              "size": 523738356,
+              "downloads": 8380,
+              "url": "https://github.com/StevenMXZ/Winlator-Ludashi/releases/download/2.7/ludashi-bionic.apk"
+            },
+            {
+              "name": "Redmagic-build.apk",
+              "size": 523738356,
+              "downloads": 758,
+              "url": "https://github.com/StevenMXZ/Winlator-Ludashi/releases/download/2.7/Redmagic-build.apk"
+            }
+          ],
+          "htmlUrl": "https://github.com/StevenMXZ/Winlator-Ludashi/releases/tag/2.7"
+        },
+        {
+          "name": "Ludashi 2.6.2",
+          "tag": "2.6.2",
+          "date": "2025-11-08T19:31:31Z",
+          "downloads": 13246,
+          "assets": [
+            {
+              "name": "bionic-ludashi.apk",
+              "size": 523705588,
+              "downloads": 10975,
+              "url": "https://github.com/StevenMXZ/Winlator-Ludashi/releases/download/2.6.2/bionic-ludashi.apk"
+            },
+            {
+              "name": "dev-vanilla.apk",
+              "size": 523705588,
+              "downloads": 1456,
+              "url": "https://github.com/StevenMXZ/Winlator-Ludashi/releases/download/2.6.2/dev-vanilla.apk"
+            },
+            {
+              "name": "Redmagic-build.apk",
+              "size": 523705588,
+              "downloads": 815,
+              "url": "https://github.com/StevenMXZ/Winlator-Ludashi/releases/download/2.6.2/Redmagic-build.apk"
+            }
+          ],
+          "htmlUrl": "https://github.com/StevenMXZ/Winlator-Ludashi/releases/tag/2.6.2"
+        },
+        {
+          "name": "Ludashi 2.6.1",
+          "tag": "2.6.1",
+          "date": "2025-10-22T15:46:46Z",
+          "downloads": 30344,
+          "assets": [
+            {
+              "name": "bionic-ludashi.apk",
+              "size": 526375673,
+              "downloads": 25518,
+              "url": "https://github.com/StevenMXZ/Winlator-Ludashi/releases/download/2.6.1/bionic-ludashi.apk"
+            },
+            {
+              "name": "dev-vanilla.apk",
+              "size": 526375673,
+              "downloads": 3062,
+              "url": "https://github.com/StevenMXZ/Winlator-Ludashi/releases/download/2.6.1/dev-vanilla.apk"
+            },
+            {
+              "name": "Redmagic-build.apk",
+              "size": 526375673,
+              "downloads": 1764,
+              "url": "https://github.com/StevenMXZ/Winlator-Ludashi/releases/download/2.6.1/Redmagic-build.apk"
+            }
+          ],
+          "htmlUrl": "https://github.com/StevenMXZ/Winlator-Ludashi/releases/tag/2.6.1"
+        },
+        {
+          "name": "Ludashi 2.6",
+          "tag": "2.6",
+          "date": "2025-10-20T18:38:27Z",
+          "downloads": 5222,
+          "assets": [
+            {
+              "name": "bionic-ludashi.apk",
+              "size": 526482169,
+              "downloads": 4086,
+              "url": "https://github.com/StevenMXZ/Winlator-Ludashi/releases/download/2.6/bionic-ludashi.apk"
+            },
+            {
+              "name": "dev-vanilla.apk",
+              "size": 526482169,
+              "downloads": 767,
+              "url": "https://github.com/StevenMXZ/Winlator-Ludashi/releases/download/2.6/dev-vanilla.apk"
+            },
+            {
+              "name": "Redmagic-build.apk",
+              "size": 526482169,
+              "downloads": 369,
+              "url": "https://github.com/StevenMXZ/Winlator-Ludashi/releases/download/2.6/Redmagic-build.apk"
+            }
+          ],
+          "htmlUrl": "https://github.com/StevenMXZ/Winlator-Ludashi/releases/tag/2.6"
+        },
+        {
+          "name": "Ludashi 2.5",
+          "tag": "2.5",
+          "date": "2025-09-25T00:30:31Z",
+          "downloads": 28286,
+          "assets": [
+            {
+              "name": "bionic-ludashi.apk",
+              "size": 519264925,
+              "downloads": 23513,
+              "url": "https://github.com/StevenMXZ/Winlator-Ludashi/releases/download/2.5/bionic-ludashi.apk"
+            },
+            {
+              "name": "dev-vanilla.apk",
+              "size": 519264925,
+              "downloads": 2991,
+              "url": "https://github.com/StevenMXZ/Winlator-Ludashi/releases/download/2.5/dev-vanilla.apk"
+            },
+            {
+              "name": "Redmagic_build.apk",
+              "size": 519264925,
+              "downloads": 1782,
+              "url": "https://github.com/StevenMXZ/Winlator-Ludashi/releases/download/2.5/Redmagic_build.apk"
+            }
+          ],
+          "htmlUrl": "https://github.com/StevenMXZ/Winlator-Ludashi/releases/tag/2.5"
+        },
+        {
+          "name": "Ludashi 2.4",
+          "tag": "2.4",
+          "date": "2025-09-09T02:41:03Z",
+          "downloads": 16212,
+          "assets": [
+            {
+              "name": "bionic-ludashi.apk",
+              "size": 519264925,
+              "downloads": 13442,
+              "url": "https://github.com/StevenMXZ/Winlator-Ludashi/releases/download/2.4/bionic-ludashi.apk"
+            },
+            {
+              "name": "dev-vanilla.apk",
+              "size": 519264925,
+              "downloads": 1828,
+              "url": "https://github.com/StevenMXZ/Winlator-Ludashi/releases/download/2.4/dev-vanilla.apk"
+            },
+            {
+              "name": "Redmagic_build.apk",
+              "size": 519264925,
+              "downloads": 942,
+              "url": "https://github.com/StevenMXZ/Winlator-Ludashi/releases/download/2.4/Redmagic_build.apk"
+            }
+          ],
+          "htmlUrl": "https://github.com/StevenMXZ/Winlator-Ludashi/releases/tag/2.4"
+        },
+        {
+          "name": "Ludashi 2.3",
+          "tag": "2.3",
+          "date": "2025-08-24T20:02:00Z",
+          "downloads": 9574,
+          "assets": [
+            {
+              "name": "bionic-ludashi.apk",
+              "size": 519273117,
+              "downloads": 7531,
+              "url": "https://github.com/StevenMXZ/Winlator-Ludashi/releases/download/2.3/bionic-ludashi.apk"
+            },
+            {
+              "name": "dev-vanilla.apk",
+              "size": 519273117,
+              "downloads": 1329,
+              "url": "https://github.com/StevenMXZ/Winlator-Ludashi/releases/download/2.3/dev-vanilla.apk"
+            },
+            {
+              "name": "Redmagic_build.apk",
+              "size": 519273117,
+              "downloads": 714,
+              "url": "https://github.com/StevenMXZ/Winlator-Ludashi/releases/download/2.3/Redmagic_build.apk"
+            }
+          ],
+          "htmlUrl": "https://github.com/StevenMXZ/Winlator-Ludashi/releases/tag/2.3"
+        },
+        {
+          "name": " Bionic Ludashi 2.2",
+          "tag": "2.2",
+          "date": "2025-08-21T19:15:59Z",
+          "downloads": 5103,
+          "assets": [
+            {
+              "name": "bionic-ludashi.apk",
+              "size": 519273196,
+              "downloads": 4276,
+              "url": "https://github.com/StevenMXZ/Winlator-Ludashi/releases/download/2.2/bionic-ludashi.apk"
+            },
+            {
+              "name": "dev-vanilla.apk",
+              "size": 519273196,
+              "downloads": 827,
+              "url": "https://github.com/StevenMXZ/Winlator-Ludashi/releases/download/2.2/dev-vanilla.apk"
+            }
+          ],
+          "htmlUrl": "https://github.com/StevenMXZ/Winlator-Ludashi/releases/tag/2.2"
+        }
+      ],
+      "repoUrl": "https://github.com/StevenMXZ/Winlator-Ludashi"
     },
     {
       "name": "Winebox64",
       "repo": "winebox64/winlator",
       "category": "Winlator",
-      "downloads": 245117
+      "downloads": 245119,
+      "releases": [
+        {
+          "name": "Winlator 10.2 (Revision 2 Beta) Glibc unstable - Early Access",
+          "tag": "v10.2",
+          "date": "2025-03-03T03:01:09Z",
+          "downloads": 89032,
+          "assets": [
+            {
+              "name": "winlator.apk",
+              "size": 137000935,
+              "downloads": 89032,
+              "url": "https://github.com/winebox64/winlator/releases/download/v10.2/winlator.apk"
+            }
+          ],
+          "htmlUrl": "https://github.com/winebox64/winlator/releases/tag/v10.2"
+        },
+        {
+          "name": "Winlator 9.1.1 Early Access",
+          "tag": "v9.1.1",
+          "date": "2025-01-13T11:02:12Z",
+          "downloads": 102379,
+          "assets": [
+            {
+              "name": "Winlator_9.1.1.apk",
+              "size": 190265418,
+              "downloads": 102379,
+              "url": "https://github.com/winebox64/winlator/releases/download/v9.1.1/Winlator_9.1.1.apk"
+            }
+          ],
+          "htmlUrl": "https://github.com/winebox64/winlator/releases/tag/v9.1.1"
+        },
+        {
+          "name": "Winlator 8.5.5",
+          "tag": "v8.5.5",
+          "date": "2024-12-02T19:13:27Z",
+          "downloads": 39432,
+          "assets": [
+            {
+              "name": "Winlator_8.5.5.apk",
+              "size": 227333672,
+              "downloads": 39432,
+              "url": "https://github.com/winebox64/winlator/releases/download/v8.5.5/Winlator_8.5.5.apk"
+            }
+          ],
+          "htmlUrl": "https://github.com/winebox64/winlator/releases/tag/v8.5.5"
+        },
+        {
+          "name": "Winlator 8.4.5",
+          "tag": "v8.4.5",
+          "date": "2024-11-16T01:45:23Z",
+          "downloads": 14276,
+          "assets": [
+            {
+              "name": "Winlator_8.4.5.WB64.apk",
+              "size": 235370294,
+              "downloads": 14276,
+              "url": "https://github.com/winebox64/winlator/releases/download/v8.4.5/Winlator_8.4.5.WB64.apk"
+            }
+          ],
+          "htmlUrl": "https://github.com/winebox64/winlator/releases/tag/v8.4.5"
+        }
+      ],
+      "repoUrl": "https://github.com/winebox64/winlator"
     },
     {
       "name": "Winlator JurisX",
       "repo": "JURIS-X/winlator_x",
       "category": "Winlator",
-      "downloads": 54489
+      "downloads": 54489,
+      "releases": [
+        {
+          "name": "winlator_x",
+          "tag": "v3.0.1-beta",
+          "date": "2025-04-22T14:19:23Z",
+          "downloads": 19145,
+          "assets": [
+            {
+              "name": "app-debug.apk",
+              "size": 1196028187,
+              "downloads": 19145,
+              "url": "https://github.com/JURIS-X/winlator_x/releases/download/v3.0.1-beta/app-debug.apk"
+            }
+          ],
+          "htmlUrl": "https://github.com/JURIS-X/winlator_x/releases/tag/v3.0.1-beta"
+        },
+        {
+          "name": "winlator_x",
+          "tag": "v3.0.0-beta",
+          "date": "2025-04-21T07:26:02Z",
+          "downloads": 4791,
+          "assets": [
+            {
+              "name": "app-debug.apk",
+              "size": 1161219994,
+              "downloads": 4791,
+              "url": "https://github.com/JURIS-X/winlator_x/releases/download/v3.0.0-beta/app-debug.apk"
+            }
+          ],
+          "htmlUrl": "https://github.com/JURIS-X/winlator_x/releases/tag/v3.0.0-beta"
+        },
+        {
+          "name": "winlator_x_v2.5_hotfix",
+          "tag": "v2.5_hotfix",
+          "date": "2025-05-11T13:33:06Z",
+          "downloads": 12363,
+          "assets": [
+            {
+              "name": "app-debug.apk",
+              "size": 535796887,
+              "downloads": 12363,
+              "url": "https://github.com/JURIS-X/winlator_x/releases/download/v2.5_hotfix/app-debug.apk"
+            }
+          ],
+          "htmlUrl": "https://github.com/JURIS-X/winlator_x/releases/tag/v2.5_hotfix"
+        },
+        {
+          "name": "winlator_x_v3_performance_mode",
+          "tag": "v3_performance_mode",
+          "date": "2025-05-25T06:27:10Z",
+          "downloads": 9224,
+          "assets": [
+            {
+              "name": "app-debug.apk",
+              "size": 446129159,
+              "downloads": 9224,
+              "url": "https://github.com/JURIS-X/winlator_x/releases/download/v3_performance_mode/app-debug.apk"
+            }
+          ],
+          "htmlUrl": "https://github.com/JURIS-X/winlator_x/releases/tag/v3_performance_mode"
+        },
+        {
+          "name": "performance_mode",
+          "tag": "fixed",
+          "date": "2025-05-26T11:10:39Z",
+          "downloads": 8966,
+          "assets": [
+            {
+              "name": "app-debug.apk",
+              "size": 446141447,
+              "downloads": 7509,
+              "url": "https://github.com/JURIS-X/winlator_x/releases/download/fixed/app-debug.apk"
+            },
+            {
+              "name": "Wine10.4-tkg.wcp",
+              "size": 139467824,
+              "downloads": 629,
+              "url": "https://github.com/JURIS-X/winlator_x/releases/download/fixed/Wine10.4-tkg.wcp"
+            },
+            {
+              "name": "Wine10.7-tkg.wcp",
+              "size": 135646412,
+              "downloads": 468,
+              "url": "https://github.com/JURIS-X/winlator_x/releases/download/fixed/Wine10.7-tkg.wcp"
+            },
+            {
+              "name": "Wine9.16.wcp",
+              "size": 110064068,
+              "downloads": 360,
+              "url": "https://github.com/JURIS-X/winlator_x/releases/download/fixed/Wine9.16.wcp"
+            }
+          ],
+          "htmlUrl": "https://github.com/JURIS-X/winlator_x/releases/tag/fixed"
+        }
+      ],
+      "repoUrl": "https://github.com/JURIS-X/winlator_x"
     },
     {
       "name": "GameHub Brasil",
       "repo": "winlatorbrasil/gamehub-brasil",
       "category": "GameHub",
-      "downloads": 26421
+      "downloads": 26434,
+      "releases": [
+        {
+          "name": "GameHub Brasil v2.0",
+          "tag": "GameHub_Brasil-v2.0",
+          "date": "2026-01-19T14:13:26Z",
+          "downloads": 25097,
+          "assets": [
+            {
+              "name": "GameHub-Brasil-v2.0-AnTuTu.apk",
+              "size": 122316297,
+              "downloads": 9297,
+              "url": "https://github.com/winlatorbrasil/gamehub-brasil/releases/download/GameHub_Brasil-v2.0/GameHub-Brasil-v2.0-AnTuTu.apk"
+            },
+            {
+              "name": "GameHub-Brasil-v2.0-FutureMark.apk",
+              "size": 122316297,
+              "downloads": 2458,
+              "url": "https://github.com/winlatorbrasil/gamehub-brasil/releases/download/GameHub_Brasil-v2.0/GameHub-Brasil-v2.0-FutureMark.apk"
+            },
+            {
+              "name": "GameHub-Brasil-v2.0-GFXBench.apk",
+              "size": 122316297,
+              "downloads": 1089,
+              "url": "https://github.com/winlatorbrasil/gamehub-brasil/releases/download/GameHub_Brasil-v2.0/GameHub-Brasil-v2.0-GFXBench.apk"
+            },
+            {
+              "name": "GameHub-Brasil-v2.0-Ludashi.apk",
+              "size": 122316297,
+              "downloads": 2311,
+              "url": "https://github.com/winlatorbrasil/gamehub-brasil/releases/download/GameHub_Brasil-v2.0/GameHub-Brasil-v2.0-Ludashi.apk"
+            },
+            {
+              "name": "GameHub-Brasil-v2.0-Mihoyo.apk",
+              "size": 122316297,
+              "downloads": 388,
+              "url": "https://github.com/winlatorbrasil/gamehub-brasil/releases/download/GameHub_Brasil-v2.0/GameHub-Brasil-v2.0-Mihoyo.apk"
+            },
+            {
+              "name": "GameHub-Brasil-v2.0-Normal.apk",
+              "size": 122316297,
+              "downloads": 6959,
+              "url": "https://github.com/winlatorbrasil/gamehub-brasil/releases/download/GameHub_Brasil-v2.0/GameHub-Brasil-v2.0-Normal.apk"
+            },
+            {
+              "name": "GameHub-Brasil-v2.0-PuBG.apk",
+              "size": 122316297,
+              "downloads": 1320,
+              "url": "https://github.com/winlatorbrasil/gamehub-brasil/releases/download/GameHub_Brasil-v2.0/GameHub-Brasil-v2.0-PuBG.apk"
+            },
+            {
+              "name": "GameHub-Brasil-v2.0-RedMagic.apk",
+              "size": 122316297,
+              "downloads": 1275,
+              "url": "https://github.com/winlatorbrasil/gamehub-brasil/releases/download/GameHub_Brasil-v2.0/GameHub-Brasil-v2.0-RedMagic.apk"
+            }
+          ],
+          "htmlUrl": "https://github.com/winlatorbrasil/gamehub-brasil/releases/tag/GameHub_Brasil-v2.0"
+        },
+        {
+          "name": "GameHub Brasil v1.0",
+          "tag": "GameHub_Brasil-v1.0",
+          "date": "2025-10-27T01:34:28Z",
+          "downloads": 1337,
+          "assets": [
+            {
+              "name": "GameHub-Brasil-v1.0.apk",
+              "size": 72976156,
+              "downloads": 1337,
+              "url": "https://github.com/winlatorbrasil/gamehub-brasil/releases/download/GameHub_Brasil-v1.0/GameHub-Brasil-v1.0.apk"
+            }
+          ],
+          "htmlUrl": "https://github.com/winlatorbrasil/gamehub-brasil/releases/tag/GameHub_Brasil-v1.0"
+        }
+      ],
+      "repoUrl": "https://github.com/winlatorbrasil/gamehub-brasil"
     },
     {
       "name": "Star (fork)",
       "repo": "jacojayy/star",
       "category": "Winlator",
-      "downloads": 24939
+      "downloads": 24942,
+      "releases": [
+        {
+          "name": "star 11-2 | Stable Release",
+          "tag": "star.11-2",
+          "date": "2026-01-09T04:20:27Z",
+          "downloads": 14259,
+          "assets": [
+            {
+              "name": "star-11.apk",
+              "size": 202693836,
+              "downloads": 14259,
+              "url": "https://github.com/jacojayy/star/releases/download/star.11-2/star-11.apk"
+            }
+          ],
+          "htmlUrl": "https://github.com/jacojayy/star/releases/tag/star.11-2"
+        },
+        {
+          "name": "star 11-1 | Stable Release",
+          "tag": "star.11-1",
+          "date": "2025-12-23T11:27:12Z",
+          "downloads": 10683,
+          "assets": [
+            {
+              "name": "star-11.apk",
+              "size": 202697930,
+              "downloads": 10683,
+              "url": "https://github.com/jacojayy/star/releases/download/star.11-1/star-11.apk"
+            }
+          ],
+          "htmlUrl": "https://github.com/jacojayy/star/releases/tag/star.11-1"
+        }
+      ],
+      "repoUrl": "https://github.com/jacojayy/star"
+    },
+    {
+      "name": "Winlator Brasil",
+      "repo": "winlatorbrasil/Winlator-Brasil",
+      "category": "Winlator",
+      "downloads": 17337,
+      "releases": [
+        {
+          "name": "Winlator_Brasil_10.1, Winlator_Brasil_10.1_AI e Winlator Brasil CLT",
+          "tag": "Winlator_Brasil_10.1",
+          "date": "2025-05-24T01:26:43Z",
+          "downloads": 14274,
+          "assets": [
+            {
+              "name": "wine-9.15-custom.whp",
+              "size": 82243500,
+              "downloads": 1030,
+              "url": "https://github.com/winlatorbrasil/Winlator-Brasil/releases/download/Winlator_Brasil_10.1/wine-9.15-custom.whp"
+            },
+            {
+              "name": "wine9.16.whp",
+              "size": 41522768,
+              "downloads": 590,
+              "url": "https://github.com/winlatorbrasil/Winlator-Brasil/releases/download/Winlator_Brasil_10.1/wine9.16.whp"
+            },
+            {
+              "name": "Winlator_Brasil_10.1.apk",
+              "size": 1306935950,
+              "downloads": 5363,
+              "url": "https://github.com/winlatorbrasil/Winlator-Brasil/releases/download/Winlator_Brasil_10.1/Winlator_Brasil_10.1.apk"
+            },
+            {
+              "name": "Winlator_Brasil_10.1_Ai.apk",
+              "size": 1423407760,
+              "downloads": 4116,
+              "url": "https://github.com/winlatorbrasil/Winlator-Brasil/releases/download/Winlator_Brasil_10.1/Winlator_Brasil_10.1_Ai.apk"
+            },
+            {
+              "name": "Winlator_Brasil_CLT.apk",
+              "size": 1929573318,
+              "downloads": 3175,
+              "url": "https://github.com/winlatorbrasil/Winlator-Brasil/releases/download/Winlator_Brasil_10.1/Winlator_Brasil_CLT.apk"
+            }
+          ],
+          "htmlUrl": "https://github.com/winlatorbrasil/Winlator-Brasil/releases/tag/Winlator_Brasil_10.1"
+        },
+        {
+          "name": "Winlator_Brasil_10.0",
+          "tag": "Winlator_Brasil_10.0",
+          "date": "2025-05-08T01:16:05Z",
+          "downloads": 3063,
+          "assets": [
+            {
+              "name": "Winlator_Brasil_10.0.apk",
+              "size": 951458596,
+              "downloads": 3063,
+              "url": "https://github.com/winlatorbrasil/Winlator-Brasil/releases/download/Winlator_Brasil_10.0/Winlator_Brasil_10.0.apk"
+            }
+          ],
+          "htmlUrl": "https://github.com/winlatorbrasil/Winlator-Brasil/releases/tag/Winlator_Brasil_10.0"
+        }
+      ],
+      "repoUrl": "https://github.com/winlatorbrasil/Winlator-Brasil"
     },
     {
       "name": "GameHub Lite (ItzDFPlayer)",
       "repo": "ItzDFPlayer/gamehub-lite",
       "category": "GameHub",
-      "downloads": 3951
+      "downloads": 3951,
+      "releases": [
+        {
+          "name": "GameHub 5.3.5 Lite V2-hotfix",
+          "tag": "5.3.5-v2",
+          "date": "2026-01-06T21:01:46Z",
+          "downloads": 2341,
+          "assets": [
+            {
+              "name": "GameHub_5.3.5_Lite_V2-hotfix.apk",
+              "size": 134908166,
+              "downloads": 2341,
+              "url": "https://github.com/ItzDFPlayer/gamehub-lite/releases/download/5.3.5-v2/GameHub_5.3.5_Lite_V2-hotfix.apk"
+            }
+          ],
+          "htmlUrl": "https://github.com/ItzDFPlayer/gamehub-lite/releases/tag/5.3.5-v2"
+        },
+        {
+          "name": "GameHub 5.3.5 Lite V1",
+          "tag": "5.3.5",
+          "date": "2025-12-05T08:08:38Z",
+          "downloads": 1610,
+          "assets": [
+            {
+              "name": "GameHub_5.3.5_Lite_EmuReady_API.apk",
+              "size": 134908166,
+              "downloads": 829,
+              "url": "https://github.com/ItzDFPlayer/gamehub-lite/releases/download/5.3.5/GameHub_5.3.5_Lite_EmuReady_API.apk"
+            },
+            {
+              "name": "GameHub_5.3.5_Lite_Official_API.apk",
+              "size": 134908166,
+              "downloads": 781,
+              "url": "https://github.com/ItzDFPlayer/gamehub-lite/releases/download/5.3.5/GameHub_5.3.5_Lite_Official_API.apk"
+            }
+          ],
+          "htmlUrl": "https://github.com/ItzDFPlayer/gamehub-lite/releases/tag/5.3.5"
+        }
+      ],
+      "repoUrl": "https://github.com/ItzDFPlayer/gamehub-lite"
     },
     {
       "name": "Winlator XMOD",
       "repo": "deivid22srk/Winlator-Xmod",
       "category": "Winlator",
-      "downloads": 428
+      "downloads": 428,
+      "releases": [
+        {
+          "name": "Winlator Xmod 1.1.0",
+          "tag": "Winlator_xmox_1.1.0",
+          "date": "2025-09-20T16:27:49Z",
+          "downloads": 145,
+          "assets": [
+            {
+              "name": "app-debug_sign.apk",
+              "size": 547286964,
+              "downloads": 145,
+              "url": "https://github.com/deivid22srk/Winlator-Xmod/releases/download/Winlator_xmox_1.1.0/app-debug_sign.apk"
+            }
+          ],
+          "htmlUrl": "https://github.com/deivid22srk/Winlator-Xmod/releases/tag/Winlator_xmox_1.1.0"
+        },
+        {
+          "name": "Winlator Xmod 1.0",
+          "tag": "Winlatorxmod1.0",
+          "date": "2025-09-05T01:04:02Z",
+          "downloads": 197,
+          "assets": [
+            {
+              "name": "app-debug_sign.apk",
+              "size": 544498060,
+              "downloads": 197,
+              "url": "https://github.com/deivid22srk/Winlator-Xmod/releases/download/Winlatorxmod1.0/app-debug_sign.apk"
+            }
+          ],
+          "htmlUrl": "https://github.com/deivid22srk/Winlator-Xmod/releases/tag/Winlatorxmod1.0"
+        },
+        {
+          "name": "Winlator Xmod app-debug_sign",
+          "tag": "Winlator_Xmod_1.0",
+          "date": "2025-09-02T18:03:50Z",
+          "downloads": 86,
+          "assets": [
+            {
+              "name": "app-debug_sign.apk",
+              "size": 519982405,
+              "downloads": 86,
+              "url": "https://github.com/deivid22srk/Winlator-Xmod/releases/download/Winlator_Xmod_1.0/app-debug_sign.apk"
+            }
+          ],
+          "htmlUrl": "https://github.com/deivid22srk/Winlator-Xmod/releases/tag/Winlator_Xmod_1.0"
+        }
+      ],
+      "repoUrl": "https://github.com/deivid22srk/Winlator-Xmod"
     }
   ]
 }
