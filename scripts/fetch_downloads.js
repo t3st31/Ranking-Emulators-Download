@@ -15,7 +15,7 @@ const repos = [
   { name: "Winlator Coffincolors", repo: "coffincolors/winlator", category: "Winlator" },
   { name: "Winlator X", repo: "JURIS-X/winlator_x", category: "Winlator" },
   { name: "Winlator Glibc", repo: "longjunyu2/winlator", category: "Winlator" },
-  { name: "WB64DEV", repo: "winebox64/winlator", category: "Winlator" },
+  { name: "Wb64dev", repo: "winebox64/winlator", category: "Winlator" },
   { name: "Winlator Mali", repo: "Fcharan/WinlatorMali", category: "Winlator" },
   { name: "Star (fork)", repo: "jacojayy/star", category: "Winlator" },
   { name: "Winlator Brasil", repo: "winlatorbrasil/Winlator-Brasil", category: "Winlator" }
