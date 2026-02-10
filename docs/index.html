@@ -179,18 +179,6 @@
       animation: cardFadeIn 0.6s ease-out;
     }
 
-    /* Ajuste para o gráfico não achatar no mobile */
-    #chart {
-      min-height: 400px;
-      width: 100% !important;
-    }
-
-    @media (max-width: 768px) {
-      #chart {
-        min-height: 320px;
-      }
-    }
-
     @keyframes cardFadeIn {
       from {
         opacity: 0;
@@ -1795,7 +1783,7 @@
           },
           options: {
             responsive: true,
-            maintainAspectRatio: false,
+            maintainAspectRatio: true,
             plugins: {
               legend: {
                 display: true,
