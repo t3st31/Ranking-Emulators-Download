@@ -1811,9 +1811,11 @@
               x: {
                 ticks: {
                   color: "#ccc",
-                  font: { size: window.innerWidth < 768 ? 9 : 11 },
-                  maxRotation: window.innerWidth < 768 ? 45 : 0,
-                  autoSkip: false
+                  font: { size: 10 },
+                  maxRotation: 45,
+                  minRotation: 45,
+                  autoSkip: true,
+                  padding: 5
                 },
                 grid: {
                   color: "rgba(0, 247, 255, 0.1)",
