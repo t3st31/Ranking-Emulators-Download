@@ -738,6 +738,17 @@
       margin-top: 2px;
     }
 
+    .card-click-hint {
+      font-size: 0.55em;
+      color: #00f7ff;
+      opacity: 0.7;
+      font-style: italic;
+      margin-top: 2px;
+      display: flex;
+      align-items: center;
+      gap: 3px;
+    }
+
     .card-new-badge {
       display: inline-block;
       font-size: 0.5em;
@@ -2377,6 +2388,7 @@
                 <div class="card-meta">
                   <span class="category-badge category-${sanitizeCategory(item.category)}">${item.category || '-'}</span>
                 </div>
+                <div class="card-click-hint">Clique aqui</div>
               </div>
               <div class="card-downloads">
                 ${item.downloads.toLocaleString('pt-BR')}
