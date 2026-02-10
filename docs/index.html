@@ -321,6 +321,7 @@
       display: flex;
       flex-wrap: wrap;
       justify-content: center;
+      align-items: center;
       gap: 15px;
       margin-bottom: 20px;
     }
@@ -388,30 +389,6 @@
       }
     }
 
-    .top-news-badge {
-      background: linear-gradient(135deg, #ff005d, #ff8c00);
-      color: white;
-      padding: 4px 12px;
-      border-radius: 10px;
-      font-weight: 800;
-      font-size: 0.8em;
-      animation: pulse-red 2s infinite;
-      box-shadow: 0 0 15px rgba(255, 0, 93, 0.5);
-    }
-
-    @keyframes pulse-red {
-
-      0%,
-      100% {
-        transform: scale(1);
-        box-shadow: 0 0 15px rgba(255, 0, 93, 0.5);
-      }
-
-      50% {
-        transform: scale(1.05);
-        box-shadow: 0 0 25px rgba(255, 0, 93, 0.8);
-      }
-    }
 
     .top-news-badge {
       background: linear-gradient(135deg, #ff0080, #ff8c00);
@@ -2891,18 +2868,17 @@
           `;
           document.getElementById('lastUpdate').innerHTML = statusHtml;
 
-          // --- Contadores Reais via CountAPI ---
+          // --- Contadores Reais via CounterAPI.dev ---
 
-          // 'Online Agora': usa janela de 5 minutos como chave
-          // Cada visitante nessa janela incrementa o mesmo contador
+          // 'Online Agora': janela de 5 minutos
           const d = new Date();
           const windowKey = `${d.getFullYear()}${(d.getMonth() + 1).toString().padStart(2, '0')}${d.getDate().toString().padStart(2, '0')}-${d.getHours().toString().padStart(2, '0')}${(Math.floor(d.getMinutes() / 5) * 5).toString().padStart(2, '0')}`;
-          fetch(`https://api.countapi.xyz/hit/ranking-emulators-hub/online-${windowKey}`)
+          fetch(`https://api.counterapi.dev/v1/ranking-emulators-hub/online-${windowKey}/up`)
             .then(res => res.json())
             .then(data => {
               const el = document.getElementById('onlineNow');
-              if (el && data && data.value) {
-                el.innerText = `${data.value} ${data.value === 1 ? 'Usuário' : 'Usuários'}`;
+              if (el && data && data.count) {
+                el.innerText = `${data.count} ${data.count === 1 ? 'Usuário' : 'Usuários'}`;
               } else if (el) {
                 el.innerText = '1 Usuário';
               }
@@ -2913,11 +2889,11 @@
             });
 
           // 'Total de Visitas': incrementa a cada visita real
-          fetch('https://api.countapi.xyz/hit/ranking-emulators-hub/visits')
+          fetch('https://api.counterapi.dev/v1/ranking-emulators-hub/total-visits/up')
             .then(res => res.json())
             .then(data => {
-              if (data && data.value) {
-                document.getElementById('totalVisits').innerText = data.value.toLocaleString('pt-BR');
+              if (data && data.count) {
+                document.getElementById('totalVisits').innerText = data.count.toLocaleString('pt-BR');
               } else {
                 document.getElementById('totalVisits').innerText = '0';
               }
