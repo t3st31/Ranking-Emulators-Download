@@ -2871,46 +2871,42 @@
           `;
           document.getElementById('lastUpdate').innerHTML = statusHtml;
 
-          // --- Contadores Reais ---
+          // --- CORREÇÃO DOS CONTADORES ---
 
-          // 'Online Agora': janela de 5 minutos via CounterAPI
-          const _now = new Date();
-          const _winKey = [
-            _now.getUTCFullYear(),
-            String(_now.getUTCMonth() + 1).padStart(2, '0'),
-            String(_now.getUTCDate()).padStart(2, '0'),
-            'h', String(_now.getUTCHours()).padStart(2, '0'),
-            'm', String(Math.floor(_now.getUTCMinutes() / 5) * 5).padStart(2, '0')
-          ].join('');
-
-          fetch(`https://api.countapi.xyz/hit/t3st31-ranking-emulators/online-${_winKey}`)
+          // 1. 'Online Agora': janela de 5 minutos via CounterAPI
+          const d = new Date();
+          const winKey = `${d.getFullYear()}${(d.getMonth() + 1)}${d.getDate()}-${d.getHours()}${(Math.floor(d.getMinutes() / 5) * 5)}`;
+          fetch(`https://api.counterapi.dev/v1/ranking-emul-hub-t3st31/online-${winKey}/up`)
             .then(res => res.json())
             .then(data => {
               const el = document.getElementById('onlineNow');
-              const count = (data && data.value) ? data.value : 1;
+              // CORREÇÃO: Usar data.count (propriedade padrão da API)
+              const count = data.count || 1;
               if (el) {
                 el.innerText = `${count} ${count === 1 ? 'Usuário' : 'Usuários'}`;
               }
             })
-            .catch(() => {
+            .catch(err => {
+              console.error("Erro ao carregar Online Now:", err);
               const el = document.getElementById('onlineNow');
               if (el) el.innerText = '1 Usuário';
             });
 
-          // 'Total de Visitas': Hits API (dwyl) - O valor vem no campo 'message'
-          fetch('https://api.countapi.xyz/hit/t3st31-ranking-emulators/visits')
+          // 2. 'Total de Visitas': Hits API (dwyl)
+          fetch('https://hits.dwyl.com/t3st31/Ranking-Emulators-Download.json')
             .then(res => res.json())
             .then(data => {
               const el = document.getElementById('totalVisits');
-              if (el && data && data.value !== undefined) {
-                el.innerText = Number(data.value).toLocaleString('pt-BR');
-              } else if (el) {
-                el.innerText = '—';
-              }
+              // CORREÇÃO: Usar data.count, não data.message
+              if (el && data && data.count !== undefined) {
+                const count = parseInt(data.count) || 0;
+                el.innerText = count.toLocaleString('pt-BR');
+              } else if (el) { el.innerText = '0'; }
             })
-            .catch(() => {
+            .catch(err => {
+              console.error("Erro ao carregar Total Visits:", err);
               const el = document.getElementById('totalVisits');
-              if (el) el.innerText = '—';
+              if (el) el.innerText = '0';
             });
 
           // Destaque na aba de Novidades
@@ -2927,7 +2923,6 @@
           }
         }
 
-        // Inserir ambos (removido duplicata manual aqui)
       } catch (error) {
         console.error("Erro ao carregar dados:", error);
         document.getElementById('rankingContainer').innerHTML = `
