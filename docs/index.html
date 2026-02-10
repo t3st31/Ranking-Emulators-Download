@@ -2983,7 +2983,7 @@
 
       const commonCountries = ['BR', 'US', 'ES', 'FR', 'DE', 'IT', 'PT', 'GB', 'AR', 'MX', 'CL', 'CO', 'PE', 'RU', 'CN', 'JP', 'KR', 'IN'];
       const stats = {};
-      const countryColors = {};
+      const countryColorIndices = {};
       const neonPalette = ['#00fff9', '#ff0080', '#ffea00', '#00ff66', '#7000ff', '#ff8a00', '#009dff', '#ff0055', '#9dff00'];
 
       try {
@@ -2995,8 +2995,8 @@
             const count = (data && data.count) ? parseInt(data.count) : 0;
             if (count > 0) {
               stats[code] = count;
-              // Atribuir cor aleatória da paleta neon
-              countryColors[code] = neonPalette[Math.floor(Math.random() * neonPalette.length)];
+              // Atribuir índice aleatório da paleta neon (jsVectorMap precisa de números para usar com scale)
+              countryColorIndices[code] = Math.floor(Math.random() * neonPalette.length);
             }
           } catch (err) { }
         }));
@@ -3012,13 +3012,15 @@
           },
           series: {
             regions: [{
-              values: countryColors,
-              attribute: 'fill'
+              values: countryColorIndices,
+              attribute: 'fill',
+              scale: neonPalette
             }]
           },
           onRegionTooltipShow(event, tooltip, code) {
             const count = stats[code] || 0;
-            const color = countryColors[code] || '#00fff9';
+            const colorIdx = countryColorIndices[code];
+            const color = colorIdx !== undefined ? neonPalette[colorIdx] : '#00fff9';
             tooltip.text(`<b>${tooltip.text()}</b><br/><span style="color:${color}">Visitas: ${count}</span>`, true);
           }
         });
