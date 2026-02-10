@@ -2953,8 +2953,9 @@
         const geoData = await geoRes.json();
         const countryCode = geoData.countryCode;
 
+        console.log('🌍 Detecção de Localização:', geoData.countryName || countryCode);
+
         if (countryCode) {
-          const CORS_PROXY = 'https://api.codetabs.com/v1/proxy?quest=';
           const upUrl = `https://api.counterapi.dev/v1/${VISITOR_NAMESPACE}/${countryCode}/up`;
           await fetch(CORS_PROXY + encodeURIComponent(upUrl));
         }
@@ -2967,28 +2968,38 @@
       const CORS_PROXY = 'https://api.codetabs.com/v1/proxy?quest=';
       const container = document.getElementById('visitorMap');
       if (!container) return;
+      container.innerHTML = '<div class="loading" style="height:100%; display:flex; align-items:center; justify-content:center; color:#00fff9; font-family:Orbitron; letter-spacing:2px; font-size:14px; text-shadow: 0 0 10px #00fff9;">SYNCING DATA...</div>';
 
-      // 1. Inicializar o mapa imediatamente com zeros (mais rápido)
-      container.innerHTML = '';
       const commonCountries = ['BR', 'US', 'ES', 'FR', 'DE', 'IT', 'PT', 'GB', 'AR', 'MX', 'CL', 'CO', 'PE', 'RU', 'CN', 'JP', 'KR', 'IN'];
       const stats = {};
-      commonCountries.forEach(c => stats[c] = 0);
 
       try {
+        // Buscar todos os dados em paralelo ANTES de renderizar
+        await Promise.all(commonCountries.map(async (code) => {
+          try {
+            const res = await fetch(CORS_PROXY + encodeURIComponent(`https://api.counterapi.dev/v1/${VISITOR_NAMESPACE}/${code}`));
+            const data = await res.json();
+            stats[code] = (data && data.count) ? data.count : 0;
+          } catch (err) {
+            stats[code] = 0;
+          }
+        }));
+
+        container.innerHTML = '';
         mapInstance = new jsVectorMap({
           selector: '#visitorMap',
           map: 'world_merc',
           backgroundColor: 'transparent',
           regionStyle: {
-            initial: { fill: 'rgba(51, 51, 51, 0.5)', stroke: 'rgba(0, 255, 249, 0.3)', strokeWidth: 1 },
+            initial: { fill: '#2a2a2a', stroke: 'rgba(0, 255, 249, 0.3)', strokeWidth: 1 },
             hover: { fill: '#00fff9', fillOpacity: 0.5 }
           },
           series: {
             regions: [{
               values: stats,
               attribute: 'fill',
-              scale: ['#1a1d2e', '#ff0080'],
-              normalizeFunction: 'polynomial'
+              scale: ['#444444', '#ff0080'],
+              normalizeFunction: 'linear'
             }]
           },
           onRegionTooltipShow(event, tooltip, code) {
@@ -2996,23 +3007,8 @@
             tooltip.text(`<b>${tooltip.text()}</b><br/><span style="color:#00fff9">Visitas: ${count}</span>`, true);
           }
         });
-
-        // 2. Carregar estatísticas em background (sem travar)
-        for (const code of commonCountries) {
-          fetch(CORS_PROXY + encodeURIComponent(`https://api.counterapi.dev/v1/${VISITOR_NAMESPACE}/${code}`))
-            .then(res => res.json())
-            .then(data => {
-              if (data && data.count) {
-                stats[code] = data.count;
-                // Atualizar visual do mapa sem recarregar tudo
-                if (mapInstance && mapInstance.series && mapInstance.series.regions[0]) {
-                  mapInstance.series.regions[0].setValues(stats);
-                }
-              }
-            })
-            .catch(() => { });
-        }
       } catch (err) {
+        container.innerHTML = '<div style="color:red; text-align:center; padding:20px;">Erro ao carregar mapa</div>';
         console.error('Erro ao renderizar mapa:', err);
       }
     }
