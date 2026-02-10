@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="pt-BR">
+
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
@@ -32,7 +33,7 @@
       left: 0;
       width: 100%;
       height: 100%;
-      background: 
+      background:
         radial-gradient(ellipse at top left, rgba(138, 43, 226, 0.15), transparent 50%),
         radial-gradient(ellipse at bottom right, rgba(255, 0, 93, 0.15), transparent 50%),
         radial-gradient(ellipse at center, rgba(0, 247, 255, 0.08), transparent 70%);
@@ -42,8 +43,15 @@
     }
 
     @keyframes bgPulse {
-      0%, 100% { opacity: 0.6; }
-      50% { opacity: 1; }
+
+      0%,
+      100% {
+        opacity: 0.6;
+      }
+
+      50% {
+        opacity: 1;
+      }
     }
 
     /* Grid animado no fundo */
@@ -53,7 +61,7 @@
       left: 0;
       width: 100%;
       height: 100%;
-      background-image: 
+      background-image:
         linear-gradient(rgba(0, 247, 255, 0.03) 1px, transparent 1px),
         linear-gradient(90deg, rgba(0, 247, 255, 0.03) 1px, transparent 1px);
       background-size: 50px 50px;
@@ -62,8 +70,13 @@
     }
 
     @keyframes gridMove {
-      0% { transform: translateY(0); }
-      100% { transform: translateY(50px); }
+      0% {
+        transform: translateY(0);
+      }
+
+      100% {
+        transform: translateY(50px);
+      }
     }
 
     header {
@@ -82,20 +95,25 @@
       left: -50%;
       width: 200%;
       height: 200%;
-      background: linear-gradient(45deg, transparent, rgba(255,255,255,0.1), transparent);
+      background: linear-gradient(45deg, transparent, rgba(255, 255, 255, 0.1), transparent);
       animation: shine 3s infinite;
     }
 
     @keyframes shine {
-      0% { transform: translateX(-100%) translateY(-100%) rotate(45deg); }
-      100% { transform: translateX(100%) translateY(100%) rotate(45deg); }
+      0% {
+        transform: translateX(-100%) translateY(-100%) rotate(45deg);
+      }
+
+      100% {
+        transform: translateX(100%) translateY(100%) rotate(45deg);
+      }
     }
 
     header h1 {
       margin: 0;
       font-size: 3.5em;
-      text-shadow: 
-        0 0 20px rgba(255,255,255,0.8),
+      text-shadow:
+        0 0 20px rgba(255, 255, 255, 0.8),
         0 0 40px rgba(127, 0, 255, 0.6),
         0 0 60px rgba(255, 0, 93, 0.4);
       letter-spacing: 3px;
@@ -105,15 +123,20 @@
     }
 
     @keyframes titleGlow {
-      0%, 100% { text-shadow: 
-        0 0 20px rgba(255,255,255,0.8),
-        0 0 40px rgba(127, 0, 255, 0.6),
-        0 0 60px rgba(255, 0, 93, 0.4); 
+
+      0%,
+      100% {
+        text-shadow:
+          0 0 20px rgba(255, 255, 255, 0.8),
+          0 0 40px rgba(127, 0, 255, 0.6),
+          0 0 60px rgba(255, 0, 93, 0.4);
       }
-      50% { text-shadow: 
-        0 0 30px rgba(255,255,255,1),
-        0 0 60px rgba(127, 0, 255, 0.8),
-        0 0 90px rgba(255, 0, 93, 0.6); 
+
+      50% {
+        text-shadow:
+          0 0 30px rgba(255, 255, 255, 1),
+          0 0 60px rgba(127, 0, 255, 0.8),
+          0 0 90px rgba(255, 0, 93, 0.6);
       }
     }
 
@@ -123,7 +146,7 @@
       font-size: 1.1em;
       position: relative;
       z-index: 1;
-      text-shadow: 0 2px 10px rgba(0,0,0,0.5);
+      text-shadow: 0 2px 10px rgba(0, 0, 0, 0.5);
     }
 
     .last-update {
@@ -146,9 +169,9 @@
       border-radius: 20px;
       padding: 35px;
       margin-bottom: 40px;
-      box-shadow: 
-        0 10px 40px rgba(0,0,0,0.5),
-        inset 0 1px 0 rgba(255,255,255,0.05),
+      box-shadow:
+        0 10px 40px rgba(0, 0, 0, 0.5),
+        inset 0 1px 0 rgba(255, 255, 255, 0.05),
         0 0 0 1px rgba(0, 247, 255, 0.2);
       backdrop-filter: blur(10px);
       position: relative;
@@ -161,6 +184,7 @@
         opacity: 0;
         transform: translateY(30px);
       }
+
       to {
         opacity: 1;
         transform: translateY(0);
@@ -185,7 +209,7 @@
     h2 {
       margin-top: 0;
       color: #00f7ff;
-      text-shadow: 0 0 15px rgba(0,247,255,0.7);
+      text-shadow: 0 0 15px rgba(0, 247, 255, 0.7);
       font-size: 2em;
       margin-bottom: 25px;
       position: relative;
@@ -215,7 +239,8 @@
       margin-top: 20px;
     }
 
-    th, td {
+    th,
+    td {
       padding: 18px;
       border-bottom: 1px solid rgba(43, 43, 58, 0.5);
       text-align: left;
@@ -267,23 +292,30 @@
       width: 80px;
     }
 
-    .gold { 
+    .gold {
       color: #ffd700;
       text-shadow: 0 0 15px rgba(255, 215, 0, 0.8);
       animation: goldPulse 2s ease-in-out infinite;
     }
 
     @keyframes goldPulse {
-      0%, 100% { transform: scale(1); }
-      50% { transform: scale(1.15); }
+
+      0%,
+      100% {
+        transform: scale(1);
+      }
+
+      50% {
+        transform: scale(1.15);
+      }
     }
 
-    .silver { 
+    .silver {
       color: #e0e0e0;
       text-shadow: 0 0 10px rgba(224, 224, 224, 0.6);
     }
 
-    .bronze { 
+    .bronze {
       color: #ff9f43;
       text-shadow: 0 0 10px rgba(255, 159, 67, 0.6);
     }
@@ -348,12 +380,29 @@
       border: 1px solid rgba(0, 247, 255, 0.2);
       cursor: pointer;
       transition: all 0.3s ease;
+      overflow: visible;
+      position: relative;
     }
 
     .ranking-card-item:hover {
       transform: translateY(-5px);
       box-shadow: 0 10px 30px rgba(0, 247, 255, 0.3);
       border-color: rgba(0, 247, 255, 0.5);
+    }
+
+    .card-new-badge {
+      background: linear-gradient(135deg, #ff0080 0%, #ff8c00 100%);
+      color: white;
+      padding: 6px 14px;
+      border-radius: 12px;
+      font-size: 0.8em;
+      font-weight: bold;
+      text-transform: uppercase;
+      box-shadow: 0 0 15px rgba(255, 0, 128, 0.6);
+      animation: tableBadgePulse 2s ease-in-out infinite;
+      display: inline-block;
+      margin-top: 8px;
+      letter-spacing: 0.5px;
     }
 
     .card-header {
@@ -411,8 +460,13 @@
     }
 
     @keyframes fadeIn {
-      from { opacity: 0; }
-      to { opacity: 1; }
+      from {
+        opacity: 0;
+      }
+
+      to {
+        opacity: 1;
+      }
     }
 
     .modal-content {
@@ -422,8 +476,8 @@
       width: 90%;
       max-width: 1200px;
       border-radius: 20px;
-      box-shadow: 
-        0 20px 60px rgba(0,0,0,0.8),
+      box-shadow:
+        0 20px 60px rgba(0, 0, 0, 0.8),
         0 0 0 1px rgba(0, 247, 255, 0.3);
       animation: slideIn 0.4s ease;
       max-height: 90vh;
@@ -437,6 +491,7 @@
         transform: translateY(-100px);
         opacity: 0;
       }
+
       to {
         transform: translateY(0);
         opacity: 1;
@@ -458,7 +513,7 @@
     .modal-header h2 {
       margin: 0;
       color: white;
-      text-shadow: 0 2px 10px rgba(0,0,0,0.5);
+      text-shadow: 0 2px 10px rgba(0, 0, 0, 0.5);
       flex: 1;
       min-width: 200px;
     }
@@ -541,13 +596,19 @@
     }
 
     @keyframes ripple {
-      0% { transform: scale(0.8); }
-      100% { transform: scale(1.2); opacity: 0; }
+      0% {
+        transform: scale(0.8);
+      }
+
+      100% {
+        transform: scale(1.2);
+        opacity: 0;
+      }
     }
 
     .release-card:hover {
       transform: translateY(-10px);
-      box-shadow: 
+      box-shadow:
         0 15px 40px rgba(0, 247, 255, 0.3),
         0 0 0 2px rgba(0, 247, 255, 0.5);
       border-color: rgba(0, 247, 255, 0.6);
@@ -589,11 +650,14 @@
     }
 
     @keyframes newBadgePulse {
-      0%, 100% { 
+
+      0%,
+      100% {
         transform: scale(1);
         box-shadow: 0 0 20px rgba(255, 0, 128, 0.6);
       }
-      50% { 
+
+      50% {
         transform: scale(1.1);
         box-shadow: 0 0 30px rgba(255, 0, 128, 0.9);
       }
@@ -616,10 +680,13 @@
     }
 
     @keyframes newIndicatorPulse {
-      0%, 100% { 
+
+      0%,
+      100% {
         transform: scale(1) rotate(-5deg);
       }
-      50% { 
+
+      50% {
         transform: scale(1.15) rotate(-5deg);
       }
     }
@@ -643,10 +710,13 @@
     }
 
     @keyframes tableBadgePulse {
-      0%, 100% { 
+
+      0%,
+      100% {
         box-shadow: 0 0 10px rgba(255, 0, 128, 0.6);
       }
-      50% { 
+
+      50% {
         box-shadow: 0 0 20px rgba(255, 0, 128, 1);
       }
     }
@@ -863,11 +933,13 @@
     }
 
     @keyframes spin {
-      to { transform: rotate(360deg); }
+      to {
+        transform: rotate(360deg);
+      }
     }
 
     /* ==================== RESPONSIVIDADE MOBILE ==================== */
-    
+
     /* Tablets e mobile landscape */
     @media (max-width: 1024px) {
       .card {
@@ -1038,127 +1110,127 @@
 
 <body>
 
-<div class="grid-bg"></div>
+  <div class="grid-bg"></div>
 
-<header>
-  <h1>🎮 EMULATOR PC RANKING</h1>
-  <p>Rankings Automáticos • Alerta de Novas Releases • Downloads em Tempo Real</p>
-</header>
+  <header>
+    <h1>🎮 EMULATOR PC RANKING</h1>
+    <p>Rankings Automáticos • Alerta de Novas Releases • Downloads em Tempo Real</p>
+  </header>
 
-<div class="last-update" id="lastUpdate">
-  ⏱️ Carregando dados...
-</div>
+  <div class="last-update" id="lastUpdate">
+    ⏱️ Carregando dados...
+  </div>
 
-<section>
+  <section>
 
-  <!-- RANKING -->
-  <div class="card">
-    <h2>🏆 Ranking Global de Downloads</h2>
-    <div id="rankingContainer">
-      <div class="loading">
-        <div class="spinner"></div>
-        Carregando ranking...
+    <!-- RANKING -->
+    <div class="card">
+      <h2>🏆 Ranking Global de Downloads</h2>
+      <div id="rankingContainer">
+        <div class="loading">
+          <div class="spinner"></div>
+          Carregando ranking...
+        </div>
+      </div>
+    </div>
+
+    <!-- GRÁFICO -->
+    <div class="card">
+      <h2>📊 Comparativo de Downloads</h2>
+      <canvas id="chart"></canvas>
+    </div>
+
+  </section>
+
+  <!-- MODAL DE RELEASES -->
+  <div id="releasesModal" class="modal">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h2 id="modalTitle">Releases</h2>
+        <span class="close" onclick="closeModal()">&times;</span>
+      </div>
+      <div class="modal-body" id="modalBody">
+        <!-- Conteúdo dinâmico -->
       </div>
     </div>
   </div>
 
-  <!-- GRÁFICO -->
-  <div class="card">
-    <h2>📊 Comparativo de Downloads</h2>
-    <canvas id="chart"></canvas>
-  </div>
+  <footer>
+    🚀 Atualizado automaticamente ⚡<br>
 
-</section>
+  </footer>
 
-<!-- MODAL DE RELEASES -->
-<div id="releasesModal" class="modal">
-  <div class="modal-content">
-    <div class="modal-header">
-      <h2 id="modalTitle">Releases</h2>
-      <span class="close" onclick="closeModal()">&times;</span>
-    </div>
-    <div class="modal-body" id="modalBody">
-      <!-- Conteúdo dinâmico -->
-    </div>
-  </div>
-</div>
+  <script>
+    let allData = [];
 
-<footer>
-  🚀 Atualizado automaticamente ⚡<br>
-  
-</footer>
+    function formatBytes(bytes) {
+      if (bytes === 0) return '0 B';
+      const k = 1024;
+      const sizes = ['B', 'KB', 'MB', 'GB'];
+      const i = Math.floor(Math.log(bytes) / Math.log(k));
+      return Math.round(bytes / Math.pow(k, i) * 100) / 100 + ' ' + sizes[i];
+    }
 
-<script>
-let allData = [];
+    function formatDate(dateString) {
+      const date = new Date(dateString);
+      return date.toLocaleDateString('pt-BR', {
+        day: '2-digit',
+        month: '2-digit',
+        year: 'numeric',
+        hour: '2-digit',
+        minute: '2-digit'
+      });
+    }
 
-function formatBytes(bytes) {
-  if (bytes === 0) return '0 B';
-  const k = 1024;
-  const sizes = ['B', 'KB', 'MB', 'GB'];
-  const i = Math.floor(Math.log(bytes) / Math.log(k));
-  return Math.round(bytes / Math.pow(k, i) * 100) / 100 + ' ' + sizes[i];
-}
+    function escapeHtml(text) {
+      const div = document.createElement('div');
+      div.textContent = text;
+      return div.innerHTML;
+    }
 
-function formatDate(dateString) {
-  const date = new Date(dateString);
-  return date.toLocaleDateString('pt-BR', { 
-    day: '2-digit', 
-    month: '2-digit', 
-    year: 'numeric',
-    hour: '2-digit',
-    minute: '2-digit'
-  });
-}
+    function formatMarkdown(text) {
+      if (!text) return '';
 
-function escapeHtml(text) {
-  const div = document.createElement('div');
-  div.textContent = text;
-  return div.innerHTML;
-}
+      // Converter markdown básico para HTML
+      let html = escapeHtml(text);
 
-function formatMarkdown(text) {
-  if (!text) return '';
-  
-  // Converter markdown básico para HTML
-  let html = escapeHtml(text);
-  
-  // Links
-  html = html.replace(/\[([^\]]+)\]\(([^)]+)\)/g, '<a href="$2" target="_blank">$1</a>');
-  
-  // Negrito
-  html = html.replace(/\*\*([^*]+)\*\*/g, '<strong>$1</strong>');
-  
-  // Itálico
-  html = html.replace(/\*([^*]+)\*/g, '<em>$1</em>');
-  
-  // Quebras de linha
-  html = html.replace(/\n/g, '<br>');
-  
-  return html;
-}
+      // Links
+      html = html.replace(/\[([^\]]+)\]\(([^)]+)\)/g, '<a href="$2" target="_blank">$1</a>');
 
-function isNewRelease(dateString, daysThreshold = 7) {
-  const releaseDate = new Date(dateString);
-  const now = new Date();
-  const diffTime = Math.abs(now - releaseDate);
-  const diffDays = Math.ceil(diffTime / (1000 * 60 * 60 * 24));
-  return diffDays <= daysThreshold;
-}
+      // Negrito
+      html = html.replace(/\*\*([^*]+)\*\*/g, '<strong>$1</strong>');
 
-function hasNewReleases(project, daysThreshold = 7) {
-  if (!project.releases || project.releases.length === 0) return false;
-  return project.releases.some(release => isNewRelease(release.date, daysThreshold));
-}
+      // Itálico
+      html = html.replace(/\*([^*]+)\*/g, '<em>$1</em>');
 
-function openModal(projectData) {
-  const modal = document.getElementById('releasesModal');
-  const modalTitle = document.getElementById('modalTitle');
-  const modalBody = document.getElementById('modalBody');
+      // Quebras de linha
+      html = html.replace(/\n/g, '<br>');
 
-  modalTitle.innerHTML = `${projectData.name} <span style="font-size: 0.6em; opacity: 0.8;">(${projectData.category})</span>`;
+      return html;
+    }
 
-  if (!projectData.releases || projectData.releases.length === 0) {
-    modalBody.innerHTML = `
+    function isNewRelease(dateString, daysThreshold = 7) {
+      const releaseDate = new Date(dateString);
+      const now = new Date();
+      const diffTime = Math.abs(now - releaseDate);
+      const diffDays = Math.ceil(diffTime / (1000 * 60 * 60 * 24));
+      return diffDays <= daysThreshold;
+    }
+
+    function hasNewReleases(project, daysThreshold = 7) {
+      if (!project.releases || project.releases.length === 0) return false;
+      return project.releases.some(release => isNewRelease(release.date, daysThreshold));
+    }
+
+    function openModal(projectData) {
+      const modal = document.getElementById('releasesModal');
+      const modalTitle = document.getElementById('modalTitle');
+      const modalBody = document.getElementById('modalBody');
+
+      modalTitle.innerHTML = `${projectData.name} <span style="font-size: 0.6em; opacity: 0.8;">(${projectData.category})</span>`;
+
+      if (!projectData.releases || projectData.releases.length === 0) {
+        modalBody.innerHTML = `
       <div class="no-releases">
         😔 Nenhuma release encontrada para este projeto
         <br><br>
@@ -1167,23 +1239,23 @@ function openModal(projectData) {
         </a>
       </div>
     `;
-  } else {
-    let releasesHTML = `
+      } else {
+        let releasesHTML = `
       <a href="${projectData.repoUrl}" target="_blank" class="repo-link">
         📦 Ver Repositório Completo no GitHub
       </a>
       <div class="releases-grid">
     `;
 
-    projectData.releases.forEach(release => {
-      const description = release.description || release.body || '';
-      const descriptionHtml = description ? `
+        projectData.releases.forEach(release => {
+          const description = release.description || release.body || '';
+          const descriptionHtml = description ? `
         <div class="release-description">${formatMarkdown(description)}</div>
       ` : '';
-      
-      const isNew = isNewRelease(release.date);
 
-      releasesHTML += `
+          const isNew = isNewRelease(release.date);
+
+          releasesHTML += `
         <div class="release-card">
           <div class="release-header">
             <span class="release-tag">${release.tag}</span>
@@ -1210,8 +1282,8 @@ function openModal(projectData) {
             <div class="assets-header">📦 Arquivos para Download:</div>
       `;
 
-      release.assets.forEach(asset => {
-        releasesHTML += `
+          release.assets.forEach(asset => {
+            releasesHTML += `
           <div class="asset-item">
             <span class="asset-name">${asset.name}</span>
             <div class="asset-info">
@@ -1222,62 +1294,62 @@ function openModal(projectData) {
             </div>
           </div>
         `;
-      });
+          });
 
-      releasesHTML += `
+          releasesHTML += `
           </div>
         </div>
       `;
-    });
+        });
 
-    releasesHTML += '</div>';
-    modalBody.innerHTML = releasesHTML;
-  }
+        releasesHTML += '</div>';
+        modalBody.innerHTML = releasesHTML;
+      }
 
-  modal.style.display = 'block';
-  document.body.style.overflow = 'hidden';
-}
-
-function closeModal() {
-  const modal = document.getElementById('releasesModal');
-  modal.style.display = 'none';
-  document.body.style.overflow = 'auto';
-}
-
-// Fechar modal ao clicar fora
-window.onclick = function(event) {
-  const modal = document.getElementById('releasesModal');
-  if (event.target == modal) {
-    closeModal();
-  }
-}
-
-// Fechar com ESC
-document.addEventListener('keydown', function(event) {
-  if (event.key === 'Escape') {
-    closeModal();
-  }
-});
-
-async function loadData() {
-  try {
-    const res = await fetch("data/rankings.json");
-    const json = await res.json();
-
-    allData = Array.isArray(json) ? json : json.results;
-
-    // Atualizar timestamp
-    if (json.updatedAt) {
-      const newReleasesCount = allData.filter(p => hasNewReleases(p)).length;
-      const newBadge = newReleasesCount > 0 ? 
-        ` <span style="background: linear-gradient(135deg, #ff0080, #ff8c00); padding: 4px 12px; border-radius: 15px; font-size: 0.85em; animation: newBadgePulse 2s ease-in-out infinite;">🔥 ${newReleasesCount} ${newReleasesCount === 1 ? 'projeto com release nova' : 'projetos com releases novas'}!</span>` : '';
-      
-      document.getElementById('lastUpdate').innerHTML = 
-        `⏱️ Última atualização: ${formatDate(json.updatedAt)}${newBadge}`;
+      modal.style.display = 'block';
+      document.body.style.overflow = 'hidden';
     }
 
-    // ===== RANKING TABELA (DESKTOP) =====
-    let tableHTML = `
+    function closeModal() {
+      const modal = document.getElementById('releasesModal');
+      modal.style.display = 'none';
+      document.body.style.overflow = 'auto';
+    }
+
+    // Fechar modal ao clicar fora
+    window.onclick = function (event) {
+      const modal = document.getElementById('releasesModal');
+      if (event.target == modal) {
+        closeModal();
+      }
+    }
+
+    // Fechar com ESC
+    document.addEventListener('keydown', function (event) {
+      if (event.key === 'Escape') {
+        closeModal();
+      }
+    });
+
+    async function loadData() {
+      try {
+        const res = await fetch("data/rankings.json");
+        const json = await res.json();
+
+        allData = Array.isArray(json) ? json : json.results;
+
+        // Atualizar timestamp
+        if (json.updatedAt) {
+          const newReleasesCount = allData.filter(p => hasNewReleases(p)).length;
+          const newBadge = newReleasesCount > 0 ?
+            ` <span style="background: linear-gradient(135deg, #ff0080, #ff8c00); padding: 4px 12px; border-radius: 15px; font-size: 0.85em; animation: newBadgePulse 2s ease-in-out infinite;">🔥 ${newReleasesCount} ${newReleasesCount === 1 ? 'projeto com release nova' : 'projetos com releases novas'}!</span>` : '';
+
+          document.getElementById('lastUpdate').innerHTML =
+            `⏱️ Última atualização: ${formatDate(json.updatedAt)}${newBadge}`;
+        }
+
+        // ===== RANKING TABELA (DESKTOP) =====
+        let tableHTML = `
       <div class="ranking-table-wrapper">
         <table id="ranking">
           <thead>
@@ -1291,19 +1363,19 @@ async function loadData() {
           <tbody>
     `;
 
-    allData.forEach((item, index) => {
-      let medal = index + 1;
-      let medalClass = "";
+        allData.forEach((item, index) => {
+          let medal = index + 1;
+          let medalClass = "";
 
-      if (index === 0) { medal = "🥇"; medalClass = "gold"; }
-      else if (index === 1) { medal = "🥈"; medalClass = "silver"; }
-      else if (index === 2) { medal = "🥉"; medalClass = "bronze"; }
+          if (index === 0) { medal = "🥇"; medalClass = "gold"; }
+          else if (index === 1) { medal = "🥈"; medalClass = "silver"; }
+          else if (index === 2) { medal = "🥉"; medalClass = "bronze"; }
 
-      const hasReleases = item.releases && item.releases.length > 0;
-      const hasNew = hasNewReleases(item);
-      const itemJson = JSON.stringify(item).replace(/'/g, "&#39;");
+          const hasReleases = item.releases && item.releases.length > 0;
+          const hasNew = hasNewReleases(item);
+          const itemJson = JSON.stringify(item).replace(/'/g, "&#39;");
 
-      tableHTML += `
+          tableHTML += `
         <tr onclick='openModal(${itemJson})' class="${hasNew ? 'has-new-release' : ''}">
           <td class="rank ${medalClass}">${medal}</td>
           <td class="project-name">
@@ -1321,35 +1393,36 @@ async function loadData() {
           <td class="downloads-count">${item.downloads.toLocaleString('pt-BR')}</td>
         </tr>
       `;
-    });
+        });
 
-    tableHTML += `
+        tableHTML += `
           </tbody>
         </table>
       </div>
     `;
 
-    // ===== RANKING CARDS (MOBILE) =====
-    let cardsHTML = '<div class="ranking-cards">';
+        // ===== RANKING CARDS (MOBILE) =====
+        let cardsHTML = '<div class="ranking-cards">';
 
-    allData.forEach((item, index) => {
-      let medal = index + 1;
-      let medalClass = "";
+        allData.forEach((item, index) => {
+          let medal = index + 1;
+          let medalClass = "";
 
-      if (index === 0) { medal = "🥇"; medalClass = "gold"; }
-      else if (index === 1) { medal = "🥈"; medalClass = "silver"; }
-      else if (index === 2) { medal = "🥉"; medalClass = "bronze"; }
+          if (index === 0) { medal = "🥇"; medalClass = "gold"; }
+          else if (index === 1) { medal = "🥈"; medalClass = "silver"; }
+          else if (index === 2) { medal = "🥉"; medalClass = "bronze"; }
 
-      const hasNew = hasNewReleases(item);
-      const itemJson = JSON.stringify(item).replace(/'/g, "&#39;");
+          const hasNew = hasNewReleases(item);
+          const itemJson = JSON.stringify(item).replace(/'/g, "&#39;");
 
-      cardsHTML += `
+          cardsHTML += `
         <div class="ranking-card-item" onclick='openModal(${itemJson})'>
           ${hasNew ? '<div class="new-indicator">🔥 Novo</div>' : ''}
           <div class="card-header">
             <div class="card-rank ${medalClass}">${medal}</div>
             <div class="card-info">
               <div class="card-name">${item.name}</div>
+              ${hasNew ? '<div class="card-new-badge">🔥 NOVO APK LANÇADO!</div>' : ''}
               <div class="card-category">
                 <span class="category-badge category-${item.category || 'Other'}">
                   ${item.category || "-"}
@@ -1362,113 +1435,116 @@ async function loadData() {
           </div>
         </div>
       `;
-    });
+        });
 
-    cardsHTML += '</div>';
+        cardsHTML += '</div>';
 
-    // Inserir ambos
-    const container = document.getElementById('rankingContainer');
-    container.innerHTML = tableHTML + cardsHTML;
+        // Inserir ambos
+        const container = document.getElementById('rankingContainer');
+        container.innerHTML = tableHTML + cardsHTML;
 
-    // ===== GRÁFICO =====
-    const ctx = document.getElementById('chart');
-    
-    new Chart(ctx, {
-      type: "bar",
-      data: {
-        labels: allData.map(d => d.name),
-        datasets: [{
-          label: "Downloads",
-          data: allData.map(d => d.downloads),
-          backgroundColor: allData.map((_, i) => {
-            if (i === 0) return 'rgba(255, 215, 0, 0.8)';
-            if (i === 1) return 'rgba(192, 192, 192, 0.8)';
-            if (i === 2) return 'rgba(205, 127, 50, 0.8)';
-            return 'rgba(0, 247, 255, 0.6)';
-          }),
-          borderColor: allData.map((_, i) => {
-            if (i === 0) return 'rgba(255, 215, 0, 1)';
-            if (i === 1) return 'rgba(192, 192, 192, 1)';
-            if (i === 2) return 'rgba(205, 127, 50, 1)';
-            return 'rgba(0, 247, 255, 1)';
-          }),
-          borderWidth: 2,
-          borderRadius: 8,
-          borderSkipped: false,
-        }]
-      },
-      options: {
-        responsive: true,
-        maintainAspectRatio: true,
-        plugins: {
-          legend: {
-            display: true,
-            labels: { 
-              color: "#fff",
-              font: { size: 14, weight: 'bold' }
-            }
+        // ===== GRÁFICO =====
+        const ctx = document.getElementById('chart');
+
+        new Chart(ctx, {
+          type: "bar",
+          data: {
+            labels: allData.map(d => d.name),
+            datasets: [{
+              label: "Downloads",
+              data: allData.map(d => d.downloads),
+              backgroundColor: allData.map((_, i) => {
+                if (i === 0) return 'rgba(255, 215, 0, 0.8)';
+                if (i === 1) return 'rgba(192, 192, 192, 0.8)';
+                if (i === 2) return 'rgba(205, 127, 50, 0.8)';
+                return 'rgba(0, 247, 255, 0.6)';
+              }),
+              borderColor: allData.map((_, i) => {
+                if (i === 0) return 'rgba(255, 215, 0, 1)';
+                if (i === 1) return 'rgba(192, 192, 192, 1)';
+                if (i === 2) return 'rgba(205, 127, 50, 1)';
+                return 'rgba(0, 247, 255, 1)';
+              }),
+              borderWidth: 2,
+              borderRadius: 8,
+              borderSkipped: false,
+            }]
           },
-          tooltip: {
-            backgroundColor: 'rgba(0, 0, 0, 0.9)',
-            titleColor: '#00f7ff',
-            bodyColor: '#fff',
-            borderColor: '#00f7ff',
-            borderWidth: 1,
-            padding: 12,
-            displayColors: false,
-            callbacks: {
-              label: function(context) {
-                return 'Downloads: ' + context.parsed.y.toLocaleString('pt-BR');
-              }
-            }
-          }
-        },
-        scales: {
-          x: {
-            ticks: { 
-              color: "#ccc",
-              font: { size: 11 }
-            },
-            grid: { 
-              color: "rgba(0, 247, 255, 0.1)",
-              drawBorder: false
-            }
-          },
-          y: {
-            ticks: { 
-              color: "#ccc",
-              font: { size: 12 },
-              callback: function(value) {
-                return value.toLocaleString('pt-BR');
+          options: {
+            responsive: true,
+            maintainAspectRatio: true,
+            plugins: {
+              legend: {
+                display: true,
+                labels: {
+                  color: "#fff",
+                  font: { size: 14, weight: 'bold' }
+                }
+              },
+              tooltip: {
+                backgroundColor: 'rgba(0, 0, 0, 0.9)',
+                titleColor: '#00f7ff',
+                bodyColor: '#fff',
+                borderColor: '#00f7ff',
+                borderWidth: 1,
+                padding: 12,
+                displayColors: false,
+                callbacks: {
+                  label: function (context) {
+                    return 'Downloads: ' + context.parsed.y.toLocaleString('pt-BR');
+                  }
+                }
               }
             },
-            grid: { 
-              color: "rgba(0, 247, 255, 0.1)",
-              drawBorder: false
+            scales: {
+              x: {
+                ticks: {
+                  color: "#ccc",
+                  font: { size: window.innerWidth < 768 ? 9 : 11 },
+                  maxRotation: window.innerWidth < 768 ? 45 : 0,
+                  autoSkip: false
+                },
+                grid: {
+                  color: "rgba(0, 247, 255, 0.1)",
+                  drawBorder: false
+                }
+              },
+              y: {
+                ticks: {
+                  color: "#ccc",
+                  font: { size: 12 },
+                  callback: function (value) {
+                    return value.toLocaleString('pt-BR');
+                  }
+                },
+                grid: {
+                  color: "rgba(0, 247, 255, 0.1)",
+                  drawBorder: false
+                },
+                beginAtZero: true
+              }
             },
-            beginAtZero: true
+            animation: {
+              duration: 2000,
+              easing: 'easeInOutQuart'
+            }
           }
-        },
-        animation: {
-          duration: 2000,
-          easing: 'easeInOutQuart'
-        }
-      }
-    });
+        });
 
-  } catch (err) {
-    console.error("Erro ao carregar ranking:", err);
-    document.getElementById('rankingContainer').innerHTML = `
+      } catch (err) {
+        console.error("Erro ao carregar ranking:", err);
+        document.getElementById('rankingContainer').innerHTML = `
       <div class="no-releases">
         ❌ Erro ao carregar dados<br>
         <small>${err.message}</small>
       </div>
     `;
-  }
-}
+      }
+    }
 
-loadData();
-</script>
+    loadData();
+  </script>
 
 </body>
+
 </html>
