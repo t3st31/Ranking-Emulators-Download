@@ -4,57 +4,94 @@
   <meta charset="UTF-8" />
   <title>🎮 Emulator Battle Arena</title>
 
+  <!-- Chart.js -->
   <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
 
   <style>
     body {
-      background: #0b0b0f;
-      color: #eaeaea;
-      font-family: Arial, Helvetica, sans-serif;
       margin: 0;
+      font-family: Arial, Helvetica, sans-serif;
+      background: radial-gradient(circle at top, #14142b, #05050a);
+      color: #eaeaea;
     }
 
     header {
-      background: linear-gradient(90deg, #ff004c, #7f00ff);
-      padding: 20px;
+      background: linear-gradient(90deg, #ff005d, #7f00ff);
+      padding: 25px;
       text-align: center;
+      box-shadow: 0 0 30px rgba(127, 0, 255, 0.6);
     }
 
-    h1 {
+    header h1 {
       margin: 0;
-      font-size: 2.5em;
+      font-size: 2.8em;
+      text-shadow: 0 0 15px rgba(255,255,255,0.6);
+    }
+
+    header p {
+      margin-top: 8px;
+      opacity: 0.9;
     }
 
     section {
-      padding: 30px;
       max-width: 1200px;
       margin: auto;
+      padding: 30px 20px;
     }
 
     .card {
-      background: #15151f;
-      border-radius: 12px;
-      padding: 20px;
-      margin-bottom: 20px;
-      box-shadow: 0 0 20px rgba(127,0,255,0.2);
+      background: #12121c;
+      border-radius: 14px;
+      padding: 25px;
+      margin-bottom: 30px;
+      box-shadow: 0 0 25px rgba(0,255,255,0.15);
+    }
+
+    h2 {
+      margin-top: 0;
+      color: #00f7ff;
+      text-shadow: 0 0 10px rgba(0,247,255,0.6);
     }
 
     table {
       width: 100%;
       border-collapse: collapse;
+      margin-top: 15px;
     }
 
     th, td {
-      padding: 12px;
-      border-bottom: 1px solid #333;
+      padding: 14px;
+      border-bottom: 1px solid #2b2b3a;
+      text-align: left;
     }
 
     th {
-      color: #ff4dd2;
+      color: #ff6bff;
+      font-weight: bold;
     }
+
+    tr:hover {
+      background: rgba(0, 247, 255, 0.08);
+    }
+
+    .rank {
+      font-size: 1.3em;
+    }
+
+    .gold { color: #ffd700; }
+    .silver { color: #cfd8dc; }
+    .bronze { color: #ff9f43; }
 
     canvas {
       max-width: 100%;
+      margin-top: 20px;
+    }
+
+    footer {
+      text-align: center;
+      padding: 20px;
+      opacity: 0.6;
+      font-size: 0.9em;
     }
   </style>
 </head>
@@ -63,55 +100,106 @@
 
 <header>
   <h1>🎮 Emulator Battle Arena</h1>
-  <p>Rankings, gráficos e batalhas — atualizados automaticamente</p>
+  <p>Rankings e gráficos automáticos — atualizados via GitHub Actions</p>
 </header>
 
-<section class="card">
-  <h2>🏆 Ranking Global</h2>
-  <table id="ranking"></table>
+<section>
+
+  <!-- RANKING -->
+  <div class="card">
+    <h2>🏆 Ranking Global de Downloads</h2>
+    <table id="ranking">
+      <thead>
+        <tr>
+          <th>#</th>
+          <th>Projeto</th>
+          <th>Categoria</th>
+          <th>Downloads</th>
+        </tr>
+      </thead>
+      <tbody></tbody>
+    </table>
+  </div>
+
+  <!-- GRÁFICO -->
+  <div class="card">
+    <h2>📊 Downloads Totais (Comparativo)</h2>
+    <canvas id="chart"></canvas>
+  </div>
+
 </section>
 
-<section class="card">
-  <h2>📊 Downloads Totais</h2>
-  <canvas id="chart"></canvas>
-</section>
+<footer>
+  Atualizado automaticamente • GitHub Pages + Actions • Nada roda no seu PC
+</footer>
 
 <script>
 async function loadData() {
-  const res = await fetch("docs/data/rankings.json");
-  const data = await res.json();
+  try {
+    // CAMINHO CORRETO PARA O SEU REPO
+    const res = await fetch("data/rankings.json");
+    const json = await res.json();
 
-  // Ranking
-  const table = document.getElementById("ranking");
-  table.innerHTML = `
-    <tr>
-      <th>#</th>
-      <th>Projeto</th>
-      <th>Downloads</th>
-    </tr>
-  `;
+    // Suporta os dois formatos possíveis
+    const data = Array.isArray(json) ? json : json.results;
 
-  data.forEach((p, i) => {
-    table.innerHTML += `
-      <tr>
-        <td>${i === 0 ? "🥇" : i === 1 ? "🥈" : i === 2 ? "🥉" : i + 1}</td>
-        <td>${p.name}</td>
-        <td>${p.total.toLocaleString()}</td>
-      </tr>
-    `;
-  });
+    // ===== RANKING =====
+    const tbody = document.querySelector("#ranking tbody");
+    tbody.innerHTML = "";
 
-  // Gráfico
-  new Chart(document.getElementById("chart"), {
-    type: "bar",
-    data: {
-      labels: data.map(p => p.name),
-      datasets: [{
-        label: "Downloads",
-        data: data.map(p => p.total)
-      }]
-    }
-  });
+    data.forEach((item, index) => {
+      const tr = document.createElement("tr");
+
+      let medal = index + 1;
+      let medalClass = "";
+
+      if (index === 0) { medal = "🥇"; medalClass = "gold"; }
+      else if (index === 1) { medal = "🥈"; medalClass = "silver"; }
+      else if (index === 2) { medal = "🥉"; medalClass = "bronze"; }
+
+      tr.innerHTML = `
+        <td class="rank ${medalClass}">${medal}</td>
+        <td>${item.name}</td>
+        <td>${item.category || "-"}</td>
+        <td>${item.downloads.toLocaleString()}</td>
+      `;
+
+      tbody.appendChild(tr);
+    });
+
+    // ===== GRÁFICO =====
+    new Chart(document.getElementById("chart"), {
+      type: "bar",
+      data: {
+        labels: data.map(d => d.name),
+        datasets: [{
+          label: "Downloads",
+          data: data.map(d => d.downloads)
+        }]
+      },
+      options: {
+        responsive: true,
+        plugins: {
+          legend: {
+            labels: { color: "#fff" }
+          }
+        },
+        scales: {
+          x: {
+            ticks: { color: "#ccc" },
+            grid: { color: "#222" }
+          },
+          y: {
+            ticks: { color: "#ccc" },
+            grid: { color: "#222" }
+          }
+        }
+      }
+    });
+
+  } catch (err) {
+    console.error("Erro ao carregar ranking:", err);
+  }
 }
 
 loadData();
