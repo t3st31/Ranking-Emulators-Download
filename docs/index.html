@@ -1692,6 +1692,62 @@
       .recent-release-tag {
         font-size: 0.7em;
       }
+
+      /* FOOTER PREMIUM */
+      footer {
+        margin-top: 60px;
+        padding: 40px 20px;
+        text-align: center;
+        background: rgba(18, 18, 28, 0.8);
+        border-top: 1px solid rgba(0, 247, 255, 0.2);
+        backdrop-filter: blur(15px);
+        position: relative;
+        z-index: 5;
+      }
+
+      footer p {
+        font-family: 'Inter', sans-serif;
+        font-size: 0.95em;
+        color: #999;
+        margin-bottom: 15px;
+      }
+
+      .footer-credit {
+        font-family: 'Orbitron', sans-serif;
+        font-weight: 700;
+        letter-spacing: 1px;
+        color: #fff;
+        text-transform: uppercase;
+        display: block;
+        margin-bottom: 20px;
+      }
+
+      .premium-link {
+        display: inline-flex;
+        align-items: center;
+        gap: 10px;
+        padding: 12px 25px;
+        background: linear-gradient(135deg, #ff005d, #7f00ff);
+        color: white;
+        text-decoration: none;
+        border-radius: 50px;
+        font-weight: 800;
+        font-size: 0.9em;
+        text-transform: uppercase;
+        letter-spacing: 1px;
+        box-shadow: 0 5px 20px rgba(255, 0, 93, 0.4);
+        transition: all 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+      }
+
+      .premium-link:hover {
+        transform: translateY(-5px) scale(1.05);
+        box-shadow: 0 10px 30px rgba(255, 0, 93, 0.6);
+        filter: brightness(1.1);
+      }
+
+      .premium-link i {
+        font-size: 1.2em;
+      }
     }
   </style>
 </head>
@@ -1830,9 +1886,10 @@
   </div>
 
   <footer>
-
-    🚀 By <a href="https://youtube.com/@FurulipoGames">🎮 Furulipo Games</a> ⚡<br>
-
+    <span class="footer-credit">Developed with ⚡ by Furulipo</span>
+    <a href="https://youtube.com/@FurulipoGames" target="_blank" class="premium-link">
+      📺 <span>Visite meu Canal no YouTube</span>
+    </a>
   </footer>
 
   <script>
