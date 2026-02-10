@@ -1978,6 +1978,9 @@
       }
     }
   </style>
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/jsvectormap/dist/css/jsvectormap.min.css" />
+  <script src="https://cdn.jsdelivr.net/npm/jsvectormap"></script>
+  <script src="https://cdn.jsdelivr.net/npm/jsvectormap/dist/maps/world-merc.js"></script>
 </head>
 
 <body>
@@ -2041,6 +2044,11 @@
 
     <!-- CONTENT: DASHBOARD -->
     <div id="tab-charts" class="tab-content">
+      <div class="card map-full-card">
+        <h2 class="section-title"><span class="icon">🌍</span> GEO-VISITANTES (TOP PAÍSES)</h2>
+        <div id="visitorMap"
+          style="height: 350px; width: 100%; border-radius: 12px; overflow: hidden; background: rgba(0,0,0,0.2);"></div>
+      </div>
       <div class="charts-grid">
         <div class="chart-card">
           <h3>📊 Downloads por Projeto</h3>
@@ -2114,7 +2122,7 @@
   </div>
 
   <footer>
-    <span class="footer-credit">Developed with ⚡ by FurulipoGames - GameHub Brasil</span>
+    <span class="footer-credit">Developed with ⚡ by Furulipo</span>
     <a href="https://youtube.com/@FurulipoGames" target="_blank" class="premium-link">
       📺 <span>Visite meu Canal no YouTube</span>
     </a>
@@ -2933,6 +2941,77 @@
       }
     }
 
+    // --- Lógica do Mapa de Visitantes (Cyberpunk/Neon) ---
+    let mapInstance = null;
+    const VISITOR_NAMESPACE = 'ranking-v-map-t3st31';
+
+    async function trackVisitorLocation() {
+      try {
+        const geoRes = await fetch('https://freeipapi.com/api/json');
+        const geoData = await geoRes.json();
+        const countryCode = geoData.countryCode;
+
+        if (countryCode) {
+          const CORS_PROXY = 'https://api.codetabs.com/v1/proxy?quest=';
+          const upUrl = `https://api.counterapi.dev/v1/${VISITOR_NAMESPACE}/${countryCode}/up`;
+          await fetch(CORS_PROXY + encodeURIComponent(upUrl));
+        }
+      } catch (e) {
+        console.error('Erro na detecção/track do visitante:', e);
+      }
+    }
+
+    async function renderVisitorMap() {
+      const CORS_PROXY = 'https://api.codetabs.com/v1/proxy?quest=';
+      const container = document.getElementById('visitorMap');
+      if (!container) return;
+      container.innerHTML = '';
+
+      try {
+        const commonCountries = ['BR', 'US', 'ES', 'FR', 'DE', 'IT', 'PT', 'GB', 'AR', 'MX', 'CL', 'CO', 'PE', 'RU', 'CN', 'JP', 'KR', 'IN'];
+        const stats = {};
+
+        await Promise.all(commonCountries.map(async (code) => {
+          try {
+            const res = await fetch(CORS_PROXY + encodeURIComponent(`https://api.counterapi.dev/v1/${VISITOR_NAMESPACE}/${code}`));
+            const data = await res.json();
+            if (data && data.count) stats[code] = data.count;
+          } catch (err) { }
+        }));
+
+        mapInstance = new jsVectorMap({
+          selector: '#visitorMap',
+          map: 'world_merc',
+          backgroundColor: 'transparent',
+          regionStyle: {
+            initial: {
+              fill: 'rgba(51, 51, 51, 0.5)',
+              stroke: 'rgba(0, 255, 249, 0.3)',
+              strokeWidth: 1,
+            },
+            hover: { fill: '#00fff9', fillOpacity: 0.3 }
+          },
+          series: {
+            regions: [{
+              values: stats,
+              attribute: 'fill',
+              scale: ['#1a1d2e', '#ff0080'],
+              normalizeFunction: 'polynomial'
+            }]
+          },
+          onRegionTooltipShow(event, tooltip, code) {
+            const count = stats[code] || 0;
+            tooltip.text(
+              `<b>${tooltip.text()}</b><br/><span style="color:#00fff9">Visitas: ${count.toLocaleString('pt-BR')}</span>`,
+              true
+            );
+          }
+        });
+      } catch (err) {
+        console.error('Erro ao renderizar mapa:', err);
+      }
+    }
+
     // Responsividade: Redesenhar ranking ao mudar tamanho da tela
     window.addEventListener('resize', () => {
       if (currentTab === 'ranking') {
@@ -2940,10 +3019,12 @@
       }
       if (currentTab === 'charts') {
         renderCharts(allData);
+        renderVisitorMap();
       }
     });
 
     loadData();
+    trackVisitorLocation();
   </script>
 
 </body>
