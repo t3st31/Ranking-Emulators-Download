@@ -2966,31 +2966,21 @@
       const CORS_PROXY = 'https://api.codetabs.com/v1/proxy?quest=';
       const container = document.getElementById('visitorMap');
       if (!container) return;
+
+      // 1. Inicializar o mapa imediatamente com zeros (mais rápido)
       container.innerHTML = '';
+      const commonCountries = ['BR', 'US', 'ES', 'FR', 'DE', 'IT', 'PT', 'GB', 'AR', 'MX', 'CL', 'CO', 'PE', 'RU', 'CN', 'JP', 'KR', 'IN'];
+      const stats = {};
+      commonCountries.forEach(c => stats[c] = 0);
 
       try {
-        const commonCountries = ['BR', 'US', 'ES', 'FR', 'DE', 'IT', 'PT', 'GB', 'AR', 'MX', 'CL', 'CO', 'PE', 'RU', 'CN', 'JP', 'KR', 'IN'];
-        const stats = {};
-
-        await Promise.all(commonCountries.map(async (code) => {
-          try {
-            const res = await fetch(CORS_PROXY + encodeURIComponent(`https://api.counterapi.dev/v1/${VISITOR_NAMESPACE}/${code}`));
-            const data = await res.json();
-            if (data && data.count) stats[code] = data.count;
-          } catch (err) { }
-        }));
-
         mapInstance = new jsVectorMap({
           selector: '#visitorMap',
           map: 'world_merc',
           backgroundColor: 'transparent',
           regionStyle: {
-            initial: {
-              fill: 'rgba(51, 51, 51, 0.5)',
-              stroke: 'rgba(0, 255, 249, 0.3)',
-              strokeWidth: 1,
-            },
-            hover: { fill: '#00fff9', fillOpacity: 0.3 }
+            initial: { fill: 'rgba(255, 255, 255, 0.05)', stroke: 'rgba(0, 255, 249, 0.2)', strokeWidth: 1 },
+            hover: { fill: '#00fff9', fillOpacity: 0.5 }
           },
           series: {
             regions: [{
@@ -3002,12 +2992,25 @@
           },
           onRegionTooltipShow(event, tooltip, code) {
             const count = stats[code] || 0;
-            tooltip.text(
-              `<b>${tooltip.text()}</b><br/><span style="color:#00fff9">Visitas: ${count.toLocaleString('pt-BR')}</span>`,
-              true
-            );
+            tooltip.text(`<b>${tooltip.text()}</b><br/><span style="color:#00fff9">Visitas: ${count}</span>`, true);
           }
         });
+
+        // 2. Carregar estatísticas em background (sem travar)
+        for (const code of commonCountries) {
+          fetch(CORS_PROXY + encodeURIComponent(`https://api.counterapi.dev/v1/${VISITOR_NAMESPACE}/${code}`))
+            .then(res => res.json())
+            .then(data => {
+              if (data && data.count) {
+                stats[code] = data.count;
+                // Atualizar visual do mapa sem recarregar tudo
+                if (mapInstance && mapInstance.series && mapInstance.series.regions[0]) {
+                  mapInstance.series.regions[0].setValues(stats);
+                }
+              }
+            })
+            .catch(() => { });
+        }
       } catch (err) {
         console.error('Erro ao renderizar mapa:', err);
       }
