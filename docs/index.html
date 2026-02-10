@@ -1404,7 +1404,11 @@
 
     function hasNewReleases(project, daysThreshold = 7) {
       if (!project.releases || project.releases.length === 0) return false;
-      return project.releases.some(release => isNewRelease(release.date, daysThreshold));
+      return project.releases.some(release => {
+        const isRecent = isNewRelease(release.date, daysThreshold);
+        const hasApk = release.assets && release.assets.some(a => a.name.toLowerCase().endsWith('.apk'));
+        return isRecent && hasApk;
+      });
     }
 
     function openModal(projectData) {
