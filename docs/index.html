@@ -2000,6 +2000,7 @@
     <button class="tab-btn active" id="btn-ranking" onclick="switchTab('ranking')" data-i18n="tabRanking">🏆
       Ranking</button>
     <button class="tab-btn" id="btn-charts" onclick="switchTab('charts')" data-i18n="tabDashboard">📊 Dashboard</button>
+    <button class="tab-btn" id="btn-drivers" onclick="switchTab('drivers')" data-i18n="tabDrivers">🏎️ Drivers</button>
     <button class="tab-btn" id="btn-news" onclick="switchTab('news')" data-i18n="tabNews">🆕 Novidades</button>
   </nav>
 
@@ -2090,6 +2091,18 @@
         <div class="chart-card">
           <h3 data-i18n="chartAssets">📚 Distribuição de Assets</h3>
           <div style="height: 300px;"><canvas id="chart-stacked"></canvas></div>
+        </div>
+      </div>
+    </div>
+
+    <!-- CONTENT: DRIVERS -->
+    <div id="tab-drivers" class="tab-content">
+      <div class="card">
+        <h2 data-i18n="novosDrivers">🏎️ Novos Drivers (Últimos 30 Dias)</h2>
+        <div id="recentDriversContainer">
+          <div class="loading" data-i18n="loadingDrivers">
+            ⏱️ Carregando drivers...
+          </div>
         </div>
       </div>
     </div>
@@ -2390,7 +2403,11 @@
         newReleaseTitle: 'NEW RELEASE!',
         noProjectsFound: '🔍 No projects found.',
         totalReleases: 'Total Releases',
-        avgDownloadsPerRelease: 'Avg Downloads/Release'
+        avgDownloadsPerRelease: 'Avg Downloads/Release',
+        tabDrivers: '🏎️ Drivers',
+        novosDrivers: '🏎️ New Drivers (Last 30 Days)',
+        loadingDrivers: 'Fetching recent drivers...',
+        noRecentDrivers: 'No recent drivers found.'
       },
       'es': {
         title: '🎮 HUB EMULATORS',
@@ -2477,7 +2494,11 @@
         newReleaseTitle: '¡NUEVO LANZAMIENTO!',
         noProjectsFound: '🔍 No se encontraron proyectos.',
         totalReleases: 'Total de Lanzamientos',
-        avgDownloadsPerRelease: 'Descargas Promedio/Lanzamiento'
+        avgDownloadsPerRelease: 'Descargas Promedio/Lanzamiento',
+        tabDrivers: '🏎️ Drivers',
+        novosDrivers: '🏎️ Nuevos Drivers (Últimos 30 Días)',
+        loadingDrivers: 'Buscando drivers recientes...',
+        noRecentDrivers: 'No se encontraron drivers recientes.'
       },
       'fr': {
         title: '🎮 HUB EMULATEURS',
@@ -2564,7 +2585,11 @@
         newReleaseTitle: 'NOUVELLE VERSION!',
         noProjectsFound: '🔍 Aucun projet trouvé.',
         totalReleases: 'Total des Versions',
-        avgDownloadsPerRelease: 'Moyenne Téléchargements/Version'
+        avgDownloadsPerRelease: 'Moyenne Téléchargements/Version',
+        tabDrivers: '🏎️ Drivers',
+        novosDrivers: '🏎️ Nouveaux Drivers (30 derniers jours)',
+        loadingDrivers: 'Recherche de drivers récents...',
+        noRecentDrivers: 'Aucun driver récent trouvé.'
       },
       'zh': {
         title: '🎮 模拟器中心',
@@ -2651,7 +2676,11 @@
         newReleaseTitle: '新发布！',
         noProjectsFound: '🔍 未找到项目。',
         totalReleases: '总发布版本数',
-        avgDownloadsPerRelease: '平均每个版本的下载量'
+        avgDownloadsPerRelease: '平均每个版本的下载量',
+        tabDrivers: '🏎️ 驱动程序',
+        novosDrivers: '🏎️ 新驱动程序 (最近 30 天)',
+        loadingDrivers: '正在获取近期驱动程序...',
+        noRecentDrivers: '未找到近期驱动程序。'
       },
       'ja': {
         title: '🎮 エミュレータハブ',
@@ -2737,8 +2766,12 @@
         releasesLabel: ' リリース',
         newReleaseTitle: '新着リリース！',
         noProjectsFound: '🔍 プロジェクトが見つかりません。',
-        totalReleases: '総リリース数',
-        avgDownloadsPerRelease: 'リリースごとの平均ダウンロード数'
+        totalReleases: '总リリース数',
+        avgDownloadsPerRelease: 'リリースごとの平均ダウンロード数',
+        tabDrivers: '🏎️ ドライバー',
+        novosDrivers: '🏎️ 新しいドライバー (過去30日間)',
+        loadingDrivers: '最近のドライバーを取得中...',
+        noRecentDrivers: '最近のドライバーは見つかりませんでした。'
       },
       'ru': {
         title: '🎮 ХАБ ЭМУЛЯТОРОВ',
@@ -2825,7 +2858,11 @@
         newReleaseTitle: 'НОВЫЙ ВЫПУСК!',
         noProjectsFound: '🔍 Проекты не найдены.',
         totalReleases: 'Всего релизов',
-        avgDownloadsPerRelease: 'Ср. загрузок на релиз'
+        avgDownloadsPerRelease: 'Ср. загрузок на релиз',
+        tabDrivers: '🏎️ Драйверы',
+        novosDrivers: '🏎️ Новые драйверы (за 30 дней)',
+        loadingDrivers: 'Поиск новых драйверов...',
+        noRecentDrivers: 'Новых драйверов не найдено.'
       },
       'it': {
         title: '🎮 HUB EMULATORI',
@@ -3258,6 +3295,14 @@
         const badge = btnNews.querySelector('.tab-badge');
         if (badge) badge.remove();
       }
+
+      // Limpar destaque se clicar em drivers
+      if (tabName === 'drivers') {
+        const btnDrivers = document.getElementById('btn-drivers');
+        btnDrivers.classList.remove('tab-news-highlight');
+        const badge = btnDrivers.querySelector('.tab-badge');
+        if (badge) badge.remove();
+      }
     }
 
     function populateFilters(data) {
@@ -3369,8 +3414,20 @@
     }
 
     function hasNewReleases(project, daysThreshold = 7) {
+      if (project.category === 'Drivers') return false; // Ignorar drivers na aba de novidades comuns
       if (!project.releases || project.releases.length === 0) return false;
       const exts = getValidExtensions(project);
+      return project.releases.some(release => {
+        const isRecent = isNewRelease(release.date, daysThreshold);
+        const hasValidAsset = release.assets && release.assets.some(a => assetMatchesExtensions(a.name, exts));
+        return isRecent && hasValidAsset;
+      });
+    }
+
+    function hasNewDriverReleases(project, daysThreshold = 30) {
+      if (project.category !== 'Drivers') return false; // Apenas categoria Drivers
+      if (!project.releases || project.releases.length === 0) return false;
+      const exts = ['.zip']; // Focar em .zip para drivers
       return project.releases.some(release => {
         const isRecent = isNewRelease(release.date, daysThreshold);
         const hasValidAsset = release.assets && release.assets.some(a => assetMatchesExtensions(a.name, exts));
@@ -3834,6 +3891,50 @@
       });
     }
 
+    function renderRecentDrivers(data) {
+      const container = document.getElementById('recentDriversContainer');
+      const recentDrivers = [];
+
+      data.forEach(p => {
+        if (p.category !== 'Drivers') return;
+        p.releases.forEach(r => {
+          if (isNewRelease(r.date, 30)) {
+            const hasZip = r.assets && r.assets.some(a => a.name.toLowerCase().endsWith('.zip'));
+            if (hasZip) {
+              recentDrivers.push({
+                ...p,
+                latestRelease: r
+              });
+            }
+          }
+        });
+      });
+
+      recentDrivers.sort((a, b) => new Date(b.latestRelease.date) - new Date(a.latestRelease.date));
+
+      if (recentDrivers.length === 0) {
+        container.innerHTML = `<div class="no-releases" data-i18n="noRecentDrivers">${t('noRecentDrivers')}</div>`;
+        return;
+      }
+
+      container.innerHTML = recentDrivers.map(p => {
+        const date = formatDate(p.latestRelease.date);
+        return `
+          <div class="news-item" onclick='openModal(${JSON.stringify(p).replace(/'/g, "&apos;")})'>
+            <div class="news-icon-wrapper">
+              <img src="logos/${p.logo || 'drivers.png'}" class="news-icon" onerror="this.src='logos/drivers.png'">
+              <div class="news-badge-new" data-i18n="newReleaseSingular">${t('newReleaseSingular')}</div>
+            </div>
+            <div class="news-info">
+              <div class="news-project">${p.name}</div>
+              <div class="news-tag">${p.latestRelease.name}</div>
+              <div class="news-date">${date}</div>
+            </div>
+          </div>
+        `;
+      }).join('');
+    }
+
     function renderRanking(data) {
       const container = document.getElementById('rankingContainer');
 
@@ -3940,14 +4041,27 @@
         // Populate category dropdown
         populateFilters(allData);
 
-        // Initial render
+        applyTranslations();
+
+        // Cálculo de novidades separadas
+        const newReleasesCount = allData.filter(p => hasNewReleases(p, 30)).length;
+        const newDriversCount = allData.filter(p => hasNewDriverReleases(p, 30)).length;
+
+        // Badge nas Abas
+        if (newReleasesCount > 0) {
+          setTabBadge('btn-news', newReleasesCount);
+        }
+        if (newDriversCount > 0) {
+          setTabBadge('btn-drivers', newDriversCount);
+        }
+
         renderRanking(allData);
         renderRecentReleases(allData);
+        renderRecentDrivers(allData);
+        renderDashboardOverview(allData);
 
         // Atualizar timestamp e HUB de Status
         if (json.updatedAt) {
-          const newReleasesCount = allData.filter(p => hasNewReleases(p)).length;
-
           const statusHtml = `
             <div class="hud-card">
               <span class="hud-icon">🕒</span>
@@ -4135,6 +4249,9 @@
     window.addEventListener('resize', () => {
       if (currentTab === 'ranking') {
         renderRanking(allData);
+      }
+      if (currentTab === 'drivers') {
+        renderRecentDrivers(allData);
       }
       if (currentTab === 'charts') {
         renderCharts(allData);
