@@ -2858,10 +2858,6 @@
         if (json.updatedAt) {
           const newReleasesCount = allData.filter(p => hasNewReleases(p)).length;
 
-          // Simular 'Online Agora' (valor entre 15 e 45 baseado na hora/minuto para parecer dinâmico)
-          const now = new Date();
-          const onlineNow = 15 + (now.getMinutes() % 30) + (now.getSeconds() % 5);
-
           const statusHtml = `
             <div class="hud-card">
               <span class="hud-icon">🕒</span>
@@ -2875,7 +2871,7 @@
               <div class="online-indicator"></div>
               <div>
                 <span class="hud-label">Online Agora</span>
-                <span class="hud-value">${onlineNow} Usuários</span>
+                <span class="hud-value" id="onlineNow">...</span>
               </div>
             </div>
 
@@ -2889,22 +2885,45 @@
 
             ${newReleasesCount > 0 ? `
               <div class="top-news-badge">
-                🔥 ${newReleasesCount} NOVA RESEALE!
+                🔥 ${newReleasesCount} ${newReleasesCount === 1 ? 'NOVO LANÇAMENTO' : 'NOVOS LANÇAMENTOS'}!
               </div>
             ` : ''}
           `;
           document.getElementById('lastUpdate').innerHTML = statusHtml;
 
-          // Buscar total real via Hits API (serviço gratuito estático)
+          // --- Contadores Reais via CountAPI ---
+
+          // 'Online Agora': usa janela de 5 minutos como chave
+          // Cada visitante nessa janela incrementa o mesmo contador
+          const d = new Date();
+          const windowKey = `${d.getFullYear()}${(d.getMonth() + 1).toString().padStart(2, '0')}${d.getDate().toString().padStart(2, '0')}-${d.getHours().toString().padStart(2, '0')}${(Math.floor(d.getMinutes() / 5) * 5).toString().padStart(2, '0')}`;
+          fetch(`https://api.countapi.xyz/hit/ranking-emulators-hub/online-${windowKey}`)
+            .then(res => res.json())
+            .then(data => {
+              const el = document.getElementById('onlineNow');
+              if (el && data && data.value) {
+                el.innerText = `${data.value} ${data.value === 1 ? 'Usuário' : 'Usuários'}`;
+              } else if (el) {
+                el.innerText = '1 Usuário';
+              }
+            })
+            .catch(() => {
+              const el = document.getElementById('onlineNow');
+              if (el) el.innerText = '1 Usuário';
+            });
+
+          // 'Total de Visitas': incrementa a cada visita real
           fetch('https://api.countapi.xyz/hit/ranking-emulators-hub/visits')
             .then(res => res.json())
             .then(data => {
-              if (data.value) document.getElementById('totalVisits').innerText = data.value.toLocaleString('pt-BR');
+              if (data && data.value) {
+                document.getElementById('totalVisits').innerText = data.value.toLocaleString('pt-BR');
+              } else {
+                document.getElementById('totalVisits').innerText = '0';
+              }
             })
             .catch(() => {
-              // Fallback se API falhar (gerar número baseado na data para não ficar vazio)
-              const seed = parseInt(json.updatedAt.toString().substring(0, 8)) || 50000;
-              document.getElementById('totalVisits').innerText = (seed + 12345).toLocaleString('pt-BR');
+              document.getElementById('totalVisits').innerText = '0';
             });
 
           // Destaque na aba de Novidades
