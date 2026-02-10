@@ -662,17 +662,22 @@
     .card-info {
       display: flex;
       flex-direction: column;
-      gap: 2px;
-      overflow: hidden;
+      gap: 4px;
+      overflow: visible;
+      min-width: 0;
+      /* Permite que o flex child diminua se necessário antes de quebrar */
     }
 
     .card-name {
-      font-size: 0.95em;
-      font-weight: bold;
+      font-size: 0.9em;
+      font-weight: 700;
       color: #fff;
-      white-space: nowrap;
-      overflow: hidden;
-      text-overflow: ellipsis;
+      line-height: 1.2;
+      word-break: break-word;
+      display: flex;
+      flex-wrap: wrap;
+      align-items: center;
+      gap: 6px;
     }
 
     .card-meta {
@@ -704,16 +709,18 @@
     }
 
     .card-new-badge {
-      top: 5px;
-      right: 5px;
-      font-size: 0.55em;
-      padding: 1px 4px;
-      border-radius: 3px;
-      background: #ff005d;
+      display: inline-block;
+      font-size: 0.5em;
+      padding: 2px 5px;
+      border-radius: 4px;
+      background: linear-gradient(135deg, #ff005d, #ff8c00);
       color: white;
       text-transform: uppercase;
-      font-weight: bold;
+      font-weight: 900;
+      box-shadow: 0 0 10px rgba(255, 0, 93, 0.5);
       animation: newPulse 1.5s infinite;
+      vertical-align: middle;
+      border: 1px solid rgba(255, 255, 255, 0.2);
     }
 
     @keyframes newPulse {
@@ -2273,11 +2280,13 @@
                 ${item.logo ? `<img src="logos/${item.logo}" class="card-logo" onerror="this.style.display='none'">` : ''}
               </div>
               <div class="card-info">
-                <div class="card-name">${item.name}</div>
+                <div class="card-name">
+                  ${item.name}
+                  ${hasNew ? '<span class="card-new-badge">NOVO</span>' : ''}
+                </div>
                 <div class="card-meta">
                   <span class="category-badge category-${sanitizeCategory(item.category)}">${item.category || '-'}</span>
                 </div>
-                ${hasNew ? '<span class="card-new-badge">NOVO</span>' : ''}
               </div>
               <div class="card-downloads">
                 ${item.downloads.toLocaleString('pt-BR')}
