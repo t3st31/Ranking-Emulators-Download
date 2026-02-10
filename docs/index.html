@@ -3305,6 +3305,23 @@
       }
     }
 
+    function setTabBadge(btnId, count) {
+      const btn = document.getElementById(btnId);
+      if (!btn) return;
+
+      // Remove existing badge
+      let badge = btn.querySelector('.tab-badge');
+      if (badge) badge.remove();
+
+      if (count > 0) {
+        badge = document.createElement('span');
+        badge.className = 'tab-badge';
+        badge.innerText = count;
+        btn.appendChild(badge);
+        btn.classList.add('tab-news-highlight');
+      }
+    }
+
     function populateFilters(data) {
       const categorySelect = document.getElementById('categoryFilter');
       const categories = [...new Set(data.map(item => item.category))].filter(Boolean).sort();
