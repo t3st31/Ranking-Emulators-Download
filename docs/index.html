@@ -2875,27 +2875,30 @@
 
           // 'Online Agora': janela de 5 minutos via CounterAPI
           const d = new Date();
-          const winKey = `${d.getHours()}${(Math.floor(d.getMinutes() / 5) * 5)}`;
+          const winKey = `${d.getFullYear()}${(d.getMonth() + 1)}${d.getDate()}-${d.getHours()}${(Math.floor(d.getMinutes() / 5) * 5)}`;
           fetch(`https://api.counterapi.dev/v1/ranking-emul-hub-t3st31/online-${winKey}/up`)
             .then(res => res.json())
             .then(data => {
               const el = document.getElementById('onlineNow');
-              if (el && data && data.count) {
-                el.innerText = `${data.count} ${data.count === 1 ? 'Usuário' : 'Usuários'}`;
-              } else if (el) { el.innerText = '1 Usuário'; }
+              const count = data.count || data.value || 1;
+              if (el) {
+                el.innerText = `${count} ${count === 1 ? 'Usuário' : 'Usuários'}`;
+              }
             })
             .catch(() => {
               const el = document.getElementById('onlineNow');
               if (el) el.innerText = '1 Usuário';
             });
 
-          // 'Total de Visitas': Hits API (dwyl) - Muito mais estável para GitHub Pages
+          // 'Total de Visitas': Hits API (dwyl) - O valor vem no campo 'message'
           fetch('https://hits.dwyl.com/t3st31/Ranking-Emulators-Download.json')
             .then(res => res.json())
             .then(data => {
               const el = document.getElementById('totalVisits');
-              if (el && data && data.count) {
-                el.innerText = data.count.toLocaleString('pt-BR');
+              if (el && data && data.message) {
+                // message vem como string "123", convertemos para número para formatar
+                const count = parseInt(data.message) || 0;
+                el.innerText = count.toLocaleString('pt-BR');
               } else if (el) { el.innerText = '0'; }
             })
             .catch(() => {
