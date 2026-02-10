@@ -4174,24 +4174,31 @@
 
     function renderCategorizedDrivers(manifest) {
       const container = document.getElementById('driversCategorizedContainer');
-      if (!manifest || Object.keys(manifest).length === 0) {
+      if (!manifest || Object.entries(manifest).filter(([k, v]) => v.length > 0).length === 0) {
         container.innerHTML = `<div class="no-recent-drivers">😓 ${t('noDriversFound')}</div>`;
         return;
       }
 
       let html = '';
       for (const [category, items] of Object.entries(manifest)) {
+        if (items.length === 0) continue;
         html += `
           <div class="driver-cat-section">
             <h3 class="driver-cat-title">📂 ${category}</h3>
             <div class="driver-item-grid">
-              ${items.map(item => `
-                <div class="driver-item-card">
+              ${items.map(item => {
+          const itemJson = item.fullProject ? JSON.stringify(item.fullProject).replace(/'/g, "&apos;") : null;
+          const clickAction = itemJson ? `onclick='openModal(${itemJson})'` : '';
+          return `
+                <div class="driver-item-card" ${clickAction} style="${itemJson ? 'cursor:pointer;' : ''}">
                   <div class="driver-item-name">${item.name}</div>
                   <div class="driver-item-ver">${item.version || 'v1.0'}</div>
-                  <a href="${item.url}" target="_blank" class="driver-download-btn">⬇ Download .wcp</a>
+                  ${itemJson
+              ? `<div class="driver-download-btn">📂 ${t('viewReleases') || 'Ver Releases'}</div>`
+              : `<a href="${item.url}" target="_blank" class="driver-download-btn">⬇ Download .wcp</a>`
+            }
                 </div>
-              `).join('')}
+              `}).join('')}
             </div>
           </div>
         `;
@@ -4202,7 +4209,10 @@
     function renderRanking(data) {
       const container = document.getElementById('rankingContainer');
 
-      if (data.length === 0) {
+      // Filtrar drivers do ranking
+      const filteredData = data.filter(p => p.category !== 'Drivers');
+
+      if (filteredData.length === 0) {
         container.innerHTML = `<div class="loading">🔍 ${t('noProjectsFound')}</div>`;
         return;
       }
@@ -4210,8 +4220,8 @@
       const isMobile = window.innerWidth <= 768;
 
       if (isMobile) {
-        let cardsHtml = '<div class="ranking-cards" style="display: flex;">'; // Forçar display flex
-        data.forEach((item, index) => {
+        let cardsHtml = '<div class="ranking-cards" style="display: flex;">';
+        filteredData.forEach((item, index) => {
           const rank = index + 1;
           const hasNew = hasNewReleases(item);
           const itemJson = JSON.stringify(item).replace(/'/g, "&#39;");
@@ -4322,12 +4332,18 @@
         renderRanking(allData);
         renderRecentReleases(allData);
         renderRecentDrivers(allData);
-
         // Mesclar drivers do GitHub com os do Manifest para a Biblioteca
         const manifestDrivers = json.manifestDrivers || {};
         allData.forEach(p => {
           if (p.category === 'Drivers') {
-            const githubType = 'GitHub GitHub';
+            // Categorização mais inteligente para drivers do GitHub
+            let githubType = 'Adreno GPU Drivers';
+            if (p.name.toLowerCase().includes('turnip') || p.repo.toLowerCase().includes('turnip')) {
+              githubType = 'Turnip Drivers';
+            } else if (p.category === 'Drivers' && !p.name.toLowerCase().includes('adreno')) {
+              githubType = 'Other Drivers';
+            }
+
             if (!manifestDrivers[githubType]) manifestDrivers[githubType] = [];
 
             // Evitar duplicados se já estiver no manifest por algum motivo
@@ -4342,7 +4358,8 @@
                   name: p.name,
                   version: latest.tag,
                   url: asset.url,
-                  isGitHub: true
+                  isGitHub: true,
+                  fullProject: p // Passamos o projeto completo para o modal
                 });
               }
             }
