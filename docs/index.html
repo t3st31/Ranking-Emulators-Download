@@ -3214,7 +3214,12 @@
       // Traduzir elementos com data-i18n
       document.querySelectorAll('[data-i18n]').forEach(el => {
         const key = el.getAttribute('data-i18n');
-        el.innerText = t(key);
+        const translated = t(key);
+        el.innerText = translated;
+        // Sincronizar data-text para efeitos de glitch
+        if (el.hasAttribute('data-text')) {
+          el.setAttribute('data-text', translated);
+        }
       });
       // Traduzir atributos como placeholder
       document.querySelectorAll('[data-i18n-attr]').forEach(el => {
