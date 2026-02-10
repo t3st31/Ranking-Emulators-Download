@@ -2901,20 +2901,20 @@
               if (el) el.innerText = '1 Usuário';
             });
 
-          // 'Total de Visitas': Hits API (dwyl) - campo 'message'
-          fetch(CORS_PROXY + encodeURIComponent('https://hits.dwyl.com/t3st31/Ranking-Emulators-Download.json'))
+          // 'Total de Visitas': Via CounterAPI (mesmo namespace do Online Now)
+          fetch(CORS_PROXY + encodeURIComponent('https://api.counterapi.dev/v1/ranking-emul-hub-t3st31/total-hits/up'))
             .then(res => res.json())
             .then(data => {
               const el = document.getElementById('totalVisits');
-              if (el && data && data.message) {
-                const count = parseInt(data.message) || 0;
+              if (el && data && (data.count || data.value)) {
+                const count = parseInt(data.count || data.value) || 0;
                 el.innerText = count.toLocaleString('pt-BR');
               } else if (el) { el.innerText = '0'; }
             })
             .catch((e) => {
               console.error('Erro ao carregar Total Visits:', e);
               const el = document.getElementById('totalVisits');
-              if (el) el.innerText = '0';
+              if (el) el.innerText = '---';
             });
 
           // Destaque na aba de Novidades
