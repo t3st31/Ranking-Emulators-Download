@@ -2886,7 +2886,7 @@
           // 'Online Agora': janela de 5 minutos via CounterAPI
           const d = new Date();
           const winKey = `${d.getFullYear()}${(d.getMonth() + 1)}${d.getDate()}-${d.getHours()}${(Math.floor(d.getMinutes() / 5) * 5)}`;
-          fetch(CORS_PROXY + encodeURIComponent(`https://api.counterapi.dev/v1/ranking-emul-hub-t3st31/online-${winKey}/up`))
+          fetch(CORS_PROXY + encodeURIComponent(`https://api.counterapi.dev/v1/ranking-emul-hub-v2/online-${winKey}/up`))
             .then(res => res.json())
             .then(data => {
               const el = document.getElementById('onlineNow');
@@ -2902,7 +2902,7 @@
             });
 
           // 'Total de Visitas': Via CounterAPI (mesmo namespace do Online Now)
-          fetch(CORS_PROXY + encodeURIComponent('https://api.counterapi.dev/v1/ranking-emul-hub-t3st31/total-hits/up'))
+          fetch(CORS_PROXY + encodeURIComponent('https://api.counterapi.dev/v1/ranking-emul-hub-v2/total-hits/up'))
             .then(res => res.json())
             .then(data => {
               const el = document.getElementById('totalVisits');
@@ -2944,7 +2944,7 @@
 
     // --- Lógica do Mapa de Visitantes (Cyberpunk/Neon) ---
     let mapInstance = null;
-    const VISITOR_NAMESPACE = 'ranking-v-map-t3st31';
+    const VISITOR_NAMESPACE = 'ranking-v-map-v2';
 
     async function trackVisitorLocation() {
       try {
