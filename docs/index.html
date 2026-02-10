@@ -1389,6 +1389,13 @@
       flex-wrap: wrap;
     }
 
+    .recent-status-container {
+      display: flex;
+      flex-direction: column;
+      align-items: flex-end;
+      gap: 8px;
+    }
+
     .recent-project-name {
       font-size: 1.15em;
       font-weight: bold;
@@ -2220,7 +2227,7 @@
                   ${item.category || '-'}
                 </span>
               </div>
-              <div style="text-align: right;">
+              <div class="recent-status-container">
                 <div class="recent-time-ago">📅 ${timeAgo(r.date)}</div>
                 ${item.isHot ? '<div class="recent-hot-flame">🔥 LANÇAMENTO RECENTE!</div>' : ''}
               </div>
