@@ -21,7 +21,7 @@ const repos = [
   { name: "Winlator Glibc", repo: "longjunyu2/winlator", category: "Winlator", logo: "winlator.png" },
   { name: "Wb64dev", repo: "winebox64/winlator", category: "Winlator", logo: "winlator.png" },
   { name: "Winlator Mali", repo: "Fcharan/WinlatorMali", category: "Winlator", logo: "winlator.png" },
-  { name: "Star (fork)", repo: "jacojayy/star", category: "Winlator", logo: "star.png" },
+  { name: "Star (fork)", repo: "jacojayy/star", category: "Winlator", logo: "winlator.png" },
   { name: "Winlator Brasil", repo: "winlatorbrasil/Winlator-Brasil", category: "Winlator", logo: "winlator-brasil.png" },
   { name: "Steamlator", repo: "slaker222/Steamlator", category: "Winlator", logo: "winlator.png" },
 
@@ -67,6 +67,14 @@ const repos = [
 
   // Emulator ALL IN ONE
   { name: "Lemuroid", repo: "Swordfish90/Lemuroid", category: "All In One", logo: "lemuroid.png" },
+
+  // DRIVERS
+  { name: "Adreno Tools Drivers", repo: "K11MCH1/AdrenoToolsDrivers", category: "Drivers", logo: "drivers.png", extensions: [".zip"] },
+  { name: "Adrenotools Drivers (StevenMXZ)", repo: "StevenMXZ/Adrenotools-Drivers", category: "Drivers", logo: "drivers.png", extensions: [".zip"] },
+  { name: "Freedreno Turnip CI (Weab-chan)", repo: "Weab-chan/freedreno_turnip-CI", category: "Drivers", logo: "drivers.png", extensions: [".zip"] },
+  { name: "Freedreno Turnip CI (StevenMXZ)", repo: "StevenMXZ/freedreno_turnip-CI", category: "Drivers", logo: "drivers.png", extensions: [".zip"] },
+  { name: "Freedreno Turnip CI (whitebelyash)", repo: "whitebelyash/freedreno_turnip-CI", category: "Drivers", logo: "drivers.png", extensions: [".zip"] },
+  { name: "Upload Grave", repo: "jhinzuo/upload_grave", category: "Drivers", logo: "drivers.png", extensions: [".zip"] },
 ];
 
 // ===== GitHub API =====
