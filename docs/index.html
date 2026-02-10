@@ -370,13 +370,9 @@
     }
 
     .click-hint {
-      display: block;
-      margin-top: 4px;
-      font-size: 0.75em;
-      color: #00f7ff;
-      opacity: 0.8;
-      font-weight: 500;
-      letter-spacing: 0.3px;
+      opacity: 0.6;
+      font-size: 0.85em;
+      font-weight: normal;
     }
 
     .category-badge {
@@ -1595,7 +1591,7 @@
 
   <header>
     <h1>🎮 EMULATORS RANKING</h1>
-    <p>Rankings Automáticos • Alerta de Novas Releases • Atualização a cada 1h</p>
+    <p>Rankings Automáticos • Alerta de Novas Releases • Downloads em Tempo Real</p>
   </header>
 
   <div class="last-update" id="lastUpdate">
@@ -2355,7 +2351,6 @@
                 </div>
                 <div class="card-meta">
                   <span class="category-badge category-${sanitizeCategory(item.category)}">${item.category || '-'}</span>
-                  <div class="click-hint">👆 Toque para ver downloads</div>
                 </div>
               </div>
               <div class="card-downloads">
