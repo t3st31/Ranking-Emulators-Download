@@ -2876,7 +2876,7 @@
           // 'Online Agora': janela de 5 minutos via CounterAPI
           const d = new Date();
           const winKey = `${d.getHours()}${(Math.floor(d.getMinutes() / 5) * 5)}`;
-          fetch(`https://api.counterapi.dev/v1/tp-rank/online-${winKey}/up`)
+          fetch(`https://api.counterapi.dev/v1/ranking-emul-hub-t3st31/online-${winKey}/up`)
             .then(res => res.json())
             .then(data => {
               const el = document.getElementById('onlineNow');
