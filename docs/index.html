@@ -2871,40 +2871,39 @@
           `;
           document.getElementById('lastUpdate').innerHTML = statusHtml;
 
-          // --- CORREÇÃO DOS CONTADORES ---
+          // --- Contadores Reais (via proxy CORS codetabs) ---
+          const CORS_PROXY = 'https://api.codetabs.com/v1/proxy?quest=';
 
-          // 1. 'Online Agora': janela de 5 minutos via CounterAPI
+          // 'Online Agora': janela de 5 minutos via CounterAPI
           const d = new Date();
           const winKey = `${d.getFullYear()}${(d.getMonth() + 1)}${d.getDate()}-${d.getHours()}${(Math.floor(d.getMinutes() / 5) * 5)}`;
-          fetch(`https://api.counterapi.dev/v1/ranking-emul-hub-t3st31/online-${winKey}/up`)
+          fetch(CORS_PROXY + encodeURIComponent(`https://api.counterapi.dev/v1/ranking-emul-hub-t3st31/online-${winKey}/up`))
             .then(res => res.json())
             .then(data => {
               const el = document.getElementById('onlineNow');
-              // CORREÇÃO: Usar data.count (propriedade padrão da API)
-              const count = data.count || 1;
+              const count = data.count || data.value || 1;
               if (el) {
                 el.innerText = `${count} ${count === 1 ? 'Usuário' : 'Usuários'}`;
               }
             })
-            .catch(err => {
-              console.error("Erro ao carregar Online Now:", err);
+            .catch((e) => {
+              console.error('Erro ao carregar Online Now:', e);
               const el = document.getElementById('onlineNow');
               if (el) el.innerText = '1 Usuário';
             });
 
-          // 2. 'Total de Visitas': Hits API (dwyl)
-          fetch('https://hits.dwyl.com/t3st31/Ranking-Emulators-Download.json')
+          // 'Total de Visitas': Hits API (dwyl) - campo 'message'
+          fetch(CORS_PROXY + encodeURIComponent('https://hits.dwyl.com/t3st31/Ranking-Emulators-Download.json'))
             .then(res => res.json())
             .then(data => {
               const el = document.getElementById('totalVisits');
-              // CORREÇÃO: Usar data.count, não data.message
-              if (el && data && data.count !== undefined) {
-                const count = parseInt(data.count) || 0;
+              if (el && data && data.message) {
+                const count = parseInt(data.message) || 0;
                 el.innerText = count.toLocaleString('pt-BR');
               } else if (el) { el.innerText = '0'; }
             })
-            .catch(err => {
-              console.error("Erro ao carregar Total Visits:", err);
+            .catch((e) => {
+              console.error('Erro ao carregar Total Visits:', e);
               const el = document.getElementById('totalVisits');
               if (el) el.innerText = '0';
             });
@@ -2923,6 +2922,7 @@
           }
         }
 
+        // Inserir ambos (removido duplicata manual aqui)
       } catch (error) {
         console.error("Erro ao carregar dados:", error);
         document.getElementById('rankingContainer').innerHTML = `
