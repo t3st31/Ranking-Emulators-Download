@@ -2000,7 +2000,10 @@
     <button class="tab-btn active" id="btn-ranking" onclick="switchTab('ranking')" data-i18n="tabRanking">🏆
       Ranking</button>
     <button class="tab-btn" id="btn-charts" onclick="switchTab('charts')" data-i18n="tabDashboard">📊 Dashboard</button>
-    <button class="tab-btn" id="btn-drivers" onclick="switchTab('drivers')" data-i18n="tabDrivers">🏎️ Drivers</button>
+    <button class="tab-btn" id="btn-drivers-all" onclick="switchTab('drivers-all')" data-i18n="tabDriversAll">📁
+      Drivers</button>
+    <button class="tab-btn" id="btn-drivers" onclick="switchTab('drivers')" data-i18n="tabDriversNovos">🏎️ Drivers
+      Novos</button>
     <button class="tab-btn" id="btn-news" onclick="switchTab('news')" data-i18n="tabNews">🆕 Novidades</button>
   </nav>
 
@@ -2095,7 +2098,19 @@
       </div>
     </div>
 
-    <!-- CONTENT: DRIVERS -->
+    <!-- CONTENT: DRIVERS CATEGORIZED (ALL) -->
+    <div id="tab-drivers-all" class="tab-content">
+      <div class="card">
+        <h2 data-i18n="driversAllTitle">📁 Biblioteca de Drivers</h2>
+        <div id="driversCategorizedContainer">
+          <div class="loading" data-i18n="loadingDrivers">
+            ⏱️ Carregando drivers...
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- CONTENT: DRIVERS NOVOS -->
     <div id="tab-drivers" class="tab-content">
       <div class="card">
         <h2 data-i18n="novosDrivers">🏎️ Novos Drivers (Últimos 30 Dias)</h2>
@@ -2283,6 +2298,14 @@
         newsTitle: '🆕 Lançamentos Recentes (Últimos 30 dias)',
         loadingNews: 'Buscando novidades...',
         modalTitle: 'Releases',
+        tabDriversNovos: '🏎️ Drivers Novos',
+        tabDriversAll: '📁 Drivers',
+        driversAllTitle: '📁 Biblioteca de Drivers',
+        novosDrivers: '🏎️ Novos Drivers (Últimos 30 Dias)',
+        loadingDrivers: '⏱️ Carregando drivers...',
+        noDriversFound: 'Nenhum driver encontrado.',
+        newApksAlert: 'NOVOS APKS!',
+        newDriversAlert: 'NOVOS DRIVERS!',
         footerVisitChannel: 'Visite meu Canal no YouTube',
         syncingData: 'SINCRONIZANDO DADOS...',
         visits: 'Visitas',
@@ -2457,6 +2480,14 @@
         newsTitle: '🆕 Recent Releases (Last 30 days)',
         loadingNews: 'Fetching news...',
         modalTitle: 'Releases',
+        tabDriversNovos: '🏎️ New Drivers',
+        tabDriversAll: '📁 Drivers',
+        driversAllTitle: '📁 Drivers Library',
+        novosDrivers: '🏎️ New Drivers (Last 30 Days)',
+        loadingDrivers: '⏱️ Loading drivers...',
+        noDriversFound: 'No drivers found.',
+        newApksAlert: 'NEW APKS!',
+        newDriversAlert: 'NEW DRIVERS!',
         footerVisitChannel: 'Visit my YouTube Channel',
         syncingData: 'SYNCING DATA...',
         visits: 'Visits',
@@ -4066,6 +4097,33 @@
       console.log('Dashboard Overview rendered');
     }
 
+    function renderCategorizedDrivers(manifest) {
+      const container = document.getElementById('driversCategorizedContainer');
+      if (!manifest || Object.keys(manifest).length === 0) {
+        container.innerHTML = `<div class="no-recent-drivers">😓 ${t('noDriversFound')}</div>`;
+        return;
+      }
+
+      let html = '';
+      for (const [category, items] of Object.entries(manifest)) {
+        html += `
+          <div class="driver-cat-section">
+            <h3 class="driver-cat-title">📂 ${category}</h3>
+            <div class="driver-item-grid">
+              ${items.map(item => `
+                <div class="driver-item-card">
+                  <div class="driver-item-name">${item.name}</div>
+                  <div class="driver-item-ver">Version: ${item.version || '1.0'}</div>
+                  <a href="${item.url}" target="_blank" class="driver-download-btn">⬇ Download .wcp</a>
+                </div>
+              `).join('')}
+            </div>
+          </div>
+        `;
+      }
+      container.innerHTML = html;
+    }
+
     function renderRanking(data) {
       const container = document.getElementById('rankingContainer');
 
@@ -4189,6 +4247,7 @@
         renderRanking(allData);
         renderRecentReleases(allData);
         renderRecentDrivers(allData);
+        renderCategorizedDrivers(json.manifestDrivers || {});
         renderDashboardOverview(allData);
 
         // Atualizar timestamp e HUB de Status
@@ -4267,7 +4326,6 @@
           if (newReleasesCount > 0) {
             const btnNews = document.getElementById('btn-news');
             btnNews.classList.add('tab-news-highlight');
-            // Adicionar badge se não existir
             if (!btnNews.querySelector('.tab-badge')) {
               const badge = document.createElement('span');
               badge.className = 'tab-badge';
@@ -4275,9 +4333,19 @@
               btnNews.appendChild(badge);
             }
           }
-        }
 
-        // Inserir ambos (removido duplicata manual aqui)
+          // Destaque na aba de Drivers Novos
+          if (newDriversCount > 0) {
+            const btnDrivers = document.getElementById('btn-drivers');
+            btnDrivers.classList.add('tab-news-highlight');
+            if (!btnDrivers.querySelector('.tab-badge')) {
+              const badge = document.createElement('span');
+              badge.className = 'tab-badge';
+              badge.innerText = newDriversCount;
+              btnDrivers.appendChild(badge);
+            }
+          }
+        }
       } catch (error) {
         console.error("Erro ao carregar dados:", error);
         document.getElementById('rankingContainer').innerHTML = `
@@ -4383,6 +4451,9 @@
       }
       if (currentTab === 'drivers') {
         renderRecentDrivers(allData);
+      }
+      if (currentTab === 'drivers-all') {
+        renderCategorizedDrivers(manifestDrivers);
       }
       if (currentTab === 'charts') {
         renderCharts(allData);
