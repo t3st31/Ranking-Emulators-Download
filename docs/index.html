@@ -1059,14 +1059,22 @@
       font-size: 0.95em;
     }
 
+    .recent-apks-container {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 6px;
+      justify-content: flex-end;
+      flex: 1;
+    }
+
     .recent-download-btn {
       background: linear-gradient(135deg, #00ff88 0%, #00d4ff 100%);
       color: #0a0a0f;
-      padding: 7px 14px;
+      padding: 6px 12px;
       border-radius: 8px;
       text-decoration: none;
       font-weight: bold;
-      font-size: 0.85em;
+      font-size: 0.8em;
       transition: all 0.3s;
       box-shadow: 0 3px 10px rgba(0, 255, 136, 0.3);
       display: inline-block;
@@ -1584,7 +1592,7 @@
 
       recentReleases.forEach(item => {
         const r = item.release;
-        const mainApk = r.assets.find(a => a.name.toLowerCase().endsWith('.apk'));
+        const apks = r.assets.filter(a => a.name.toLowerCase().endsWith('.apk'));
         const itemJson = JSON.stringify(item.projectData).replace(/'/g, "&#39;");
 
         html += `
@@ -1607,7 +1615,24 @@
             </div>
             <div class="recent-bottom">
               <div class="recent-downloads">📥 ${r.downloads.toLocaleString('pt-BR')} downloads</div>
-              ${mainApk ? `<a href="${mainApk.url}" target="_blank" class="recent-download-btn" onclick="event.stopPropagation();">⬇ Baixar ${formatBytes(mainApk.size)}</a>` : ''}
+              <div class="recent-apks-container">
+                ${apks.map(apk => {
+          let cleanedName = apk.name
+            .replace(item.projectName, '')
+            .replace(r.tag, '')
+            .replace(/[_\-\s]+/g, ' ')
+            .replace('.apk', '')
+            .trim();
+
+          if (!cleanedName || cleanedName.length < 2) cleanedName = "APK";
+
+          return `
+                    <a href="${apk.url}" target="_blank" class="recent-download-btn" onclick="event.stopPropagation();" title="${apk.name}">
+                      ⬇ ${cleanedName} (${formatBytes(apk.size)})
+                    </a>
+                  `;
+        }).join('')}
+              </div>
             </div>
           </div>
         `;
