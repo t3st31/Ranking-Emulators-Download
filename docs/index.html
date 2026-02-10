@@ -2147,6 +2147,7 @@
       // Se mudar para aba de charts e eles não estiverem renderizados, renderiza
       if (tabName === 'charts') {
         renderCharts(allData);
+        renderVisitorMap();
       }
 
       // Limpar destaque se clicar em novidades
@@ -2979,7 +2980,7 @@
           map: 'world_merc',
           backgroundColor: 'transparent',
           regionStyle: {
-            initial: { fill: 'rgba(255, 255, 255, 0.05)', stroke: 'rgba(0, 255, 249, 0.2)', strokeWidth: 1 },
+            initial: { fill: 'rgba(51, 51, 51, 0.5)', stroke: 'rgba(0, 255, 249, 0.3)', strokeWidth: 1 },
             hover: { fill: '#00fff9', fillOpacity: 0.5 }
           },
           series: {
