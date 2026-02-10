@@ -1549,7 +1549,8 @@
 
         project.releases.forEach(release => {
           const releaseDate = new Date(release.date);
-          if (releaseDate >= thirtyDaysAgo) {
+          const hasApk = release.assets.some(a => a.name.toLowerCase().endsWith('.apk'));
+          if (releaseDate >= thirtyDaysAgo && hasApk) {
             recentReleases.push({
               projectName: project.name,
               category: project.category,
