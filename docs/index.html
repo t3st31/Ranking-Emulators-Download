@@ -2159,6 +2159,13 @@
       gap: 20px;
       padding: 10px 0;
       width: 100%;
+      align-items: stretch;
+    }
+
+    /* Garantir que os itens de novidade não ocupem 100% se o grid quebrar de forma estranha */
+    .news-item {
+      max-width: 100%;
+      height: 100%;
     }
 
     .news-item {
@@ -4191,7 +4198,10 @@
           const clickAction = itemJson ? `onclick='openModal(${itemJson})'` : '';
           return `
                 <div class="driver-item-card" ${clickAction} style="${itemJson ? 'cursor:pointer;' : ''}">
-                  <div class="driver-item-name">${item.name}</div>
+                  <div class="driver-item-name">
+                    ${item.name}
+                    ${(item.fullProject && hasNewReleases(item.fullProject)) ? `<span class="new-release-badge" style="font-size: 0.6em; margin-left: 5px;">🔥 NOVO!</span>` : ''}
+                  </div>
                   <div class="driver-item-ver">${item.version || 'v1.0'}</div>
                   ${itemJson
               ? `<div class="driver-download-btn">📂 ${t('viewReleases') || 'Ver Releases'}</div>`
@@ -4268,7 +4278,7 @@
             <tbody>
         `;
 
-        data.forEach((item, index) => {
+        filteredData.forEach((item, index) => {
           const rank = index + 1;
           const hasNew = hasNewReleases(item);
           const itemJson = JSON.stringify(item).replace(/'/g, "&#39;");
