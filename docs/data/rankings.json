@@ -1,83 +1,83 @@
 {
-  "updatedAt": "2026-02-09T22:13:29.316Z",
+  "updatedAt": "2026-02-10T02:12:10.947Z",
   "results": [
     {
       "name": "Winlator Oficial",
       "repo": "brunodev85/winlator",
       "category": "Winlator",
-      "downloads": 12486685
+      "downloads": 12489627
     },
     {
       "name": "Winlator LongJunYu",
       "repo": "longjunyu2/winlator",
       "category": "Winlator",
-      "downloads": 926916
+      "downloads": 926981
     },
     {
       "name": "Winlator MOD",
       "repo": "afeimod/winlator-mod",
       "category": "Winlator",
-      "downloads": 664524
+      "downloads": 664573
     },
     {
       "name": "Winlator Coffin",
       "repo": "coffincolors/winlator",
       "category": "Winlator",
-      "downloads": 648399
+      "downloads": 648541
     },
     {
       "name": "GameHub Lite (Producdevity)",
       "repo": "Producdevity/gamehub-lite",
       "category": "GameHub",
-      "downloads": 422648
+      "downloads": 423295
     },
     {
       "name": "Winlator Mali",
       "repo": "Fcharan/WinlatorMali",
       "category": "Winlator",
-      "downloads": 404572
+      "downloads": 404663
     },
     {
       "name": "Winlator Ludashi",
       "repo": "StevenMXZ/Winlator-Ludashi",
       "category": "Winlator",
-      "downloads": 382334
+      "downloads": 382852
     },
     {
       "name": "Winebox64",
       "repo": "winebox64/winlator",
       "category": "Winlator",
-      "downloads": 245090
+      "downloads": 245117
     },
     {
       "name": "Winlator JurisX",
       "repo": "JURIS-X/winlator_x",
       "category": "Winlator",
-      "downloads": 54469
+      "downloads": 54489
     },
     {
       "name": "GameHub Brasil",
       "repo": "winlatorbrasil/gamehub-brasil",
       "category": "GameHub",
-      "downloads": 26280
+      "downloads": 26421
     },
     {
       "name": "Star (fork)",
       "repo": "jacojayy/star",
       "category": "Winlator",
-      "downloads": 24877
+      "downloads": 24939
     },
     {
       "name": "GameHub Lite (ItzDFPlayer)",
       "repo": "ItzDFPlayer/gamehub-lite",
       "category": "GameHub",
-      "downloads": 3944
+      "downloads": 3951
     },
     {
       "name": "Winlator XMOD",
       "repo": "deivid22srk/Winlator-Xmod",
       "category": "Winlator",
-      "downloads": 427
+      "downloads": 428
     }
   ]
 }
