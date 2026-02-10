@@ -71,6 +71,8 @@ async function getReleasesData(repo) {
           tag: r.tag_name,
           date: r.published_at,
           downloads: releaseDownloads,
+          body: r.body || "", // Descrição da release
+          prerelease: r.prerelease || false,
           assets: assets,
           htmlUrl: r.html_url
         });
