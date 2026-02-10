@@ -1988,18 +1988,19 @@
   <div class="grid-bg"></div>
 
   <header>
-    <h1 class="glitch" data-text="🎮 HUB EMULATORS">🎮 HUB EMULATORS</h1>
-    <p>Rankings Automáticos • Atualizado à cada 1h</p>
+    <h1 class="glitch" data-text="🎮 HUB EMULATORS" data-i18n="title">🎮 HUB EMULATORS</h1>
+    <p data-i18n="subtitle">Rankings Automáticos • Atualizado à cada 1h</p>
   </header>
 
-  <div class="last-update" id="lastUpdate">
+  <div class="last-update" id="lastUpdate" data-i18n="loading">
     ⏱️ Carregando dados...
   </div>
 
   <nav class="tabs-container">
-    <button class="tab-btn active" id="btn-ranking" onclick="switchTab('ranking')">🏆 Ranking</button>
-    <button class="tab-btn" id="btn-charts" onclick="switchTab('charts')">📊 Dashboard</button>
-    <button class="tab-btn" id="btn-news" onclick="switchTab('news')">🆕 Novidades</button>
+    <button class="tab-btn active" id="btn-ranking" onclick="switchTab('ranking')" data-i18n="tabRanking">🏆
+      Ranking</button>
+    <button class="tab-btn" id="btn-charts" onclick="switchTab('charts')" data-i18n="tabDashboard">📊 Dashboard</button>
+    <button class="tab-btn" id="btn-news" onclick="switchTab('news')" data-i18n="tabNews">🆕 Novidades</button>
   </nav>
 
   <section>
@@ -2007,34 +2008,34 @@
     <!-- CONTENT: RANKING -->
     <div id="tab-ranking" class="tab-content active">
       <div class="card">
-        <h2>🏆 Ranking Global de Downloads</h2>
+        <h2 data-i18n="rankingTitle">🏆 Ranking Global de Downloads</h2>
 
         <!-- BARRA DE FILTROS -->
         <div class="filter-bar">
           <div class="filter-group">
-            <label>🔍 Buscar Projeto</label>
+            <label data-i18n="searchLabel">🔍 Buscar Projeto</label>
             <input type="text" id="searchInput" class="filter-input" placeholder="Ex: Winlator, Cemu..."
-              oninput="updateFilters()">
+              oninput="updateFilters()" data-i18n-attr="placeholder:searchPlaceholder">
           </div>
           <div class="filter-group">
-            <label>📁 Categoria</label>
+            <label data-i18n="categoryLabel">📁 Categoria</label>
             <select id="categoryFilter" class="filter-select" onchange="updateFilters()">
-              <option value="all">Todas as Categorias</option>
+              <option value="all" data-i18n="allCategories">Todas as Categorias</option>
             </select>
           </div>
           <div class="filter-group">
-            <label>⇅ Ordenar Por</label>
+            <label data-i18n="sortLabel">⇅ Ordenar Por</label>
             <select id="sortOrder" class="filter-select" onchange="updateFilters()">
-              <option value="downloads-desc">Downloads (Maior p/ Menor)</option>
-              <option value="downloads-asc">Downloads (Menor p/ Maior)</option>
-              <option value="name-asc">Nome (A-Z)</option>
-              <option value="name-desc">Nome (Z-A)</option>
+              <option value="downloads-desc" data-i18n="sortByDownloadsDesc">Downloads (Maior p/ Menor)</option>
+              <option value="downloads-asc" data-i18n="sortByDownloadsAsc">Downloads (Menor p/ Maior)</option>
+              <option value="name-asc" data-i18n="sortByNameAsc">Nome (A-Z)</option>
+              <option value="name-desc" data-i18n="sortByNameDesc">Nome (Z-A)</option>
             </select>
           </div>
         </div>
 
         <div id="rankingContainer">
-          <div class="loading">
+          <div class="loading" data-i18n="loadingRanking">
             <div class="spinner"></div>
             Carregando ranking...
           </div>
@@ -2045,49 +2046,50 @@
     <!-- CONTENT: DASHBOARD -->
     <div id="tab-charts" class="tab-content">
       <div class="card map-full-card">
-        <h2 class="section-title"><span class="icon">🌍</span> GEO-VISITANTES (TOP PAÍSES)</h2>
+        <h2 class="section-title"><span class="icon">🌍</span> <span data-i18n="geoVisitors">GEO-VISITANTES (TOP
+            PAÍSES)</span></h2>
         <div id="visitorMap"
           style="height: 350px; width: 100%; border-radius: 12px; overflow: hidden; background: rgba(0,0,0,0.2);"></div>
       </div>
       <div class="charts-grid">
         <div class="chart-card">
-          <h3>📊 Downloads por Projeto</h3>
+          <h3 data-i18n="chartDownloads">📊 Downloads por Projeto</h3>
           <div style="height: 300px;"><canvas id="chart-downloads"></canvas></div>
         </div>
         <div class="chart-card">
-          <h3>🍕 Participação por Categoria</h3>
+          <h3 data-i18n="chartCategories">🍕 Participação por Categoria</h3>
           <div style="height: 300px;"><canvas id="chart-categories-pie"></canvas></div>
         </div>
         <div class="chart-card">
-          <h3>🔥 Top 10 Mais Populares</h3>
+          <h3 data-i18n="chartTop10">🔥 Top 10 Mais Populares</h3>
           <div style="height: 300px;"><canvas id="chart-top10"></canvas></div>
         </div>
         <div class="chart-card">
-          <h3>📦 Volume de Releases</h3>
+          <h3 data-i18n="chartReleases">📦 Volume de Releases</h3>
           <div style="height: 300px;"><canvas id="chart-releases-count"></canvas></div>
         </div>
         <div class="chart-card">
-          <h3>📈 Downloads Médios por Release</h3>
+          <h3 data-i18n="chartAvgDownloads">📈 Downloads Médios por Release</h3>
           <div style="height: 300px;"><canvas id="chart-avg-downloads"></canvas></div>
         </div>
         <div class="chart-card">
-          <h3>🎯 Comparativo Top 5 (Downloads & Releases)</h3>
+          <h3 data-i18n="chartRadar">🎯 Comparativo Top 5 (Downloads & Releases)</h3>
           <div style="height: 300px;"><canvas id="chart-radar"></canvas></div>
         </div>
         <div class="chart-card">
-          <h3>🌐 Visão Polar de Categorias</h3>
+          <h3 data-i18n="chartPolar">🌐 Visão Polar de Categorias</h3>
           <div style="height: 300px;"><canvas id="chart-polar"></canvas></div>
         </div>
         <div class="chart-card">
-          <h3>🫧 Popularidade vs Atividade</h3>
+          <h3 data-i18n="chartBubble">🫧 Popularidade vs Atividade</h3>
           <div style="height: 300px;"><canvas id="chart-bubble"></canvas></div>
         </div>
         <div class="chart-card">
-          <h3>📉 Histórico de Downloads</h3>
+          <h3 data-i18n="chartHistory">📉 Histórico de Downloads</h3>
           <div style="height: 300px;"><canvas id="chart-line-total"></canvas></div>
         </div>
         <div class="chart-card">
-          <h3>📚 Distribuição de Assets</h3>
+          <h3 data-i18n="chartAssets">📚 Distribuição de Assets</h3>
           <div style="height: 300px;"><canvas id="chart-stacked"></canvas></div>
         </div>
       </div>
@@ -2096,9 +2098,9 @@
     <!-- CONTENT: NOVIDADES -->
     <div id="tab-news" class="tab-content">
       <div class="card">
-        <h2>🆕 Lançamentos Recentes (Últimos 30 dias)</h2>
+        <h2 data-i18n="newsTitle">🆕 Lançamentos Recentes (Últimos 30 dias)</h2>
         <div id="recentReleasesContainer">
-          <div class="loading">
+          <div class="loading" data-i18n="loadingNews">
             <div class="spinner"></div>
             Buscando novidades...
           </div>
@@ -2124,11 +2126,437 @@
   <footer>
     <span class="footer-credit">Developed with ⚡ by Furulipo</span>
     <a href="https://youtube.com/@FurulipoGames" target="_blank" class="premium-link">
-      📺 <span>Visite meu Canal no YouTube</span>
+      📺 <span data-i18n="footerVisitChannel">Visite meu Canal no YouTube</span>
     </a>
   </footer>
 
   <script>
+    const I18N = {
+      'pt-BR': {
+        title: '🎮 HUB EMULATORS',
+        subtitle: 'Rankings Automáticos • Atualizado à cada 1h',
+        loading: '⏱️ Carregando dados...',
+        tabRanking: '🏆 Ranking',
+        tabDashboard: '📊 Dashboard',
+        tabNews: '🆕 Novidades',
+        rankingTitle: '🏆 Ranking Global de Downloads',
+        searchLabel: '🔍 Buscar Projeto',
+        searchPlaceholder: 'Ex: Winlator, Cemu...',
+        categoryLabel: '📁 Categoria',
+        allCategories: 'Todas as Categorias',
+        sortLabel: '⇅ Ordenar Por',
+        sortByDownloadsDesc: 'Downloads (Maior p/ Menor)',
+        sortByDownloadsAsc: 'Downloads (Menor p/ Maior)',
+        sortByNameAsc: 'Nome (A-Z)',
+        sortByNameDesc: 'Nome (Z-A)',
+        loadingRanking: 'Carregando ranking...',
+        geoVisitors: 'GEO-VISITANTES (TOP PAÍSES)',
+        chartDownloads: '📊 Downloads por Projeto',
+        chartCategories: '🍕 Participação por Categoria',
+        chartTop10: '🔥 Top 10 Mais Populares',
+        chartReleases: '📦 Volume de Releases',
+        chartAvgDownloads: '📈 Downloads Médios por Release',
+        chartRadar: '🎯 Comparativo Top 5 (Downloads & Releases)',
+        chartPolar: '🌐 Visão Polar de Categorias',
+        chartBubble: '🫧 Popularidade vs Atividade',
+        chartHistory: '📉 Histórico de Downloads',
+        chartAssets: '📚 Distribuição de Assets',
+        newsTitle: '🆕 Lançamentos Recentes (Últimos 30 dias)',
+        loadingNews: 'Buscando novidades...',
+        modalTitle: 'Releases',
+        footerVisitChannel: 'Visite meu Canal no YouTube',
+        syncingData: 'SINCRONIZANDO DADOS...',
+        visits: 'Visitas',
+        onlineNow: 'Online Agora',
+        totalVisits: 'Total de Visitas',
+        rankingHeader: 'RANKING',
+        projectHeader: 'PROJETO',
+        downloadsHeader: 'DOWNLOADS',
+        categoryHeader: 'CATEGORIA',
+        lastReleaseHeader: 'ÚLTIMO LANÇAMENTO',
+        seeReleases: 'Ver Releases',
+        noRecentReleases: 'Nenhum lançamento recente encontrado.',
+        newReleaseTag: 'LANÇAMENTO RECENTE',
+        newReleaseBadgeHeader: ' NOVO LANÇAMENTO!',
+        loadingStatus: '⏱️ Carregando dados...',
+        lastSync: 'SINCRONIZAÇÃO'
+      },
+      'pt-PT': {
+        title: '🎮 HUB EMULADORES',
+        subtitle: 'Rankings Automáticos • Atualizado a cada 1h',
+        loading: '⏱️ A carregar dados...',
+        tabRanking: '🏆 Ranking',
+        tabDashboard: '📊 Painel',
+        tabNews: '🆕 Novidades',
+        rankingTitle: '🏆 Ranking Global de Transferências',
+        searchLabel: '🔍 Procurar Projeto',
+        searchPlaceholder: 'Ex: Winlator, Cemu...',
+        categoryLabel: '📁 Categoria',
+        allCategories: 'Todas as Categorias',
+        sortLabel: '⇅ Ordenar Por',
+        sortByDownloadsDesc: 'Transferências (Maior p/ Menor)',
+        sortByDownloadsAsc: 'Transferências (Menor p/ Maior)',
+        sortByNameAsc: 'Nome (A-Z)',
+        sortByNameDesc: 'Nome (Z-A)',
+        loadingRanking: 'A carregar ranking...',
+        geoVisitors: 'GEO-VISITANTES (TOP PAÍSES)',
+        chartDownloads: '📊 Transferências por Projeto',
+        chartCategories: '🍕 Participação por Categoria',
+        chartTop10: '🔥 Top 10 Mais Populares',
+        chartReleases: '📦 Volume de Releases',
+        chartAvgDownloads: '📈 Média de Transferências por Release',
+        chartRadar: '🎯 Comparativo Top 5 (Transferências & Releases)',
+        chartPolar: '🌐 Vista Polar de Categorias',
+        chartBubble: '🫧 Popularidade vs Atividade',
+        chartHistory: '📉 Histórico de Transferências',
+        chartAssets: '📚 Distribuição de Recursos',
+        newsTitle: '🆕 Lançamentos Recentes (Últimos 30 dias)',
+        loadingNews: 'A procurar novidades...',
+        modalTitle: 'Releases',
+        footerVisitChannel: 'Visita o meu Canal no YouTube',
+        syncingData: 'A SINCRONIZAR DADOS...',
+        visits: 'Visitas',
+        onlineNow: 'Online Agora',
+        totalVisits: 'Total de Visitas',
+        rankingHeader: 'RANKING',
+        projectHeader: 'PROJETO',
+        downloadsHeader: 'TRANSFERÊNCIAS',
+        categoryHeader: 'CATEGORIA',
+        lastReleaseHeader: 'ÚLTIMO LANÇAMENTO',
+        seeReleases: 'Ver Releases',
+        noRecentReleases: 'Nenhum lançamento recente encontrado.',
+        newReleaseTag: 'LANÇAMENTO RECENTE',
+        newReleaseBadgeHeader: ' NOVO LANÇAMENTO!',
+        loadingStatus: '⏱️ A carregar dados...',
+        lastSync: 'SINCRONIZAÇÃO'
+      },
+      'en': {
+        title: '🎮 HUB EMULATORS',
+        subtitle: 'Automatic Rankings • Updated every 1h',
+        loading: '⏱️ Loading data...',
+        tabRanking: '🏆 Ranking',
+        tabDashboard: '📊 Dashboard',
+        tabNews: '🆕 News',
+        rankingTitle: '🏆 Global Download Ranking',
+        searchLabel: '🔍 Search Project',
+        searchPlaceholder: 'Ex: Winlator, Cemu...',
+        categoryLabel: '📁 Category',
+        allCategories: 'All Categories',
+        sortLabel: '⇅ Sort By',
+        sortByDownloadsDesc: 'Downloads (High to Low)',
+        sortByDownloadsAsc: 'Downloads (Low to High)',
+        sortByNameAsc: 'Name (A-Z)',
+        sortByNameDesc: 'Name (Z-A)',
+        loadingRanking: 'Loading ranking...',
+        geoVisitors: 'GEO-VISITORS (TOP COUNTRIES)',
+        chartDownloads: '📊 Downloads by Project',
+        chartCategories: '🍕 Category Share',
+        chartTop10: '🔥 Top 10 Most Popular',
+        chartReleases: '📦 Release Volume',
+        chartAvgDownloads: '📈 Avg Downloads per Release',
+        chartRadar: '🎯 Top 5 Comparison (Downloads & Releases)',
+        chartPolar: '🌐 Polar Category View',
+        chartBubble: '🫧 Popularity vs Activity',
+        chartHistory: '📉 Download History',
+        chartAssets: '📚 Asset Distribution',
+        newsTitle: '🆕 Recent Releases (Last 30 days)',
+        loadingNews: 'Fetching news...',
+        modalTitle: 'Releases',
+        footerVisitChannel: 'Visit my YouTube Channel',
+        syncingData: 'SYNCING DATA...',
+        visits: 'Visits',
+        onlineNow: 'Online Now',
+        totalVisits: 'Total Visits',
+        rankingHeader: 'RANKING',
+        projectHeader: 'PROJECT',
+        downloadsHeader: 'DOWNLOADS',
+        categoryHeader: 'CATEGORY',
+        lastReleaseHeader: 'LAST RELEASE',
+        seeReleases: 'See Releases',
+        noRecentReleases: 'No recent releases found.',
+        newReleaseTag: 'RECENT RELEASE',
+        newReleaseBadgeHeader: ' NEW RELEASE!',
+        loadingStatus: '⏱️ Loading data...',
+        lastSync: 'SYNC'
+      },
+      'es': {
+        title: '🎮 HUB EMULATORS',
+        subtitle: 'Rankings Automáticos • Actualizado cada 1h',
+        loading: '⏱️ Cargando datos...',
+        tabRanking: '🏆 Clasificación',
+        tabDashboard: '📊 Panel',
+        tabNews: '🆕 Novedades',
+        rankingTitle: '🏆 Ranking Global de Descargas',
+        searchLabel: '🔍 Buscar Proyecto',
+        searchPlaceholder: 'Ej: Winlator, Cemu...',
+        categoryLabel: 'Categoría',
+        allCategories: 'Todas las Categorías',
+        sortLabel: '⇅ Ordenar Por',
+        sortByDownloadsDesc: 'Descargas (Mayor a Menor)',
+        sortByDownloadsAsc: 'Descargas (Menor a Mayor)',
+        sortByNameAsc: 'Nombre (A-Z)',
+        sortByNameDesc: 'Nombre (Z-A)',
+        loadingRanking: 'Cargando ranking...',
+        geoVisitors: 'GEO-VISITANTES (TOP PAÍSES)',
+        chartDownloads: '📊 Descargas por Proyecto',
+        chartCategories: '🍕 Participación por Categoría',
+        chartTop10: '🔥 Top 10 Más Populares',
+        chartReleases: '📦 Volumen de Lanzamientos',
+        chartAvgDownloads: '📈 Descargas Promedio por Lanzamiento',
+        chartRadar: '🎯 Comparativa Top 5 (Descargas y Lanzamientos)',
+        chartPolar: '🌐 Vista Polar de Categorías',
+        chartBubble: '🫧 Popularidad vs Actividad',
+        chartHistory: '📉 Historial de Descargas',
+        chartAssets: '📚 Distribuição de Assets',
+        newsTitle: '🆕 Lanzamientos Recientes (Últimos 30 días)',
+        loadingNews: 'Buscando novedades...',
+        modalTitle: 'Lanzamientos',
+        footerVisitChannel: 'Visita mi Canal de YouTube',
+        syncingData: 'SINCRONIZANDO DATOS...',
+        visits: 'Visitas',
+        onlineNow: 'En Línea Ahora',
+        totalVisits: 'Visitas Totales',
+        rankingHeader: 'RANKING',
+        projectHeader: 'PROYECTO',
+        downloadsHeader: 'DESCARGAS',
+        categoryHeader: 'CATEGORÍA',
+        lastReleaseHeader: 'ÚLTIMO LANZAMIENTO',
+        seeReleases: 'Ver Lanzamientos',
+        noRecentReleases: 'No se encontraron lanzamientos recientes.',
+        newReleaseTag: 'LANÇAMENTO RECENTE',
+        newReleaseBadgeHeader: ' ¡NUEVO LANZAMIENTO!',
+        loadingStatus: '⏱️ Cargando datos...',
+        lastSync: 'SINC'
+      },
+      'fr': {
+        title: '🎮 HUB EMULATEURS',
+        subtitle: 'Classements Automatiques • Mis à jour toutes les 1h',
+        loading: '⏱️ Chargement des données...',
+        tabRanking: '🏆 Classement',
+        tabDashboard: '📊 Tableau de Bord',
+        tabNews: '🆕 Nouveautés',
+        rankingTitle: '🏆 Classement Mondial des Téléchargements',
+        searchLabel: '🔍 Rechercher un Projet',
+        searchPlaceholder: 'Ex: Winlator, Cemu...',
+        categoryLabel: '📁 Catégorie',
+        allCategories: 'Toutes les Catégories',
+        sortLabel: '⇅ Trier Par',
+        sortByDownloadsDesc: 'Téléchargements (Décroissant)',
+        sortByDownloadsAsc: 'Téléchargements (Croissant)',
+        sortByNameAsc: 'Nom (A-Z)',
+        sortByNameDesc: 'Nom (Z-A)',
+        loadingRanking: 'Chargement du classement...',
+        geoVisitors: 'GÉO-VISITEURS (TOP PAYS)',
+        chartDownloads: '📊 Téléchargements par Projet',
+        chartCategories: '🍕 Part par Catégorie',
+        chartTop10: '🔥 Top 10 les plus Populaires',
+        chartReleases: '📦 Volume de Versions',
+        chartAvgDownloads: '📈 Moyenne Téléchargements/Version',
+        chartRadar: '🎯 Comparatif Top 5 (Téléchargements & Versions)',
+        chartPolar: '🌐 Vue Polaire des Catégories',
+        chartBubble: '🫧 Popularité vs Activité',
+        chartHistory: '📉 Historique des Téléchargements',
+        chartAssets: '📚 Distribution des Assets',
+        newsTitle: '🆕 Versions Récentes (Derniers 30 jours)',
+        loadingNews: 'Recherche des nouveautés...',
+        modalTitle: 'Versions',
+        footerVisitChannel: 'Visitez ma chaîne YouTube',
+        syncingData: 'SYNCHRONISATION DES DONNÉES...',
+        visits: 'Visites',
+        onlineNow: 'En ligne maintenant',
+        totalVisits: 'Total des Visites',
+        rankingHeader: 'CLASSEMENT',
+        projectHeader: 'PROJET',
+        downloadsHeader: 'TÉLÉCHARGEMENTS',
+        categoryHeader: 'CATÉGORIE',
+        lastReleaseHeader: 'DERNIÈRE VERSION',
+        seeReleases: 'Voir les Versions',
+        noRecentReleases: 'Aucune version récente trouvée.',
+        newReleaseTag: 'NOUVELLE VERSION',
+        newReleaseBadgeHeader: ' NOUVELLE VERSION!',
+        loadingStatus: '⏱️ Chargement...',
+        lastSync: 'SYNCHRO'
+      },
+      'zh': {
+        title: '🎮 模拟器中心',
+        subtitle: '自动排名 • 每小时更新一次',
+        loading: '⏱️ 正在加载数据...',
+        tabRanking: '🏆 排名',
+        tabDashboard: '📊 仪表板',
+        tabNews: '🆕 新闻',
+        rankingTitle: '🏆 全球下载排名',
+        searchLabel: '🔍 搜索项目',
+        searchPlaceholder: '例如: Winlator, Cemu...',
+        categoryLabel: '📁 类别',
+        allCategories: '所有类别',
+        sortLabel: '⇅ 排序方式',
+        sortByDownloadsDesc: '下载量 (从高到低)',
+        sortByDownloadsAsc: '下载量 (从低到高)',
+        sortByNameAsc: '名称 (A-Z)',
+        sortByNameDesc: '名称 (Z-A)',
+        loadingRanking: '正在加载排名...',
+        geoVisitors: '地理访问者 (热门国家)',
+        chartDownloads: '📊 按项目下载',
+        chartCategories: '🍕 类别份额',
+        chartTop10: '🔥 最受欢迎的前 10 名',
+        chartReleases: '📦 版本数量',
+        chartAvgDownloads: '📈 每个版本的平均下载量',
+        chartRadar: '🎯 前 5 名对比 (下载和版本)',
+        chartPolar: '🌐 类别极视角',
+        chartBubble: '🫧 普及度与活跃度',
+        chartHistory: '📉 下载历史',
+        chartAssets: '📚 资源分布',
+        newsTitle: '🆕 最近发布 (最近 30 天)',
+        loadingNews: '正在获取新闻...',
+        modalTitle: '版本',
+        footerVisitChannel: '访问我的 YouTube 频道',
+        syncingData: '同步数据中...',
+        visits: '访问量',
+        onlineNow: '当前在线',
+        totalVisits: '总访问量',
+        rankingHeader: '排名',
+        projectHeader: '项目',
+        downloadsHeader: '下载量',
+        categoryHeader: '类别',
+        lastReleaseHeader: '最新版本',
+        seeReleases: '查看版本',
+        noRecentReleases: '未发现最近发布。',
+        newReleaseTag: '最近发布',
+        newReleaseBadgeHeader: ' 个新发布！',
+        loadingStatus: '⏱️ 加载中...',
+        lastSync: '同步'
+      },
+      'ja': {
+        title: '🎮 エミュレータハブ',
+        subtitle: '自動ランキング • 1時間ごとに更新',
+        loading: '⏱️ データを読み込み中...',
+        tabRanking: '🏆 ランキング',
+        tabDashboard: '📊 ダッシュボード',
+        tabNews: '🆕 新着情報',
+        rankingTitle: '🏆 グローバルダウンロードランキング',
+        searchLabel: '🔍 プロジェクトを検索',
+        searchPlaceholder: '例: Winlator, Cemu...',
+        categoryLabel: '📁 カテゴリ',
+        allCategories: 'すべてのカテゴリ',
+        sortLabel: '⇅ 並べ替え',
+        sortByDownloadsDesc: 'ダウンロード数 (多い順)',
+        sortByDownloadsAsc: 'ダウンロード数 (少ない順)',
+        sortByNameAsc: '名前 (A-Z)',
+        sortByNameDesc: '名前 (Z-A)',
+        loadingRanking: 'ランキングを読み込み中...',
+        geoVisitors: '地域別訪問者 (トップ国)',
+        chartDownloads: '📊 プロジェクト別ダウンロード',
+        chartCategories: '🍕 カテゴリ別シェア',
+        chartTop10: '🔥 人気トップ10',
+        chartReleases: '📦 リリース数',
+        chartAvgDownloads: '📈 リリースあたりの平均ダウンロード数',
+        chartRadar: '🎯 トップ5比較 (ダウンロード & リリース)',
+        chartPolar: '🌐 カテゴリの極座標表示',
+        chartBubble: '🫧 人気度 vs アクティビティ',
+        chartHistory: '📉 ダウンロード履歴',
+        chartAssets: '📚 アセットの分布',
+        newsTitle: '🆕 最近のリリース (過去30日間)',
+        loadingNews: '新着情報を取得中...',
+        modalTitle: 'リリース',
+        footerVisitChannel: 'YouTubeチャンネルにアクセス',
+        syncingData: 'データを同期中...',
+        visits: '訪問数',
+        onlineNow: '現在オンライン',
+        totalVisits: '総訪問数',
+        rankingHeader: '順位',
+        projectHeader: 'プロジェクト',
+        downloadsHeader: 'ダウンロード',
+        categoryHeader: 'カテゴリ',
+        lastReleaseHeader: '最新リリース',
+        seeReleases: 'リリースを見る',
+        noRecentReleases: '最近のリリースの見つかりませんでした。',
+        newReleaseTag: '最近のリリース',
+        newReleaseBadgeHeader: ' つの新しいリリース！',
+        loadingStatus: '⏱️ 読み込み中...',
+        lastSync: '同期'
+      },
+      'ru': {
+        title: '🎮 ХАБ ЭМУЛЯТОРОВ',
+        subtitle: 'Автоматические рейтинги • Обновляется каждый час',
+        loading: '⏱️ Загрузка данных...',
+        tabRanking: '🏆 Рейтинг',
+        tabDashboard: '📊 Панель управления',
+        tabNews: '🆕 Новинки',
+        rankingTitle: '🏆 Глобальный рейтинг загрузок',
+        searchLabel: '🔍 Поиск проекта',
+        searchPlaceholder: 'Пример: Winlator, Cemu...',
+        categoryLabel: '📁 Категория',
+        allCategories: 'Все категории',
+        sortLabel: '⇅ Сортировать по',
+        sortByDownloadsDesc: 'Загрузки (по убыванию)',
+        sortByDownloadsAsc: 'Загрузки (по возрастанию)',
+        sortByNameAsc: 'Имя (А-Я)',
+        sortByNameDesc: 'Имя (Я-А)',
+        loadingRanking: 'Загрузка рейтинга...',
+        geoVisitors: 'ГЕО-ПОСЕТИТЕЛИ (ТОП СТРАН)',
+        chartDownloads: '📊 Загрузки по проектам',
+        chartCategories: '🍕 Доля категорий',
+        chartTop10: '🔥 Топ-10 самых популярных',
+        chartReleases: '📦 Объем релизов',
+        chartAvgDownloads: '📈 Среднее кол-во загрузок на релиз',
+        chartRadar: '🎯 Сравнение топ-5 (загрузки и релизы)',
+        chartPolar: '🌐 Полярный вид категорий',
+        chartBubble: '🫧 Популярность vs Активность',
+        chartHistory: '📉 История загрузок',
+        chartAssets: '📚 Распределение ассетов',
+        newsTitle: '🆕 Последние релизы (за 30 дней)',
+        loadingNews: 'Поиск новинок...',
+        modalTitle: 'Релизы',
+        footerVisitChannel: 'Посетите мой YouTube-канал',
+        syncingData: 'СИНХРОНИЗАЦИЯ ДАННЫХ...',
+        visits: 'Посещения',
+        onlineNow: 'Сейчас в сети',
+        totalVisits: 'Всего посещений',
+        rankingHeader: 'РЕЙТИНГ',
+        projectHeader: 'ПРОЕКТ',
+        downloadsHeader: 'ЗАГРУЗКИ',
+        categoryHeader: 'КАТЕГОРИЯ',
+        lastReleaseHeader: 'ПОСЛЕДНИЙ РЕЛИЗ',
+        seeReleases: 'Посмотреть релизы',
+        noRecentReleases: 'Новых релизов не найдено.',
+        newReleaseTag: 'НОВЫЙ РЕЛИЗ',
+        newReleaseBadgeHeader: ' НОВЫЙ РЕЛИЗ!',
+        loadingStatus: '⏱️ Загрузка...',
+        lastSync: 'СИНХР'
+      }
+    };
+
+    let userLang = navigator.language || navigator.userLanguage;
+    let currentLang = 'pt-BR';
+
+    if (userLang === 'pt-PT' || userLang === 'pt') currentLang = 'pt-PT';
+    else if (userLang.startsWith('pt')) currentLang = 'pt-BR';
+    else if (userLang.startsWith('en')) currentLang = 'en';
+    else if (userLang.startsWith('es')) currentLang = 'es';
+    else if (userLang.startsWith('fr')) currentLang = 'fr';
+    else if (userLang.startsWith('zh')) currentLang = 'zh';
+    else if (userLang.startsWith('ja')) currentLang = 'ja';
+    else if (userLang.startsWith('ru')) currentLang = 'ru';
+
+    function t(key) {
+      return (I18N[currentLang] && I18N[currentLang][key]) || (I18N['pt-BR'][key]) || key;
+    }
+
+    function applyTranslations() {
+      // Traduzir elementos com data-i18n
+      document.querySelectorAll('[data-i18n]').forEach(el => {
+        const key = el.getAttribute('data-i18n');
+        el.innerText = t(key);
+      });
+      // Traduzir atributos como placeholder
+      document.querySelectorAll('[data-i18n-attr]').forEach(el => {
+        const parts = el.getAttribute('data-i18n-attr').split(':');
+        if (parts.length === 2) {
+          el.setAttribute(parts[0], t(parts[1]));
+        }
+      });
+    }
+
     let allData = [];
     let currentTab = 'ranking';
     let charts = {}; // Para gerenciar as instâncias do Chart.js
@@ -2318,23 +2746,23 @@
           </div>
           <div class="release-name">
             ${release.name}
-            ${isNew ? '<span class="new-badge">🔥 Novo!</span>' : ''}
+            ${isNew ? `<span class="new-badge">🔥 ${t('newRelease')}!</span>` : ''}
           </div>
           
           <div class="release-actions">
             <a href="${release.htmlUrl}" target="_blank" class="github-link-btn">
-              🔗 Ver no GitHub
+              🔗 ${t('viewOnGithub')}
             </a>
           </div>
 
           ${descriptionHtml}
           
           <div class="release-downloads">
-            📥 ${release.downloads.toLocaleString('pt-BR')} downloads totais
+            📥 ${release.downloads.toLocaleString(currentLang)} ${t('totalDownloads')}
           </div>
           
           <div class="assets-list">
-            <div class="assets-header">📦 Arquivos para Download:</div>
+            <div class="assets-header">📦 ${t('downloadFiles')}:</div>
       `;
 
           const validExts = getValidExtensions(projectData);
@@ -2345,7 +2773,7 @@
             <div class="asset-info">
               <span class="asset-size">${formatBytes(asset.size)}</span>
               <a href="${asset.url}" target="_blank" class="download-btn">
-                ⬇ Baixar (${asset.downloads.toLocaleString('pt-BR')})
+                ⬇ ${t('download')} (${asset.downloads.toLocaleString(currentLang)})
               </a>
             </div>
           </div>
@@ -2353,7 +2781,7 @@
           });
 
           if (release.assets.filter(a => assetMatchesExtensions(a.name, validExts)).length === 0) {
-            releasesHTML += `<div style="color: #aaa; padding: 10px 0; font-size: 0.9em;">📭 Nenhum arquivo disponível nesta release</div>`;
+            releasesHTML += `<div style="color: #aaa; padding: 10px 0; font-size: 0.9em;">📭 ${t('noFilesAvailable')}</div>`;
           }
 
           releasesHTML += `
@@ -2399,10 +2827,10 @@
       const diffHours = Math.floor(diffMs / (1000 * 60 * 60));
       const diffDays = Math.floor(diffMs / (1000 * 60 * 60 * 24));
 
-      if (diffMinutes < 60) return `há ${diffMinutes} min`;
-      if (diffHours < 24) return `há ${diffHours}h`;
-      if (diffDays === 1) return 'há 1 dia';
-      if (diffDays < 30) return `há ${diffDays} dias`;
+      if (diffMinutes < 60) return t('timeAgoMinutes', { count: diffMinutes });
+      if (diffHours < 24) return t('timeAgoHours', { count: diffHours });
+      if (diffDays === 1) return t('timeAgoOneDay');
+      if (diffDays < 30) return t('timeAgoDays', { count: diffDays });
       return formatDate(dateString);
     }
 
@@ -2437,7 +2865,7 @@
       recentReleases.sort((a, b) => b.releaseDate - a.releaseDate);
 
       if (recentReleases.length === 0) {
-        container.innerHTML = '<div class="no-recent-releases">😴 Nenhuma release nova nos últimos 30 dias</div>';
+        container.innerHTML = `<div class="no-recent-releases">😴 ${t('noRecentReleases')}</div>`;
         return;
       }
 
@@ -2459,7 +2887,7 @@
                 <span class="category-badge category-${sanitizeCategory(item.category)}">
                   ${item.category || '-'}
                 </span>
-                ${item.isHot ? '<div class="recent-hot-flame">🔥 LANÇAMENTO RECENTE!</div>' : ''}
+                ${item.isHot ? `<div class="recent-hot-flame">🔥 ${t('recentRelease')}!</div>` : ''}
               </div>
             </div>
             <div class="recent-release-name">
@@ -2467,7 +2895,7 @@
               ${r.name}
             </div>
             <div class="recent-bottom">
-              <div class="recent-downloads">📥 ${r.downloads.toLocaleString('pt-BR')} downloads</div>
+              <div class="recent-downloads">📥 ${r.downloads.toLocaleString(currentLang)} ${t('downloads')}</div>
               <div class="recent-apks-container">
                 ${validAssets.map(asset => {
           let cleanedName = asset.name
@@ -2476,7 +2904,7 @@
             .replace(/[_\-\s]+/g, ' ')
             .replace(/\.(apk|tar\.gz|zip|exe)$/i, '')
             .trim();
-          if (!cleanedName || cleanedName.length < 2) cleanedName = "Download";
+          if (!cleanedName || cleanedName.length < 2) cleanedName = t('download');
           return `<a href="${asset.url}" target="_blank" class="recent-download-btn" onclick="event.stopPropagation();" title="${asset.name}">⬇ ${cleanedName} (${formatBytes(asset.size)})</a>`;
         }).join('')}
               </div>
@@ -2517,7 +2945,7 @@
         data: {
           labels: projects.slice(0, 15).map(p => p.name),
           datasets: [{
-            label: 'Total Downloads',
+            label: t('totalDownloads'),
             data: projects.slice(0, 15).map(p => p.downloads),
             backgroundColor: 'rgba(0, 247, 255, 0.5)',
             borderColor: '#00f7ff',
@@ -2557,7 +2985,7 @@
         data: {
           labels: top10.map(p => p.name),
           datasets: [{
-            label: 'Downloads',
+            label: t('downloads'),
             data: top10.map(p => p.downloads),
             backgroundColor: 'rgba(255, 107, 255, 0.5)',
             borderColor: '#ff6bff',
@@ -2573,7 +3001,7 @@
         data: {
           labels: projects.slice(0, 15).map(p => p.name),
           datasets: [{
-            label: 'Total Releases',
+            label: t('totalReleases'),
             data: projects.slice(0, 15).map(p => p.releases ? p.releases.length : 0),
             backgroundColor: 'rgba(0, 255, 136, 0.5)',
             borderColor: '#00ff88',
@@ -2589,7 +3017,7 @@
         data: {
           labels: projects.slice(0, 12).map(p => p.name),
           datasets: [{
-            label: 'Média Downloads/Release',
+            label: t('avgDownloadsPerRelease'),
             data: projects.slice(0, 12).map(p => p.releases && p.releases.length > 0 ? p.downloads / p.releases.length : 0),
             borderColor: '#ffcc00',
             backgroundColor: 'rgba(255, 204, 0, 0.2)',
@@ -2604,7 +3032,7 @@
       charts.radar = new Chart(document.getElementById('chart-radar'), {
         type: 'radar',
         data: {
-          labels: ['Downloads', 'Releases', 'Novidade', 'Popularidade'],
+          labels: [t('downloads'), t('releases'), t('novelty'), t('popularity')],
           datasets: top5.map((p, i) => ({
             label: p.name,
             data: [
@@ -2680,11 +3108,11 @@
           maintainAspectRatio: false,
           scales: {
             x: {
-              title: { display: true, text: 'Total de Releases', color: '#00f7ff', font: { weight: 'bold' } },
+              title: { display: true, text: t('totalReleases'), color: '#00f7ff', font: { weight: 'bold' } },
               grid: { color: 'rgba(255, 255, 255, 0.1)' }
             },
             y: {
-              title: { display: true, text: 'Total Downloads', color: '#00f7ff', font: { weight: 'bold' } },
+              title: { display: true, text: t('totalDownloads'), color: '#00f7ff', font: { weight: 'bold' } },
               grid: { color: 'rgba(255, 255, 255, 0.1)' }
             }
           },
@@ -2700,7 +3128,7 @@
         data: {
           labels: top10.map(p => p.name),
           datasets: [{
-            label: 'Volume de Downloads (Log)',
+            label: t('downloadsVolumeLog'),
             data: top10.map(p => Math.log10(p.downloads || 1)),
             borderColor: '#ff4d4d',
             tension: 0.1
@@ -2715,8 +3143,8 @@
         data: {
           labels: projects.slice(0, 10).map(p => p.name),
           datasets: [
-            { label: 'Downloads (Proporção)', data: projects.slice(0, 10).map(p => 50), backgroundColor: '#00f7ff' },
-            { label: 'Releases (Proporção)', data: projects.slice(0, 10).map(p => p.releases ? p.releases.length : 0), backgroundColor: '#00ff88' }
+            { label: t('downloadsProportion'), data: projects.slice(0, 10).map(p => 50), backgroundColor: '#00f7ff' },
+            { label: t('releasesProportion'), data: projects.slice(0, 10).map(p => p.releases ? p.releases.length : 0), backgroundColor: '#00ff88' }
           ]
         },
         options: {
@@ -2737,7 +3165,7 @@
       const container = document.getElementById('rankingContainer');
 
       if (data.length === 0) {
-        container.innerHTML = '<div class="loading">🔍 Nenhum projeto encontrado com esses filtros.</div>';
+        container.innerHTML = `<div class="loading">🔍 ${t('noProjectsFound')}</div>`;
         return;
       }
 
@@ -2761,16 +3189,16 @@
               <div class="card-info">
                 <div class="card-name">
                   ${item.name}
-                  ${hasNew ? '<span class="card-new-badge">NOVO</span>' : ''}
+                  ${hasNew ? `<span class="card-new-badge">${t('new')}</span>` : ''}
                 </div>
                 <div class="card-meta">
                   <span class="category-badge category-${sanitizeCategory(item.category)}">${item.category || '-'}</span>
                 </div>
-                <div class="card-click-hint">Clique aqui</div>
+                <div class="card-click-hint">${t('clickHere')}</div>
               </div>
               <div class="card-downloads">
-                ${item.downloads.toLocaleString('pt-BR')}
-                <div class="card-downloads-label">Downloads</div>
+                ${item.downloads.toLocaleString(currentLang)}
+                <div class="card-downloads-label">${t('downloads')}</div>
               </div>
             </div>
           `;
@@ -2783,10 +3211,10 @@
           <table>
             <thead>
               <tr>
-                <th style="width: 80px; text-align: center;">RANK</th>
-                <th>PROJETO</th>
-                <th style="width: 250px;">CATEGORIA</th>
-                <th style="text-align: right; width: 200px;">TOTAL DOWNLOADS</th>
+                <th style="width: 80px; text-align: center;">${t('rank')}</th>
+                <th>${t('project')}</th>
+                <th style="width: 250px;">${t('category')}</th>
+                <th style="text-align: right; width: 200px;">${t('totalDownloads')}</th>
               </tr>
             </thead>
             <tbody>
@@ -2807,8 +3235,8 @@
                   ${item.logo ? `<img src="logos/${item.logo}" class="project-logo" onerror="this.style.display='none'">` : ''}
                   <div class="project-name">
                     ${item.name}
-                    ${hasNew ? '<span class="new-release-badge">🔥 NOVO APK!</span>' : ''}
-                    <div class="click-hint">Clique para ver downloads</div>
+                    ${hasNew ? `<span class="new-release-badge">🔥 ${t('newApk')}!</span>` : ''}
+                    <div class="click-hint">${t('clickToViewDownloads')}</div>
                   </div>
                 </div>
               </td>
@@ -2818,7 +3246,7 @@
                 </span>
               </td>
               <td style="text-align: right;">
-                <span class="downloads-count">${item.downloads.toLocaleString('pt-BR')}</span>
+                <span class="downloads-count">${item.downloads.toLocaleString(currentLang)}</span>
               </td>
             </tr>
           `;
@@ -2851,7 +3279,7 @@
             <div class="hud-card">
               <span class="hud-icon">🕒</span>
               <div>
-                <span class="hud-label">Sincronização</span>
+                <span class="hud-label">${t('lastSync')}</span>
                 <span class="hud-value">${formatDate(json.updatedAt)}</span>
               </div>
             </div>
@@ -2859,7 +3287,7 @@
             <div class="hud-card">
               <div class="online-indicator"></div>
               <div>
-                <span class="hud-label">Online Agora</span>
+                <span class="hud-label">${t('onlineNow')}</span>
                 <span class="hud-value" id="onlineNow">...</span>
               </div>
             </div>
@@ -2867,14 +3295,14 @@
             <div class="hud-card">
               <span class="hud-icon">👥</span>
               <div>
-                <span class="hud-label">Total de Visitas</span>
-                <span class="hud-value" id="totalVisits">Carregando...</span>
+                <span class="hud-label">${t('totalVisits')}</span>
+                <span class="hud-value" id="totalVisits">${t('loading')}...</span>
               </div>
             </div>
 
             ${newReleasesCount > 0 ? `
               <div class="top-news-badge">
-                🔥 ${newReleasesCount} ${newReleasesCount === 1 ? 'NOVO LANÇAMENTO' : 'NOVOS LANÇAMENTOS'}!
+                🔥 ${newReleasesCount} ${newReleasesCount === 1 ? t('newReleaseSingular') : t('newReleasePlural')}!
               </div>
             ` : ''}
           `;
@@ -3021,7 +3449,7 @@
             const count = stats[code] || 0;
             const colorIdx = countryColorIndices[code];
             const color = colorIdx !== undefined ? neonPalette[colorIdx] : '#00fff9';
-            tooltip.text(`<b>${tooltip.text()}</b><br/><span style="color:${color}">Visitas: ${count}</span>`, true);
+            tooltip.text(`<b>${tooltip.text()}</b><br/><span style="color:${color}">${t('visits')}: ${count.toLocaleString(currentLang)}</span>`, true);
           }
         });
       } catch (err) {
