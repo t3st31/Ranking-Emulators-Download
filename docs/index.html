@@ -2135,6 +2135,113 @@
     </div>
   </div>
 
+  <style>
+    /* ==================== NOVAS NOVIDADES & DRIVERS ==================== */
+    #recentReleasesContainer,
+    #recentDriversContainer {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+      gap: 20px;
+      padding: 10px 0;
+    }
+
+    .news-item {
+      background: rgba(255, 255, 255, 0.03);
+      border: 1px solid rgba(255, 255, 255, 0.1);
+      border-radius: 16px;
+      padding: 15px;
+      display: flex;
+      gap: 15px;
+      align-items: center;
+      cursor: pointer;
+      transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+      position: relative;
+      overflow: hidden;
+    }
+
+    .news-item:hover {
+      background: rgba(255, 255, 255, 0.07);
+      border-color: #00fff9;
+      transform: translateY(-3px);
+      box-shadow: 0 10px 30px rgba(0, 255, 249, 0.1);
+    }
+
+    .news-icon-wrapper {
+      position: relative;
+      width: 60px;
+      height: 60px;
+      flex-shrink: 0;
+    }
+
+    .news-icon-fallback {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      display: none;
+      align-items: center;
+      justify-content: center;
+      background: rgba(255, 255, 255, 0.05);
+      border: 1px solid rgba(0, 255, 249, 0.3);
+      border-radius: 12px;
+      font-size: 24px;
+      color: #00fff9;
+    }
+
+    .news-icon {
+      width: 100%;
+      height: 100%;
+      object-fit: contain;
+      border-radius: 12px;
+      border: 1px solid rgba(255, 255, 255, 0.1);
+      padding: 5px;
+      background: rgba(255, 255, 255, 0.05);
+    }
+
+    .news-badge-new {
+      position: absolute;
+      bottom: -5px;
+      right: -5px;
+      background: #00fff9;
+      color: #0a0a0f;
+      font-size: 10px;
+      padding: 2px 6px;
+      border-radius: 4px;
+      font-weight: 800;
+      text-transform: uppercase;
+      box-shadow: 0 2px 8px rgba(0, 255, 249, 0.4);
+    }
+
+    .news-info {
+      flex: 1;
+      min-width: 0;
+    }
+
+    .news-project {
+      font-family: 'Orbitron', sans-serif;
+      font-size: 14px;
+      color: #ffffff;
+      font-weight: 700;
+      margin-bottom: 4px;
+      white-space: nowrap;
+      overflow: hidden;
+      text-overflow: ellipsis;
+    }
+
+    .news-tag {
+      font-size: 12px;
+      color: #00fff9;
+      margin-bottom: 4px;
+      font-weight: 500;
+    }
+
+    .news-date {
+      font-size: 11px;
+      color: #888;
+    }
+  </style>
+
   <footer>
     <span class="footer-credit" data-i18n="developedBy">Developed with ⚡ by FurulipoGames - GameHub Brasil</span>
     <a href="https://youtube.com/@FurulipoGames - GameHub BrasilGames" target="_blank" class="premium-link">
@@ -3939,7 +4046,8 @@
         return `
           <div class="news-item" onclick='openModal(${JSON.stringify(p).replace(/'/g, "&apos;")})'>
             <div class="news-icon-wrapper">
-              <img src="logos/${p.logo || 'drivers.png'}" class="news-icon" onerror="this.src='logos/drivers.png'">
+              <div class="news-icon-fallback">🏎️</div>
+              <img src="logos/${p.logo || 'drivers.png'}" class="news-icon" onerror="this.style.display='none'; this.previousElementSibling.style.display='flex';">
               <div class="news-badge-new" data-i18n="newReleaseSingular">${t('newReleaseSingular')}</div>
             </div>
             <div class="news-info">
@@ -3950,6 +4058,12 @@
           </div>
         `;
       }).join('');
+    }
+
+    function renderDashboardOverview(data) {
+      // Esta função pode ser expandida no futuro para mostrar stats rápidos no topo do dashboard
+      // Por enquanto, apenas garantimos que a chamada no loadData não quebre.
+      console.log('Dashboard Overview rendered');
     }
 
     function renderRanking(data) {
