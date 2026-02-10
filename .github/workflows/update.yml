@@ -2,7 +2,7 @@ name: Update Rankings
 
 on:
   schedule:
-    - cron: "0 */1 * * *"
+    - cron: "0 */1 * * *"   # a cada 1 hora
   workflow_dispatch:
 
 jobs:
@@ -13,7 +13,7 @@ jobs:
       - name: Checkout repo
         uses: actions/checkout@v4
         with:
-          fetch-depth: 0   # IMPORTANTE
+          fetch-depth: 0
 
       - name: Setup Node.js
         uses: actions/setup-node@v4
@@ -23,9 +23,9 @@ jobs:
       - name: Install dependencies (if any)
         run: npm ci || true
 
-      - name: Clean old generated files
+      - name: Prepare folders
         run: |
-          rm -f data/rankings.json
+          mkdir -p data
           mkdir -p docs/data
 
       - name: Fetch downloads
@@ -42,9 +42,8 @@ jobs:
           git config user.name "github-actions"
           git config user.email "actions@github.com"
 
-          git pull --rebase origin main
-
           git add docs/data/rankings.json
+
           git commit -m "Update rankings (auto)" || exit 0
 
-          git push origin main
+          git push
