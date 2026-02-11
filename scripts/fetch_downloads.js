@@ -10,7 +10,7 @@ const repos = [
   { name: "GameNative", repo: "utkarshdalal/GameNative", category: "GameNative", logo: "gamenative.png" },
 
   // WINLATOR
-  { name: "Winlator Official", repo: "brunodev85/winlator", category: "Winlator", logo: "winlator.png" },
+  { name: "Winlator BrunoDev85", repo: "brunodev85/winlator", category: "Winlator", logo: "winlator.png" },
   { name: "Winlator Ludashi", repo: "StevenMXZ/Winlator-Ludashi", category: "Winlator", logo: "winlator.png" },
   { name: "Winlator Afei", repo: "afeimod/winlator-mod", category: "Winlator", logo: "winlator.png" },
   { name: "Winlator Xmod", repo: "deivid22srk/Winlator-Xmod", category: "Winlator", logo: "winlator.png" },
