@@ -2397,35 +2397,39 @@
       text-transform: uppercase;
     }
 
-    /* Footer Gamer Styles */
+    /* Footer Gamer Styles V2 (Ultra) */
     footer {
-      background: rgba(10, 10, 16, 0.95);
-      border-top: 1px solid rgba(0, 242, 255, 0.2);
-      padding: 30px 20px;
-      margin-top: 40px;
+      background: linear-gradient(0deg, rgba(0, 0, 0, 0.9), rgba(20, 20, 30, 0.98));
+      border-top: 2px solid #00f2ff;
+      padding: 40px 20px;
+      margin-top: 50px;
       position: relative;
       overflow: hidden;
-      box-shadow: 0 -10px 40px rgba(0, 0, 0, 0.5);
+      box-shadow: 0 0 50px rgba(0, 242, 255, 0.15);
+      text-align: center;
     }
 
+    /* Linha de energia correndo no topo */
     footer::before {
       content: '';
       position: absolute;
       top: 0;
       left: 0;
       width: 100%;
-      height: 1px;
-      background: linear-gradient(90deg, transparent, #00f2ff, #ff005d, transparent);
-      animation: neonBorderFlow 4s linear infinite;
+      height: 2px;
+      background: linear-gradient(90deg, transparent, #00f2ff, #ff005d, #00f2ff, transparent);
+      background-size: 200% auto;
+      animation: neonFlow 3s linear infinite;
+      z-index: 2;
     }
 
-    @keyframes neonBorderFlow {
+    @keyframes neonFlow {
       0% {
-        transform: translateX(-100%);
+        background-position: 100% 0;
       }
 
       100% {
-        transform: translateX(100%);
+        background-position: -100% 0;
       }
     }
 
@@ -2435,38 +2439,93 @@
       display: flex;
       flex-direction: column;
       align-items: center;
-      gap: 20px;
+      gap: 25px;
+      position: relative;
+      z-index: 1;
+    }
+
+    .footer-credit {
+      font-family: 'Orbitron', sans-serif;
+      color: rgba(255, 255, 255, 0.7);
+      font-size: 0.9em;
+      letter-spacing: 1px;
+      text-transform: uppercase;
+      margin-bottom: 10px;
+      text-shadow: 0 0 10px rgba(0, 242, 255, 0.3);
     }
 
     .footer-actions {
       display: flex;
-      gap: 15px;
+      gap: 20px;
       flex-wrap: wrap;
       justify-content: center;
     }
 
+    /* Botões Premium V2 */
+    .premium-link {
+      display: inline-flex;
+      align-items: center;
+      gap: 12px;
+      padding: 15px 30px;
+      color: white;
+      text-decoration: none;
+      border-radius: 8px;
+      font-weight: 900;
+      font-size: 1.1em;
+      text-transform: uppercase;
+      letter-spacing: 1.5px;
+      position: relative;
+      overflow: hidden;
+      transition: all 0.3s cubic-bezier(0.25, 1, 0.5, 1);
+      backdrop-filter: blur(5px);
+    }
+
+    /* Animação de Flutuação */
+    @keyframes hudFloat {
+
+      0%,
+      100% {
+        transform: translateY(0);
+      }
+
+      50% {
+        transform: translateY(-5px);
+      }
+    }
+
+    /* YouTube - Vermelho Sangue Vibrante */
     .premium-link.youtube-btn {
-      background: linear-gradient(135deg, #ff0000, #c40000);
-      box-shadow: 0 0 15px rgba(255, 0, 0, 0.4);
-    }
-
-    .premium-link.github-btn {
-      background: linear-gradient(135deg, #2b3137, #24292e);
-      box-shadow: 0 0 15px rgba(255, 255, 255, 0.2);
-    }
-
-    .premium-link:hover {
-      transform: translateY(-3px);
-      filter: brightness(1.2);
+      background: linear-gradient(135deg, rgba(255, 0, 0, 0.8), rgba(139, 0, 0, 0.9));
+      border: 1px solid #ff4d4d;
+      box-shadow: 0 0 20px rgba(255, 0, 0, 0.4), inset 0 0 10px rgba(255, 0, 0, 0.2);
+      animation: hudFloat 4s ease-in-out infinite;
     }
 
     .premium-link.youtube-btn:hover {
-      box-shadow: 0 0 25px rgba(255, 0, 0, 0.6);
+      box-shadow: 0 0 40px rgba(255, 0, 0, 0.8), 0 0 10px rgba(255, 255, 255, 0.5);
+      border-color: #fff;
+      transform: translateY(-8px) scale(1.05);
+      background: linear-gradient(135deg, #ff1a1a, #cc0000);
+    }
+
+    /* GitHub - Roxo Neon Intenso */
+    .premium-link.github-btn {
+      background: linear-gradient(135deg, rgba(111, 66, 193, 0.8), rgba(76, 40, 137, 0.9));
+      border: 1px solid #a06cd5;
+      box-shadow: 0 0 20px rgba(111, 66, 193, 0.4), inset 0 0 10px rgba(138, 43, 226, 0.2);
+      animation: hudFloat 4s ease-in-out infinite 0.5s;
     }
 
     .premium-link.github-btn:hover {
-      box-shadow: 0 0 25px rgba(255, 255, 255, 0.3);
-      border: 1px solid rgba(255, 255, 255, 0.5);
+      box-shadow: 0 0 40px rgba(138, 43, 226, 0.8), 0 0 10px rgba(255, 255, 255, 0.5);
+      border-color: #fff;
+      transform: translateY(-8px) scale(1.05);
+      background: linear-gradient(135deg, #8a2be2, #4b0082);
+    }
+
+    .premium-link i {
+      font-size: 1.4em;
+      filter: drop-shadow(0 2px 5px rgba(0, 0, 0, 0.5));
     }
   </style>
 
@@ -2476,10 +2535,10 @@
       <div class="footer-actions">
         <a href="https://youtube.com/@FurulipoGames - GameHub BrasilGames" target="_blank"
           class="premium-link youtube-btn">
-          📺 <span data-i18n="footerVisitChannel">Visite meu Canal no YouTube</span>
+          📺 <span data-i18n="footerVisitChannel">CANAL YOUTUBE</span>
         </a>
         <a href="https://github.com/winlatorbrasil/gamehub-brasil" target="_blank" class="premium-link github-btn">
-          📦 <span data-i18n="viewOnGithub">Ver no GitHub</span>
+          📦 <span data-i18n="viewOnGithub">CODE GITHUB</span>
         </a>
       </div>
     </div>
