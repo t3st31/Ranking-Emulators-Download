@@ -28,7 +28,7 @@
       position: relative;
     }
 
-    /* Animação de fundo cyberpunk. */
+    /* Animação de fundo cyberpunk */
     body::before {
       content: "";
       position: fixed;
@@ -5013,12 +5013,14 @@
       }
     });
 
-    // Efeito de Header colapsável ao rolar
+    // Efeito de Header colapsável ao rolar com histerese para evitar flickering
     window.addEventListener('scroll', () => {
       const header = document.getElementById('mainHeader');
-      if (window.scrollY > 100) {
+      const scrollTop = window.scrollY;
+
+      if (scrollTop > 100) {
         header.classList.add('collapsed');
-      } else {
+      } else if (scrollTop < 50) {
         header.classList.remove('collapsed');
       }
     });
