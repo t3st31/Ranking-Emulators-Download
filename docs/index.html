@@ -4363,9 +4363,9 @@
 
         applyTranslations();
 
-        // Cálculo de novidades separadas
-        const newReleasesCount = allData.filter(p => hasNewReleases(p, 30)).length;
-        const newDriversCount = allData.filter(p => hasNewDriverReleases(p, 30)).length;
+        // Cálculo de novidades separadas (Apenas 7 dias para notificação)
+        const newReleasesCount = allData.filter(p => hasNewReleases(p, 7)).length;
+        const newDriversCount = allData.filter(p => hasNewDriverReleases(p, 7)).length;
 
         // Badge nas Abas
         if (newReleasesCount > 0) {
