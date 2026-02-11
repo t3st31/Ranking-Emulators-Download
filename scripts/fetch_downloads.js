@@ -49,9 +49,7 @@ const repos = [
 
   // Emulator PS3
   { name: "APS3e", repo: "aenu1/aps3e", category: "Emulator PS3", logo: "aps3e.png" },
-
-  // Emulator PS4
-  { name: "RPCSX Android", repo: "RPCSX/rpcsx-ui-android", category: "Emulator PS4", logo: "rpcsx.png" },
+  { name: "RPCSX Android", repo: "RPCSX/rpcsx-ui-android", category: "Emulator PS3", logo: "rpcsx.png" },
 
   // Emulator PS2
   { name: "ARMSX2", repo: "ARMSX2/ARMSX2", category: "Emulator PS2", logo: "armsx2.png" },
