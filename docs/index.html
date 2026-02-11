@@ -1664,6 +1664,36 @@
       animation: flameGlow 1.5s ease-in-out infinite;
     }
 
+    .recent-new-badge {
+      display: inline-flex;
+      align-items: center;
+      gap: 5px;
+      background: linear-gradient(135deg, #00f2ff 0%, #00c6ff 100%);
+      color: #0a0a0f;
+      padding: 5px 12px;
+      border-radius: 12px;
+      font-size: 0.78em;
+      font-weight: 800;
+      text-transform: uppercase;
+      letter-spacing: 0.5px;
+      box-shadow: 0 0 15px rgba(0, 242, 255, 0.4);
+    }
+
+    .recent-new-badge {
+      display: inline-flex;
+      align-items: center;
+      gap: 5px;
+      background: linear-gradient(135deg, #00f2ff 0%, #00c6ff 100%);
+      color: #0a0a0f;
+      padding: 5px 12px;
+      border-radius: 12px;
+      font-size: 0.78em;
+      font-weight: 800;
+      text-transform: uppercase;
+      letter-spacing: 0.5px;
+      box-shadow: 0 0 15px rgba(0, 242, 255, 0.4);
+    }
+
     @keyframes flameGlow {
 
       0%,
@@ -3823,7 +3853,8 @@
               projectData: project,
               release: release,
               releaseDate: releaseDate,
-              isHot: releaseDate >= sevenDaysAgo
+              isHot: releaseDate >= sevenDaysAgo,
+              isNew: releaseDate < sevenDaysAgo && releaseDate >= thirtyDaysAgo
             });
           }
         });
@@ -3853,7 +3884,10 @@
               </div>
               <div class="recent-row" style="margin-top: 8px; justify-content: flex-start; gap: 10px;">
                 <span class="category-badge category-${sanitizeCategory(item.category)}">${item.category}</span>
-                ${item.isHot ? `<div class="recent-hot-flame">🔥 ${t('recentRelease') || 'LANÇAMENTO RECENTE!'}</div>` : ''}
+                ${item.isHot ?
+            `<div class="recent-hot-flame">🔥 ${t('recentRelease') || 'LANÇAMENTO RECENTE!'}</div>` :
+            (item.isNew ? `<div class="recent-new-badge">✨ ${t('new') || 'NOVO'}</div>` : '')
+          }
               </div>
             </div>
             
@@ -3866,15 +3900,15 @@
               <div class="recent-downloads">📥 ${totalDownloads.toLocaleString()} downloads</div>
               <div class="recent-apks-container">
                 ${validAssets.map(asset => {
-          let cleanedName = asset.name
-            .replace(item.projectName, '')
-            .replace(r.tag, '')
-            .replace(/[_\-\s]+/g, ' ')
-            .replace(/\.(apk|tar\.gz|zip|exe)$/i, '')
-            .trim();
-          if (!cleanedName || cleanedName.length < 2) cleanedName = t('download');
-          return `<a href="${asset.url}" target="_blank" class="recent-download-btn" onclick="event.stopPropagation();" title="${asset.name}">⬇ ${cleanedName} (${formatBytes(asset.size)})</a>`;
-        }).join('')}
+            let cleanedName = asset.name
+              .replace(item.projectName, '')
+              .replace(r.tag, '')
+              .replace(/[_\-\s]+/g, ' ')
+              .replace(/\.(apk|tar\.gz|zip|exe)$/i, '')
+              .trim();
+            if (!cleanedName || cleanedName.length < 2) cleanedName = t('download');
+            return `<a href="${asset.url}" target="_blank" class="recent-download-btn" onclick="event.stopPropagation();" title="${asset.name}">⬇ ${cleanedName} (${formatBytes(asset.size)})</a>`;
+          }).join('')}
               </div>
             </div>
           </div>
@@ -4161,7 +4195,9 @@
             <div class="news-icon-wrapper">
               <div class="news-icon-fallback">🏎️</div>
               <img src="logos/${p.logo || 'drivers.png'}" class="news-icon" onerror="this.style.display='none'; this.previousElementSibling.style.display='flex';">
-              <div class="news-badge-new" data-i18n="newReleaseSingular">${t('newReleaseSingular')}</div>
+              ${(new Date(p.latestRelease.date) >= new Date(new Date().getTime() - 7 * 24 * 60 * 60 * 1000)) ?
+            `<div class="news-badge-new" data-i18n="newReleaseSingular">${t('newReleaseSingular')}</div>` :
+            ''}
             </div>
             <div class="news-info">
               <div class="news-project">${p.name}</div>
