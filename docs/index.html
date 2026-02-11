@@ -2366,6 +2366,36 @@
       transform: scale(1.02);
       box-shadow: 0 0 15px rgba(255, 204, 0, 0.4);
     }
+
+    /* Badge de Drivers Animation */
+    @keyframes pulseBadgeCyan {
+      0% {
+        box-shadow: 0 0 0 0 rgba(0, 242, 255, 0.4);
+      }
+
+      70% {
+        box-shadow: 0 0 0 10px rgba(0, 242, 255, 0);
+      }
+
+      100% {
+        box-shadow: 0 0 0 0 rgba(0, 242, 255, 0);
+      }
+    }
+
+    .top-drivers-badge {
+      display: inline-block;
+      background: linear-gradient(90deg, #00f2ff, #00c6ff);
+      color: #0a0a0f;
+      padding: 5px 15px;
+      border-radius: 20px;
+      font-weight: 800;
+      box-shadow: 0 0 15px rgba(0, 242, 255, 0.5);
+      animation: pulseBadgeCyan 2s infinite;
+      text-shadow: none;
+      border: 1px solid rgba(255, 255, 255, 0.2);
+      margin-left: 10px;
+      text-transform: uppercase;
+    }
   </style>
 
   <footer>
@@ -4383,8 +4413,8 @@
           const limit = new Date(new Date().getTime() - 7 * 24 * 60 * 60 * 1000);
           // Conta quantos releases deste driver são recentes (assumindo todos válidos se category==Drivers, ou add verificação de zip)
           const recentReleases = p.releases.filter(r => {
-            // Verificação simplificada ou reuso de lógica
-            return new Date(r.date) >= limit;
+            const hasZip = r.assets && r.assets.some(a => a.name.toLowerCase().endsWith('.zip'));
+            return new Date(r.date) >= limit && hasZip;
           });
           return count + recentReleases.length;
         }, 0);
