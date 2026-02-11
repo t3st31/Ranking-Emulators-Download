@@ -8,7 +8,7 @@
 ![Update](https://img.shields.io/badge/Updates-Hourly-ff0080?style=for-the-badge&logo=github)
 ![Style](https://img.shields.io/badge/Style-Cyberpunk-7f00ff?style=for-the-badge&logo=css3)
 
-[**LAUNCH HUB EMULATORS**](https://t3st31.github.io/Ranking-Emulators-Download/)
+[**⚠️CLICK HERE TO ACCESS THE HUB EMULATORS WEBSITE**](https://t3st31.github.io/Ranking-Emulators-Download/)
 
 ---
 </div>
