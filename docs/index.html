@@ -2128,6 +2128,7 @@
         font-size: 1.2em;
       }
     }
+
     .support-container {
       text-align: center;
       margin: 10px auto 20px;
@@ -4996,12 +4997,13 @@
     // Responsividade: Redesenhar ranking ao mudar tamanho da tela
     window.addEventListener('resize', () => {
       if (currentTab === 'ranking') {
-        renderRanking(allData);
+        updateFilters();
       }
       if (currentTab === 'drivers') {
         renderRecentDrivers(allData);
       }
       if (currentTab === 'drivers-all') {
+        const manifestDrivers = allData.manifestDrivers || {}; // Ensure we have the latest manifest
         renderCategorizedDrivers(manifestDrivers);
       }
       if (currentTab === 'charts') {
