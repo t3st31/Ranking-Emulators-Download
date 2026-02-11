@@ -10,7 +10,7 @@
 ![Update](https://img.shields.io/badge/Atualizações-Horárias-ff0080?style=for-the-badge&logo=github)
 ![Style](https://img.shields.io/badge/Estilo-Cyberpunk-7f00ff?style=for-the-badge&logo=css3)
 
-[**ACESSAR HUB EMULATORS**](https://t3st31.github.io/Ranking-Emulators-Download/)
+[**⚠️ CLIQUE AQUI PARA ACESSAR O SITE HUB EMULATORS**](https://t3st31.github.io/Ranking-Emulators-Download/)
 
 ---
 </div>
@@ -52,3 +52,4 @@ Desenvolvido por **FurulipoGames - GameHub Brazil** ⚡.
   
   *Explore a fronteira da emulação.*
 </div>
+
