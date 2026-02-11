@@ -1,6 +1,9 @@
 
 <div align="center">
 
+[![English](https://img.shields.io/badge/Lang-English-blue?style=for-the-badge&logo=google-translate&logoColor=white)](README.md)
+[![Portuguese](https://img.shields.io/badge/Lang-Portuguese-green?style=for-the-badge&logo=google-translate&logoColor=white)](README.pt-BR.md)
+
 # 🎮 HUB EMULATORS
 ### *The Ultimate Hub Emulators for Mobile Emulation*
 
