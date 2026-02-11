@@ -57,6 +57,34 @@
       }
     }
 
+    /* Acessibilidade: Preferência por movimento reduzido */
+    @media (prefers-reduced-motion: reduce) {
+
+      body::before,
+      .grid-bg {
+        animation: none !important;
+      }
+
+      .glitch::before,
+      .glitch::after {
+        animation: none !important;
+      }
+
+      .hud-card,
+      .tab-btn,
+      .ranking-card-item,
+      tr {
+        transition: none !important;
+      }
+
+      header p,
+      .online-indicator,
+      .new-badge-pulse,
+      .pulse-badge-cyan {
+        animation: none !important;
+      }
+    }
+
     /* Grid animado no fundo */
     .grid-bg {
       position: fixed;
@@ -90,6 +118,24 @@
       position: relative;
       overflow: hidden;
       border-bottom: 2px solid #ff005d;
+      transition: padding 0.3s ease, background 0.3s ease;
+    }
+
+    #mainHeader.collapsed {
+      padding: 20px 20px;
+      position: sticky;
+      top: 0;
+      z-index: 1000;
+      background: rgba(15, 12, 41, 0.95);
+      backdrop-filter: blur(10px);
+    }
+
+    #mainHeader.collapsed h1 {
+      font-size: 2em;
+    }
+
+    #mainHeader.collapsed p {
+      display: none;
     }
 
     /* Scanlines effect */
@@ -315,6 +361,13 @@
       }
     }
 
+    /* Reduzir iterações para evitar distrações */
+    .new-badge-pulse,
+    .pulse-badge-cyan,
+    .card-new-badge {
+      animation-iteration-count: 3;
+    }
+
     .last-update {
       text-align: center;
       padding: 15px;
@@ -390,6 +443,7 @@
     }
 
 
+    /* Estilo do badge como rótulo informativo, não botão */
     .top-news-badge {
       background: linear-gradient(135deg, #ff0080, #ff8c00);
       padding: 0 15px;
@@ -398,26 +452,19 @@
       align-items: center;
       justify-content: center;
       border-radius: 20px;
-      font-size: 0.85em;
+      font-size: 0.75em;
       font-weight: 800;
       color: white;
       white-space: nowrap;
       box-shadow: 0 0 15px rgba(255, 0, 128, 0.4);
-      animation: newBadgePulse 2s ease-in-out infinite;
+      cursor: default;
+      /* Mostrar que não é botão */
+      pointer-events: none;
     }
 
-    @keyframes newBadgePulse {
-
-      0%,
-      100% {
-        transform: scale(1);
-        box-shadow: 0 0 15px rgba(255, 0, 128, 0.4);
-      }
-
-      50% {
-        transform: scale(1.05);
-        box-shadow: 0 0 25px rgba(255, 0, 128, 0.7);
-      }
+    /* Ocultar badge se não houver novidades */
+    #topNewReleasesBadge:empty {
+      display: none;
     }
 
     section {
@@ -1036,14 +1083,7 @@
     }
 
     .card-click-hint {
-      font-size: 0.55em;
-      color: #00f7ff;
-      opacity: 0.7;
-      font-style: italic;
-      margin-top: 2px;
-      display: flex;
-      align-items: center;
-      gap: 3px;
+      display: none;
     }
 
     .card-new-badge {
@@ -2531,7 +2571,7 @@
 
   <footer>
     <div class="footer-content">
-      <span class="footer-credit" data-i18n="developedBy">Developed by ⚡FurulipoGames - GameHub Brasil</span>
+      <span class="footer-credit" data-i18n="developedBy">Developed with ⚡ by FurulipoGames - GameHub Brasil</span>
       <div class="footer-actions">
         <a href="https://youtube.com/@FurulipoGames - GameHub BrasilGames" target="_blank"
           class="premium-link youtube-btn">
@@ -2563,6 +2603,7 @@
         sortByDownloadsAsc: 'Downloads (Menor p/ Maior)',
         sortByNameAsc: 'Nome (A-Z)',
         sortByNameDesc: 'Nome (Z-A)',
+        groupByUpstream: 'Agrupar por Upstream',
         loadingRanking: 'Carregando ranking...',
         geoVisitors: 'GEO-VISITANTES (TOP PAÍSES)',
         chartDownloads: '📊 Downloads por Projeto',
@@ -2628,7 +2669,7 @@
         loadingError: 'Erro ao carregar os rankings. Por favor, tente novamente mais tarde.',
         user: 'Usuário',
         users: 'Usuários',
-        developedBy: 'Desenvolvido por ⚡FurulipoGames - GameHub Brasil',
+        developedBy: 'Desenvolvido com ⚡ por FurulipoGames - GameHub Brasil',
         newReleaseSingular: 'NOVO LANÇAMENTO',
         newReleasePlural: 'NOVOS LANÇAMENTOS',
         loadingShort: 'Carregando...',
@@ -2715,7 +2756,7 @@
         loadingError: 'Erro ao carregar os rankings. Por favor, tenta novamente mais tarde.',
         user: 'Utilizador',
         users: 'Utilizadores',
-        developedBy: 'Desenvolvido por ⚡FurulipoGames - GameHub Brasil',
+        developedBy: 'Desenvolvido com ⚡ por FurulipoGames - GameHub Brasil',
         newReleaseSingular: 'NOVO LANÇAMENTO',
         newReleasePlural: 'NOVOS LANÇAMENTOS',
         loadingShort: 'A carregar...',
@@ -2745,6 +2786,7 @@
         sortByDownloadsAsc: 'Downloads (Low to High)',
         sortByNameAsc: 'Name (A-Z)',
         sortByNameDesc: 'Name (Z-A)',
+        groupByUpstream: 'Group by Upstream',
         loadingRanking: 'Loading ranking...',
         geoVisitors: 'GEO-VISITORS (TOP COUNTRIES)',
         chartDownloads: '📊 Downloads by Project',
@@ -2810,7 +2852,7 @@
         loadingError: 'Error loading rankings. Please try again later.',
         user: 'User',
         users: 'Users',
-        developedBy: 'Developed by ⚡ FurulipoGames - GameHub Brasil',
+        developedBy: 'Developed with ⚡ by FurulipoGames - GameHub Brasil',
         newReleaseSingular: 'NEW RELEASE',
         newReleasePlural: 'NEW RELEASES',
         loadingShort: 'Loading...',
@@ -2844,6 +2886,7 @@
         sortByDownloadsAsc: 'Descargas (Menor a Mayor)',
         sortByNameAsc: 'Nombre (A-Z)',
         sortByNameDesc: 'Nombre (Z-A)',
+        groupByUpstream: 'Agrupar por Upstream',
         loadingRanking: 'Cargando ranking...',
         geoVisitors: 'GEO-VISITANTES (TOP PAÍSES)',
         chartDownloads: '📊 Descargas por Proyecto',
@@ -2901,7 +2944,7 @@
         loadingError: 'Error al cargar las clasificaciones. Por favor, inténtelo de nuevo más tarde.',
         user: 'Usuario',
         users: 'Usuarios',
-        developedBy: 'Desarrollado por ⚡FurulipoGames - GameHub Brasil',
+        developedBy: 'Desarrollado con ⚡ por FurulipoGames - GameHub Brasil',
         newReleaseSingular: 'NUEVO LANZAMIENTO',
         newReleasePlural: 'NUEVOS LANZAMIENTOS',
         loadingShort: 'Cargando...',
@@ -2992,7 +3035,7 @@
         loadingError: 'Erreur lors du chargement des classements. Veuillez réessayer plus tard.',
         user: 'Utilisateur',
         users: 'Utilisateurs',
-        developedBy: 'Développé par ⚡FurulipoGames - GameHub Brasil',
+        developedBy: 'Développé avec ⚡ par FurulipoGames - GameHub Brasil',
         newReleaseSingular: 'NOUVELLE VERSION',
         newReleasePlural: 'NOUVELLES VERSIONS',
         loadingShort: 'Chargement...',
@@ -3356,7 +3399,7 @@
         loadingError: 'Errore durante il caricamento delle classifiche. Riprova più tardi.',
         user: 'utente',
         users: 'utenti',
-        developedBy: 'Sviluppato da ⚡FurulipoGames - GameHub Brasil',
+        developedBy: 'Sviluppato con ⚡ da FurulipoGames - GameHub Brasil',
         newReleaseSingular: 'NUOVA RELEASE',
         newReleasePlural: 'NUOVE RELEASE',
         loadingShort: 'Caricamento...',
@@ -4402,10 +4445,11 @@
           const itemJson = item.fullProject ? JSON.stringify(item.fullProject).replace(/'/g, "&apos;") : null;
           const clickAction = itemJson ? `onclick='openModal(${itemJson})'` : '';
           return `
-                <div class="driver-item-card" ${clickAction} style="${itemJson ? 'cursor:pointer;' : ''}">
+                <div class="driver-item-card" ${clickAction} style="${itemJson ? 'cursor:pointer;' : ''}" title="${item.name} ${item.version || ''}">
                   <div class="driver-item-name">
                     ${item.name}
                     ${(item.fullProject && hasNewReleases(item.fullProject)) ? `<span class="new-release-badge" style="font-size: 0.6em; margin-left: 5px;">🔥 NOVO!</span>` : ''}
+                    <button class="copy-btn" onclick="copyToClipboard('${item.url}', event)" title="Copy Link" style="background:none; border:none; cursor:pointer; font-size:1.1em; margin-left:5px; vertical-align:middle;">📋</button>
                   </div>
                   <div class="driver-item-ver">${item.version || 'v1.0'}</div>
                   ${itemJson
@@ -4421,11 +4465,42 @@
       container.innerHTML = html;
     }
 
+    function copyToClipboard(text, event) {
+      if (event) event.stopPropagation();
+      navigator.clipboard.writeText(text).then(() => {
+        const btn = event.currentTarget || event.target;
+        const original = btn.innerText;
+        btn.innerText = '✅';
+        setTimeout(() => btn.innerText = original, 2000);
+      }).catch(err => {
+        console.error('Erro ao copiar:', err);
+      });
+    }
+
     function renderRanking(data) {
       const container = document.getElementById('rankingContainer');
+      const sortType = document.getElementById('sortRanking').value;
 
       // Filtrar drivers do ranking
-      const filteredData = data.filter(p => p.category !== 'Drivers');
+      let filteredData = data.filter(p => p.category !== 'Drivers');
+
+      // Lógica de Agrupamento por Upstream
+      if (sortType === 'upstream') {
+        const groups = {};
+        filteredData.forEach(p => {
+          const upstream = p.upstream || p.name;
+          if (!groups[upstream]) groups[upstream] = [];
+          groups[upstream].push(p);
+        });
+
+        // Achatar grupos para renderização, mas com indicação visual (opcional)
+        // Aqui apenas ordenamos por downloads totais do grupo
+        filteredData = Object.values(groups).sort((a, b) => {
+          const sumA = a.reduce((sum, item) => sum + item.downloads, 0);
+          const sumB = b.reduce((sum, item) => sum + item.downloads, 0);
+          return sumB - sumA;
+        }).flat();
+      }
 
       if (filteredData.length === 0) {
         container.innerHTML = `<div class="loading">🔍 ${t('noProjectsFound')}</div>`;
@@ -4457,7 +4532,7 @@
                 <div class="card-meta">
                   <span class="category-badge category-${sanitizeCategory(item.category)}">${item.category || '-'}</span>
                 </div>
-                <div class="card-click-hint">${t('clickHere')}</div>
+                <div class="card-click-hint" style="display:none;"></div>
               </div>
               <div class="card-downloads">
                 ${item.downloads.toLocaleString(currentLang)}
@@ -4825,6 +4900,16 @@
       if (currentTab === 'charts') {
         renderCharts(allData);
         renderVisitorMap();
+      }
+    });
+
+    // Efeito de Header colapsável ao rolar
+    window.addEventListener('scroll', () => {
+      const header = document.getElementById('mainHeader');
+      if (window.scrollY > 100) {
+        header.classList.add('collapsed');
+      } else {
+        header.classList.remove('collapsed');
       }
     });
 
