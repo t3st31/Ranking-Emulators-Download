@@ -119,6 +119,7 @@
       overflow: hidden;
       border-bottom: 2px solid #ff005d;
       transition: padding 0.2s ease, background 0.2s ease;
+      overflow-anchor: none;
     }
 
     #mainHeader.collapsed {
@@ -5013,14 +5014,14 @@
       }
     });
 
-    // Efeito de Header colapsável ao rolar com histerese para evitar flickering
+    // Efeito de Header colapsável ao rolar com histerese robusta para evitar flickering
     window.addEventListener('scroll', () => {
       const header = document.getElementById('mainHeader');
       const scrollTop = window.scrollY;
 
-      if (scrollTop > 100) {
+      if (scrollTop > 250) {
         header.classList.add('collapsed');
-      } else if (scrollTop < 50) {
+      } else if (scrollTop < 10) {
         header.classList.remove('collapsed');
       }
     });
