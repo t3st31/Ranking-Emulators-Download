@@ -2396,13 +2396,93 @@
       margin-left: 10px;
       text-transform: uppercase;
     }
+
+    /* Footer Gamer Styles */
+    footer {
+      background: rgba(10, 10, 16, 0.95);
+      border-top: 1px solid rgba(0, 242, 255, 0.2);
+      padding: 30px 20px;
+      margin-top: 40px;
+      position: relative;
+      overflow: hidden;
+      box-shadow: 0 -10px 40px rgba(0, 0, 0, 0.5);
+    }
+
+    footer::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 1px;
+      background: linear-gradient(90deg, transparent, #00f2ff, #ff005d, transparent);
+      animation: neonBorderFlow 4s linear infinite;
+    }
+
+    @keyframes neonBorderFlow {
+      0% {
+        transform: translateX(-100%);
+      }
+
+      100% {
+        transform: translateX(100%);
+      }
+    }
+
+    .footer-content {
+      max-width: 1200px;
+      margin: 0 auto;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 20px;
+    }
+
+    .footer-actions {
+      display: flex;
+      gap: 15px;
+      flex-wrap: wrap;
+      justify-content: center;
+    }
+
+    .premium-link.youtube-btn {
+      background: linear-gradient(135deg, #ff0000, #c40000);
+      box-shadow: 0 0 15px rgba(255, 0, 0, 0.4);
+    }
+
+    .premium-link.github-btn {
+      background: linear-gradient(135deg, #2b3137, #24292e);
+      box-shadow: 0 0 15px rgba(255, 255, 255, 0.2);
+    }
+
+    .premium-link:hover {
+      transform: translateY(-3px);
+      filter: brightness(1.2);
+    }
+
+    .premium-link.youtube-btn:hover {
+      box-shadow: 0 0 25px rgba(255, 0, 0, 0.6);
+    }
+
+    .premium-link.github-btn:hover {
+      box-shadow: 0 0 25px rgba(255, 255, 255, 0.3);
+      border: 1px solid rgba(255, 255, 255, 0.5);
+    }
   </style>
 
   <footer>
-    <span class="footer-credit" data-i18n="developedBy">Developed with ⚡ by FurulipoGames - GameHub Brasil</span>
-    <a href="https://youtube.com/@FurulipoGames - GameHub BrasilGames" target="_blank" class="premium-link">
-      📺 <span data-i18n="footerVisitChannel">Visite meu Canal no YouTube</span>
-    </a>
+    <div class="footer-content">
+      <span class="footer-credit" data-i18n="developedBy">Developed with ⚡ by FurulipoGames - GameHub Brasil</span>
+      <div class="footer-actions">
+        <a href="https://youtube.com/@FurulipoGames - GameHub BrasilGames" target="_blank"
+          class="premium-link youtube-btn">
+          📺 <span data-i18n="footerVisitChannel">Visite meu Canal no YouTube</span>
+        </a>
+        <a href="https://github.com/winlatorbrasil/gamehub-brasil" target="_blank" class="premium-link github-btn">
+          📦 <span data-i18n="viewOnGithub">Ver no GitHub</span>
+        </a>
+      </div>
+    </div>
   </footer>
 
   <script>
