@@ -3842,24 +3842,30 @@
         const recentExts = getValidExtensions(item.projectData);
         const validAssets = r.assets.filter(a => assetMatchesExtensions(a.name, recentExts));
         const itemJson = JSON.stringify(item.projectData).replace(/'/g, "&#39;");
+        const totalDownloads = r.downloads || 0;
 
         html += `
           <div class="recent-release-item ${item.isHot ? 'is-hot' : ''}" onclick='openModal(${itemJson})'>
             <div class="recent-item-top">
               <div class="recent-row">
                 <div class="recent-project-name">${item.projectName}</div>
-                <div class="recent-tag">${r.tag}</div>
+                <div class="recent-time-ago">📅 ${timeAgo(item.releaseDate)}</div>
               </div>
-              <div class="recent-meta">
+              <div class="recent-row" style="margin-top: 8px; justify-content: flex-start; gap: 10px;">
                 <span class="category-badge category-${sanitizeCategory(item.category)}">${item.category}</span>
-                <span class="recent-date">${timeAgo(item.releaseDate)}</span>
+                ${item.isHot ? `<div class="recent-hot-flame">🔥 ${t('recentRelease') || 'LANÇAMENTO RECENTE!'}</div>` : ''}
               </div>
             </div>
             
-            <div class="recent-release-name">${r.name || t('newRelease')}</div>
+            <div class="recent-row" style="margin-bottom: 15px; justify-content: flex-start; gap: 10px; align-items: center;">
+              <span class="recent-release-tag">${r.tag}</span>
+              <div class="recent-release-name" style="margin-bottom:0; font-size: 0.9em; opacity: 0.9;">${r.name || r.tag}</div>
+            </div>
             
-            <div class="recent-apks-container">
-              ${validAssets.map(asset => {
+            <div class="recent-bottom">
+              <div class="recent-downloads">📥 ${totalDownloads.toLocaleString()} downloads</div>
+              <div class="recent-apks-container">
+                ${validAssets.map(asset => {
           let cleanedName = asset.name
             .replace(item.projectName, '')
             .replace(r.tag, '')
@@ -3869,10 +3875,7 @@
           if (!cleanedName || cleanedName.length < 2) cleanedName = t('download');
           return `<a href="${asset.url}" target="_blank" class="recent-download-btn" onclick="event.stopPropagation();" title="${asset.name}">⬇ ${cleanedName} (${formatBytes(asset.size)})</a>`;
         }).join('')}
-            </div>
-
-            <div class="recent-actions" style="margin-top:10px; border-top: 1px solid rgba(255,255,255,0.05); padding-top:10px;">
-               <div class="recent-link-github" style="font-size: 0.8em; opacity: 0.7;">🔗 ${t('viewOnGithub')}</div>
+              </div>
             </div>
           </div>
         `;
