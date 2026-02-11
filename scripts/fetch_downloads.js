@@ -45,6 +45,7 @@ const repos = [
   { name: "Eden Emulator", repo: "eden-emulator/Releases", category: "Nintendo Switch Emulator", logo: "eden.png" },
   { name: "Citron Emulator", repo: "Citron/Emulator", category: "Nintendo Switch Emulator", logo: "citron.png", apiType: "gitea", apiHost: "https://git.citron-emu.org" },
   { name: "Sumi Emulator", repo: "ovsky/sumi-emu", category: "Nintendo Switch Emulator", logo: "sumi.png" },
+  { name: "Kenji-NX Emulator", repo: "Kenji-NX/Android-Releases", category: "Nintendo Switch Emulator", logo: "kenjinx.png" },
 
   // Nintendo 3DS
   { name: "Azahar", repo: "azahar-emu/azahar", category: "Nintendo 3DS", logo: "azahar.png" },
