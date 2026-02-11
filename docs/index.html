@@ -4363,9 +4363,31 @@
 
         applyTranslations();
 
-        // Cálculo de novidades separadas (Apenas 7 dias para notificação)
-        const newReleasesCount = allData.filter(p => hasNewReleases(p, 7)).length;
-        const newDriversCount = allData.filter(p => hasNewDriverReleases(p, 7)).length;
+        // Cálculo de novidades separadas (Apenas 7 dias para notificação) - Contando RELEASES, não projetos
+        const newReleasesCount = allData.reduce((count, p) => {
+          if (p.category === 'Drivers') return count;
+          if (!p.releases) return count;
+          const limit = new Date(new Date().getTime() - 7 * 24 * 60 * 60 * 1000);
+          const validExts = getValidExtensions(p);
+          // Conta quantos releases deste projeto são recentes e válidos
+          const recentReleases = p.releases.filter(r => {
+            const hasValidAsset = r.assets && r.assets.some(a => assetMatchesExtensions(a.name, validExts));
+            return new Date(r.date) >= limit && hasValidAsset;
+          });
+          return count + recentReleases.length;
+        }, 0);
+
+        const newDriversCount = allData.reduce((count, p) => {
+          if (p.category !== 'Drivers') return count;
+          if (!p.releases) return count;
+          const limit = new Date(new Date().getTime() - 7 * 24 * 60 * 60 * 1000);
+          // Conta quantos releases deste driver são recentes (assumindo todos válidos se category==Drivers, ou add verificação de zip)
+          const recentReleases = p.releases.filter(r => {
+            // Verificação simplificada ou reuso de lógica
+            return new Date(r.date) >= limit;
+          });
+          return count + recentReleases.length;
+        }, 0);
 
         // Badge nas Abas
         if (newReleasesCount > 0) {
@@ -4442,11 +4464,22 @@
               </div>
             </div>
 
-            ${newReleasesCount > 0 ? `
-              <div class="top-news-badge">
-                🔥 ${newReleasesCount} ${newReleasesCount === 1 ? t('newReleaseSingular') : t('newReleasePlural')}!
-              </div>
-            ` : ''}
+            ${(() => {
+              let badgesHtml = '';
+              if (newReleasesCount > 0) {
+                badgesHtml += `
+                  <div class="top-news-badge">
+                    🔥 ${newReleasesCount} ${newReleasesCount === 1 ? t('newReleaseSingular') : t('newReleasePlural')}!
+                  </div>`;
+              }
+              if (newDriversCount > 0) {
+                badgesHtml += `
+                  <div class="top-drivers-badge">
+                    🏎️ ${newDriversCount} NOVOS DRIVERS!
+                  </div>`;
+              }
+              return badgesHtml;
+            })()}
           `;
           document.getElementById('lastUpdate').innerHTML = statusHtml;
 
