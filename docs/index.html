@@ -118,7 +118,7 @@
       position: relative;
       overflow: hidden;
       border-bottom: 2px solid #ff005d;
-      transition: padding 0.3s ease, background 0.3s ease;
+      transition: padding 0.2s ease, background 0.2s ease;
     }
 
     #mainHeader.collapsed {
@@ -3835,6 +3835,7 @@
     }
 
     let allData = [];
+    let manifestDriversData = {}; // Global variable for resize persistence
     let currentTab = 'ranking';
     let charts = {}; // Para gerenciar as instâncias do Chart.js
 
@@ -4754,6 +4755,7 @@
         renderRecentDrivers(allData);
         // Mesclar drivers do GitHub com os do Manifest para a Biblioteca
         const manifestDrivers = json.manifestDrivers || {};
+        manifestDriversData = manifestDrivers; // Store for resize event
         allData.forEach(p => {
           if (p.category === 'Drivers') {
             // Categorização mais inteligente para drivers do GitHub
@@ -5003,8 +5005,7 @@
         renderRecentDrivers(allData);
       }
       if (currentTab === 'drivers-all') {
-        const manifestDrivers = allData.manifestDrivers || {}; // Ensure we have the latest manifest
-        renderCategorizedDrivers(manifestDrivers);
+        renderCategorizedDrivers(manifestDriversData);
       }
       if (currentTab === 'charts') {
         renderCharts(allData);
