@@ -2128,6 +2128,23 @@
         font-size: 1.2em;
       }
     }
+    .support-container {
+      text-align: center;
+      margin: 10px auto 20px;
+      z-index: 10;
+      position: relative;
+    }
+
+    .support-container img {
+      height: 50px;
+      transition: all 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+      filter: drop-shadow(0 0 10px rgba(255, 221, 0, 0.4));
+    }
+
+    .support-container img:hover {
+      transform: scale(1.1) rotate(2deg);
+      filter: drop-shadow(0 0 25px rgba(255, 221, 0, 0.8));
+    }
   </style>
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/jsvectormap/dist/css/jsvectormap.min.css" />
   <script src="https://cdn.jsdelivr.net/npm/jsvectormap"></script>
@@ -2145,6 +2162,13 @@
 
   <div class="last-update" id="lastUpdate" data-i18n="loading">
     ⏱️ Carregando dados...
+  </div>
+
+  <div class="support-container">
+    <a href="https://www.buymeacoffee.com/furulipogames" target="_blank">
+      <img
+        src="https://img.buymeacoffee.com/button-api/?text=Buy me a coffee&emoji=&slug=furulipogames&button_colour=FFDD00&font_colour=000000&font_family=Bree&outline_colour=000000&coffee_colour=ffffff" />
+    </a>
   </div>
 
   <nav class="tabs-container">
