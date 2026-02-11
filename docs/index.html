@@ -3858,18 +3858,21 @@
             
             <div class="recent-release-name">${r.name || t('newRelease')}</div>
             
-            <div class="recent-assets">
-              ${validAssets.slice(0, 2).map(a => `
-                <div class="recent-asset">
-                  <span class="asset-icon">📦</span>
-                  <span class="asset-name" title="${a.name}">${a.name}</span>
-                </div>
-              `).join('')}
-              ${validAssets.length > 2 ? `<div class="recent-more">+ ${validAssets.length - 2} ${t('moreFiles') || 'arquivos'}</div>` : ''}
+            <div class="recent-apks-container">
+              ${validAssets.map(asset => {
+          let cleanedName = asset.name
+            .replace(item.projectName, '')
+            .replace(r.tag, '')
+            .replace(/[_\-\s]+/g, ' ')
+            .replace(/\.(apk|tar\.gz|zip|exe)$/i, '')
+            .trim();
+          if (!cleanedName || cleanedName.length < 2) cleanedName = t('download');
+          return `<a href="${asset.url}" target="_blank" class="recent-download-btn" onclick="event.stopPropagation();" title="${asset.name}">⬇ ${cleanedName} (${formatBytes(asset.size)})</a>`;
+        }).join('')}
             </div>
 
-            <div class="recent-actions">
-               <div class="recent-download-btn">🚀 ${t('viewOnGithub')}</div>
+            <div class="recent-actions" style="margin-top:10px; border-top: 1px solid rgba(255,255,255,0.05); padding-top:10px;">
+               <div class="recent-link-github" style="font-size: 0.8em; opacity: 0.7;">🔗 ${t('viewOnGithub')}</div>
             </div>
           </div>
         `;
