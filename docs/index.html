@@ -2099,11 +2099,12 @@
           </div>
           <div class="filter-group">
             <label data-i18n="sortLabel">⇅ Ordenar Por</label>
-            <select id="sortOrder" class="filter-select" onchange="updateFilters()">
-              <option value="downloads-desc" data-i18n="sortByDownloadsDesc">Downloads (Maior p/ Menor)</option>
-              <option value="downloads-asc" data-i18n="sortByDownloadsAsc">Downloads (Menor p/ Maior)</option>
-              <option value="name-asc" data-i18n="sortByNameAsc">Nome (A-Z)</option>
-              <option value="name-desc" data-i18n="sortByNameDesc">Nome (Z-A)</option>
+            <select id="sortRanking" class="filter-select" onchange="updateFilters()">
+              <option value="downloadsDesc" data-i18n="sortByDownloadsDesc">Downloads (Maior p/ Menor)</option>
+              <option value="downloadsAsc" data-i18n="sortByDownloadsAsc">Downloads (Menor p/ Maior)</option>
+              <option value="nameAsc" data-i18n="sortByNameAsc">Nome (A-Z)</option>
+              <option value="nameDesc" data-i18n="sortByNameDesc">Nome (Z-A)</option>
+              <option value="upstream" data-i18n="groupByUpstream">Agrupar por Upstream</option>
             </select>
           </div>
         </div>
@@ -3798,23 +3799,25 @@
     function updateFilters() {
       const searchTerm = document.getElementById('searchInput').value.toLowerCase();
       const category = document.getElementById('categoryFilter').value;
-      const sortOrder = document.getElementById('sortOrder').value;
+      const sortType = document.getElementById('sortRanking').value;
 
       let filtered = allData.filter(item => {
         const matchesSearch = item.name.toLowerCase().includes(searchTerm) ||
-          item.category.toLowerCase().includes(searchTerm);
+          (item.category && item.category.toLowerCase().includes(searchTerm));
         const matchesCategory = category === 'all' || item.category === category;
         return matchesSearch && matchesCategory;
       });
 
-      // Ordenação
-      filtered.sort((a, b) => {
-        if (sortOrder === 'downloads-desc') return b.downloads - a.downloads;
-        if (sortOrder === 'downloads-asc') return a.downloads - b.downloads;
-        if (sortOrder === 'name-asc') return a.name.localeCompare(b.name);
-        if (sortOrder === 'name-desc') return b.name.localeCompare(a.name);
-        return 0;
-      });
+      // Ordenação (Upstream é tratado dentro de renderRanking)
+      if (sortType !== 'upstream') {
+        filtered.sort((a, b) => {
+          if (sortType === 'downloadsDesc') return b.downloads - a.downloads;
+          if (sortType === 'downloadsAsc') return a.downloads - b.downloads;
+          if (sortType === 'nameAsc') return a.name.localeCompare(b.name);
+          if (sortType === 'nameDesc') return b.name.localeCompare(a.name);
+          return 0;
+        });
+      }
 
       renderRanking(filtered);
     }
