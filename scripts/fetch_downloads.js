@@ -7,6 +7,16 @@ const repos = [
   { name: "GameHub Brasil", repo: "winlatorbrasil/gamehub-brasil", category: "GameHub", logo: "gamehub-brasil.jpg" },
   { name: "GameHub Lite (J4MCU-builds)", repo: "J4MCU-builds/Gamehub-Lite-RedMagic", category: "GameHub", logo: "gamehub.png" },
 
+    // DRIVERS
+  { name: "Adreno Tools Drivers", repo: "K11MCH1/AdrenoToolsDrivers", category: "Drivers", logo: "drivers.png", extensions: [".zip"] },
+  { name: "Adrenotools Drivers (StevenMXZ)", repo: "StevenMXZ/Adrenotools-Drivers", category: "Drivers", logo: "drivers.png", extensions: [".zip"] },
+  { name: "Freedreno Turnip CI (Weab-chan)", repo: "Weab-chan/freedreno_turnip-CI", category: "Drivers", logo: "drivers.png", extensions: [".zip"] },
+  { name: "Freedreno Turnip CI (StevenMXZ)", repo: "StevenMXZ/freedreno_turnip-CI", category: "Drivers", logo: "drivers.png", extensions: [".zip"] },
+  { name: "Freedreno Turnip CI (whitebelyash)", repo: "whitebelyash/freedreno_turnip-CI", category: "Drivers", logo: "drivers.png", extensions: [".zip"] },
+  { name: "Upload Grave", repo: "jhinzuo/upload_grave", category: "Drivers", logo: "drivers.png", extensions: [".zip"] },
+  { name: "Winlator Ref4ik (Drivers/Wine)", repo: "REF4IK/winlator-ref4ik-", category: "Drivers", logo: "drivers.png", extensions: [".wcp"] },
+  { name: "StevenMXZ Contents Cmod", repo: "StevenMXZ/Contents-Cmod", category: "Drivers", logo: "drivers.png", extensions: [".wcp", ".wcp.xz"] },
+
   // GAMENATIVE
   { name: "GameNative", repo: "utkarshdalal/GameNative", category: "GameNative", logo: "gamenative.png" },
 
@@ -74,16 +84,6 @@ const repos = [
 
   // Emulator ALL IN ONE
   { name: "Lemuroid", repo: "Swordfish90/Lemuroid", category: "All In One", logo: "lemuroid.png" },
-
-  // DRIVERS
-  { name: "Adreno Tools Drivers", repo: "K11MCH1/AdrenoToolsDrivers", category: "Drivers", logo: "drivers.png", extensions: [".zip"] },
-  { name: "Adrenotools Drivers (StevenMXZ)", repo: "StevenMXZ/Adrenotools-Drivers", category: "Drivers", logo: "drivers.png", extensions: [".zip"] },
-  { name: "Freedreno Turnip CI (Weab-chan)", repo: "Weab-chan/freedreno_turnip-CI", category: "Drivers", logo: "drivers.png", extensions: [".zip"] },
-  { name: "Freedreno Turnip CI (StevenMXZ)", repo: "StevenMXZ/freedreno_turnip-CI", category: "Drivers", logo: "drivers.png", extensions: [".zip"] },
-  { name: "Freedreno Turnip CI (whitebelyash)", repo: "whitebelyash/freedreno_turnip-CI", category: "Drivers", logo: "drivers.png", extensions: [".zip"] },
-  { name: "Upload Grave", repo: "jhinzuo/upload_grave", category: "Drivers", logo: "drivers.png", extensions: [".zip"] },
-  { name: "Winlator Ref4ik (Drivers/Wine)", repo: "REF4IK/winlator-ref4ik-", category: "Drivers", logo: "drivers.png", extensions: [".wcp"] },
-  { name: "StevenMXZ Contents Cmod", repo: "StevenMXZ/Contents-Cmod", category: "Drivers", logo: "drivers.png", extensions: [".wcp", ".wcp.xz"] },
 ];
 
 // ===== GitHub API =====
