@@ -19,6 +19,7 @@ const repos = [
 
   // GAMENATIVE
   { name: "GameNative", repo: "utkarshdalal/GameNative", category: "GameNative", logo: "gamenative.png" },
+  { name: "GameNative Performance", repo: "maxjivi05/GameNative-Performance", category: "GameNative", logo: "gamenative.png" },
 
   // WINLATOR
   { name: "Winlator BrunoDev", repo: "brunodev85/winlator", category: "Winlator", logo: "winlator.png" },
