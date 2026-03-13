@@ -1,8 +1,8 @@
 {
-  "updatedAt": "2026-03-13T20:25:24.869Z",
+  "updatedAt": "2026-03-13T20:27:20.877Z",
   "totalProjects": 59,
-  "projectsWithReleases": 50,
-  "projectsWithoutReleases": 9,
+  "projectsWithReleases": 49,
+  "projectsWithoutReleases": 10,
   "results": [
     {
       "name": "Winlator BrunoDev",
@@ -10,7 +10,7 @@
       "category": "Winlator",
       "logo": "winlator.png",
       "extensions": null,
-      "downloads": 13046633,
+      "downloads": 13046636,
       "releases": [
         {
           "name": "Winlator 11.0 (Beta)",
@@ -50,14 +50,14 @@
           "name": "Winlator 10.0 (Hotfix)",
           "tag": "v10.0.0",
           "date": "2025-02-28T19:17:37Z",
-          "downloads": 1051993,
+          "downloads": 1051996,
           "body": "**v10.0 (Hotfix)**\r\n\r\n- Added fallback URL for Wine Mono/Gecko installation\r\n- Added fixes for Vortek\r\n- Updated/Recompiled internal programs: wfm.exe, winhandler.exe, TestD3D.exe and GPUInfo.exe\r\n\r\n**v10.0 (Final)**\r\n\r\nGeneral changelogs:\r\n\r\n- Improved Task Manager\r\n- Added GPUInfo to Start Menu (Useful for viewing GPU capabilities)\r\n- Added missing gstreamer plugins\r\n- Added configuration for Vortek\r\n\r\nVortek changelogs:\r\n\r\n- Added support for Mali devices\r\n- Implemented textureCompressionBC for devices that don't support this feature\r\n- Added fixes for vertex explosion for Mali devices\r\n- Added fixes for character animations that remains in T-Pose (D3D9 games)\r\n- Added support for some texture formats for devices that don't support them\r\n- Added fixes for some games that freeze on startup\r\n- Improved compatibility with Mesa Zink\r\n- Improved performance\r\n\r\n**v10.0 (Beta 2)**\r\n\r\n- Added missing MPEG-1 gstreamer plugin (#269)\r\n- Added workaround for Dino Crisis 1/2 video issues\r\n- Updated Box64 (v0.3.4 release) \r\n\r\n**v10.0 (Beta 1)**\r\n\r\n- Added native GLIBC for better I/O performance\r\n- Minor improvements to Vortek\r\n- Improved internal Registry Editor (Speeds up container startup)\r\n- Added option to open Android browser from Wine\r\n- Added option to use Android clipboard on Wine\r\n- Added option to capture pointer on external mouse\r\n- Added some network stuff on [Wine](https://github.com/brunodev85/wine-9.2-custom/commit/3437f8ee1617ba97550c96fb2dc4e210420aae93) (Fixes some games startup)\r\n- Implemented direct rendering on XServer and [Vulkan WSI X11](https://github.com/brunodev85/mesa3d-custom/blob/main/turnip-25.0.0/src/vulkan/wsi/wsi_common_x11.c) (Turnip)\r\n\r\nNotes: The Root FS has been restructured and each library has been compiled individually, keeping only those required by Box64/Wine",
           "prerelease": false,
           "assets": [
             {
               "name": "Winlator_10.0.apk",
               "size": 147685565,
-              "downloads": 1051993,
+              "downloads": 1051996,
               "url": "https://github.com/brunodev85/winlator/releases/download/v10.0.0/Winlator_10.0.apk"
             }
           ],
@@ -294,13 +294,13 @@
       "category": "Nintendo 3DS",
       "logo": "citra.png",
       "extensions": null,
-      "downloads": 4736344,
+      "downloads": 4736345,
       "releases": [
         {
           "name": "Citra for Android",
           "tag": "20251112",
           "date": "2025-11-12T02:51:02Z",
-          "downloads": 407464,
+          "downloads": 407465,
           "body": "**Before:**\r\nemulator directory: \"citra-emu\"\r\n\r\n**Antutu**:\r\npackage name: com.antutu.ABenchMark\r\nThis is tricking the os thinks it's running a benchmark app, and will boost performance on some device.\r\n\r\n**Storage Access:**\r\nemulator directory: \"Android/data/org.citra.emu/files/citra-emu\"\r\nWARNING uninstall citra will remove directory, include games, dlcs, save datas.\r\n\r\ndirectory: \"citra-emu\\nand\\data\\00000000000000000000000000000000\\sysdata\\00010026\\00000000\\CEC\"\r\nDelete this directory if game could not works as before.\r\n\r\n**Try reset settings** if game does not work properly.",
           "prerelease": false,
           "assets": [
@@ -313,7 +313,7 @@
             {
               "name": "Citra_MMJ_20251112_Antutu.apk",
               "size": 12166355,
-              "downloads": 64641,
+              "downloads": 64642,
               "url": "https://github.com/weihuoya/citra/releases/download/20251112/Citra_MMJ_20251112_Antutu.apk"
             },
             {
@@ -1325,7 +1325,7 @@
       "category": "Nintendo 3DS",
       "logo": "azahar.png",
       "extensions": null,
-      "downloads": 3402547,
+      "downloads": 3402548,
       "releases": [
         {
           "name": "Azahar 2125.0 Release Candidate 1",
@@ -1480,7 +1480,7 @@
           "name": "Azahar 2125.0 Alpha 6",
           "tag": "2125.0-alpha6",
           "date": "2026-03-10T23:02:24Z",
-          "downloads": 8691,
+          "downloads": 8692,
           "body": "<h3>⚠️Important Alpha Information⚠️</h3>\r\n\r\nAs an alpha release, this build is not yet considered stable.\r\n\r\nThis prerelease is intended for users to test upcoming features, allowing the community to provide feedback before they are distributed in a stable release.\r\nUsers interested in testing bleeding-edge software are encouraged to test out this build to help us catch any issues we may have missed during development.\r\n\r\nIf you are unwilling to tolerate potential issues, it may be better to wait for the next stable release.\r\n\r\n---\r\n\r\nThis changelog is relative to the prior 2125.0-alpha5 changelog. You can view that changelog [here](https://github.com/azahar-emu/azahar/releases/tag/2125.0-alpha5).\r\n\r\n---\r\n\r\n### Note on current issues with NetPass 2.0\r\n\r\nWe have seen reports of users running into issues while utilizing our recently released NetPass support after updating to the recently released NetPass 2.0.\r\n\r\nWe are aware of this issue, and are currently investigating a fix. We are aiming to fix this issue on our end before the stable release of 2125.0. Thank you for your patience.\r\n\r\n---\r\n\r\n# Azahar 2125.0-alpha6 Changelog\r\n\r\n# Android\r\n\r\n- Fixed the Cheats menu failing to load saved cheats when opened in the vanilla variant. | @OpenSauce04 #1854 \r\n\r\n# Libretro\r\n\r\n- Input --> Touch Support setting is now enabled by default. | @warmenhoven #1853 \r\n  - This addresses the emulated touch screen previously not being usable in the Android core out-of-the-box without first adjusting the setting.\r\n\r\n# Desktop\r\n\r\n- Improved update checker logic to prevent potential downgrades caused by hypothetical future release patterns. | @RedBlackAka #1749",
           "prerelease": true,
           "assets": [
@@ -1493,7 +1493,7 @@
             {
               "name": "azahar-android-googleplay-2125.0-alpha6.apk",
               "size": 49499455,
-              "downloads": 222,
+              "downloads": 223,
               "url": "https://github.com/azahar-emu/azahar/releases/download/2125.0-alpha6/azahar-android-googleplay-2125.0-alpha6.apk"
             },
             {
@@ -4326,7 +4326,7 @@
       "extensions": [
         ".zip"
       ],
-      "downloads": 2675375,
+      "downloads": 2675379,
       "releases": [
         {
           "name": "Qualcomm Driver v840",
@@ -4366,7 +4366,7 @@
           "name": "v26.0.0 - Revision 8 + super beta 8xx support",
           "tag": "v26.0.0-rc08",
           "date": "2026-01-08T01:03:08Z",
-          "downloads": 241349,
+          "downloads": 241351,
           "body": "### **UPDATE 2**: Added working a8xx Turnip. **Please read the notes below.**  - Thanks whbexium\r\n### **UPDATE**: Fixed an issue with the drivers not loading properly.\r\n\r\n## Based on latest mesa main source v26.0.0-devel.\r\n\r\n## v26.0.0 R8\r\nVulkan 1.4.335\r\nBase commit:  e9a83d530cce\r\n\r\n### NOTES\r\n\r\n## The a8xx support included is **very** beta and hacky. **Use at your own risk!**  \r\nAn example of what might happen (which happened to me) using this with Mincraft Pojav-glow-worm on a840, it will crash and the default driver won't recover causing every apps to crash afterwards. (a reboot fixed it) \r\n\r\nWhat works very well: OpenGL games through x86_64 emulators.\r\nWhat does not work: Switch emulators and non OpenGL games (so far tested. They boot but render very buggy graphics).\r\n\r\n---\r\n\r\n- This still uses Old autotuner. If you need new Autotuner, [use v25.3.0 here](https://github.com/K11MCH1/AdrenoToolsDrivers/releases/edit/v26.0.0-rc.03).\r\n\r\n- a710 and 720 can use regular or Gmem. When using regular driver on Winlator, do uncheck sysmem and check gmem from the TU_DEBUG list in the Environment Variables. For other emulators, use Gmem driver.\r\n- For users with the ONE UI bug, use the following environmental variable: `FD_DEV_FEATURES = enable_tp_ubwc_flag_hint=1`\r\n\r\n---\r\n\r\n### CHANGELOG\r\n\r\n- Merged upstream.\r\n- General optimizations and bug fixes.\r\n\r\n---\r\n\r\n### APPLIED PATCHES\r\n\r\n**Turnip_v26.0.0_R8_Gmem.zip**\r\n- Added a710/720 GPU descriptors (hacks)\r\n\r\n**Turnip_v26.0.0_R8_Autotuner.zip**\r\n- Autotuner Overhaul\r\n\r\n**a8xx_0x5_handle.zip**\r\n- Added a830v2 GPU descriptor (hack)\r\n- Added 0x5 handle (hack)\r\nThanks Hardware Union RU/ENG boys\r\n\r\n---\r\n\r\n### Thanks to ❤️\r\nRob Clark\r\nKarmjit Mahil\r\nConnor Abbott\r\nStevenMX\r\nPablo\r\nMark\r\nWeabchan\r\nJeezDisReez\r\nDanylo\r\nMesa Team",
           "prerelease": false,
           "assets": [
@@ -4385,7 +4385,7 @@
             {
               "name": "Turnip_v26.0.0_R8_Gmem.zip",
               "size": 3478156,
-              "downloads": 35211,
+              "downloads": 35213,
               "url": "https://github.com/K11MCH1/AdrenoToolsDrivers/releases/download/v26.0.0-rc08/Turnip_v26.0.0_R8_Gmem.zip"
             },
             {
@@ -4430,14 +4430,14 @@
           "name": "v26.0.0 - Revision 6",
           "tag": "v26.0.0-rc06",
           "date": "2025-12-10T10:44:34Z",
-          "downloads": 115208,
+          "downloads": 115210,
           "body": "## Based on latest mesa main source v26.0.0-devel.\r\n\r\n## v26.0.0 R6\r\nVulkan 1.4.335\r\nBase commit:  3b4d2c41f0\r\n\r\n## This still uses Old autotuner. If you need new Autotuner, [use v25.3.0 here](https://github.com/K11MCH1/AdrenoToolsDrivers/releases/edit/v26.0.0-rc.03).\r\n\r\n### Notes  \r\n\r\n- a710 and 720 can use regular or Gmem. When using regular driver on Winlator, do uncheck sysmem and check gmem from the TU_DEBUG list in the Environment Variables. For other emulators, use Gmem driver.\r\n- For users with the ONE UI bug, use the following environmental variable: `FD_DEV_FEATURES = enable_tp_ubwc_flag_hint=1`\r\n\r\n---\r\n\r\n### CHANGELOG\r\n\r\n- Merged upstream.\r\n- Bumped Vulkan version to 1.4.335.\r\n- General optimizations and bug fixes.\r\n\r\n---\r\n\r\n### APPLIED PATCHES\r\n\r\n- a710/720 support hacks.\r\n\r\n---\r\n\r\n### Thanks to ❤️\r\nConnor Abbott\r\nStevenMX\r\nPablo\r\nMark\r\nWeabchan\r\nJeezDisReez\r\nDanylo\r\nMesa Team",
           "prerelease": false,
           "assets": [
             {
               "name": "Turnip_v26.0.0_R6.zip",
               "size": 3553145,
-              "downloads": 82229,
+              "downloads": 82231,
               "url": "https://github.com/K11MCH1/AdrenoToolsDrivers/releases/download/v26.0.0-rc06/Turnip_v26.0.0_R6.zip"
             },
             {
@@ -5521,182 +5521,6 @@
       "repoUrl": "https://github.com/SSimco/Cemu"
     },
     {
-      "name": "NetherSX2 Classic",
-      "repo": "Trixarian/NetherSX2-classic",
-      "category": "Emulator PS2",
-      "logo": "nethersx2.png",
-      "extensions": null,
-      "downloads": 1021747,
-      "releases": [
-        {
-          "name": "NetherSX2 Classic v2.2n Net Dev Build",
-          "tag": "2.2n",
-          "date": "2025-12-25T12:22:14Z",
-          "downloads": 167989,
-          "body": "Merry Christmas, Happy Holidays and a Happy New Year everyone!\r\n\r\nThis update adds experimental Online Multiplayer to NetherSX2 along with the usual updates!\r\nThanks to [IamLupo](https://github.com/IamLupo) for adding it to ARMSX2, and [zakilj3](https://www.youtube.com/user/zakilj3) for discovering the same settings work with NetherSX2!\r\n\r\n[VirusTotal Scan Report](https://www.virustotal.com/gui/file/8b502b31ce797d5a162bc6b9300b5f02351b0b6b290b8dc1390b8dfb826673ab)\r\n\r\n## How to use Online Multiplayer\r\n1. Go to your App Settings --> Settings and toggle on Enable DEV9 Ethernet\r\n2. Set API to Sockets, and Device to how you want to connect online with the default being WiFi. Set this to VPN if your phone uses a VPN, and to one of the two SIM DATA options if you want to use your Mobile Data Plan instead\r\n3. That should be enough to get you online using a guide like [this](https://youtu.be/dcOnZzzcbSc?si=WOf01r0Ln5ZVQkpf&t=278) by LogicalMacrochip\r\n\r\nYou can use the [Official List of PlayStation 2 Online Games (2024)](https://docs.google.com/spreadsheets/d/15pfhL36qmC-iKr8MNjNXNLwgacG4VOmkfvwVxV5vGzo/edit?gid=0#gid=0) to figure out what games work, get their DNAS bypass codes if needed and which private server you should be using\r\n\r\nFor more advanced options (or you want to use the second method from the guide by LogicalMacrochip), you can do the following:\r\n1. Set DNS1 Mode to Manual\r\n2. Under DNS1 select either  [PS2 Online](https://ps2online.com) (called Cristian in the Official list) or [PSRewired](https://psrewired.com)\r\nNote: This can also be changed on a Per Game Settings and more servers will be added soon\r\nTo turn it off just set DNS1 Mode to Auto and DNS1 to 0.0.0.0\r\n\r\n[zakilj3](https://www.youtube.com/user/zakilj3) created a more [comprehensive guide](https://www.youtube.com/watch?v=uZzEXvNXUUU) to make it easier for people\r\n\r\n## Changelog\r\n* Bumped version to v2.2n\r\n* Added Networking section to System Settings\r\n### GameDB (converted from [PCSX2](https://pcsx2.net))\r\n* All-Star Fighters - Fixed inverted or broken character textures\r\n* Battle Gear 3 - Fixed broken splitscreen mode\r\n* Blokus Club with Bumpy Trot - Fixed channel shuffles, menu graphics, motion blur and aligned effects\r\n* Bomberman Kart DX - Fixed specific level infinite load screen\r\n* Castlevania: Curse of Darkness - Fixed post-processing alignment\r\n* Cool Girl - Fixed post-processing alignment\r\n* Coraline - Fixed post-processing alignment\r\n* Cy Girls - Fixed post-processing alignment\r\n* Final Fantasy X-2 - Fixed broken FMVs\r\n* George of the Jungle - Fixed post-processing alignment\r\n* George of the Jungle and the Search for the Secret - Fixed post-processing alignment\r\n* Guitar Hero: Greatest Hits - Fixed broken rainbow rendering, edge garbage, shadow definition and aligns post-processing\r\n* Harley-Davidson: Race to the Rally - Fixed post-processing alignment\r\n* Heatseeker - Fixed misalignment issues\r\n* Iris no Atelier: Eternal Mana - Fixed horizontal lines in FMV and character portraits when upscaling\r\n* Killzone - Fixed internal FPS detection\r\n* Next Generation Tennis - Fixed broken pause menu graphics\r\n* Ore no Shita de Agake - Fixed incorrect rendering and some missing text\r\n* PachiPara 13 & 14 - Fixed channel shuffles, menu graphics, motion blur and aligned effects\r\n* Raw Danger - Fixed menu graphics and channel shuffles\r\n* Red Ninja: End of Honor - Fixed post-processing alignment\r\n* Steambot Chronicles - Fixed menu graphics and channel shuffles\r\n* TimeSplitters: Future Perfect - Aligned bloom of distant objects\r\n* US OPEN 2002: A USTA EVENT - Fixed broken pause menu graphics\r\n### ControllerDB (from [SDL_GameControllerDB](https://github.com/mdqinc/SDL_GameControllerDB))\r\n* 8BitDo Pro 3\r\n* 8BitDo Ultimate 2C\r\n* icedragon.io STAC Dance Pad\r\n* Logitech Cordless RumblePad\r\n* PlayStation VR2 Sense Controllers\r\n* Ultimate Atari Fight Stick\r\n* XinMo Dual Arcade\r\n* ZhiXu GuliKit D\r\n### No interlacing and Widescreen Patches (Thanks [Saramagrean](https://github.com/Saramagrean/NetherSX2-cheats)!)\r\n#### No Interlacing\r\n* Grand Theft Auto: San Andreas\r\n* Hot Shots Golf 3\r\n* Mystic Nights\r\n* Shadow Hearts\r\n* Tales of Destiny: Director's Cut\r\n#### Widescreen\r\n* Grand Theft Auto: San Andreas\r\n* Jackie Chan Adventures\r\n* Metal Gear Solid 2 - Substance\r\n* Mystic Nights\r\n* Pro Evolution Soccer 2014\r\n* The Great Escape\r\n* Tales Of The Abyss",
-          "prerelease": false,
-          "assets": [
-            {
-              "name": "NetherSX2-v2.2n-3668.apk",
-              "size": 19544036,
-              "downloads": 167989,
-              "url": "https://github.com/Trixarian/NetherSX2-classic/releases/download/2.2n/NetherSX2-v2.2n-3668.apk"
-            }
-          ],
-          "htmlUrl": "https://github.com/Trixarian/NetherSX2-classic/releases/tag/2.2n"
-        },
-        {
-          "name": "NetherSX2 Classic v2.2b Hotfixed Dev Build",
-          "tag": "2.2b",
-          "date": "2025-10-22T00:58:38Z",
-          "downloads": 143899,
-          "body": "I fixed the upload of Classic that I broke -_-\r\nThanks Joey!\r\n\r\n[Virus Total Report](https://www.virustotal.com/gui/file/bda77b273e6f7b60e4a67d31b7bb431171f3e179372cc43dd326d02dddfe06f7)\r\n\r\n## Changelog:\r\n* Bumped version to v2.2b\r\n* Changed the App ID back -_-\r\n* Shin Megami Tensei: Digital Devil Saga - Aligns shadows better to prevent artefacts\r\n  - known as Digital Devil Saga: Avatar Tuner in some regions\r\n* Wild Arms 5 & The Vth Vanguard - Fixed SPS on shell worm enemies\r\n* Worms Forts: Under Siege - Fixed internal FPS detection",
-          "prerelease": false,
-          "assets": [
-            {
-              "name": "NetherSX2-v2.2b-3668.apk",
-              "size": 19544036,
-              "downloads": 143899,
-              "url": "https://github.com/Trixarian/NetherSX2-classic/releases/download/2.2b/NetherSX2-v2.2b-3668.apk"
-            }
-          ],
-          "htmlUrl": "https://github.com/Trixarian/NetherSX2-classic/releases/tag/2.2b"
-        },
-        {
-          "name": "NetherSX2 Classic v2.2a Dev Build",
-          "tag": "2.2a",
-          "date": "2025-10-15T09:37:52Z",
-          "downloads": 16332,
-          "body": "Putting dev builds back on their respective repositories for ease of access\r\n\r\n[Virus Total Report](https://www.virustotal.com/gui/file/16c31c3d731610e11042e6635301f4f0e6febdccffe207b7fe083fbfa48ba05d)\r\n\r\n## Changelog:\r\n* Bumped version to v2.2a\r\n* Removed the unneeded Debug files from the APKs\r\n* Fixed weird sun issue in Ace Combat 04\r\n* Fixed vu separation issues for:\r\n  - Naruto: Ultimate Ninja 2\r\n  - Ultimate Spider-Man\r\n\r\n### Via PCSX2's GameDB Updates:\r\n* Dynasty Warriors 3 + 4 - Fixed missing graphics\r\n* Hot Wheels: Beat That! - Fixed various car physics issues\r\n* Jeopardy! - Fixed Menus\r\n* Tony Hawk's Downhill Jam - Fixed tutorial crash\r\n* UEFA Champions League 2005 - Fixed player uniform rendering",
-          "prerelease": false,
-          "assets": [
-            {
-              "name": "NetherSX2-v2.2a-3668.apk",
-              "size": 19217091,
-              "downloads": 16332,
-              "url": "https://github.com/Trixarian/NetherSX2-classic/releases/download/2.2a/NetherSX2-v2.2a-3668.apk"
-            }
-          ],
-          "htmlUrl": "https://github.com/Trixarian/NetherSX2-classic/releases/tag/2.2a"
-        },
-        {
-          "name": "NetherSX2 Classic v2.1",
-          "tag": "2.1",
-          "date": "2025-09-24T22:16:51Z",
-          "downloads": 111094,
-          "body": "This release should correct any [performance loss](https://www.youtube.com/watch?v=HivQHfB5rtw) and [visual regressions](https://www.youtube.com/watch?v=cViX9lEP2mw) found with the NetherSX2 2.0 release while coming with a nice performance boost and several bug fixes on top of that\r\n\r\nA huge thank you to [Retro Handheld Guides](https://www.youtube.com/@RetroHandheldGuides), [Alexwpi Game](https://www.youtube.com/@AlexwpiGame), reddit and the bug testers for pointing out these issues\r\n\r\n### Update Notice\r\nI've updated the APK to fix the following bugs:\r\n* Several visual glitches in GTA: SA\r\n* Broken FMVs and blue filter issue in MGS3: Subsistence\r\n* Slow downs caused by not properly using vu separation\r\n* Slow downs caused by the experimental gpuTargetCLUT to cpuCLUTRender conversion\r\n\r\n[Virus Total Report](https://www.virustotal.com/gui/file/5518c0f0ec7d820ff96b51cca37c2db30b8601fc4e1ccef84bd03659c8d1a643)\r\n\r\n## Changelog:\r\n### Classic\r\n* Using cpuCLUTRender as a replacement for gpuTargetCLUT - this should get us a slight performance boost and better visual quality\r\n* Added experimental support for estimateTextureRegion's features by using disablePartialInvalidation. This should have the performance benefits for Snowblind games\r\n\r\n### General\r\n* Bumped version to v2.1\r\n* Hardcore RetroAchievements support has been fixed - it was temporarily broken with the v2.0.6 test build\r\n* Setting inheritance doesn't transfer over autoFlush and cpuSpriteRenderBW since they break more than they fix\r\n  - This fixes the fog wall in Wrath of Cortex and the black eye textures in the Jak games\r\n* Restored the FullVU0SyncHack setting since it DOES exist in both versions\r\n  - Should fix the performance loss with the games that use it\r\n* Fixed the issue where the Cover Downloader didn't download the link provided by the user\r\n* Removed InstantDMAHack from inheritance and we prefer DMABusyHack over it. This should fix the MGS games\r\n*  Implemented common fixes into the conversion script, which fixes:\r\n   - The Atelier Iris games' FMVs\r\n   - The Godfather's broken fullscreen colour filter\r\n   - Grand Theft Auto: San Andreas' performance \r\n   - The Jak games' shadow issues using Vulkan\r\n   - Metal Gear Solid 3: Subsistence's performance drop when camouflaged\r\n   - The Digital Devil Saga games issue with texture alignment and lights shining through walls\r\n   - The Lord of the Rings: Two Towers' FMVs\r\n   - Timesplitters' light shining through walls\r\n* Implemented an inheritance exclusion feature that can exclude games from being changed. This avoids over-tuning games (like Driv3r) that has had a lot of settings changes over the years\r\n* Added a fix for Hitman Blood Money\r\n* The Conversion script now output files with more descriptive names\r\n* Implemented the ability to insert multiple hardware fixes using the game's serial\r\n* Implemented the ability to insert multiple game fixes using the game's serial\r\n* Better Resolution Scaling list values to help pick the best resolution for your device without sacrificing performance\r\n* Updated widescreen and no-interlacing patches to latest provided by [Saramagrean](https://github.com/Saramagrean/NetherSX2-cheats)\r\n* Updated the Controller DB to latest from [SDL_GameControllerDB](https://github.com/mdqinc/SDL_GameControllerDB)\r\n\r\n## Known Issues\r\n* Google Play Protect may give you a warning when installing the APK due to us using test keys to sign the application\r\n* **SAVE STATES ARE NOT COMPATIBLE BETWEEN 3668 AND 4248!** Please use memcard/in-game saves if you plan to jump between Patch and Classic\r\n* Black, Ace Combat, the Jak games and various other games have graphical issues. Many of them have been fixed in [4248](https://github.com/Trixarian/NetherSX2-patch/releases)\r\n* Snowblind engine games (Baldur's Gate: Dark Alliance, Champions games and Justice League Heroes) has several issues with 3668. For better performance and less issues, use [4248](https://github.com/Trixarian/NetherSX2-patch/releases)\r\n* CHD files made with createdvd will not work with the emulator unless you use the flag ```-c zlib```. Since createcd chd files are generally smaller, it may be preferable to use them when space is a concern\r\n* Newer texture packs (made in or after 2024) will not work. This is due to PCSX2 changing how dumped textures are named. PCSX2 will also automatically rename the files to the new naming scheme when older packs are used with it - breaking their compatibility with NetherSX2 in the process. Hopefully the ability to dump textures with NetherSX2 will help mitigate this issue\r\n* Newer RetroAchievements that uses the Remember and Recall functions within RA - so achievement sets made in the last year and half may not work with NetherSX2\r\n\r\n## Special Thanks\r\n* A Huge Thank You to Miguel, WZi, McThor, [protokoul](https://github.com/protokoul), [PrinceP14](https://github.com/PrinceP14) and two private sponsors for their support on my [Ko-fi](https://ko-fi.com/reallynottrix) and [Github Sponsors](https://github.com/sponsors/Trixarian) pages! Your combined generosity makes it possible for me to work on this and many other projects!\r\n* [MrSujano](https://www.youtube.com/@MrSujano), [Retro Game Corps](https://www.youtube.com/@RetroGameCorps), [Joey's Retro Handhelds](https://www.youtube.com/@JoeysRetroHandhelds), [TechDweed](https://www.youtube.com/techdweeb), [Retro Ryan](https://www.youtube.com/@RyanRetro), [Adin Walls](https://www.youtube.com/@adinwalls), [Alexwpi Game](https://www.youtube.com/@AlexwpiGame), [Retro Handheld Guides](https://www.youtube.com/@RetroHandheldGuides) and many other YouTube channels for spreading awareness of and creating guides for NetherSX2\r\n\r\n## Test Devices & Huge Thanks to\r\n* [AYANEO](https://www.ayaneo.com) for providing me with the powerhouse known as the [AYANEO Pocket S2 Pro](https://www.ayaneo.com/product/AYANEO-Pocket-S2)\r\n* [Retroid](https://www.goretroid.com) for providing me with a [RP Mini](https://www.goretroid.com/collections/retro-game-system/products/retroid-pocket-mini-v2-handheld) and [RP5](https://www.goretroid.com/collections/retro-game-system/products/retroid-pocket-5-handheld)",
-          "prerelease": false,
-          "assets": [
-            {
-              "name": "NetherSX2-v2.1-3668.apk",
-              "size": 19217154,
-              "downloads": 111094,
-              "url": "https://github.com/Trixarian/NetherSX2-classic/releases/download/2.1/NetherSX2-v2.1-3668.apk"
-            }
-          ],
-          "htmlUrl": "https://github.com/Trixarian/NetherSX2-classic/releases/tag/2.1"
-        },
-        {
-          "name": "NetherSX2 Classic 2.0",
-          "tag": "2.0",
-          "date": "2025-06-17T09:46:52Z",
-          "downloads": 197102,
-          "body": "First full release of the year and several major improvements to Classic! \r\nNetherSX2 1.9a, NetherSX2-Classic 2.0a and the new [NetherSX2-Patch 2.0](https://github.com/Trixarian/NetherSX2-patch/releases/tag/2.0) releases can be updated with this file\r\n\r\n[Virus Total Report](https://www.virustotal.com/gui/file/2fd898487c92571727698e2f76e518d92dc60c0567aa8cf5431cbbb1bffb0f47)\r\n\r\n## Changelog:\r\n### NetherSX2 Changes\r\n* Bumped version to 2.0\r\n* Added Texture Dumping - thanks [Saramagrean](https://github.com/Saramagrean)!\r\n* Updated the Widescreen & No-Interlacing patches - thanks again [Saramagrean](https://github.com/Saramagrean/NetherSX2-cheats)!\r\n* Updated the Russian translation - thanks b1ack_mage!\r\n* Covers now appear larger in the Game List Grid View - thanks b1ack_mage\r\n* New On-Screen Controls:\r\n![Screenshot_2025-06-15-01-12-18-769_xyz aethersx2 android](https://github.com/user-attachments/assets/1bd4f8fc-92bf-41bf-a7c6-4ef07bb63cb1)\r\nCredits:\r\nAetherSX2/Duckstation basis by Stenzek\r\nBetter L2 and R2 buttons by k6stor\r\nColored face buttons by b1ack_mage \r\nReworked for better consistency by me\r\n\r\n### GameDB Changes\r\n* Updated the GameDB via the upgraded conversion script (see below)\r\n\r\nThe conversion script has been overhauled and now produces GameDB files that has the original settings dynamically mixed with the latest fixes provided by PCSX2, with an option to override any of them for better Android or core compatibility. This gives us the stability provided by the original settings with the added benefits that come with the newer ones - which include better performance for several games\r\n\r\n### Controller DB Changes\r\n* Updated to the latest ControllerDB from [SDL_GameControllerDB](https://github.com/mdqinc/SDL_GameControllerDB)\r\n\r\n## Known Issues\r\n* Google Play Protect may give you a warning when installing the APK due to us using test keys to sign the application\r\n* **SAVE STATES ARE NOT COMPATIBLE BETWEEN 3668 AND 4248!** Please use memcard/ingame saves if you plan to jump between them\r\n* Black, Ace Combat, the Jak games and various other games have graphical issues. Many of them have been fixed in [4248](https://github.com/Trixarian/NetherSX2-patch/releases)\r\n* Snowblind engine games (Baldur's Gate: Dark Alliance, Champions games and Justice League Heroes) has several issues with 3668. For better performance and less issues, use [4248](https://github.com/Trixarian/NetherSX2-patch/releases)\r\n* CHD files made with createdvd will not work with the emulator unless you use the flag ```-c zlib```. Since createcd chd files are generally smaller, it may be preferable to use them when space is a concern\r\n* Newer texture packs (made in or after 2024) will not work. This is due to PCSX2 changing how dumped textures are named. PCSX2 will also automatically rename the files to the new naming scheme when older packs are used with it - breaking their compatibility with NetherSX2 in the process. Hopefully the ability to dump textures with NetherSX2 will help mitigate this issue\r\n* Newer RetroAchievements that uses the Remember and Recall functions within RA (generally achievement sets made in the last year and half) will not work with NetherSX2. Some efforts are being made to fix this\r\n\r\n## Special Thanks\r\n* A Huge Thank You to Miguel, WZi, McThor and [protokoul](https://github.com/protokoul) for their support on my [Ko-fi](https://ko-fi.com/reallynottrix) and [Github Sponsors](https://github.com/sponsors/Trixarian) pages! Your combined generosity helped me more than any of you'll ever know and makes it possible for me to work on NetherSX2 and EtherealSX2!\r\n* [EZOnTheEyes](https://www.youtube.com/@EZOnTheEyes) and the [Ozone Modification Group](https://discord.gg/xRh3NnYyMa) Community for giving us a home, and providing support and bug testing for NetherSX2\r\n* [MrSujano](https://www.youtube.com/@MrSujano), [Retro Game Corps](https://www.youtube.com/@RetroGameCorps), [Joey's Retro Handhelds](https://www.youtube.com/@JoeysRetroHandhelds), [TechDweed](https://www.youtube.com/techdweeb), [Retro Ryan](https://www.youtube.com/@RyanRetro), [Adin Walls](https://www.youtube.com/@adinwalls) (a fellow South African) and countless other YouTube channels for spreading awareness and creating guides for NetherSX2\r\n* [Retroid](https://www.goretroid.com/) for providing an unknown developer like me with a [RP Mini](https://www.goretroid.com/collections/retro-game-system/products/retroid-pocket-mini-v2-handheld) and [RP5](https://www.goretroid.com/collections/retro-game-system/products/retroid-pocket-5-handheld) that gave me the ability to test NetherSX2 and EtherealSX2 with Snapdragon devices when no other company was interested. You guys actively helped make both emulators better!",
-          "prerelease": false,
-          "assets": [
-            {
-              "name": "NetherSX2-v2.0-3668.apk",
-              "size": 19155714,
-              "downloads": 197102,
-              "url": "https://github.com/Trixarian/NetherSX2-classic/releases/download/2.0/NetherSX2-v2.0-3668.apk"
-            }
-          ],
-          "htmlUrl": "https://github.com/Trixarian/NetherSX2-classic/releases/tag/2.0"
-        },
-        {
-          "name": "NetherSX2 Classic 2.0 Experimental",
-          "tag": "2.0e",
-          "date": "2025-04-15T09:30:45Z",
-          "downloads": 16503,
-          "body": "This is a build designed to test how accurate the GameDB Conversion script is and how well an unaltered copy of the converted GameDB works with the current builds of NetherSX2 that lacks many of the features it's expecting to be there\r\n\r\nThis will break several games, but may also provide fixes and better performance for others\r\nUse at your own risk, but if you are testing this, please provide feedback about what works, what doesn't and what works better overall since those will be ported back into the current modified GameDB as we move to a full 2.0 release\r\n\r\nThis version also includes:\r\n* The PS3/4 trophy unlock sound for RetroAchievements\r\n* Updated ControllerDB\r\n* The resolution scale with the multiplier (NTSC/PAL)",
-          "prerelease": true,
-          "assets": [
-            {
-              "name": "15210-v2.0-3668-ex.apk",
-              "size": 21048066,
-              "downloads": 16503,
-              "url": "https://github.com/Trixarian/NetherSX2-classic/releases/download/2.0e/15210-v2.0-3668-ex.apk"
-            }
-          ],
-          "htmlUrl": "https://github.com/Trixarian/NetherSX2-classic/releases/tag/2.0e"
-        },
-        {
-          "name": "NetherSX2 Classic v2.0a",
-          "tag": "2.0a",
-          "date": "2025-04-08T14:49:21Z",
-          "downloads": 210611,
-          "body": "Considering that it's been over a year since AetherSX2 got delisted from the Google Play Store and it's site was taken down, I'm going to attempt releasing an apk of the latest build. I doubt anyone will come along and try to enforce the license at this point, but if trouble arises from this, I will revert to the old methods\r\n\r\nHuge thanks to [Retroid](https://www.goretroid.com/) for sending me a [Retroid Pocket 5](https://www.goretroid.com/collections/retro-game-system/products/retroid-pocket-5-handheld)! It makes testing changes to EtherealSX2 and NetherSX2 a lot easier!\r\n\r\nChangelog:\r\n* This version should block the Play Store from installing 3064 over it\r\n* Bumped the internal version to enable Hardcore RetroAchievements support\r\n* Rebuilt the GameDB - based on the original 3668 with a few select fixes from NetherSX2-patch ported over\r\n* Updated the ControllerDB, Widescreen and No-Interlacing patches to their latest versions\r\n* Ported the majority of custom features from 4248 to 3668. More are in the works\r\n\r\nThis is an alpha release, so please test your games on it and give me feedback so I can add specific game fixes where possible\r\nEdit: Now Including an old controller layout version in the form of the -OL builds\r\n\r\nAlso Russ, you can stop sending the ninjas after me now. I'm running out of places to hide their bodies",
-          "prerelease": false,
-          "assets": [
-            {
-              "name": "15210-v2.0-3668-OL.apk",
-              "size": 18975579,
-              "downloads": 47896,
-              "url": "https://github.com/Trixarian/NetherSX2-classic/releases/download/2.0a/15210-v2.0-3668-OL.apk"
-            },
-            {
-              "name": "15210-v2.0-3668-signed.apk",
-              "size": 20888322,
-              "downloads": 162715,
-              "url": "https://github.com/Trixarian/NetherSX2-classic/releases/download/2.0a/15210-v2.0-3668-signed.apk"
-            }
-          ],
-          "htmlUrl": "https://github.com/Trixarian/NetherSX2-classic/releases/tag/2.0a"
-        },
-        {
-          "name": "NetherSX2-classic 1.0",
-          "tag": "1.0",
-          "date": "2023-11-20T09:42:58Z",
-          "downloads": 103325,
-          "body": "This is the initial release with a custom GameDB, updated files and the New UI Theme from NetherSX2-patch. There should still be bug fixes in the future as more of 3668's GameDB is readded in for compatibility\r\n\r\n### This release contains the following files:\r\nNetherSX2-classic.zip - This contains the files in the repository and can be used to build, patch and update a copy of NetherSX2-classic\r\n\r\nnethersx2-classic.xdelta - The xdelta that ccan be used with UniPatcher (on Android), [YADP](https://github.com/Nhoya/YADP) or [Delta Patcher](https://github.com/marco-calautti/DeltaPatcher) to apply the patch changes to a copy of AetherSX2 3668 on systems others than Windows\r\n\r\nNote: No APK is provided in any of these files. Due to licensing issues, you need to build NetherSX2 for yourself using the various methods provided",
-          "prerelease": false,
-          "assets": [
-            {
-              "name": "nethersx2-classic.xdelta",
-              "size": 4470264,
-              "downloads": 32765,
-              "url": "https://github.com/Trixarian/NetherSX2-classic/releases/download/1.0/nethersx2-classic.xdelta"
-            },
-            {
-              "name": "NetherSX2-classic.zip",
-              "size": 7773153,
-              "downloads": 70560,
-              "url": "https://github.com/Trixarian/NetherSX2-classic/releases/download/1.0/NetherSX2-classic.zip"
-            }
-          ],
-          "htmlUrl": "https://github.com/Trixarian/NetherSX2-classic/releases/tag/1.0"
-        },
-        {
-          "name": "NetherSX2-Classic Resources",
-          "tag": "0.0",
-          "date": "2023-10-25T08:19:08Z",
-          "downloads": 54892,
-          "body": "Resources files required to use NetherSX2-Classic",
-          "prerelease": true,
-          "assets": [
-            {
-              "name": "13930-v1.5-3668.apk",
-              "size": 18891890,
-              "downloads": 54892,
-              "url": "https://github.com/Trixarian/NetherSX2-classic/releases/download/0.0/13930-v1.5-3668.apk"
-            }
-          ],
-          "htmlUrl": "https://github.com/Trixarian/NetherSX2-classic/releases/tag/0.0"
-        }
-      ],
-      "repoUrl": "https://github.com/Trixarian/NetherSX2-classic"
-    },
-    {
       "name": "Winlator Glibc",
       "repo": "longjunyu2/winlator",
       "category": "Winlator",
@@ -5887,20 +5711,20 @@
       "category": "Winlator",
       "logo": "winlator.png",
       "extensions": null,
-      "downloads": 676437,
+      "downloads": 676438,
       "releases": [
         {
           "name": "Winlator Cmod v13.1.1",
           "tag": "cmod_v13.1",
           "date": "2025-08-07T07:49:41Z",
-          "downloads": 294172,
+          "downloads": 294173,
           "body": "_Minor update v13.1.1 fixed custom icons, default renderer, and warning prompt handling on new installs_ \r\n\r\n------------------------------\r\n\r\n-   **`evshim` Rewrite:** The entire controller shim (`libevshim.so`) has been rewritten, **completely eliminating the use of shared memory (`mmap`)**, resulting in a massive reduction in CPU overhead and a significant performance boost, especially on lower-end devices. Box64 3.2 and 3.6 are now compatible, and have been restored.\r\n\r\n-   **ALSA-Reflector Improved** The pacer's ring buffer and reconnection logic have been refined, expect better performance and reliability.\r\n\r\n-   **Universal CPU Overhead Reduction:** I've gone through the code to find and eliminate performance bottlenecks, once again, big thanks to @Pipetto-crypto as always for the guidance and his improvements to the Graphics Wrapper. \r\n\r\n### ✨ New Feature: VkBasalt Integration\r\n\r\n-   **Per-Shortcut Sharpening & Effects:** Thanks to @Pipetto-crypto You can now enable VkBasalt on a per-shortcut basis to apply CAS and DLS to your games.\r\n\r\n### 🐞 Stability & Bug Fixes:\r\n\r\nThis update includes a huge number of fixes for a smoother experience.\r\n\r\n-   **Corrupted Shortcut Crash Fixed:** Implemented safety checks to prevent the app from crashing when parsing corrupted `.desktop` files.\r\n\r\n-   **Proton & Frontend Fixes:** Resolved issues that caused crashes when launching the frontend or using XrActivity.\r\n\r\n-   **Input Controls Fixed:** Corrected bugs with toggle switches and range buttons in the input controls overlay.\r\n\r\n-   **Gyro Zeroing Improved:** The gyroscope now has better logic for finding its origin point, resulting in more responsive and accurate motion controls.\r\n\r\n-   **Renderer Selection for DDraw:** Added a renderer selection option to fix black screens in older DDraw games, thanks to some last minute insight to **@Pipetto-Crypto**.\r\n\r\n### ⚙️ Core & Asset Updates\r\n\r\n-   **Proton 10 Support:** The codebase is now prepared for the next major Proton release. Stay tuned. (...and Wine 9.20)\r\n\r\n-   **Updated Assets:** The default Box64, Proton packs, and other core assets have been updated with the latest fixes and improvements. Additional .wcp have been added to Contents: updated DXVK (+ Stripped, Sarek for lower end devices), updated VKD3D, and Turnip. Thank you @K11MCH1 for your excellent repository.\r\n\r\nThe list goes on actually. More planned as always- now get to testing! Spin up GTA IV and watch it fly! 🫡\r\n\r\n-Alex\r\n\r\n**WARNING: _Make new Containers_.** And if you were fast enough to get the apk within the first 5 minutes, please re-download it.\r\n\r\n",
           "prerelease": false,
           "assets": [
             {
               "name": "cmod-hotfix-checklist-08-07-2025.png",
               "size": 161893,
-              "downloads": 28453,
+              "downloads": 28454,
               "url": "https://github.com/coffincolors/winlator/releases/download/cmod_v13.1/cmod-hotfix-checklist-08-07-2025.png"
             },
             {
@@ -7689,13 +7513,13 @@
       "extensions": [
         ".zip"
       ],
-      "downloads": 511154,
+      "downloads": 511155,
       "releases": [
         {
           "name": "Turnip - 25.3.0-devel - Oct 11, 2025",
           "tag": "25.3.0-devel_bbdd688",
           "date": "2025-10-11T23:54:12Z",
-          "downloads": 152532,
+          "downloads": 152533,
           "body": "### Base commit : [bbdd688](https://gitlab.freedesktop.org/mesa/mesa/-/commit/bbdd688)\r\n## Upstreams / Patches\r\nThese have not been merged by Mesa officially yet and may introduce bugs or\r\nwe revert stuff that breaks games but still got merged in (see --reverse)\r\n- force_sysmem_no_autotuner, ../../patches/force_sysmem_no_autotuner.patch, \r\n\r\n_Upstreams / Patches are only applied to the patched version (\\_patched.zip)_\r\n_If a patch is not present anymore, it's most likely because it got merged, is not needed anymore or was breaking something._\r\n",
           "prerelease": false,
           "assets": [
@@ -7708,7 +7532,7 @@
             {
               "name": "turnip_Oct-11-2025_bbdd688_patched.zip",
               "size": 3200850,
-              "downloads": 29473,
+              "downloads": 29474,
               "url": "https://github.com/Weab-chan/freedreno_turnip-CI/releases/download/25.3.0-devel_bbdd688/turnip_Oct-11-2025_bbdd688_patched.zip"
             },
             {
@@ -8468,7 +8292,7 @@
       "category": "Winlator",
       "logo": "winlator.png",
       "extensions": null,
-      "downloads": 504064,
+      "downloads": 504065,
       "releases": [
         {
           "name": "ludashi 2.9 (Beta)",
@@ -8503,7 +8327,7 @@
           "name": "Ludashi 2.8.2",
           "tag": "2.8.2",
           "date": "2026-01-25T22:55:31Z",
-          "downloads": 115734,
+          "downloads": 115735,
           "body": "What's new:\r\n\r\n🛠️ devices that weren't working should now work. thanks to @kostasgangstar \r\n\r\n📦 Fixed a regression in box64 in 32bits games\r\n\r\n💾 Assets: update wrapper, turnip, and box64/fexcore to the latest versions \r\n\r\n🎮 Controller: fixed Wine 9.20, and some others issues, if input don't work, try disabling \"Exclusive\"\r\n\r\n💻 Added support for compute shaders BCn decompression as an option, improving performance for Mali Devices\r\n\r\n🖥️ GraphicsDriverConfigDialog: add option to change/spoof GPU name, device and vendor id\r\n\r\n⚙️ Container: add internal storage as a container drive\r\n  \r\n📌 reinstall from scratch before update",
           "prerelease": false,
           "assets": [
@@ -8516,7 +8340,7 @@
             {
               "name": "bionic-vanilla.apk",
               "size": 524103183,
-              "downloads": 20607,
+              "downloads": 20608,
               "url": "https://github.com/StevenMXZ/Winlator-Ludashi/releases/download/2.8.2/bionic-vanilla.apk"
             },
             {
@@ -19043,20 +18867,20 @@
       "category": "PC Emulator",
       "logo": "pluvia.png",
       "extensions": null,
-      "downloads": 94608,
+      "downloads": 94609,
       "releases": [
         {
           "name": "v1.3.2",
           "tag": "v1.3.2",
           "date": "2025-03-02T00:58:48Z",
-          "downloads": 62876,
+          "downloads": 62877,
           "body": "Fixes:\r\n- Notification action \"Exit\" not terminating service when not in focus. - @LossyDragon @oxters168\r\n- Proper fix for library padding crash from 1.3.1 hotfix. - @LossyDragon\r\n- Left pane in a 2-Pane layout should fill the width properly (Library and Friends list) - @LossyDragon\r\n- Hide keyboard when pressing search/enter button. - @LossyDragon\r\n- Fix family shared games missing from library list @LossyDragon @oxters168\r\n\r\nAdditions:\r\n- New app icon/logo by @Prowi3 Huge THANK YOU for this awesome icon!\r\n- Apply new icons for Pluvia. - @LossyDragon @oxters168\r\n- Expose some debug options in Settings. - @LossyDragon\r\n- Friends list now shows game names. - @LossyDragon\r\n- \"Family\" filter item for library list - @LossyDragon\r\n\r\nDependency Updates: \r\n- JavaSteam 1.6.1 with Family Sharing support and misc fixes.\r\n\r\n**Full Changelog**: https://github.com/oxters168/Pluvia/compare/v1.3.1...v1.3.2",
           "prerelease": false,
           "assets": [
             {
               "name": "universal.apk",
               "size": 284413333,
-              "downloads": 62876,
+              "downloads": 62877,
               "url": "https://github.com/oxters168/Pluvia/releases/download/v1.3.2/universal.apk"
             }
           ],
@@ -19156,7 +18980,7 @@
       "category": "Emulator PS2",
       "logo": "armsx2.png",
       "extensions": null,
-      "downloads": 81147,
+      "downloads": 81148,
       "releases": [
         {
           "name": "Nightly Build (DEBUG - 1.0.8) - 20260311-0021",
@@ -19604,14 +19428,14 @@
           "name": "1.0.6",
           "tag": "1.0.6",
           "date": "2025-11-26T09:37:07Z",
-          "downloads": 56271,
+          "downloads": 56272,
           "body": "",
           "prerelease": false,
           "assets": [
             {
               "name": "ARMSX2_21_202511261234-unrestricted-release.apk",
               "size": 32296201,
-              "downloads": 56271,
+              "downloads": 56272,
               "url": "https://github.com/ARMSX2/ARMSX2/releases/download/1.0.6/ARMSX2_21_202511261234-unrestricted-release.apk"
             }
           ],
@@ -23973,6 +23797,16 @@
       "repoUrl": "https://github.com/Kenji-NX/Android-Releases"
     },
     {
+      "name": "NetherSX2 Classic",
+      "repo": "Trixarian/NetherSX2-classic",
+      "category": "Emulator PS2",
+      "logo": "nethersx2.png",
+      "extensions": null,
+      "downloads": 0,
+      "releases": [],
+      "repoUrl": "https://github.com/Trixarian/NetherSX2-classic"
+    },
+    {
       "name": "Vita3K Android",
       "repo": "Vita3K/Vita3K-Android",
       "category": "PSVITA",
@@ -24019,13 +23853,13 @@
         "name": "proton-10-arm64ec",
         "version": "1",
         "url": "https://github.com/StevenMXZ/Winlator-Contents/releases/download/1.0/proton-10-arm64ec.wcp.xz",
-        "date": "2026-03-13T20:25:24.868Z"
+        "date": "2026-03-13T20:27:20.877Z"
       },
       {
         "name": "wine-9.20-x86_64",
         "version": "1",
         "url": "https://github.com/StevenMXZ/Winlator-Contents/releases/download/1.0/wine-9.20.wcp",
-        "date": "2026-03-13T20:25:24.868Z"
+        "date": "2026-03-13T20:27:20.877Z"
       }
     ],
     "Box64": [
@@ -24033,37 +23867,37 @@
         "name": "0.3.5",
         "version": "1",
         "url": "https://github.com/ziad9267/Winlator-Contents/raw/refs/heads/main/Box64/box64-0.3.5.wcp",
-        "date": "2026-03-13T20:25:24.868Z"
+        "date": "2026-03-13T20:27:20.877Z"
       },
       {
         "name": "036fix",
         "version": "1",
         "url": "https://github.com/StevenMXZ/Winlator-Contents/raw/refs/heads/main/Box64/box64-036fix.wcp",
-        "date": "2026-03-13T20:25:24.868Z"
+        "date": "2026-03-13T20:27:20.877Z"
       },
       {
         "name": "0.3.7",
         "version": "1",
         "url": "https://github.com/StevenMXZ/Winlator-Contents/raw/refs/heads/main/Box64/box64-0.3.7.wcp",
-        "date": "2026-03-13T20:25:24.868Z"
+        "date": "2026-03-13T20:27:20.877Z"
       },
       {
         "name": "0.3.8",
         "version": "1",
         "url": "https://github.com/StevenMXZ/Winlator-Contents/raw/refs/heads/main/Box64/box64-0.3.8.wcp",
-        "date": "2026-03-13T20:25:24.868Z"
+        "date": "2026-03-13T20:27:20.877Z"
       },
       {
         "name": "0.3.9",
         "version": "1",
         "url": "https://github.com/StevenMXZ/Winlator-Contents/raw/refs/heads/main/Box64/box64-0.3.9.wcp",
-        "date": "2026-03-13T20:25:24.868Z"
+        "date": "2026-03-13T20:27:20.877Z"
       },
       {
         "name": "0.4.1-fix",
         "version": "1",
         "url": "https://github.com/StevenMXZ/Winlator-Contents/raw/refs/heads/main/Box64/box64-0.4.1-fix.wcp",
-        "date": "2026-03-13T20:25:24.868Z"
+        "date": "2026-03-13T20:27:20.877Z"
       }
     ],
     "WOWBox64": [
@@ -24071,19 +23905,19 @@
         "name": "0.3.7-5768989",
         "version": "1",
         "url": "https://github.com/StevenMXZ/Winlator-Contents/raw/refs/heads/main/WOWBox64/WowBox64-0.3.7-5768989.wcp",
-        "date": "2026-03-13T20:25:24.868Z"
+        "date": "2026-03-13T20:27:20.877Z"
       },
       {
         "name": "0.3.9-056999e",
         "version": "1",
         "url": "https://github.com/StevenMXZ/Winlator-Contents/raw/refs/heads/main/WOWBox64/WOWBox64-0.3.9-056999e.wcp",
-        "date": "2026-03-13T20:25:24.868Z"
+        "date": "2026-03-13T20:27:20.877Z"
       },
       {
         "name": "0.4.1-fix",
         "version": "1",
         "url": "https://github.com/StevenMXZ/Winlator-Contents/raw/refs/heads/main/WOWBox64/WOWBox64-0.4.1-fix.wcp",
-        "date": "2026-03-13T20:25:24.868Z"
+        "date": "2026-03-13T20:27:20.877Z"
       }
     ],
     "DXVK": [
@@ -24091,79 +23925,79 @@
         "name": "1.5.5",
         "version": "1",
         "url": "https://github.com/StevenMXZ/Winlator-Contents/raw/refs/heads/main/DXVK/dxvk-1.5.5.wcp",
-        "date": "2026-03-13T20:25:24.868Z"
+        "date": "2026-03-13T20:27:20.877Z"
       },
       {
         "name": "1.7.2",
         "version": "1",
         "url": "https://github.com/StevenMXZ/Winlator-Contents/raw/refs/heads/main/DXVK/dxvk-1.7.2.wcp",
-        "date": "2026-03-13T20:25:24.868Z"
+        "date": "2026-03-13T20:27:20.877Z"
       },
       {
         "name": "1.9.4",
         "version": "1",
         "url": "https://github.com/StevenMXZ/Winlator-Contents/raw/refs/heads/main/DXVK/dxvk-1.9.4.wcp",
-        "date": "2026-03-13T20:25:24.868Z"
+        "date": "2026-03-13T20:27:20.877Z"
       },
       {
         "name": "1.10.3-async",
         "version": "1",
         "url": "https://github.com/StevenMXZ/Winlator-Contents/raw/refs/heads/main/DXVK/dxvk-1.10.3-async.wcp",
-        "date": "2026-03-13T20:25:24.868Z"
+        "date": "2026-03-13T20:27:20.877Z"
       },
       {
         "name": "11.1-sarek-async",
         "version": "1",
         "url": "https://github.com/StevenMXZ/Winlator-Contents/raw/refs/heads/main/DXVK/dxvk-11.1-sarek-async.wcp",
-        "date": "2026-03-13T20:25:24.868Z"
+        "date": "2026-03-13T20:27:20.877Z"
       },
       {
         "name": "2.3.1-gplasync",
         "version": "1",
         "url": "https://github.com/StevenMXZ/Winlator-Contents/raw/refs/heads/main/DXVK/dxvk-2.3.1-gplasync.wcp",
-        "date": "2026-03-13T20:25:24.868Z"
+        "date": "2026-03-13T20:27:20.877Z"
       },
       {
         "name": "2.4.1.1-gplasync-sp",
         "version": "1",
         "url": "https://github.com/StevenMXZ/Winlator-Contents/raw/refs/heads/main/DXVK/dxvk-2.4.1.1-gplasync-sp.wcp",
-        "date": "2026-03-13T20:25:24.868Z"
+        "date": "2026-03-13T20:27:20.877Z"
       },
       {
         "name": "2.4.1-fix",
         "version": "1",
         "url": "https://github.com/StevenMXZ/Winlator-Contents/raw/refs/heads/main/DXVK/dxvk-2.4.1-fix.wcp",
-        "date": "2026-03-13T20:25:24.868Z"
+        "date": "2026-03-13T20:27:20.877Z"
       },
       {
         "name": "2.4.1-arm64ec-gplasync",
         "version": "1",
         "url": "https://github.com/StevenMXZ/Winlator-Contents/raw/refs/heads/main/DXVK/dxvk-2.4.1-arm64ec-gplasync.wcp",
-        "date": "2026-03-13T20:25:24.868Z"
+        "date": "2026-03-13T20:27:20.877Z"
       },
       {
         "name": "2.5.3-1-gplasync",
         "version": "1",
         "url": "https://github.com/StevenMXZ/Winlator-Contents/raw/refs/heads/main/DXVK/dxvk-2.5.3-1-gplasync.wcp",
-        "date": "2026-03-13T20:25:24.868Z"
+        "date": "2026-03-13T20:27:20.877Z"
       },
       {
         "name": "2.6-2-gplasync",
         "version": "1",
         "url": "https://github.com/StevenMXZ/Winlator-Contents/raw/refs/heads/main/DXVK/dxvk-2.6-2-gplasync.wcp",
-        "date": "2026-03-13T20:25:24.868Z"
+        "date": "2026-03-13T20:27:20.877Z"
       },
       {
         "name": "2.6.2-arm64ec-gplasync",
         "version": "0",
         "url": "https://github.com/StevenMXZ/Winlator-Contents/raw/refs/heads/main/DXVK/dxvk-2.6.2-arm64ec-gplasync.wcp",
-        "date": "2026-03-13T20:25:24.868Z"
+        "date": "2026-03-13T20:27:20.877Z"
       },
       {
         "name": "2.7.1-gplasync",
         "version": "1",
         "url": "https://github.com/StevenMXZ/Winlator-Contents/raw/refs/heads/main/DXVK/dxvk-2.7.1-gplasync.wcp",
-        "date": "2026-03-13T20:25:24.868Z"
+        "date": "2026-03-13T20:27:20.877Z"
       }
     ],
     "FEXCore": [
@@ -24171,67 +24005,67 @@
         "name": "241214",
         "version": "1",
         "url": "https://github.com/ziad9267/Winlator-Contents/raw/refs/heads/main/FEXCore/fexcore_241214.wcp",
-        "date": "2026-03-13T20:25:24.868Z"
+        "date": "2026-03-13T20:27:20.877Z"
       },
       {
         "name": "2505",
         "version": "1",
         "url": "https://github.com/StevenMXZ/Winlator-Contents/raw/refs/heads/main/FEXCore/fexcore-2505.wcp",
-        "date": "2026-03-13T20:25:24.868Z"
+        "date": "2026-03-13T20:27:20.877Z"
       },
       {
         "name": "2507_fix",
         "version": "1",
         "url": "https://github.com/StevenMXZ/Winlator-Contents/raw/refs/heads/main/FEXCore/fexcore_2507_fix.wcp",
-        "date": "2026-03-13T20:25:24.868Z"
+        "date": "2026-03-13T20:27:20.877Z"
       },
       {
         "name": "2508.1",
         "version": "1",
         "url": "https://github.com/StevenMXZ/Winlator-Contents/raw/refs/heads/main/FEXCore/2508.1.wcp",
-        "date": "2026-03-13T20:25:24.868Z"
+        "date": "2026-03-13T20:27:20.877Z"
       },
       {
         "name": "2509.1",
         "version": "1",
         "url": "https://github.com/StevenMXZ/Winlator-Contents/raw/refs/heads/main/FEXCore/2509.1.wcp",
-        "date": "2026-03-13T20:25:24.868Z"
+        "date": "2026-03-13T20:27:20.877Z"
       },
       {
         "name": "2510.1",
         "version": "1",
         "url": "https://github.com/StevenMXZ/Winlator-Contents/raw/refs/heads/main/FEXCore/2510.1.wcp",
-        "date": "2026-03-13T20:25:24.868Z"
+        "date": "2026-03-13T20:27:20.877Z"
       },
       {
         "name": "2511",
         "version": "1",
         "url": "https://github.com/StevenMXZ/Winlator-Contents/raw/refs/heads/main/FEXCore/2511.wcp",
-        "date": "2026-03-13T20:25:24.868Z"
+        "date": "2026-03-13T20:27:20.877Z"
       },
       {
         "name": "2512",
         "version": "1",
         "url": "https://github.com/StevenMXZ/Winlator-Contents/raw/refs/heads/main/FEXCore/2512.wcp",
-        "date": "2026-03-13T20:25:24.868Z"
+        "date": "2026-03-13T20:27:20.877Z"
       },
       {
         "name": "2601",
         "version": "1",
         "url": "https://github.com/StevenMXZ/Winlator-Contents/raw/refs/heads/main/FEXCore/2601.wcp",
-        "date": "2026-03-13T20:25:24.868Z"
+        "date": "2026-03-13T20:27:20.877Z"
       },
       {
         "name": "2601-aabdded-nightly",
         "version": "1",
         "url": "https://github.com/StevenMXZ/Winlator-Contents/raw/refs/heads/main/FEXCore/FEXCore-2601-aabdded.wcp",
-        "date": "2026-03-13T20:25:24.868Z"
+        "date": "2026-03-13T20:27:20.877Z"
       },
       {
         "name": "2603",
         "version": "1",
         "url": "https://github.com/StevenMXZ/Winlator-Contents/raw/refs/heads/main/FEXCore/2603.wcp",
-        "date": "2026-03-13T20:25:24.868Z"
+        "date": "2026-03-13T20:27:20.877Z"
       }
     ],
     "VKD3D": [
@@ -24239,43 +24073,43 @@
         "name": "2.7-proton",
         "version": "1",
         "url": "https://github.com/StevenMXZ/Winlator-Contents/raw/refs/heads/main/VKD3D/vkd3d-proton-2.7.wcp",
-        "date": "2026-03-13T20:25:24.868Z"
+        "date": "2026-03-13T20:27:20.877Z"
       },
       {
         "name": "2.9-proton",
         "version": "1",
         "url": "https://github.com/StevenMXZ/Winlator-Contents/raw/refs/heads/main/VKD3D/vkd3d-proton-2.9.wcp",
-        "date": "2026-03-13T20:25:24.868Z"
+        "date": "2026-03-13T20:27:20.877Z"
       },
       {
         "name": "2.12-proton",
         "version": "1",
         "url": "https://github.com/StevenMXZ/Winlator-Contents/raw/refs/heads/main/VKD3D/vkd3d-proton-2.12.wcp",
-        "date": "2026-03-13T20:25:24.868Z"
+        "date": "2026-03-13T20:27:20.877Z"
       },
       {
         "name": "2.14.1-arm64ec",
         "version": "0",
         "url": "https://github.com/StevenMXZ/Winlator-Contents/raw/refs/heads/main/VKD3D/vkd3d-2.14.1-arm64ec.wcp",
-        "date": "2026-03-13T20:25:24.868Z"
+        "date": "2026-03-13T20:27:20.877Z"
       },
       {
         "name": "proton-3.0a.wcp",
         "version": "0",
         "url": "https://github.com/StevenMXZ/Winlator-Contents/raw/refs/heads/main/VKD3D/vkd3d-proton-3.0a.wcp",
-        "date": "2026-03-13T20:25:24.868Z"
+        "date": "2026-03-13T20:27:20.877Z"
       },
       {
         "name": "arm64ec-3.0a.wcp",
         "version": "0",
         "url": "https://github.com/StevenMXZ/Winlator-Contents/raw/refs/heads/main/VKD3D/vkd3d-arm64ec-3.0a.wcp",
-        "date": "2026-03-13T20:25:24.868Z"
+        "date": "2026-03-13T20:27:20.877Z"
       },
       {
         "name": "proton-3.0b-2763dd2",
         "version": "0",
         "url": "https://github.com/StevenMXZ/Winlator-Contents/raw/refs/heads/main/VKD3D/vkd3d-proton-3.0b-2763dd2.wcp",
-        "date": "2026-03-13T20:25:24.868Z"
+        "date": "2026-03-13T20:27:20.877Z"
       }
     ]
   }
