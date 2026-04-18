@@ -91,6 +91,7 @@ const repos = [
 
   // Emulator ALL IN ONE
   { name: "Lemuroid", repo: "Swordfish90/Lemuroid", category: "All In One", logo: "lemuroid.png" },
+  { name: "Exiled Kingdoms Multiplayer", repo: "winlatorbrasil/Exiled-Kingdoms-Multiplayer", category: "GAME", logo: "drivers.png" },
 ];
 
 // ===== GitHub API =====
