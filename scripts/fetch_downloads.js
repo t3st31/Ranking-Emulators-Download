@@ -157,6 +157,17 @@ const repos = [
   { name: "Exiled Kingdoms Multiplayer", repo: "winlatorbrasil/Exiled-Kingdoms-Multiplayer", category: "GAME", logo: "drivers.png" },
 ];
 
+function inferSourceMeta(config) {
+  const text = `${config.name || ''} ${config.repo || ''}`.toLowerCase();
+  const channel = /nightly|ci/.test(text) ? 'nightly' : /beta/.test(text) ? 'beta' : /rc|release candidate/.test(text) ? 'rc' : 'stable/unknown';
+  const sourceKind = config.sourceKind || (
+    /fork|mod|cmod|patch|brasil|bionic|ludashi|ref4ik|ajay|coffin|xmod/.test(text)
+      ? 'fork/comunidade'
+      : config.category === 'Drivers' ? 'driver/community' : 'upstream/community'
+  );
+  return { sourceKind, channel };
+}
+
 // ===== GitHub API =====
 async function getGitHubReleasesData(repo) {
   try {
@@ -281,12 +292,16 @@ function parseReleases(releases, isGitea = false) {
       total += count;
       releaseDownloads += count;
 
-      assets.push({
-        name: a.name,
-        size: a.size,
-        downloads: count,
-        url: isGitea ? a.browser_download_url : a.browser_download_url
-      });
+        assets.push({
+          name: a.name,
+          size: a.size,
+          downloads: count,
+          url: isGitea ? a.browser_download_url : a.browser_download_url,
+          digest: a.digest || null,
+          contentType: a.content_type || null,
+          createdAt: a.created_at || null,
+          updatedAt: a.updated_at || null
+        });
     }
 
     if (assets.length > 0) {
@@ -335,6 +350,7 @@ function parseReleases(releases, isGitea = false) {
     const repoUrl = r.apiType === "gitea"
       ? `${r.apiHost}/${r.repo}`
       : `https://github.com/${r.repo}`;
+    const sourceMeta = inferSourceMeta(r);
 
     // Se a API bloquear a execução (rate limit, 403/429 ou falha de rede),
     // mantém o último resultado válido para não publicar um ranking zerado.
@@ -349,6 +365,8 @@ function parseReleases(releases, isGitea = false) {
       category: r.category,
       logo: r.logo || null,
       extensions: r.extensions || null,
+      sourceKind: sourceMeta.sourceKind,
+      channel: sourceMeta.channel,
       downloads: mergedData.total,
       releases: mergedData.releases,
       repoUrl: repoUrl
@@ -391,6 +409,12 @@ function parseReleases(releases, isGitea = false) {
   const totalAssets = results.reduce((sum, item) => sum + (item.releases || [])
     .reduce((releaseSum, release) => releaseSum + (release.assets?.length || 0), 0), 0);
   const today = new Date().toISOString().slice(0, 10);
+  const projectSnapshot = results.map(item => ({
+    repo: item.repo,
+    downloads: Number(item.downloads) || 0,
+    releases: item.releases?.length || 0,
+    latestReleaseDate: item.releases?.[0]?.date || null
+  }));
   const historyEntries = (previousHistory.entries || [])
     .filter(entry => entry.date !== today)
     .concat({
@@ -400,6 +424,11 @@ function parseReleases(releases, isGitea = false) {
       totalReleases,
       totalAssets
     })
+    .sort((a, b) => a.date.localeCompare(b.date))
+    .slice(-365);
+  const projectSnapshots = (previousHistory.projectSnapshots || [])
+    .filter(entry => entry.date !== today)
+    .concat({ date: today, projects: projectSnapshot })
     .sort((a, b) => a.date.localeCompare(b.date))
     .slice(-365);
 
@@ -419,7 +448,8 @@ function parseReleases(releases, isGitea = false) {
   fs.writeFileSync("data/rankings.json", JSON.stringify(output, null, 2));
   fs.writeFileSync("data/history.json", JSON.stringify({
     updatedAt: new Date().toISOString(),
-    entries: historyEntries
+    entries: historyEntries,
+    projectSnapshots
   }, null, 2));
 
   console.log("\n" + "=".repeat(60));
