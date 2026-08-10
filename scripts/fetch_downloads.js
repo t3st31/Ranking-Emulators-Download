@@ -1,4 +1,4 @@
-import fs from "fs"
+import fs from "fs";
 
 const GITHUB_TOKEN = process.env.GITHUB_TOKEN || process.env.GH_TOKEN || "";
 const REQUEST_DELAY_MS = GITHUB_TOKEN ? 150 : 1100;
