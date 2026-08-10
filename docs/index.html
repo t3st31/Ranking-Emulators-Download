@@ -6636,7 +6636,7 @@
           const itemKey = item.fullProject ? encodeURIComponent(projectKey(item.fullProject)) : null;
           const clickAction = itemKey ? `onclick="openProjectByKey('${itemKey}')"` : '';
           return `
-                <div class="driver-item-card" ${clickAction} style="${itemJson ? 'cursor:pointer;' : ''}" title="${escapeHtml(item.name)} ${escapeHtml(item.version || '')}">
+                <div class="driver-item-card" ${clickAction} style="${itemKey ? 'cursor:pointer;' : ''}" title="${escapeHtml(item.name)} ${escapeHtml(item.version || '')}">
                   <div class="driver-item-name">
                     ${escapeHtml(item.name)}
                     ${(item.fullProject && hasNewReleases(item.fullProject)) ? `<span class="new-release-badge" style="font-size: 0.6em; margin-left: 5px;">🔥 NOVO!</span>` : ''}
