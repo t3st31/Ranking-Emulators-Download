@@ -470,18 +470,33 @@
       --arena-color: #ffd166;
       --arena-glow: rgba(255, 209, 102, 0.22);
       --arena-shadow: rgba(255, 209, 102, 0.2);
+      background: linear-gradient(145deg, rgba(123, 74, 10, 0.92), rgba(52, 31, 9, 0.96));
     }
 
     .arena-card.rank-2 {
       --arena-color: #b9c7d8;
       --arena-glow: rgba(185, 199, 216, 0.18);
       --arena-shadow: rgba(185, 199, 216, 0.16);
+      background: linear-gradient(145deg, rgba(31, 67, 108, 0.94), rgba(15, 29, 54, 0.97));
     }
 
     .arena-card.rank-3 {
       --arena-color: #d99058;
       --arena-glow: rgba(217, 144, 88, 0.18);
       --arena-shadow: rgba(217, 144, 88, 0.16);
+      background: linear-gradient(145deg, rgba(116, 60, 28, 0.94), rgba(50, 27, 18, 0.97));
+    }
+
+    .arena-card .arena-name {
+      color: #ffffff;
+    }
+
+    .arena-card .arena-category {
+      color: rgba(211, 225, 250, 0.72);
+    }
+
+    .arena-card .arena-downloads {
+      color: var(--arena-color, var(--nexus-cyan));
     }
 
     .arena-rank {
@@ -2394,6 +2409,7 @@
   <div class="ambient-orbit orbit-cyan" aria-hidden="true"></div>
   <div class="ambient-orbit orbit-magenta" aria-hidden="true"></div>
   <div class="starfield" aria-hidden="true"></div>
+  <div id="headerSentinel" aria-hidden="true"></div>
 
   <header id="mainHeader">
     <div class="hero-topline">
@@ -3041,6 +3057,12 @@
       box-shadow: 0 0 18px 5px rgba(255, 43, 214, 0.5);
     }
 
+    #headerSentinel {
+      width: 1px;
+      height: 1px;
+      pointer-events: none;
+    }
+
     @keyframes orbitDrift {
       to { transform: rotate(336deg); }
     }
@@ -3184,6 +3206,10 @@
       backdrop-filter: blur(18px);
     }
 
+    #mainHeader.collapsed + .last-update {
+      margin-top: 10px;
+    }
+
     .hud-card {
       min-width: 185px;
       border-color: rgba(0, 247, 255, 0.22);
@@ -3299,6 +3325,107 @@
     .driver-item-card:hover {
       border-color: rgba(0, 247, 255, 0.5);
       box-shadow: 0 12px 30px rgba(0, 247, 255, 0.13);
+    }
+
+    .map-full-card,
+    .chart-card,
+    #tab-drivers-all .card,
+    #tab-drivers .card,
+    #tab-news .card {
+      position: relative;
+    }
+
+    .map-full-card::after,
+    #tab-drivers-all .card::after,
+    #tab-drivers .card::after,
+    #tab-news .card::after {
+      content: "";
+      position: absolute;
+      top: 22px;
+      right: 24px;
+      width: 42px;
+      height: 4px;
+      border-radius: 999px;
+      background: linear-gradient(90deg, var(--nexus-cyan), var(--nexus-pink));
+      box-shadow: 0 0 14px rgba(0, 247, 255, 0.55);
+    }
+
+    .section-title {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+    }
+
+    .section-title .icon {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      width: 48px;
+      height: 48px;
+      border: 1px solid rgba(0, 247, 255, 0.38);
+      border-radius: 14px;
+      background: rgba(0, 247, 255, 0.08);
+      box-shadow: 0 0 22px rgba(0, 247, 255, 0.16);
+    }
+
+    .driver-cat-section {
+      margin: 0 0 26px;
+      padding: 18px;
+      border: 1px solid rgba(0, 247, 255, 0.14);
+      border-radius: 18px;
+      background: linear-gradient(145deg, rgba(13, 25, 49, 0.6), rgba(7, 10, 21, 0.64));
+    }
+
+    .driver-cat-title {
+      margin: 0 0 18px;
+      padding: 0 0 12px;
+      border-bottom-color: rgba(0, 247, 255, 0.22);
+      color: #ffd84d;
+      font-size: 1.05em;
+      letter-spacing: 1px;
+    }
+
+    .driver-item-grid {
+      gap: 14px;
+    }
+
+    .driver-item-card {
+      min-height: 146px;
+      border-bottom: 2px solid var(--nexus-cyan);
+      border-radius: 15px;
+      padding: 17px;
+    }
+
+    .driver-item-ver {
+      color: #7cefff;
+    }
+
+    .driver-download-btn {
+      margin-top: auto;
+      border-radius: 10px;
+      background: linear-gradient(135deg, rgba(0, 247, 255, 0.9), rgba(94, 161, 255, 0.9));
+      box-shadow: 0 0 16px rgba(0, 247, 255, 0.16);
+    }
+
+    .news-item {
+      min-height: 112px;
+      border-radius: 18px;
+    }
+
+    .news-icon {
+      border-color: rgba(0, 247, 255, 0.34);
+      box-shadow: 0 0 16px rgba(0, 247, 255, 0.12);
+    }
+
+    .recent-release-item {
+      border-radius: 18px;
+    }
+
+    footer {
+      position: relative;
+      overflow: hidden;
+      border-top-color: rgba(0, 247, 255, 0.3);
+      background: linear-gradient(180deg, rgba(9, 12, 25, 0.55), rgba(4, 5, 12, 0.94));
     }
 
     .chart-card {
@@ -5812,17 +5939,26 @@
       }
     });
 
-    // Efeito de Header colapsável ao rolar com histerese robusta para evitar flickering
-    window.addEventListener('scroll', () => {
-      const header = document.getElementById('mainHeader');
-      const scrollTop = window.scrollY;
+    // Header estável: o sentinel evita que a mudança de altura do próprio header
+    // altere o scrollTop e provoque o antigo efeito de expandir/recolher em loop.
+    const header = document.getElementById('mainHeader');
+    const headerSentinel = document.getElementById('headerSentinel');
 
-      if (scrollTop > 250) {
-        header.classList.add('collapsed');
-      } else if (scrollTop < 10) {
-        header.classList.remove('collapsed');
-      }
-    });
+    if (header && headerSentinel && 'IntersectionObserver' in window) {
+      const headerObserver = new IntersectionObserver(([entry]) => {
+        header.classList.toggle('collapsed', !entry.isIntersecting && window.scrollY > 24);
+      }, { threshold: 0, rootMargin: '-1px 0px 0px 0px' });
+
+      headerObserver.observe(headerSentinel);
+    } else {
+      let headerCollapsed = false;
+      window.addEventListener('scroll', () => {
+        const shouldCollapse = window.scrollY > 180;
+        if (shouldCollapse === headerCollapsed) return;
+        headerCollapsed = shouldCollapse;
+        header.classList.toggle('collapsed', headerCollapsed);
+      }, { passive: true });
+    }
 
     // Inicializar traduções estáticas
     applyTranslations();
