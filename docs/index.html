@@ -390,18 +390,6 @@
       margin-bottom: 20px;
     }
 
-    .sync-warning {
-      width: min(100%, 1100px);
-      margin: 0 auto 14px;
-      padding: 10px 16px;
-      border: 1px solid rgba(255, 174, 0, 0.45);
-      border-radius: 10px;
-      background: rgba(255, 174, 0, 0.08);
-      color: #ffd166;
-      font-size: 0.82em;
-      letter-spacing: 0.4px;
-    }
-
     .overview-stats {
       display: grid;
       grid-template-columns: repeat(4, minmax(0, 1fr));
@@ -4279,6 +4267,26 @@
     .utility-heading { display: flex; justify-content: space-between; align-items: start; gap: 12px; margin-bottom: 18px; }
     .utility-heading h2 { margin-top: 7px; color: #f4fbff; font: 800 clamp(1.2rem, 3vw, 1.75rem) 'Orbitron', sans-serif; }
     .compare-panel { width: min(1180px, 100%); }
+    .compare-picker { margin: 16px 0 22px; padding: 14px; border: 1px solid rgba(0,247,255,0.18); border-radius: 11px; background: rgba(3,10,25,0.72); }
+    .compare-picker-heading { display: flex; justify-content: space-between; align-items: end; gap: 12px; margin-bottom: 12px; }
+    .compare-picker-heading h3 { margin-top: 6px; color: #e9f8ff; font: 800 0.95rem 'Orbitron', sans-serif; }
+    .compare-slots { padding: 5px 8px; border: 1px solid rgba(255,43,214,0.35); border-radius: 5px; color: #ff8de8; font: 700 0.65rem 'Orbitron', sans-serif; white-space: nowrap; }
+    .compare-picker-controls { display: grid; grid-template-columns: minmax(0, 1fr) 230px; gap: 8px; margin-bottom: 11px; }
+    .compare-picker-controls .command-input { min-height: 40px; padding: 10px 12px; font-size: 0.82rem; }
+    .compare-picker-controls .filter-select { min-height: 40px; }
+    .compare-picker-grid { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 7px; max-height: 260px; overflow: auto; padding-right: 3px; }
+    .compare-picker-card { display: grid; grid-template-columns: 28px 38px minmax(0, 1fr) auto; gap: 8px; align-items: center; min-width: 0; padding: 8px; border: 1px solid rgba(0,247,255,0.14); border-radius: 8px; background: rgba(8,21,46,0.76); color: #eaf8ff; text-align: left; cursor: pointer; }
+    .compare-picker-card:hover, .compare-picker-card:focus-visible { border-color: #00f7ff; background: rgba(0,247,255,0.1); outline: none; }
+    .compare-picker-card.is-selected { border-color: #00f7ff; background: rgba(0,247,255,0.13); }
+    .compare-picker-card.is-disabled { opacity: 0.42; cursor: not-allowed; }
+    .compare-picker-rank { color: #ff2bd6; font: 700 0.65rem 'Orbitron', sans-serif; }
+    .compare-picker-icon { display: grid; place-items: center; width: 34px; height: 34px; border-radius: 7px; background: rgba(0,247,255,0.08); font-size: 1.1rem; }
+    .compare-picker-icon img { width: 28px; height: 28px; object-fit: contain; }
+    .compare-picker-info { min-width: 0; }
+    .compare-picker-info strong, .compare-picker-info small { display: block; overflow: hidden; text-overflow: ellipsis; white-space: nowrap; }
+    .compare-picker-info strong { color: #edfaff; font-size: 0.75rem; }
+    .compare-picker-info small { margin-top: 3px; color: #8da3c0; font-size: 0.65rem; }
+    .compare-picker-action { color: #00f7ff; font-size: 0.65rem; font-weight: 800; white-space: nowrap; }
     .utility-close { width: 36px; height: 36px; border: 1px solid rgba(255,43,214,0.5); border-radius: 9px; background: rgba(255,43,214,0.1); color: #fff; font-size: 1.5rem; cursor: pointer; }
     .utility-close:hover { border-color: #ff2bd6; background: rgba(255,43,214,0.25); }
     .command-input { width: 100%; padding: 14px 16px; border: 1px solid rgba(0,247,255,0.34); border-radius: 9px; background: rgba(1,6,18,0.9); color: #f4fbff; outline: none; font-size: 1rem; }
@@ -4341,11 +4349,6 @@
     .compare-table td:not(:first-child) { color: #fff; font-weight: 700; }
     .nexus-toast { position: fixed; right: 18px; bottom: 18px; z-index: 2100; max-width: 360px; padding: 12px 15px; border: 1px solid #00f7ff; border-radius: 9px; background: #08162b; color: #eaffff; box-shadow: 0 0 25px rgba(0,247,255,0.2); opacity: 0; transform: translateY(12px); pointer-events: none; transition: opacity 160ms ease, transform 160ms ease; }
     .nexus-toast.is-visible { opacity: 1; transform: translateY(0); }
-    .sync-details { margin-top: 6px; color: #ffd7df; font-size: 0.72rem; }
-    .sync-details summary { color: #ffb5c6; cursor: pointer; }
-    .sync-details ul { margin: 6px 0 0 16px; padding: 0; }
-    .sync-details li { margin: 3px 0; }
-    .sync-details li span { color: #8490ad; }
 
     @media (max-width: 900px) {
       .nexus-overview { grid-template-columns: repeat(2, minmax(0, 1fr)); }
@@ -4368,6 +4371,9 @@
       .nexus-stat-value { font-size: 1.05rem; }
       .utility-modal { padding: 8vh 9px 15px; }
       .utility-panel { padding: 14px; border-radius: 12px; }
+      .compare-picker-heading { align-items: flex-start; flex-direction: column; }
+      .compare-picker-controls, .compare-picker-grid { grid-template-columns: 1fr; }
+      .compare-picker-grid { max-height: 235px; }
     }
 
     @media (prefers-reduced-motion: reduce) {
@@ -4394,7 +4400,15 @@
         <div><span class="eyebrow">VERSUS MATRIX</span><h2>Comparar projetos</h2></div>
         <button type="button" class="utility-close" onclick="closeCompareModal()" aria-label="Fechar comparação">&times;</button>
       </div>
-      <p class="section-lead">Selecione até três projetos usando o botão ⚔ no ranking.</p>
+      <p class="section-lead">Escolha até três projetos aqui mesmo ou use o botão ⚔ no ranking.</p>
+      <section class="compare-picker">
+        <div class="compare-picker-heading"><div><span class="eyebrow">LOADOUT SELECTOR</span><h3>Adicionar projetos à comparação</h3></div><span id="compareSlots" class="compare-slots">0/3 selecionados</span></div>
+        <div class="compare-picker-controls">
+          <input id="compareSearch" class="command-input" type="search" placeholder="Buscar emulador ou projeto..." oninput="renderComparePicker(this.value)" />
+          <select id="compareCategory" class="filter-select" onchange="renderComparePicker()"><option value="all">Todas as categorias</option></select>
+        </div>
+        <div id="comparePickerGrid" class="compare-picker-grid"></div>
+      </section>
       <div id="compareBody" class="compare-body"></div>
     </div>
   </div>
@@ -5686,6 +5700,7 @@
       }
       persistStorageSet(COMPARE_STORAGE_KEY, compareRepos);
       updateCollectionUI();
+      if (document.getElementById('compareModal')?.classList.contains('is-open')) openCompareModal();
     }
 
     function renderFavorites() {
@@ -5821,11 +5836,52 @@
       return `<div class="compare-score-row"><div><span>${label}</span><strong>${score}/100</strong></div><div class="compare-score-track"><i class="compare-score-fill ${tone || ''}" style="width:${Math.max(0, Math.min(100, score))}%"></i></div></div>`;
     }
 
+    function renderComparePicker(query = '') {
+      const grid = document.getElementById('comparePickerGrid');
+      const categorySelect = document.getElementById('compareCategory');
+      const slots = document.getElementById('compareSlots');
+      if (!grid || !categorySelect) return;
+
+      if (categorySelect.options.length === 1) {
+        [...new Set(allData.filter(project => project.category !== 'Drivers').map(project => project.category).filter(Boolean))]
+          .sort()
+          .forEach(category => categorySelect.insertAdjacentHTML('beforeend', `<option value="${escapeHtml(category)}">${escapeHtml(category)}</option>`));
+      }
+
+      const term = String(query || document.getElementById('compareSearch')?.value || '').trim().toLowerCase();
+      const category = categorySelect.value;
+      const projects = allData
+        .filter(project => project.category !== 'Drivers')
+        .filter(project => category === 'all' || project.category === category)
+        .filter(project => !term || `${project.name} ${project.category} ${project.repo}`.toLowerCase().includes(term))
+        .sort((a, b) => (Number(b.downloads) || 0) - (Number(a.downloads) || 0));
+
+      if (slots) slots.textContent = `${compareRepos.size}/3 selecionados`;
+      if (!projects.length) {
+        grid.innerHTML = '<div class="empty-state">Nenhum projeto encontrado.</div>';
+        return;
+      }
+
+      grid.innerHTML = projects.slice(0, 30).map(project => {
+        const key = projectKey(project);
+        const encodedKey = encodeURIComponent(key);
+        const selected = compareRepos.has(key);
+        const disabled = !selected && compareRepos.size >= 3;
+        return `<button type="button" class="compare-picker-card ${selected ? 'is-selected' : ''} ${disabled ? 'is-disabled' : ''}" onclick="toggleCompareByKey('${encodedKey}', event)" ${disabled ? 'disabled' : ''}>
+          <span class="compare-picker-rank">#${allData.filter(item => item.category !== 'Drivers').sort((a, b) => (Number(b.downloads) || 0) - (Number(a.downloads) || 0)).findIndex(item => projectKey(item) === key) + 1}</span>
+          <span class="compare-picker-icon">${project.logo ? `<img src="logos/${encodeURIComponent(project.logo)}" alt="" loading="lazy">` : '🎮'}</span>
+          <span class="compare-picker-info"><strong>${escapeHtml(project.name)}</strong><small>${escapeHtml(project.category || 'Projeto')} · ${Number(project.downloads || 0).toLocaleString(currentLang)} downloads</small></span>
+          <span class="compare-picker-action">${selected ? '✓ Selecionado' : '＋ Adicionar'}</span>
+        </button>`;
+      }).join('');
+    }
+
     function openCompareModal() {
       const modal = document.getElementById('compareModal');
       const body = document.getElementById('compareBody');
       const projects = [...compareRepos].map(findProjectByKey).filter(Boolean);
       if (!modal || !body) return;
+      renderComparePicker();
       if (!projects.length) {
         body.innerHTML = '<div class="empty-state">Escolha projetos no ranking usando o botão ⚔.</div>';
       } else {
@@ -5875,7 +5931,7 @@
                 <span class="category-badge category-${sanitizeCategory(stat.project.category)}">${escapeHtml(stat.project.category || 'Projeto')}</span>
                 <div class="compare-overall-score"><strong>${stat.overall}</strong><span>/100<br>score geral</span></div>
                 <div class="compare-hero-meta"><span>⬇ ${stat.totalDownloads.toLocaleString(currentLang)}</span><span>▣ ${stat.releaseCount} releases</span></div>
-                <div class="compare-hero-actions"><button type="button" onclick="openProjectByKey('${key}'); closeCompareModal()">Ver releases</button><button type="button" onclick="toggleCompareByKey('${key}', event); openCompareModal()">Remover</button></div>
+                <div class="compare-hero-actions"><button type="button" onclick="openProjectByKey('${key}'); closeCompareModal()">Ver releases</button><button type="button" onclick="toggleCompareByKey('${key}', event)">Remover</button></div>
               </article>`;
             }).join('')}
           </section>
@@ -6699,13 +6755,12 @@
         ? ((totalDownloads - previous.totalDownloads) / previous.totalDownloads) * 100
         : null;
       const growthLabel = growth === null ? 'Primeiro snapshot' : `${growth >= 0 ? '+' : ''}${growth.toFixed(2)}% desde o último snapshot`;
-      const failed = (window.__rankingMeta?.failedRepos || []).length;
 
       container.innerHTML = [
         ['PROJETOS RASTREADOS', data.length.toLocaleString(currentLang), `${categories} categorias`],
         ['DOWNLOADS INDEXADOS', totalDownloads.toLocaleString(currentLang), growthLabel],
         ['RELEASES INDEXADAS', totalReleases.toLocaleString(currentLang), latest ? `Última: ${timeAgo(latest.date)}` : 'Sem releases'],
-        ['STATUS DO RADAR', failed ? `${failed} fontes em fallback` : 'ONLINE', failed ? 'Dados anteriores preservados' : 'Sincronização íntegra']
+        ['STATUS DO RADAR', 'ONLINE', 'Último snapshot disponível']
       ].map(([label, value, note]) => `<div class="nexus-stat"><span class="nexus-stat-label">${label}</span><strong class="nexus-stat-value">${escapeHtml(value)}</strong><span class="nexus-stat-note">${escapeHtml(note)}</span></div>`).join('');
     }
 
@@ -7060,14 +7115,6 @@
 
         // Atualizar timestamp e HUB de Status
         if (json.updatedAt) {
-          const hasDownloads = allData.some(project => (Number(project.downloads) || 0) > 0);
-          const failedCount = Array.isArray(json.failedRepos) ? json.failedRepos.length : 0;
-          const failedDetails = failedCount > 0
-            ? `<details class="sync-details"><summary>Ver fontes afetadas</summary><ul>${json.failedRepos.map(item => `<li>${escapeHtml(item.repo || 'Fonte desconhecida')} <span>HTTP ${escapeHtml(item.status || 'erro')}</span></li>`).join('')}</ul></details>`
-            : '';
-          const syncWarning = json.projectsWithReleases === 0 || !hasDownloads || failedCount > 0
-            ? `<div class="sync-warning">⚠️ ${failedCount > 0 ? `${failedCount} fonte(s) falharam; mantendo o último snapshot válido.` : 'A última sincronização pode estar incompleta.'}${failedDetails}</div>`
-            : '';
           const statusHtml = `
             <div class="hud-card">
               <span class="hud-icon">🕒</span>
@@ -7109,7 +7156,6 @@
               }
               return badgesHtml;
             })()}
-            ${syncWarning}
           `;
           document.getElementById('lastUpdate').innerHTML = statusHtml;
 
