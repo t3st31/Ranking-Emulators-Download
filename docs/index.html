@@ -380,6 +380,53 @@
       margin-bottom: 20px;
     }
 
+    .sync-warning {
+      width: min(100%, 1100px);
+      margin: 0 auto 14px;
+      padding: 10px 16px;
+      border: 1px solid rgba(255, 174, 0, 0.45);
+      border-radius: 10px;
+      background: rgba(255, 174, 0, 0.08);
+      color: #ffd166;
+      font-size: 0.82em;
+      letter-spacing: 0.4px;
+    }
+
+    .overview-stats {
+      display: grid;
+      grid-template-columns: repeat(4, minmax(0, 1fr));
+      gap: 12px;
+      margin: 0 0 24px;
+    }
+
+    .overview-stat {
+      min-height: 78px;
+      padding: 14px 16px;
+      border: 1px solid rgba(0, 247, 255, 0.18);
+      border-radius: 12px;
+      background: linear-gradient(135deg, rgba(15, 52, 96, 0.72), rgba(18, 18, 28, 0.9));
+      box-shadow: inset 0 1px rgba(255, 255, 255, 0.04);
+    }
+
+    .overview-stat-label {
+      display: block;
+      color: #8e9bb8;
+      font-size: 0.7em;
+      font-weight: 700;
+      letter-spacing: 1px;
+      text-transform: uppercase;
+    }
+
+    .overview-stat-value {
+      display: block;
+      margin-top: 7px;
+      color: #00f7ff;
+      font-family: 'Orbitron', sans-serif;
+      font-size: 1.08em;
+      font-weight: 700;
+      text-shadow: 0 0 10px rgba(0, 247, 255, 0.35);
+    }
+
     .hud-card {
       background: rgba(18, 18, 28, 0.7);
       backdrop-filter: blur(10px);
@@ -806,6 +853,13 @@
       margin: 20px auto 30px;
       padding: 0 20px;
       flex-wrap: wrap;
+      position: sticky;
+      top: 0;
+      z-index: 900;
+      padding-top: 10px;
+      padding-bottom: 10px;
+      background: linear-gradient(180deg, rgba(10, 10, 15, 0.94), rgba(10, 10, 15, 0.72), transparent);
+      backdrop-filter: blur(8px);
     }
 
     .tab-btn {
@@ -950,12 +1004,22 @@
     }
 
     @media (max-width: 768px) {
+      .overview-stats {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+      }
+
       .charts-grid {
         grid-template-columns: 1fr;
       }
 
       .filter-group {
         min-width: 100%;
+      }
+    }
+
+    @media (max-width: 460px) {
+      .overview-stats {
+        grid-template-columns: 1fr;
       }
     }
 
@@ -2200,6 +2264,8 @@
     <div id="tab-ranking" class="tab-content active">
       <div class="card">
         <h2 data-i18n="rankingTitle">🏆 Ranking Global de Downloads</h2>
+
+        <div id="overviewStats" class="overview-stats" aria-live="polite"></div>
 
         <!-- BARRA DE FILTROS -->
         <div class="filter-bar">
@@ -4542,9 +4608,32 @@
     }
 
     function renderDashboardOverview(data) {
-      // Esta função pode ser expandida no futuro para mostrar stats rápidos no topo do dashboard
-      // Por enquanto, apenas garantimos que a chamada no loadData não quebre.
-      console.log('Dashboard Overview rendered');
+      const container = document.getElementById('overviewStats');
+      if (!container) return;
+
+      const totalDownloads = data.reduce((sum, project) => sum + (Number(project.downloads) || 0), 0);
+      const releases = data.reduce((sum, project) => sum + (project.releases?.length || 0), 0);
+      const categories = new Set(data.map(project => project.category).filter(Boolean)).size;
+      const formatNumber = value => value.toLocaleString(currentLang);
+
+      container.innerHTML = `
+        <div class="overview-stat">
+          <span class="overview-stat-label">Projetos rastreados</span>
+          <strong class="overview-stat-value">${formatNumber(data.length)}</strong>
+        </div>
+        <div class="overview-stat">
+          <span class="overview-stat-label">Downloads totais</span>
+          <strong class="overview-stat-value">${formatNumber(totalDownloads)}</strong>
+        </div>
+        <div class="overview-stat">
+          <span class="overview-stat-label">Releases indexadas</span>
+          <strong class="overview-stat-value">${formatNumber(releases)}</strong>
+        </div>
+        <div class="overview-stat">
+          <span class="overview-stat-label">Categorias</span>
+          <strong class="overview-stat-value">${formatNumber(categories)}</strong>
+        </div>
+      `;
     }
 
     function renderCategorizedDrivers(manifest) {
@@ -4717,10 +4806,15 @@
 
     async function loadData() {
       try {
-        const res = await fetch("data/rankings.json");
+        const res = await fetch(`data/rankings.json?v=${Date.now()}`, { cache: 'no-store' });
+        if (!res.ok) throw new Error(`Ranking HTTP ${res.status}`);
         const json = await res.json();
 
-        allData = Array.isArray(json) ? json : json.results;
+        const projects = Array.isArray(json) ? json : json?.results;
+        if (!Array.isArray(projects)) throw new Error('Formato de ranking inválido');
+        allData = projects.filter(project => project && project.name);
+
+        if (allData.length === 0) throw new Error('Ranking sem projetos');
 
         // Populate category dropdown
         populateFilters(allData);
@@ -4804,6 +4898,10 @@
 
         // Atualizar timestamp e HUB de Status
         if (json.updatedAt) {
+          const hasDownloads = allData.some(project => (Number(project.downloads) || 0) > 0);
+          const syncWarning = json.projectsWithReleases === 0 || !hasDownloads
+            ? `<div class="sync-warning">⚠️ A última sincronização não trouxe downloads. Os dados exibidos podem estar desatualizados.</div>`
+            : '';
           const statusHtml = `
             <div class="hud-card">
               <span class="hud-icon">🕒</span>
@@ -4845,6 +4943,7 @@
               }
               return badgesHtml;
             })()}
+            ${syncWarning}
           `;
           document.getElementById('lastUpdate').innerHTML = statusHtml;
 
