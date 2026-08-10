@@ -1,6 +1,7 @@
 import fs from "fs";
 
-const data = JSON.parse(fs.readFileSync("data/rankings.json"));
+const output = JSON.parse(fs.readFileSync("data/rankings.json", "utf8"));
+const data = Array.isArray(output) ? output : output.results || [];
 
 function badgeDownloads(repo) {
   return `![](https://img.shields.io/github/downloads/${repo}/total?style=for-the-badge&logo=github)`;
