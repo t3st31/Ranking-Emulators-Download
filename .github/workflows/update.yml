@@ -5,6 +5,9 @@ on:
     - cron: "0 */1 * * *"   # a cada 1 hora
   workflow_dispatch:
 
+permissions:
+  contents: write
+
 jobs:
   update:
     runs-on: ubuntu-latest
@@ -29,6 +32,8 @@ jobs:
           mkdir -p docs/data
 
       - name: Fetch downloads
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
         run: node scripts/fetch_downloads.js
 
       - name: Move rankings to docs
