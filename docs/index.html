@@ -2585,11 +2585,11 @@
   </section>
 
   <!-- MODAL DE RELEASES -->
-  <div id="releasesModal" class="modal">
+  <div id="releasesModal" class="modal" role="dialog" aria-modal="true" aria-hidden="true">
     <div class="modal-content">
       <div class="modal-header">
         <h2 id="modalTitle">Releases</h2>
-        <span class="close" onclick="closeModal()">&times;</span>
+        <button type="button" class="close" onclick="closeModal()" aria-label="Fechar releases">&times;</button>
       </div>
       <div class="modal-body" id="modalBody">
         <!-- Conteúdo dinâmico -->
@@ -3488,6 +3488,185 @@
       .starfield,
       .ambient-orbit {
         animation: none !important;
+      }
+    }
+
+    /* Performance guard: mantém o efeito glass sem blur caro em toda a página. */
+    .card,
+    .tabs-container,
+    .last-update,
+    .hud-card {
+      backdrop-filter: none;
+      -webkit-backdrop-filter: none;
+    }
+
+    @media (max-width: 900px) {
+      .ambient-orbit {
+        display: none;
+      }
+
+      .starfield {
+        opacity: 0.24;
+        animation: none;
+      }
+
+      body::after {
+        opacity: 0.08;
+      }
+    }
+
+    /* O browser não pinta cards de release fora da viewport até que sejam vistos. */
+    .release-card {
+      content-visibility: auto;
+      contain: layout paint style;
+      contain-intrinsic-size: 360px;
+    }
+
+    .release-card::before {
+      display: none;
+    }
+
+    .release-card:hover {
+      transform: translateY(-3px);
+    }
+
+    .release-description {
+      max-height: 150px;
+      font-size: 0.88em;
+      line-height: 1.5;
+    }
+
+    .modal {
+      backdrop-filter: blur(5px);
+      -webkit-backdrop-filter: blur(5px);
+    }
+
+    .modal-content {
+      width: min(1320px, calc(100% - 28px));
+      max-height: min(92vh, 980px);
+      border-radius: 24px;
+      box-shadow: 0 25px 90px rgba(0, 0, 0, 0.65), 0 0 0 1px rgba(0, 247, 255, 0.22);
+    }
+
+    .modal-header {
+      min-height: 92px;
+      padding: 20px 26px;
+      background:
+        linear-gradient(110deg, rgba(255, 0, 128, 0.96), rgba(117, 0, 255, 0.96)),
+        radial-gradient(circle at 0 0, rgba(0, 247, 255, 0.3), transparent 44%);
+    }
+
+    .modal-header h2 {
+      font-size: clamp(1.35rem, 3vw, 2.3rem);
+      letter-spacing: 1px;
+    }
+
+    .modal-header .close {
+      margin: 0;
+      padding: 0;
+      border: 0;
+      background: transparent;
+      color: #fff;
+      font: inherit;
+      font-size: 2.25rem;
+      line-height: 1;
+    }
+
+    .modal-body {
+      padding: clamp(16px, 2.4vw, 30px);
+      background:
+        linear-gradient(rgba(0, 247, 255, 0.025) 1px, transparent 1px),
+        linear-gradient(90deg, rgba(0, 247, 255, 0.025) 1px, transparent 1px),
+        #080d1d;
+      background-size: 34px 34px;
+    }
+
+    .modal-body > .repo-link {
+      margin: 0 0 6px;
+      border: 1px solid rgba(0, 247, 255, 0.35);
+      background: linear-gradient(135deg, #00c8e8, #6554e8);
+      box-shadow: 0 8px 24px rgba(0, 247, 255, 0.16);
+    }
+
+    .releases-grid {
+      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+      gap: 16px;
+      margin-top: 16px;
+    }
+
+    .release-card {
+      padding: 18px;
+      border-radius: 17px;
+      border-color: rgba(0, 247, 255, 0.18);
+      background: linear-gradient(145deg, rgba(17, 42, 78, 0.9), rgba(9, 17, 36, 0.96));
+      box-shadow: inset 0 1px rgba(255, 255, 255, 0.05);
+    }
+
+    .release-card:hover {
+      border-color: rgba(0, 247, 255, 0.52);
+      box-shadow: 0 10px 28px rgba(0, 247, 255, 0.15), inset 0 1px rgba(255,255,255,0.08);
+    }
+
+    .release-tag {
+      padding: 5px 10px;
+      font-size: 0.78em;
+      box-shadow: 0 0 14px rgba(0, 247, 255, 0.22);
+    }
+
+    .release-name {
+      margin-bottom: 11px;
+      font-size: 1.05em;
+    }
+
+    .release-actions {
+      margin-bottom: 11px;
+    }
+
+    .github-link-btn,
+    .download-btn {
+      border-radius: 10px;
+      box-shadow: 0 6px 16px rgba(0, 247, 255, 0.12);
+    }
+
+    .asset-item {
+      padding: 9px 10px;
+      border-radius: 10px;
+      border-color: rgba(0, 247, 255, 0.12);
+    }
+
+    .asset-name {
+      font-size: 0.8em;
+    }
+
+    @media (max-width: 680px) {
+      .modal-content {
+        width: calc(100% - 14px);
+        max-height: 94vh;
+        margin: 3% auto;
+        border-radius: 18px;
+      }
+
+      .modal-header {
+        min-height: 72px;
+        padding: 15px 17px;
+      }
+
+      .modal-header h2 {
+        min-width: 0;
+        font-size: 1.15rem;
+      }
+
+      .modal-body {
+        padding: 13px;
+      }
+
+      .releases-grid {
+        grid-template-columns: 1fr;
+        gap: 12px;
+      }
+
+      .release-card {
+        padding: 15px;
       }
     }
   </style>
@@ -4654,6 +4833,42 @@
     let manifestDriversData = {}; // Global variable for resize persistence
     let currentTab = 'ranking';
     let charts = {}; // Para gerenciar as instâncias do Chart.js
+    let dashboardInitialized = false;
+    let dashboardRenderQueued = false;
+    let mapReady = false;
+    let mapRenderPromise = null;
+
+    function ensureDashboard() {
+      if (dashboardInitialized || dashboardRenderQueued) return;
+
+      dashboardRenderQueued = true;
+      const render = () => {
+        dashboardRenderQueued = false;
+        if (currentTab !== 'charts') return;
+
+        renderCharts(allData);
+        dashboardInitialized = true;
+        ensureVisitorMap();
+      };
+
+      if ('requestIdleCallback' in window) {
+        window.requestIdleCallback(render, { timeout: 700 });
+      } else {
+        window.setTimeout(render, 30);
+      }
+    }
+
+    function ensureVisitorMap(force = false) {
+      if (force) mapReady = false;
+      if (mapReady || mapRenderPromise || currentTab !== 'charts') return mapRenderPromise;
+
+      mapRenderPromise = renderVisitorMap()
+        .then(() => { mapReady = true; })
+        .catch(() => { mapReady = false; })
+        .finally(() => { mapRenderPromise = null; });
+
+      return mapRenderPromise;
+    }
 
     function switchTab(tabName) {
       currentTab = tabName;
@@ -4666,10 +4881,9 @@
       document.querySelectorAll('.tab-content').forEach(content => content.classList.remove('active'));
       document.getElementById(`tab-${tabName}`).classList.add('active');
 
-      // Se mudar para aba de charts e eles não estiverem renderizados, renderiza
+      // Renderizar o Dashboard uma única vez e fora do caminho crítico da navegação.
       if (tabName === 'charts') {
-        renderCharts(allData);
-        renderVisitorMap();
+        ensureDashboard();
       }
 
       // Limpar destaque se clicar em novidades
@@ -4853,7 +5067,7 @@
       const modalTitle = document.getElementById('modalTitle');
       const modalBody = document.getElementById('modalBody');
 
-      modalTitle.innerHTML = `${projectData.name} <span style="font-size: 0.6em; opacity: 0.8;">(${projectData.category})</span>`;
+      modalTitle.innerHTML = `${escapeHtml(projectData.name)} <span style="font-size: 0.6em; opacity: 0.8;">(${escapeHtml(projectData.category || '')})</span>`;
 
       if (!projectData.releases || projectData.releases.length === 0) {
         modalBody.innerHTML = `
@@ -4938,12 +5152,15 @@
       }
 
       modal.style.display = 'block';
+      modal.setAttribute('aria-hidden', 'false');
       document.body.style.overflow = 'hidden';
+      modal.querySelector('.close')?.focus();
     }
 
     function closeModal() {
       const modal = document.getElementById('releasesModal');
       modal.style.display = 'none';
+      modal.setAttribute('aria-hidden', 'true');
       document.body.style.overflow = 'auto';
     }
 
@@ -5071,6 +5288,8 @@
       Chart.defaults.color = '#e0e0e0';
       Chart.defaults.borderColor = 'rgba(255, 255, 255, 0.1)';
       Chart.defaults.font.family = "'Segoe UI', Roboto, Helvetica, Arial, sans-serif";
+      Chart.defaults.animation.duration = 220;
+      Chart.defaults.transitions.active.animation.duration = 0;
 
       // Destruir instâncias antigas para evitar bugs de hover/memória
       Object.values(charts).forEach(c => c.destroy());
@@ -5841,7 +6060,7 @@
 
         if (countryCode) {
           await counterRequest(VISITOR_ACTION, countryCode, { increment: true });
-          if (currentTab === 'charts') renderVisitorMap();
+          if (currentTab === 'charts') ensureVisitorMap(true);
         }
       } catch (e) {
         console.warn('Fallback: Erro no ipwho.is, tentando freeipapi...', e);
@@ -5852,7 +6071,7 @@
           const countryCode = (geoData.countryCode || '').toUpperCase();
           if (countryCode) {
             await counterRequest(VISITOR_ACTION, countryCode, { increment: true });
-            if (currentTab === 'charts') renderVisitorMap();
+            if (currentTab === 'charts') ensureVisitorMap(true);
           }
         } catch (err) {
           console.error('Não foi possível salvar o país do visitante:', err);
@@ -5922,22 +6141,22 @@
       }
     }
 
-    // Responsividade: Redesenhar ranking ao mudar tamanho da tela
+    // O CSS e o Chart.js já cuidam do redimensionamento. Evitamos reconstruir
+    // toda a tela a cada pixel arrastado na janela ou ao girar o celular.
+    let lastMobileLayout = window.innerWidth <= 768;
+    let resizeTimer = null;
     window.addEventListener('resize', () => {
-      if (currentTab === 'ranking') {
-        updateFilters();
-      }
-      if (currentTab === 'drivers') {
-        renderRecentDrivers(allData);
-      }
-      if (currentTab === 'drivers-all') {
-        renderCategorizedDrivers(manifestDriversData);
-      }
-      if (currentTab === 'charts') {
-        renderCharts(allData);
-        renderVisitorMap();
-      }
-    });
+      window.clearTimeout(resizeTimer);
+      resizeTimer = window.setTimeout(() => {
+        const isMobileLayout = window.innerWidth <= 768;
+        if (isMobileLayout !== lastMobileLayout && currentTab === 'ranking') {
+          lastMobileLayout = isMobileLayout;
+          updateFilters();
+        } else {
+          lastMobileLayout = isMobileLayout;
+        }
+      }, 120);
+    }, { passive: true });
 
     // Header estável: o sentinel evita que a mudança de altura do próprio header
     // altere o scrollTop e provoque o antigo efeito de expandir/recolher em loop.
