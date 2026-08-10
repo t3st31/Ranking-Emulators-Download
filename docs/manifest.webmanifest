@@ -1,0 +1,19 @@
+{
+  "name": "HUB EMULADORES // NEXUS",
+  "short_name": "HUB EMULADORES",
+  "description": "Rankings, releases e drivers para emulação Android.",
+  "lang": "pt-BR",
+  "start_url": "./",
+  "scope": "./",
+  "display": "standalone",
+  "background_color": "#03050c",
+  "theme_color": "#05060e",
+  "icons": [
+    {
+      "src": "favicon.png",
+      "sizes": "64x64",
+      "type": "image/png",
+      "purpose": "any maskable"
+    }
+  ]
+}
