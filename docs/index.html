@@ -8,11 +8,15 @@
   <meta name="theme-color" content="#05060e" />
   <meta name="description" content="HUB EMULATORS: rankings, releases e drivers para emulação Android em uma arena gamer." />
   <link rel="icon" type="image/png" href="favicon.png">
+  <link rel="manifest" href="manifest.webmanifest">
+  <meta name="mobile-web-app-capable" content="yes">
+  <meta name="apple-mobile-web-app-capable" content="yes">
+  <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
   <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;700&family=Inter:wght@400;600;800&display=swap"
     rel="stylesheet">
 
   <!-- Chart.js -->
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/4.4.1/chart.umd.js"></script>
+  <script defer src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/4.4.1/chart.umd.js"></script>
 
   <style>
     * {
@@ -2399,12 +2403,13 @@
     }
   </style>
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/jsvectormap/dist/css/jsvectormap.min.css" />
-  <script src="https://cdn.jsdelivr.net/npm/jsvectormap"></script>
-  <script src="https://cdn.jsdelivr.net/npm/jsvectormap/dist/maps/world-merc.js"></script>
+  <script defer src="https://cdn.jsdelivr.net/npm/jsvectormap"></script>
+  <script defer src="https://cdn.jsdelivr.net/npm/jsvectormap/dist/maps/world-merc.js"></script>
 </head>
 
 <body>
 
+  <a class="skip-link" href="#main-content">Pular para o conteúdo</a>
   <div class="nexus-background" aria-hidden="true"></div>
   <div class="grid-bg"></div>
   <div class="ambient-orbit orbit-cyan" aria-hidden="true"></div>
@@ -2431,7 +2436,7 @@
   </div>
 
   <div class="support-container">
-    <a href="https://www.buymeacoffee.com/furulipogames" target="_blank">
+    <a href="https://www.buymeacoffee.com/furulipogames" target="_blank" rel="noopener noreferrer">
       <img
         src="https://img.buymeacoffee.com/button-api/?text=Buy me a coffee&emoji=&slug=furulipogames&button_colour=FFDD00&font_colour=000000&font_family=Bree&outline_colour=000000&coffee_colour=ffffff" />
     </a>
@@ -2446,9 +2451,28 @@
     <button class="tab-btn" id="btn-drivers" onclick="switchTab('drivers')" data-i18n="tabDriversNovos">🏎️ Drivers
       Novos</button>
     <button class="tab-btn" id="btn-news" onclick="switchTab('news')" data-i18n="tabNews">🆕 Novidades</button>
+    <button class="tab-btn" id="btn-collection" onclick="switchTab('collection')">⭐ Minha Coleção <span
+        id="favoritesCount" class="tab-count">0</span></button>
   </nav>
 
-  <section>
+  <div class="nexus-toolbar" aria-label="Ferramentas rápidas">
+    <button type="button" class="tool-btn" onclick="openCommandPalette()">⌘ <span>Busca rápida</span></button>
+    <button type="button" class="tool-btn" onclick="openCompareModal()">⚔ <span>Comparar</span> <b
+        id="compareCount">0</b></button>
+    <button type="button" class="tool-btn" onclick="switchTab('collection')">☆ <span>Favoritos</span></button>
+    <label class="language-switcher" for="languageSelect"><span>文</span>
+      <select id="languageSelect" onchange="changeLanguage(this.value)" aria-label="Idioma">
+        <option value="auto">Auto</option>
+        <option value="pt-BR">PT-BR</option>
+        <option value="en">EN</option>
+        <option value="es">ES</option>
+        <option value="fr">FR</option>
+      </select>
+    </label>
+    <button type="button" class="tool-btn install-app-btn" id="installAppButton" hidden>⇩ <span>Instalar app</span></button>
+  </div>
+
+  <section id="main-content" tabindex="-1">
 
     <!-- CONTENT: RANKING -->
     <div id="tab-ranking" class="tab-content active">
@@ -2483,6 +2507,10 @@
             </select>
           </div>
           <div id="filterSummary" class="filter-summary" aria-live="polite"></div>
+          <div class="filter-actions">
+            <button type="button" class="filter-action" id="favoritesFilterButton" onclick="toggleFavoritesFilter()">☆ Só favoritos</button>
+            <button type="button" class="filter-action" onclick="clearFilters()">↺ Limpar</button>
+          </div>
         </div>
 
         <div id="rankingContainer">
@@ -2495,11 +2523,17 @@
 
     <!-- CONTENT: DASHBOARD -->
     <div id="tab-charts" class="tab-content">
+      <div id="nexusOverview" class="nexus-overview" aria-live="polite"></div>
       <div class="card map-full-card">
         <h2 class="section-title"><span class="icon">🌍</span> <span data-i18n="geoVisitors">GEO-VISITANTES (TOP
             PAÍSES)</span></h2>
-        <div id="visitorMap"
-          style="height: 350px; width: 100%; border-radius: 12px; overflow: hidden; background: rgba(0,0,0,0.2);"></div>
+        <div class="map-layout">
+          <div id="visitorMap"
+            style="height: 350px; width: 100%; border-radius: 12px; overflow: hidden; background: rgba(0,0,0,0.2);"></div>
+          <aside id="visitorCountryList" class="visitor-country-list" aria-label="Países com mais visitantes">
+            <span class="muted">Aguardando dados de visitantes...</span>
+          </aside>
+        </div>
       </div>
       <div class="charts-grid">
         <div class="chart-card">
@@ -2578,6 +2612,23 @@
             <div class="spinner"></div>
             Buscando novidades...
           </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- CONTENT: FAVORITOS -->
+    <div id="tab-collection" class="tab-content">
+      <div class="card collection-card">
+        <div class="collection-heading">
+          <div>
+            <span class="eyebrow">PLAYER LOADOUT</span>
+            <h2>⭐ Minha Coleção</h2>
+            <p class="section-lead">Seus projetos salvos, prontos para acompanhar e comparar.</p>
+          </div>
+          <button type="button" class="filter-action" onclick="clearFavorites()">Limpar favoritos</button>
+        </div>
+        <div id="favoritesContainer" class="favorites-grid">
+          <div class="empty-state">Você ainda não salvou nenhum projeto.</div>
         </div>
       </div>
     </div>
@@ -4080,16 +4131,230 @@
         opacity: 0.4;
       }
     }
+
+    /* ==================== NEXUS V2 EXPERIENCE ==================== */
+    .skip-link {
+      position: fixed;
+      top: 8px;
+      left: 8px;
+      z-index: 2000;
+      padding: 10px 14px;
+      border-radius: 8px;
+      background: #00f7ff;
+      color: #031018;
+      font-weight: 800;
+      transform: translateY(-150%);
+      transition: transform 160ms ease;
+    }
+
+    .skip-link:focus { transform: translateY(0); }
+
+    .nexus-toolbar {
+      width: min(1180px, calc(100% - 32px));
+      margin: 12px auto 0;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 8px;
+      flex-wrap: wrap;
+      position: relative;
+      z-index: 12;
+    }
+
+    .tabs-container { overflow-x: auto; scrollbar-width: none; }
+    .tabs-container::-webkit-scrollbar { display: none; }
+    .tabs-container .tab-btn { flex: 0 0 auto; }
+
+    .tool-btn,
+    .language-switcher,
+    .filter-action {
+      min-height: 36px;
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      gap: 7px;
+      padding: 8px 13px;
+      border: 1px solid rgba(0, 247, 255, 0.28);
+      border-radius: 9px;
+      background: rgba(9, 16, 36, 0.82);
+      color: #b7d8ee;
+      font: 700 0.72rem 'Orbitron', sans-serif;
+      letter-spacing: 0.5px;
+      cursor: pointer;
+      transition: border-color 160ms ease, color 160ms ease, background 160ms ease, transform 160ms ease;
+    }
+
+    .tool-btn:hover,
+    .tool-btn:focus-visible,
+    .filter-action:hover,
+    .filter-action:focus-visible,
+    .language-switcher:focus-within {
+      color: #00f7ff;
+      border-color: #00f7ff;
+      background: rgba(0, 247, 255, 0.1);
+      transform: translateY(-1px);
+      outline: none;
+    }
+
+    .tool-btn b,
+    .tab-count {
+      min-width: 18px;
+      padding: 2px 5px;
+      border-radius: 99px;
+      background: #ff2bd6;
+      color: #fff;
+      font-size: 0.68rem;
+      text-align: center;
+    }
+
+    .language-switcher { cursor: default; }
+    .language-switcher select { border: 0; background: transparent; color: inherit; font: inherit; outline: none; cursor: pointer; }
+    .language-switcher option { background: #0a1022; color: #fff; }
+    .install-app-btn[hidden] { display: none; }
+
+    #btn-collection { position: relative; }
+    #btn-collection .tab-count { margin-left: 2px; }
+
+    .filter-actions {
+      display: flex;
+      align-items: end;
+      gap: 8px;
+      min-height: 74px;
+    }
+
+    .filter-action { font-family: 'Inter', sans-serif; font-size: 0.78rem; letter-spacing: 0; white-space: nowrap; }
+    .filter-action.is-active { color: #031018; background: #00f7ff; border-color: #00f7ff; }
+
+    .nexus-overview {
+      display: grid;
+      grid-template-columns: repeat(4, minmax(0, 1fr));
+      gap: 12px;
+      margin-bottom: 16px;
+    }
+
+    .nexus-stat {
+      min-height: 94px;
+      padding: 15px 16px;
+      border: 1px solid rgba(0, 247, 255, 0.22);
+      border-radius: 12px;
+      background: linear-gradient(145deg, rgba(15, 30, 59, 0.94), rgba(8, 13, 29, 0.92));
+      box-shadow: inset 0 1px 0 rgba(255,255,255,0.04);
+    }
+
+    .nexus-stat-label { display: block; color: #8490ad; font: 700 0.68rem 'Orbitron', sans-serif; letter-spacing: 1px; text-transform: uppercase; }
+    .nexus-stat-value { display: block; margin-top: 8px; color: #00f7ff; font: 800 clamp(1.25rem, 2.4vw, 1.85rem) 'Orbitron', sans-serif; text-shadow: 0 0 14px rgba(0,247,255,0.25); }
+    .nexus-stat-note { display: block; margin-top: 4px; color: #aab8d1; font-size: 0.75rem; }
+
+    .map-layout { display: grid; grid-template-columns: minmax(0, 1fr) 220px; gap: 14px; align-items: stretch; }
+    .visitor-country-list { display: flex; flex-direction: column; gap: 8px; padding: 12px; border: 1px solid rgba(0,247,255,0.16); border-radius: 10px; background: rgba(3,8,20,0.62); overflow: auto; }
+    .visitor-country-row { display: grid; grid-template-columns: 28px 1fr auto; gap: 7px; align-items: center; padding: 7px; border-radius: 7px; background: rgba(0,247,255,0.045); color: #dceeff; font-size: 0.78rem; }
+    .visitor-country-row strong { color: #00f7ff; font-family: 'Orbitron', sans-serif; font-size: 0.7rem; }
+    .visitor-country-row .country-rank { color: #ff2bd6; font-family: 'Orbitron', sans-serif; }
+    .muted { color: #8490ad; font-size: 0.78rem; line-height: 1.45; }
+
+    .collection-heading { display: flex; justify-content: space-between; align-items: start; gap: 18px; margin-bottom: 18px; }
+    .eyebrow { display: block; color: #00f7ff; font: 700 0.65rem 'Orbitron', sans-serif; letter-spacing: 2px; text-transform: uppercase; }
+    .section-lead { margin-top: 6px; color: #99a8c3; font-size: 0.9rem; }
+    .favorites-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(260px, 1fr)); gap: 14px; }
+    .favorite-card { position: relative; padding: 16px; border: 1px solid rgba(0,247,255,0.2); border-radius: 12px; background: rgba(11,23,47,0.86); }
+    .favorite-card h3 { margin: 10px 0 7px; color: #eaf7ff; font-size: 1rem; }
+    .favorite-card p { color: #95a8c6; font-size: 0.8rem; }
+    .favorite-card .favorite-meta { display: flex; justify-content: space-between; gap: 8px; color: #00f7ff; font: 700 0.72rem 'Orbitron', sans-serif; }
+    .favorite-actions { display: flex; gap: 7px; margin-top: 14px; }
+    .favorite-actions button { flex: 1; min-height: 34px; border: 1px solid rgba(0,247,255,0.28); border-radius: 7px; background: rgba(0,247,255,0.08); color: #dffaff; cursor: pointer; font-weight: 700; }
+    .favorite-actions button:hover { border-color: #00f7ff; color: #00f7ff; }
+    .ranking-actions { display: inline-flex; gap: 5px; margin-left: 8px; vertical-align: middle; }
+    .row-action { width: 28px; height: 28px; border: 1px solid rgba(0,247,255,0.25); border-radius: 6px; background: rgba(0,247,255,0.06); color: #8ca6bd; cursor: pointer; font-weight: 800; line-height: 1; }
+    .row-action:hover, .row-action:focus-visible, .row-action.is-active { color: #00f7ff; border-color: #00f7ff; background: rgba(0,247,255,0.13); outline: none; }
+    .compare-action.is-active { color: #ff2bd6; border-color: #ff2bd6; background: rgba(255,43,214,0.12); }
+    .empty-state { grid-column: 1 / -1; padding: 40px 20px; border: 1px dashed rgba(0,247,255,0.24); border-radius: 12px; color: #8490ad; text-align: center; }
+
+    .utility-modal { position: fixed; inset: 0; z-index: 1800; display: none; place-items: start center; padding: 12vh 16px 24px; background: rgba(1,3,10,0.78); }
+    .utility-modal.is-open { display: grid; }
+    .utility-panel { width: min(720px, 100%); max-height: min(720px, 82vh); overflow: auto; padding: 20px; border: 1px solid rgba(0,247,255,0.38); border-radius: 16px; background: linear-gradient(145deg, #0d1831, #070c1b); box-shadow: 0 24px 90px rgba(0,0,0,0.62), 0 0 40px rgba(0,247,255,0.1); }
+    .utility-heading { display: flex; justify-content: space-between; align-items: start; gap: 12px; margin-bottom: 18px; }
+    .utility-heading h2 { margin-top: 7px; color: #f4fbff; font: 800 clamp(1.2rem, 3vw, 1.75rem) 'Orbitron', sans-serif; }
+    .utility-close { width: 36px; height: 36px; border: 1px solid rgba(255,43,214,0.5); border-radius: 9px; background: rgba(255,43,214,0.1); color: #fff; font-size: 1.5rem; cursor: pointer; }
+    .utility-close:hover { border-color: #ff2bd6; background: rgba(255,43,214,0.25); }
+    .command-input { width: 100%; padding: 14px 16px; border: 1px solid rgba(0,247,255,0.34); border-radius: 9px; background: rgba(1,6,18,0.9); color: #f4fbff; outline: none; font-size: 1rem; }
+    .command-input:focus { border-color: #00f7ff; box-shadow: 0 0 0 3px rgba(0,247,255,0.1); }
+    .command-results { display: grid; gap: 7px; margin-top: 14px; max-height: 48vh; overflow: auto; }
+    .command-result { display: grid; grid-template-columns: 42px 1fr auto; gap: 10px; align-items: center; padding: 10px; border: 1px solid transparent; border-radius: 9px; background: rgba(255,255,255,0.035); color: #e9f7ff; cursor: pointer; text-align: left; }
+    .command-result:hover, .command-result:focus-visible { border-color: #00f7ff; background: rgba(0,247,255,0.1); outline: none; }
+    .command-result img { width: 38px; height: 38px; object-fit: contain; border-radius: 8px; }
+    .command-result small { display: block; margin-top: 3px; color: #8fa3bf; }
+    .command-result strong { color: #00f7ff; font-family: 'Orbitron', sans-serif; font-size: 0.72rem; }
+    .command-hint { margin-top: 14px; color: #8490ad; font-size: 0.75rem; }
+    kbd { padding: 2px 6px; border: 1px solid rgba(255,255,255,0.2); border-radius: 4px; background: #111a2e; color: #dffaff; }
+    .compare-body { overflow-x: auto; }
+    .compare-table { width: 100%; min-width: 560px; border-collapse: collapse; }
+    .compare-table th, .compare-table td { padding: 12px 10px; border-bottom: 1px solid rgba(0,247,255,0.12); text-align: left; }
+    .compare-table th { color: #00f7ff; font: 700 0.72rem 'Orbitron', sans-serif; }
+    .compare-table td { color: #d9e8f7; font-size: 0.85rem; }
+    .compare-table td:not(:first-child) { color: #fff; font-weight: 700; }
+    .nexus-toast { position: fixed; right: 18px; bottom: 18px; z-index: 2100; max-width: 360px; padding: 12px 15px; border: 1px solid #00f7ff; border-radius: 9px; background: #08162b; color: #eaffff; box-shadow: 0 0 25px rgba(0,247,255,0.2); opacity: 0; transform: translateY(12px); pointer-events: none; transition: opacity 160ms ease, transform 160ms ease; }
+    .nexus-toast.is-visible { opacity: 1; transform: translateY(0); }
+
+    @media (max-width: 900px) {
+      .nexus-overview { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+      .map-layout { grid-template-columns: 1fr; }
+      .visitor-country-list { max-height: 180px; }
+    }
+
+    @media (max-width: 680px) {
+      .nexus-toolbar { width: calc(100% - 18px); margin-top: 8px; }
+      .tool-btn span, .language-switcher span { display: none; }
+      .tool-btn, .language-switcher { min-width: 40px; padding: 8px 10px; }
+      .filter-actions { min-height: auto; align-items: stretch; }
+      .filter-actions .filter-action { flex: 1; }
+      .ranking-card-item .ranking-actions { grid-column: 1 / -1; justify-content: flex-end; margin-left: 0; }
+      .collection-heading { flex-direction: column; }
+      .nexus-overview { gap: 8px; }
+      .nexus-stat { min-height: 80px; padding: 12px; }
+      .nexus-stat-value { font-size: 1.05rem; }
+      .utility-modal { padding: 8vh 9px 15px; }
+      .utility-panel { padding: 14px; border-radius: 12px; }
+    }
+
+    @media (prefers-reduced-motion: reduce) {
+      *, *::before, *::after { scroll-behavior: auto !important; transition-duration: 0.01ms !important; animation-duration: 0.01ms !important; }
+    }
   </style>
+
+  <div id="commandPalette" class="utility-modal" role="dialog" aria-modal="true" aria-hidden="true">
+    <div class="utility-panel command-panel">
+      <div class="utility-heading">
+        <div><span class="eyebrow">NEXUS SEARCH</span><h2>Busca rápida</h2></div>
+        <button type="button" class="utility-close" onclick="closeCommandPalette()" aria-label="Fechar busca">&times;</button>
+      </div>
+      <input id="commandInput" class="command-input" type="search" autocomplete="off"
+        placeholder="Projeto, categoria ou comando..." oninput="renderCommandResults(this.value)" />
+      <div id="commandResults" class="command-results"></div>
+      <div class="command-hint">Pressione <kbd>Ctrl</kbd> + <kbd>K</kbd> para abrir · <kbd>Esc</kbd> para fechar</div>
+    </div>
+  </div>
+
+  <div id="compareModal" class="utility-modal" role="dialog" aria-modal="true" aria-hidden="true">
+    <div class="utility-panel compare-panel">
+      <div class="utility-heading">
+        <div><span class="eyebrow">VERSUS MATRIX</span><h2>Comparar projetos</h2></div>
+        <button type="button" class="utility-close" onclick="closeCompareModal()" aria-label="Fechar comparação">&times;</button>
+      </div>
+      <p class="section-lead">Selecione até três projetos usando o botão ⚔ no ranking.</p>
+      <div id="compareBody" class="compare-body"></div>
+    </div>
+  </div>
+
+  <div id="toast" class="nexus-toast" role="status" aria-live="polite"></div>
 
   <footer>
     <div class="footer-content">
       <span class="footer-credit" data-i18n="developedBy">Developed by ⚡FurulipoGames - GameHub Brazil</span>
       <div class="footer-actions">
-        <a href="https://youtube.com/@FurulipoGames" target="_blank" class="premium-link youtube-btn">
+        <a href="https://youtube.com/@FurulipoGames" target="_blank" rel="noopener noreferrer" class="premium-link youtube-btn">
           📺 <span data-i18n="footerVisitChannel">CANAL YOUTUBE</span>
         </a>
-        <a href="https://github.com/winlatorbrasil" target="_blank" class="premium-link github-btn">
+        <a href="https://github.com/winlatorbrasil" target="_blank" rel="noopener noreferrer" class="premium-link github-btn">
           📦 <span data-i18n="viewOnGithub">CODE GITHUB</span>
         </a>
       </div>
@@ -5204,6 +5469,11 @@
     else if (userLang.startsWith('he')) currentLang = 'he';
     else if (userLang.startsWith('en')) currentLang = 'en';
 
+    try {
+      const savedLanguage = localStorage.getItem('hub-emulators-language-v2');
+      if (savedLanguage && savedLanguage !== 'auto' && I18N[savedLanguage]) currentLang = savedLanguage;
+    } catch { /* preferência indisponível */ }
+
     // Apply RTL if needed
     if (currentLang === 'ar' || currentLang === 'he') {
       document.documentElement.dir = 'rtl';
@@ -5221,6 +5491,8 @@
     }
 
     function applyTranslations() {
+      const languageSelect = document.getElementById('languageSelect');
+      if (languageSelect && I18N[currentLang]) languageSelect.value = currentLang;
       // Traduzir elementos com data-i18n
       document.querySelectorAll('[data-i18n]').forEach(el => {
         const key = el.getAttribute('data-i18n');
@@ -5248,6 +5520,234 @@
     let dashboardRenderQueued = false;
     let mapReady = false;
     let mapRenderPromise = null;
+    let historyData = [];
+    let favoritesOnly = false;
+    const FAVORITES_STORAGE_KEY = 'hub-emulators-favorites-v2';
+    const COMPARE_STORAGE_KEY = 'hub-emulators-compare-v2';
+    let favoriteRepos = readStorageSet(FAVORITES_STORAGE_KEY);
+    let compareRepos = readStorageSet(COMPARE_STORAGE_KEY);
+    let deferredInstallPrompt = null;
+
+    function readStorageSet(key) {
+      try {
+        const value = JSON.parse(localStorage.getItem(key) || '[]');
+        return new Set(Array.isArray(value) ? value : []);
+      } catch {
+        return new Set();
+      }
+    }
+
+    function persistStorageSet(key, value) {
+      try { localStorage.setItem(key, JSON.stringify([...value])); } catch { /* storage bloqueado */ }
+    }
+
+    function projectKey(project) {
+      return project?.repo || project?.name || '';
+    }
+
+    function findProjectByKey(key) {
+      return allData.find(project => projectKey(project) === key);
+    }
+
+    function showToast(message) {
+      const toast = document.getElementById('toast');
+      if (!toast) return;
+      toast.textContent = message;
+      toast.classList.add('is-visible');
+      clearTimeout(showToast.timer);
+      showToast.timer = setTimeout(() => toast.classList.remove('is-visible'), 2600);
+    }
+
+    function updateCollectionUI() {
+      const count = document.getElementById('favoritesCount');
+      if (count) count.textContent = favoriteRepos.size;
+      const compareCount = document.getElementById('compareCount');
+      if (compareCount) compareCount.textContent = compareRepos.size;
+      document.querySelectorAll('[data-favorite-key]').forEach(button => {
+        const key = decodeURIComponent(button.dataset.favoriteKey || '');
+        const active = favoriteRepos.has(key);
+        button.textContent = active ? '★' : '☆';
+        button.classList.toggle('is-active', active);
+        button.setAttribute('aria-label', active ? 'Remover dos favoritos' : 'Adicionar aos favoritos');
+      });
+      document.querySelectorAll('[data-compare-key]').forEach(button => {
+        const key = decodeURIComponent(button.dataset.compareKey || '');
+        const active = compareRepos.has(key);
+        button.textContent = active ? '✓' : '⚔';
+        button.classList.toggle('is-active', active);
+      });
+    }
+
+    function changeLanguage(language) {
+      if (language === 'auto') {
+        try { localStorage.removeItem('hub-emulators-language-v2'); } catch { /* noop */ }
+        window.location.reload();
+        return;
+      }
+      if (!I18N[language]) return;
+      currentLang = language;
+      try { localStorage.setItem('hub-emulators-language-v2', language); } catch { /* noop */ }
+      document.documentElement.dir = currentLang === 'ar' || currentLang === 'he' ? 'rtl' : 'ltr';
+      applyTranslations();
+      if (allData.length) {
+        updateFilters();
+        renderFavorites();
+        renderNexusOverview(allData);
+        if (dashboardInitialized) {
+          renderCharts(allData, historyData);
+          ensureVisitorMap(true);
+        }
+      }
+    }
+
+    function toggleFavoriteByKey(encodedKey, event) {
+      event?.stopPropagation();
+      const key = decodeURIComponent(encodedKey || '');
+      if (!key) return;
+      if (favoriteRepos.has(key)) {
+        favoriteRepos.delete(key);
+        showToast('Projeto removido da sua coleção.');
+      } else {
+        favoriteRepos.add(key);
+        showToast('Projeto salvo na sua coleção.');
+      }
+      persistStorageSet(FAVORITES_STORAGE_KEY, favoriteRepos);
+      updateCollectionUI();
+      if (currentTab === 'collection') renderFavorites();
+      if (favoritesOnly) updateFilters();
+    }
+
+    function toggleCompareByKey(encodedKey, event) {
+      event?.stopPropagation();
+      const key = decodeURIComponent(encodedKey || '');
+      if (!key) return;
+      if (compareRepos.has(key)) {
+        compareRepos.delete(key);
+      } else if (compareRepos.size >= 3) {
+        showToast('A comparação aceita até 3 projetos.');
+        return;
+      } else {
+        compareRepos.add(key);
+        showToast('Projeto adicionado à comparação.');
+      }
+      persistStorageSet(COMPARE_STORAGE_KEY, compareRepos);
+      updateCollectionUI();
+    }
+
+    function renderFavorites() {
+      const container = document.getElementById('favoritesContainer');
+      if (!container) return;
+      const projects = [...favoriteRepos].map(findProjectByKey).filter(Boolean);
+      if (!projects.length) {
+        container.innerHTML = '<div class="empty-state">Você ainda não salvou nenhum projeto.</div>';
+        return;
+      }
+      container.innerHTML = projects.map(project => {
+        const key = encodeURIComponent(projectKey(project));
+        const latest = project.releases?.[0];
+        return `<article class="favorite-card">
+          <div class="favorite-meta"><span>${escapeHtml(project.category || 'OUTRO')}</span><span>${Number(project.downloads || 0).toLocaleString(currentLang)}</span></div>
+          <h3>${escapeHtml(project.name)}</h3>
+          <p>${latest ? `Última release: ${escapeHtml(latest.tag || latest.name || 'sem tag')}` : 'Sem release publicada'}</p>
+          <div class="favorite-actions">
+            <button type="button" onclick="openProjectByKey('${key}')">Abrir releases</button>
+            <button type="button" onclick="toggleFavoriteByKey('${key}', event)">★ Remover</button>
+          </div>
+        </article>`;
+      }).join('');
+    }
+
+    function clearFavorites() {
+      favoriteRepos.clear();
+      persistStorageSet(FAVORITES_STORAGE_KEY, favoriteRepos);
+      updateCollectionUI();
+      renderFavorites();
+      showToast('Coleção limpa.');
+    }
+
+    function openProjectByKey(encodedKey) {
+      const project = findProjectByKey(decodeURIComponent(encodedKey || ''));
+      if (project) openModal(project);
+    }
+
+    function toggleFavoritesFilter() {
+      favoritesOnly = !favoritesOnly;
+      const button = document.getElementById('favoritesFilterButton');
+      button?.classList.toggle('is-active', favoritesOnly);
+      updateFilters();
+    }
+
+    function clearFilters() {
+      const search = document.getElementById('searchInput');
+      const category = document.getElementById('categoryFilter');
+      const sort = document.getElementById('sortRanking');
+      if (search) search.value = '';
+      if (category) category.value = 'all';
+      if (sort) sort.value = 'downloadsDesc';
+      favoritesOnly = false;
+      document.getElementById('favoritesFilterButton')?.classList.remove('is-active');
+      updateFilters();
+    }
+
+    function openCommandPalette() {
+      const modal = document.getElementById('commandPalette');
+      if (!modal) return;
+      modal.classList.add('is-open');
+      modal.setAttribute('aria-hidden', 'false');
+      const input = document.getElementById('commandInput');
+      input.value = '';
+      renderCommandResults('');
+      requestAnimationFrame(() => input.focus());
+    }
+
+    function closeCommandPalette() {
+      const modal = document.getElementById('commandPalette');
+      modal?.classList.remove('is-open');
+      modal?.setAttribute('aria-hidden', 'true');
+    }
+
+    function renderCommandResults(query = '') {
+      const container = document.getElementById('commandResults');
+      if (!container) return;
+      const term = query.trim().toLowerCase();
+      const results = allData.filter(project => !term || `${project.name} ${project.category} ${project.repo}`.toLowerCase().includes(term)).slice(0, 12);
+      const commands = !term ? [
+        ['📊', 'Abrir Dashboard', 'Ver métricas e visitantes', "switchTab('charts'); closeCommandPalette();"],
+        ['🆕', 'Abrir Novidades', 'Últimos lançamentos', "switchTab('news'); closeCommandPalette();"],
+        ['⭐', 'Abrir Minha Coleção', 'Projetos salvos', "switchTab('collection'); closeCommandPalette();"]
+      ] : [];
+      container.innerHTML = commands.map(([icon, title, note, action]) => `<button type="button" class="command-result" onclick="${action}"><span>${icon}</span><span><b>${title}</b><small>${note}</small></span><strong>↵</strong></button>`).join('') + results.map(project => {
+        const key = encodeURIComponent(projectKey(project));
+        return `<button type="button" class="command-result" onclick="openProjectByKey('${key}'); closeCommandPalette();"><img src="logos/${encodeURIComponent(project.logo || 'gamehub.png')}" alt="" loading="lazy" onerror="this.style.display='none'"><span><b>${escapeHtml(project.name)}</b><small>${escapeHtml(project.category || 'Projeto')}</small></span><strong>${Number(project.downloads || 0).toLocaleString(currentLang)}</strong></button>`;
+      }).join('') || '<div class="empty-state">Nenhum resultado encontrado.</div>';
+    }
+
+    function openCompareModal() {
+      const modal = document.getElementById('compareModal');
+      const body = document.getElementById('compareBody');
+      const projects = [...compareRepos].map(findProjectByKey).filter(Boolean);
+      if (!modal || !body) return;
+      if (!projects.length) {
+        body.innerHTML = '<div class="empty-state">Escolha projetos no ranking usando o botão ⚔.</div>';
+      } else {
+        const rows = [
+          ['Downloads', project => Number(project.downloads || 0).toLocaleString(currentLang)],
+          ['Categoria', project => project.category || '—'],
+          ['Releases', project => project.releases?.length || 0],
+          ['Última versão', project => project.releases?.[0]?.tag || '—'],
+          ['Última atualização', project => project.releases?.[0]?.date ? formatDate(project.releases[0].date) : '—']
+        ];
+        body.innerHTML = `<table class="compare-table"><thead><tr><th>Métrica</th>${projects.map(project => `<th>${escapeHtml(project.name)}</th>`).join('')}</tr></thead><tbody>${rows.map(([label, getter]) => `<tr><td>${label}</td>${projects.map(project => `<td>${escapeHtml(String(getter(project)))}</td>`).join('')}</tr>`).join('')}</tbody></table>`;
+      }
+      modal.classList.add('is-open');
+      modal.setAttribute('aria-hidden', 'false');
+    }
+
+    function closeCompareModal() {
+      const modal = document.getElementById('compareModal');
+      modal?.classList.remove('is-open');
+      modal?.setAttribute('aria-hidden', 'true');
+    }
 
     function ensureDashboard() {
       if (dashboardInitialized || dashboardRenderQueued) return;
@@ -5256,8 +5756,12 @@
       const render = () => {
         dashboardRenderQueued = false;
         if (currentTab !== 'charts') return;
+        if (!window.Chart) {
+          window.setTimeout(ensureDashboard, 120);
+          return;
+        }
 
-        renderCharts(allData);
+        renderCharts(allData, historyData);
         dashboardInitialized = true;
         ensureVisitorMap();
       };
@@ -5272,6 +5776,10 @@
     function ensureVisitorMap(force = false) {
       if (force) mapReady = false;
       if (mapReady || mapRenderPromise || currentTab !== 'charts') return mapRenderPromise;
+      if (!window.jsVectorMap) {
+        window.setTimeout(() => ensureVisitorMap(force), 180);
+        return null;
+      }
 
       mapRenderPromise = renderVisitorMap()
         .then(() => { mapReady = true; })
@@ -5283,6 +5791,9 @@
 
     function switchTab(tabName) {
       currentTab = tabName;
+      const shareUrl = new URL(window.location.href);
+      shareUrl.searchParams.set('tab', tabName);
+      window.history.replaceState({}, '', shareUrl);
 
       // Update buttons
       document.querySelectorAll('.tab-btn').forEach(btn => btn.classList.remove('active'));
@@ -5295,6 +5806,10 @@
       // Renderizar o Dashboard uma única vez e fora do caminho crítico da navegação.
       if (tabName === 'charts') {
         ensureDashboard();
+      }
+
+      if (tabName === 'collection') {
+        renderFavorites();
       }
 
       // Limpar destaque se clicar em novidades
@@ -5352,7 +5867,8 @@
         const matchesSearch = item.name.toLowerCase().includes(searchTerm) ||
           (item.category && item.category.toLowerCase().includes(searchTerm));
         const matchesCategory = category === 'all' || item.category === category;
-        return matchesSearch && matchesCategory;
+        const matchesFavorite = !favoritesOnly || favoriteRepos.has(projectKey(item));
+        return matchesSearch && matchesCategory && matchesFavorite;
       });
 
       // Ordenação (Upstream é tratado dentro de renderRanking)
@@ -5404,6 +5920,16 @@
       return div.innerHTML;
     }
 
+    function safeExternalUrl(value) {
+      try {
+        const url = new URL(String(value || ''), window.location.href);
+        if (!['http:', 'https:'].includes(url.protocol)) return '#';
+        return escapeHtml(url.href);
+      } catch {
+        return '#';
+      }
+    }
+
     function formatMarkdown(text) {
       if (!text) return '';
 
@@ -5411,7 +5937,7 @@
       let html = escapeHtml(text);
 
       // Links
-      html = html.replace(/\[([^\]]+)\]\(([^)]+)\)/g, '<a href="$2" target="_blank">$1</a>');
+      html = html.replace(/\[([^\]]+)\]\(([^)]+)\)/g, (_, label, url) => `<a href="${safeExternalUrl(url)}" target="_blank" rel="noopener noreferrer">${label}</a>`);
 
       // Negrito
       html = html.replace(/\*\*([^*]+)\*\*/g, '<strong>$1</strong>');
@@ -5485,14 +6011,14 @@
       <div class="no-releases">
         ${t('noReleasesFound')}
         <br><br>
-        <a href="${projectData.repoUrl}" target="_blank" class="repo-link">
+        <a href="${safeExternalUrl(projectData.repoUrl)}" target="_blank" rel="noopener noreferrer" class="repo-link">
           ${t('viewRepoRepo')}
         </a>
       </div>
     `;
       } else {
         let releasesHTML = `
-      <a href="${projectData.repoUrl}" target="_blank" class="repo-link">
+      <a href="${safeExternalUrl(projectData.repoUrl)}" target="_blank" rel="noopener noreferrer" class="repo-link">
         ${t('viewRepo')}
       </a>
       <div class="releases-grid">
@@ -5500,6 +6026,9 @@
 
         projectData.releases.forEach(release => {
           const description = release.description || release.body || '';
+          const releaseTag = escapeHtml(release.tag || '—');
+          const releaseName = escapeHtml(release.name || release.tag || 'Release');
+          const releaseUrl = safeExternalUrl(release.htmlUrl);
           const descriptionHtml = description ? `
         <div class="release-description">${formatMarkdown(description)}</div>
       ` : '';
@@ -5509,16 +6038,16 @@
           releasesHTML += `
         <div class="release-card">
           <div class="release-header">
-            <span class="release-tag">${release.tag}</span>
+            <span class="release-tag">${releaseTag}</span>
             <span class="release-date">${formatDate(release.date)}</span>
           </div>
           <div class="release-name">
-            ${release.name}
+            ${releaseName}
             ${isNew ? `<span class="new-badge">🔥 ${t('newRelease')}!</span>` : ''}
           </div>
           
           <div class="release-actions">
-            <a href="${release.htmlUrl}" target="_blank" class="github-link-btn">
+            <a href="${releaseUrl}" target="_blank" rel="noopener noreferrer" class="github-link-btn">
               🔗 ${t('viewOnGithub')}
             </a>
           </div>
@@ -5526,7 +6055,7 @@
           ${descriptionHtml}
           
           <div class="release-downloads">
-            📥 ${release.downloads.toLocaleString(currentLang)} ${t('downloads')}
+            📥 ${Number(release.downloads || 0).toLocaleString(currentLang)} ${t('downloads')}
           </div>
           
           <div class="assets-list">
@@ -5534,21 +6063,22 @@
       `;
 
           const validExts = getValidExtensions(projectData);
-          release.assets.filter(a => assetMatchesExtensions(a.name, validExts)).forEach(asset => {
+          const validAssets = (release.assets || []).filter(a => assetMatchesExtensions(a.name, validExts));
+          validAssets.forEach(asset => {
             releasesHTML += `
           <div class="asset-item">
-            <span class="asset-name">${asset.name}</span>
+              <span class="asset-name">${escapeHtml(asset.name)}</span>
             <div class="asset-info">
               <span class="asset-size">${formatBytes(asset.size)}</span>
-              <a href="${asset.url}" target="_blank" class="download-btn">
-                ⬇ ${t('download')} (${asset.downloads.toLocaleString(currentLang)})
+              <a href="${safeExternalUrl(asset.url)}" target="_blank" rel="noopener noreferrer" class="download-btn">
+                ⬇ ${t('download')} (${Number(asset.downloads || 0).toLocaleString(currentLang)})
               </a>
             </div>
           </div>
         `;
           });
 
-          if (release.assets.filter(a => assetMatchesExtensions(a.name, validExts)).length === 0) {
+          if (validAssets.length === 0) {
             releasesHTML += `<div style="color: #aaa; padding: 10px 0; font-size: 0.9em;">📭 ${t('noFilesAvailable')}</div>`;
           }
 
@@ -5619,7 +6149,7 @@
         const validExts = getValidExtensions(project);
         project.releases.forEach(release => {
           const releaseDate = new Date(release.date);
-          const hasValidAsset = release.assets.some(a => assetMatchesExtensions(a.name, validExts));
+          const hasValidAsset = (release.assets || []).some(a => assetMatchesExtensions(a.name, validExts));
           if (releaseDate >= thirtyDaysAgo && hasValidAsset) {
             recentReleases.push({
               projectName: project.name,
@@ -5646,19 +6176,19 @@
       recentReleases.forEach(item => {
         const r = item.release;
         const recentExts = getValidExtensions(item.projectData);
-        const validAssets = r.assets.filter(a => assetMatchesExtensions(a.name, recentExts));
-        const itemJson = JSON.stringify(item.projectData).replace(/'/g, "&#39;");
+        const validAssets = (r.assets || []).filter(a => assetMatchesExtensions(a.name, recentExts));
+        const itemKey = encodeURIComponent(projectKey(item.projectData));
         const totalDownloads = r.downloads || 0;
 
         html += `
-          <div class="recent-release-item ${item.isHot ? 'is-hot' : ''}" onclick='openModal(${itemJson})'>
+          <div class="recent-release-item ${item.isHot ? 'is-hot' : ''}" onclick="openProjectByKey('${itemKey}')">
             <div class="recent-item-top">
               <div class="recent-row">
-                <div class="recent-project-name">${item.projectName}</div>
+                <div class="recent-project-name">${escapeHtml(item.projectName)}</div>
                 <div class="recent-time-ago">📅 ${timeAgo(item.releaseDate)}</div>
               </div>
               <div class="recent-row" style="margin-top: 8px; justify-content: flex-start; gap: 10px;">
-                <span class="category-badge category-${sanitizeCategory(item.category)}">${item.category}</span>
+                <span class="category-badge category-${sanitizeCategory(item.category)}">${escapeHtml(item.category)}</span>
                 ${item.isHot ?
             `<div class="recent-hot-flame">🔥 ${t('recentRelease') || 'LANÇAMENTO RECENTE!'}</div>` :
             (item.isNew ? `<div class="recent-new-badge">✨ ${t('new') || 'NOVO'}</div>` : '')
@@ -5667,8 +6197,8 @@
             </div>
             
             <div class="recent-row" style="margin-bottom: 15px; justify-content: flex-start; gap: 10px; align-items: center;">
-              <span class="recent-release-tag">${r.tag}</span>
-              <div class="recent-release-name" style="margin-bottom:0; font-size: 0.9em; opacity: 0.9;">${r.name || r.tag}</div>
+              <span class="recent-release-tag">${escapeHtml(r.tag)}</span>
+              <div class="recent-release-name" style="margin-bottom:0; font-size: 0.9em; opacity: 0.9;">${escapeHtml(r.name || r.tag)}</div>
             </div>
             
             <div class="recent-bottom">
@@ -5682,7 +6212,7 @@
               .replace(/\.(apk|tar\.gz|zip|exe)$/i, '')
               .trim();
             if (!cleanedName || cleanedName.length < 2) cleanedName = t('download');
-            return `<a href="${asset.url}" target="_blank" class="recent-download-btn" onclick="event.stopPropagation();" title="${asset.name}">⬇ ${cleanedName} (${formatBytes(asset.size)})</a>`;
+            return `<a href="${safeExternalUrl(asset.url)}" target="_blank" rel="noopener noreferrer" class="recent-download-btn" onclick="event.stopPropagation();" title="${escapeHtml(asset.name)}">⬇ ${escapeHtml(cleanedName)} (${formatBytes(asset.size)})</a>`;
           }).join('')}
               </div>
             </div>
@@ -5692,7 +6222,7 @@
       container.innerHTML = html;
     }
 
-    function renderCharts(data) {
+    function renderCharts(data, history = historyData) {
       if (!window.Chart) return;
 
       // Configurações globais de legibilidade para tema escuro
@@ -5709,6 +6239,8 @@
       const projects = [...data].sort((a, b) => b.downloads - a.downloads);
       const top10 = projects.slice(0, 10);
       const top5 = projects.slice(0, 5);
+      const maxDownloads = Math.max(...projects.map(project => Number(project.downloads) || 0), 1);
+      const maxReleases = Math.max(...projects.map(project => project.releases?.length || 0), 1);
 
       const categoriesMap = {};
       data.forEach(p => {
@@ -5810,14 +6342,14 @@
       charts.radar = new Chart(document.getElementById('chart-radar'), {
         type: 'radar',
         data: {
-          labels: [t('downloads'), t('releasesHeader'), t('novelty'), t('popularity')],
+          labels: [t('downloads'), t('totalReleases'), t('novelty'), t('avgDownloadsPerRelease')],
           datasets: top5.map((p, i) => ({
             label: p.name,
             data: [
-              (p.downloads / projects[0].downloads) * 100,
-              (p.releases ? p.releases.length / 50 : 0) * 100,
-              hasNewReleases(p) ? 100 : 20,
-              100 - (i * 15)
+              ((Number(p.downloads) || 0) / maxDownloads) * 100,
+              ((p.releases?.length || 0) / maxReleases) * 100,
+              hasNewReleases(p) ? 100 : 0,
+              Math.min(100, ((Number(p.downloads) || 0) / Math.max(1, p.releases?.length || 1)) / (maxDownloads / Math.max(1, projects[0]?.releases?.length || 1)) * 100)
             ],
             borderColor: themeColors[i],
             backgroundColor: themeColors[i] + '22'
@@ -5876,7 +6408,7 @@
             data: [{
               x: p.releases ? p.releases.length : 0, // Atividade
               y: p.downloads,                        // Popularidade
-              r: 10 + (Math.random() * 10)           // Aleatório apenas para visual
+              r: Math.max(7, Math.min(22, 7 + Math.sqrt((Number(p.downloads) || 0) / maxDownloads) * 15))
             }],
             backgroundColor: themeColors[i % themeColors.length] + '88'
           }))
@@ -5900,29 +6432,37 @@
         }
       });
 
-      // 9. Line (Accumulated): Timeline imaginária baseada em releases
+      // 9. Line: histórico real salvo pelo workflow
+      const historyEntries = (Array.isArray(history) ? history : []).slice(-30);
       charts.line = new Chart(document.getElementById('chart-line-total'), {
         type: 'line',
         data: {
-          labels: top10.map(p => p.name),
+          labels: historyEntries.length ? historyEntries.map(entry => entry.date) : [new Date().toISOString().slice(0, 10)],
           datasets: [{
-            label: t('downloadsVolumeLog'),
-            data: top10.map(p => Math.log10(p.downloads || 1)),
+            label: t('totalDownloads'),
+            data: historyEntries.length ? historyEntries.map(entry => entry.totalDownloads || 0) : [data.reduce((sum, project) => sum + (Number(project.downloads) || 0), 0)],
             borderColor: '#ff4d4d',
-            tension: 0.1
+            backgroundColor: 'rgba(255,77,77,0.12)',
+            fill: true,
+            tension: 0.25
           }]
         },
-        options: { responsive: true, maintainAspectRatio: false }
+        options: {
+          responsive: true,
+          maintainAspectRatio: false,
+          scales: { y: { beginAtZero: false, grid: { color: 'rgba(255,255,255,0.1)' } } }
+        }
       });
 
-      // 10. Stacked Bar: Downloads vs Releases (Normalizado)
+      // 10. Stacked Bar: releases e assets reais
+      const assetCounts = projects.slice(0, 10).map(project => (project.releases || []).reduce((sum, release) => sum + (release.assets?.length || 0), 0));
       charts.stacked = new Chart(document.getElementById('chart-stacked'), {
         type: 'bar',
         data: {
           labels: projects.slice(0, 10).map(p => p.name),
           datasets: [
-            { label: t('downloadsProportion'), data: projects.slice(0, 10).map(p => 50), backgroundColor: '#00f7ff' },
-            { label: t('releasesProportion'), data: projects.slice(0, 10).map(p => p.releases ? p.releases.length : 0), backgroundColor: '#00ff88' }
+            { label: t('releasesProportion'), data: projects.slice(0, 10).map(p => p.releases?.length || 0), backgroundColor: '#00f7ff' },
+            { label: t('downloadsProportion'), data: assetCounts, backgroundColor: '#00ff88' }
           ]
         },
         options: {
@@ -5967,23 +6507,48 @@
 
       container.innerHTML = recentDrivers.map(p => {
         const date = formatDate(p.latestRelease.date);
+        const itemKey = encodeURIComponent(projectKey(p));
         return `
-          <div class="news-item" onclick='openModal(${JSON.stringify(p).replace(/'/g, "&apos;")})'>
+          <div class="news-item" onclick="openProjectByKey('${itemKey}')">
             <div class="news-icon-wrapper">
               <div class="news-icon-fallback">🏎️</div>
-              <img src="logos/${p.logo || 'drivers.png'}" class="news-icon" onerror="this.style.display='none'; this.previousElementSibling.style.display='flex';">
+              <img src="logos/${encodeURIComponent(p.logo || 'drivers.png')}" class="news-icon" alt="" loading="lazy" onerror="this.style.display='none'; this.previousElementSibling.style.display='flex';">
               ${(new Date(p.latestRelease.date) >= new Date(new Date().getTime() - 7 * 24 * 60 * 60 * 1000)) ?
             `<div class="news-badge-new" data-i18n="newReleaseSingular">${t('newReleaseSingular')}</div>` :
             ''}
             </div>
             <div class="news-info">
-              <div class="news-project">${p.name}</div>
-              <div class="news-tag">${p.latestRelease.name}</div>
+              <div class="news-project">${escapeHtml(p.name)}</div>
+              <div class="news-tag">${escapeHtml(p.latestRelease.name)}</div>
               <div class="news-date">${date}</div>
             </div>
           </div>
         `;
       }).join('');
+    }
+
+    function renderNexusOverview(data) {
+      const container = document.getElementById('nexusOverview');
+      if (!container || !data.length) return;
+      const totalDownloads = data.reduce((sum, project) => sum + (Number(project.downloads) || 0), 0);
+      const totalReleases = data.reduce((sum, project) => sum + (project.releases?.length || 0), 0);
+      const categories = new Set(data.map(project => project.category).filter(Boolean)).size;
+      const latest = data.flatMap(project => project.releases || [])
+        .sort((a, b) => new Date(b.date) - new Date(a.date))[0];
+      const history = [...historyData].sort((a, b) => a.date.localeCompare(b.date));
+      const previous = history.length > 1 ? history[history.length - 2] : null;
+      const growth = previous && previous.totalDownloads
+        ? ((totalDownloads - previous.totalDownloads) / previous.totalDownloads) * 100
+        : null;
+      const growthLabel = growth === null ? 'Primeiro snapshot' : `${growth >= 0 ? '+' : ''}${growth.toFixed(2)}% desde o último snapshot`;
+      const failed = (window.__rankingMeta?.failedRepos || []).length;
+
+      container.innerHTML = [
+        ['PROJETOS RASTREADOS', data.length.toLocaleString(currentLang), `${categories} categorias`],
+        ['DOWNLOADS INDEXADOS', totalDownloads.toLocaleString(currentLang), growthLabel],
+        ['RELEASES INDEXADAS', totalReleases.toLocaleString(currentLang), latest ? `Última: ${timeAgo(latest.date)}` : 'Sem releases'],
+        ['STATUS DO RADAR', failed ? `${failed} fontes em fallback` : 'ONLINE', failed ? 'Dados anteriores preservados' : 'Sincronização íntegra']
+      ].map(([label, value, note]) => `<div class="nexus-stat"><span class="nexus-stat-label">${label}</span><strong class="nexus-stat-value">${escapeHtml(value)}</strong><span class="nexus-stat-note">${escapeHtml(note)}</span></div>`).join('');
     }
 
     function renderDashboardOverview(data) {
@@ -6032,13 +6597,13 @@
 
       container.innerHTML = topProjects.map((project, index) => {
         const rank = index + 1;
-        const projectJson = JSON.stringify(project).replace(/'/g, "&#39;");
+        const projectKeyEncoded = encodeURIComponent(projectKey(project));
         const logo = project.logo
           ? `<img src="logos/${escapeHtml(project.logo)}" class="arena-logo" alt="" onerror="this.style.display='none'">`
           : `<span class="arena-logo" aria-hidden="true">🎮</span>`;
 
         return `
-          <article class="arena-card rank-${rank}" onclick='openModal(${projectJson})' title="Abrir releases de ${escapeHtml(project.name)}">
+          <article class="arena-card rank-${rank}" onclick="openProjectByKey('${projectKeyEncoded}')" title="Abrir releases de ${escapeHtml(project.name)}">
             <span class="arena-rank">${rank === 1 ? '👑 #01' : `#0${rank}`}</span>
             <div class="arena-project">
               ${logo}
@@ -6065,22 +6630,22 @@
         if (items.length === 0) continue;
         html += `
           <div class="driver-cat-section">
-            <h3 class="driver-cat-title">📂 ${category}</h3>
+            <h3 class="driver-cat-title">📂 ${escapeHtml(category)}</h3>
             <div class="driver-item-grid">
               ${items.map(item => {
-          const itemJson = item.fullProject ? JSON.stringify(item.fullProject).replace(/'/g, "&apos;") : null;
-          const clickAction = itemJson ? `onclick='openModal(${itemJson})'` : '';
+          const itemKey = item.fullProject ? encodeURIComponent(projectKey(item.fullProject)) : null;
+          const clickAction = itemKey ? `onclick="openProjectByKey('${itemKey}')"` : '';
           return `
-                <div class="driver-item-card" ${clickAction} style="${itemJson ? 'cursor:pointer;' : ''}" title="${item.name} ${item.version || ''}">
+                <div class="driver-item-card" ${clickAction} style="${itemJson ? 'cursor:pointer;' : ''}" title="${escapeHtml(item.name)} ${escapeHtml(item.version || '')}">
                   <div class="driver-item-name">
-                    ${item.name}
+                    ${escapeHtml(item.name)}
                     ${(item.fullProject && hasNewReleases(item.fullProject)) ? `<span class="new-release-badge" style="font-size: 0.6em; margin-left: 5px;">🔥 NOVO!</span>` : ''}
-                    <button class="copy-btn" onclick="copyToClipboard('${item.url}', event)" title="Copy Link" style="background:none; border:none; cursor:pointer; font-size:1.1em; margin-left:5px; vertical-align:middle;">📋</button>
+                    <button class="copy-btn" onclick="copyEncodedToClipboard('${encodeURIComponent(item.url || '')}', event)" title="Copy Link" style="background:none; border:none; cursor:pointer; font-size:1.1em; margin-left:5px; vertical-align:middle;">📋</button>
                   </div>
-                  <div class="driver-item-ver">${item.version || 'v1.0'}</div>
-                  ${itemJson
+                  <div class="driver-item-ver">${escapeHtml(item.version || 'v1.0')}</div>
+                  ${itemKey
               ? `<div class="driver-download-btn">📂 ${t('viewReleases') || 'Ver Releases'}</div>`
-              : `<a href="${item.url}" target="_blank" class="driver-download-btn">⬇ Download .wcp</a>`
+              : `<a href="${safeExternalUrl(item.url)}" target="_blank" rel="noopener noreferrer" class="driver-download-btn">⬇ Download .wcp</a>`
             }
                 </div>
               `}).join('')}
@@ -6140,10 +6705,10 @@
         filteredData.forEach((item, index) => {
           const rank = index + 1;
           const hasNew = hasNewReleases(item);
-          const itemJson = JSON.stringify(item).replace(/'/g, "&#39;");
+          const encodedKey = encodeURIComponent(projectKey(item));
 
           cardsHtml += `
-            <div class="ranking-card-item" onclick='openModal(${itemJson})'>
+            <div class="ranking-card-item" onclick="openProjectByKey('${encodedKey}')">
               <div class="card-rank">
                 <span class="rank-number rank-${rank <= 3 ? rank : 'other'}">${rank}</span>
               </div>
@@ -6152,17 +6717,21 @@
               </div>
               <div class="card-info">
                 <div class="card-name">
-                  ${item.name}
+                  ${escapeHtml(item.name)}
                   ${hasNew ? `<span class="card-new-badge">${t('new')}</span>` : ''}
                 </div>
                 <div class="card-meta">
-                  <span class="category-badge category-${sanitizeCategory(item.category)}">${item.category || '-'}</span>
+                  <span class="category-badge category-${sanitizeCategory(item.category)}">${escapeHtml(item.category || '-')}</span>
                 </div>
                 <div class="card-click-hint" style="display:none;"></div>
               </div>
               <div class="card-downloads">
                 ${item.downloads.toLocaleString(currentLang)}
                 <div class="card-downloads-label">${t('downloadsHeader')}</div>
+              </div>
+              <div class="ranking-actions">
+                <button type="button" class="row-action favorite-action" data-favorite-key="${encodedKey}" onclick="toggleFavoriteByKey('${encodedKey}', event)">${favoriteRepos.has(projectKey(item)) ? '★' : '☆'}</button>
+                <button type="button" class="row-action compare-action" data-compare-key="${encodedKey}" onclick="toggleCompareByKey('${encodedKey}', event)">${compareRepos.has(projectKey(item)) ? '✓' : '⚔'}</button>
               </div>
             </div>
           `;
@@ -6187,10 +6756,10 @@
         filteredData.forEach((item, index) => {
           const rank = index + 1;
           const hasNew = hasNewReleases(item);
-          const itemJson = JSON.stringify(item).replace(/'/g, "&#39;");
+          const encodedKey = encodeURIComponent(projectKey(item));
 
           tableHtml += `
-            <tr onclick='openModal(${itemJson})'>
+            <tr onclick="openProjectByKey('${encodedKey}')">
               <td style="text-align: center;">
                 <span class="rank-number rank-${rank <= 3 ? rank : 'other'}">${rank}</span>
               </td>
@@ -6198,15 +6767,19 @@
                 <div class="project-cell">
                   ${item.logo ? `<img src="logos/${item.logo}" class="project-logo" onerror="this.style.display='none'">` : ''}
                   <div class="project-name">
-                    ${item.name}
+                    ${escapeHtml(item.name)}
                     ${hasNew ? `<span class="new-release-badge">🔥 ${t('newApk')}!</span>` : ''}
                     <div class="click-hint">${t('clickToViewDownloads')}</div>
+                  </div>
+                  <div class="ranking-actions">
+                    <button type="button" class="row-action favorite-action" data-favorite-key="${encodedKey}" onclick="toggleFavoriteByKey('${encodedKey}', event)">${favoriteRepos.has(projectKey(item)) ? '★' : '☆'}</button>
+                    <button type="button" class="row-action compare-action" data-compare-key="${encodedKey}" onclick="toggleCompareByKey('${encodedKey}', event)">${compareRepos.has(projectKey(item)) ? '✓' : '⚔'}</button>
                   </div>
                 </div>
               </td>
               <td>
                 <span class="category-badge category-${sanitizeCategory(item.category)}">
-                  ${item.category || "-"}
+                  ${escapeHtml(item.category || "-")}
                 </span>
               </td>
               <td style="text-align: right;">
@@ -6223,9 +6796,18 @@
 
     async function loadData() {
       try {
-        const res = await fetch(`data/rankings.json?v=${Date.now()}`, { cache: 'no-store' });
+        const cacheVersion = Math.floor(Date.now() / (60 * 60 * 1000));
+        const [res, historyRes] = await Promise.all([
+          fetch(`data/rankings.json?v=${cacheVersion}`, { cache: 'default' }),
+          fetch(`data/history.json?v=${cacheVersion}`, { cache: 'default' }).catch(() => null)
+        ]);
         if (!res.ok) throw new Error(`Ranking HTTP ${res.status}`);
         const json = await res.json();
+        window.__rankingMeta = json;
+        if (historyRes?.ok) {
+          const historyJson = await historyRes.json();
+          historyData = Array.isArray(historyJson) ? historyJson : (historyJson.entries || []);
+        }
 
         const projects = Array.isArray(json) ? json : json?.results;
         if (!Array.isArray(projects)) throw new Error('Formato de ranking inválido');
@@ -6312,14 +6894,18 @@
 
         renderCategorizedDrivers(manifestDrivers);
         renderDashboardOverview(allData);
+        renderNexusOverview(allData);
         renderArenaSpotlight(allData);
         updateFilterSummary(allData);
+        renderFavorites();
+        updateCollectionUI();
 
         // Atualizar timestamp e HUB de Status
         if (json.updatedAt) {
           const hasDownloads = allData.some(project => (Number(project.downloads) || 0) > 0);
-          const syncWarning = json.projectsWithReleases === 0 || !hasDownloads
-            ? `<div class="sync-warning">⚠️ A última sincronização não trouxe downloads. Os dados exibidos podem estar desatualizados.</div>`
+          const failedCount = Array.isArray(json.failedRepos) ? json.failedRepos.length : 0;
+          const syncWarning = json.projectsWithReleases === 0 || !hasDownloads || failedCount > 0
+            ? `<div class="sync-warning">⚠️ ${failedCount > 0 ? `${failedCount} fonte(s) falharam; mantendo o último snapshot válido.` : 'A última sincronização pode estar incompleta.'}</div>`
             : '';
           const statusHtml = `
             <div class="hud-card">
@@ -6333,7 +6919,7 @@
             <div class="hud-card">
               <div class="online-indicator"></div>
               <div>
-                <span class="hud-label">${t('onlineNow')}</span>
+                <span class="hud-label" title="Contagem de visitantes na janela de 5 minutos">${t('onlineNow')} <small>(5 min)</small></span>
                 <span class="hud-value" id="onlineNow">...</span>
               </div>
             </div>
@@ -6456,6 +7042,10 @@
       return value;
     }
 
+    function copyEncodedToClipboard(encodedText, event) {
+      copyToClipboard(decodeURIComponent(encodedText || ''), event);
+    }
+
     let mapInstance = null;
     const VISITOR_ACTION = 'country';
 
@@ -6493,6 +7083,8 @@
     async function renderVisitorMap() {
       const container = document.getElementById('visitorMap');
       if (!container) return;
+      const listContainer = document.getElementById('visitorCountryList');
+      if (mapInstance?.destroy) mapInstance.destroy();
       container.innerHTML = '<div class="loading" style="height:100%; display:flex; align-items:center; justify-content:center; color:#00fff9; font-family:Orbitron; letter-spacing:2px; font-size:14px; text-shadow: 0 0 10px #00fff9;">SYNCING DATA...</div>';
 
       const commonCountries = ['BR', 'US', 'ES', 'FR', 'DE', 'IT', 'PT', 'GB', 'AR', 'MX', 'CL', 'CO', 'PE', 'RU', 'CN', 'JP', 'KR', 'IN'];
@@ -6508,8 +7100,8 @@
             const count = await counterRequest(VISITOR_ACTION, code);
             if (count > 0) {
               stats[code] = count;
-              // Atribuir índice aleatório da paleta neon (jsVectorMap precisa de números para usar com scale)
-              countryColorIndices[code] = Math.floor(Math.random() * neonPalette.length);
+              // Cor determinística: o mapa não muda de cor a cada atualização.
+              countryColorIndices[code] = [...code].reduce((sum, char) => sum + char.charCodeAt(0), 0) % neonPalette.length;
             }
           } catch (err) {
             failedReads++;
@@ -6517,6 +7109,12 @@
         }));
 
         container.innerHTML = '';
+        if (listContainer) {
+          const topCountries = Object.entries(stats).sort((a, b) => b[1] - a[1]).slice(0, 7);
+          listContainer.innerHTML = topCountries.length
+            ? topCountries.map(([code, count], index) => `<div class="visitor-country-row"><span class="country-rank">#${index + 1}</span><span>${code}</span><strong>${Number(count).toLocaleString(currentLang)}</strong></div>`).join('')
+            : `<span class="muted">${failedReads === commonCountries.length ? 'Serviço de visitantes indisponível.' : 'Aguardando os primeiros visitantes.'}</span>`;
+        }
         mapInstance = new jsVectorMap({
           selector: '#visitorMap',
           map: 'world_merc',
@@ -6569,11 +7167,51 @@
       }, 120);
     }, { passive: true });
 
+    window.addEventListener('keydown', event => {
+      if ((event.ctrlKey || event.metaKey) && event.key.toLowerCase() === 'k') {
+        event.preventDefault();
+        openCommandPalette();
+      }
+      if (event.key === 'Escape') {
+        closeCommandPalette();
+        closeCompareModal();
+      }
+    });
+
+    ['commandPalette', 'compareModal'].forEach(id => {
+      document.getElementById(id)?.addEventListener('click', event => {
+        if (event.target.id === id) event.currentTarget.classList.remove('is-open');
+      });
+    });
+
+    window.addEventListener('beforeinstallprompt', event => {
+      event.preventDefault();
+      deferredInstallPrompt = event;
+      const installButton = document.getElementById('installAppButton');
+      if (installButton) installButton.hidden = false;
+    });
+
+    document.getElementById('installAppButton')?.addEventListener('click', async () => {
+      if (!deferredInstallPrompt) return;
+      deferredInstallPrompt.prompt();
+      await deferredInstallPrompt.userChoice;
+      deferredInstallPrompt = null;
+      document.getElementById('installAppButton').hidden = true;
+    });
+
+    if ('serviceWorker' in navigator) {
+      window.addEventListener('load', () => navigator.serviceWorker.register('./sw.js').catch(error => console.warn('PWA indisponível:', error)));
+    }
+
     // Inicializar traduções estáticas
     applyTranslations();
 
-    loadData();
-    trackVisitorLocation();
+    const requestedTab = new URLSearchParams(window.location.search).get('tab');
+    loadData().then(() => {
+      const validTabs = ['ranking', 'charts', 'drivers-all', 'drivers', 'news', 'collection'];
+      if (validTabs.includes(requestedTab)) switchTab(requestedTab);
+    });
+    window.setTimeout(trackVisitorLocation, 1200);
   </script>
 
 </body>
