@@ -6,7 +6,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>🎮 HUB EMULATORS // NEXUS</title>
   <meta name="theme-color" content="#05060e" />
-  <meta name="description" content="HUB EMULATORS: rankings, releases e drivers para emulação Android em uma arena gamer." />
+  <meta name="description" content="HUB EMULATORS: descubra emuladores, drivers, releases e projetos em alta para emulação Android." />
   <link rel="icon" type="image/png" href="favicon.png">
   <link rel="manifest" href="manifest.webmanifest">
   <meta name="mobile-web-app-capable" content="yes">
@@ -16,7 +16,7 @@
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link rel="preconnect" href="https://cdnjs.cloudflare.com">
   <link rel="preconnect" href="https://cdn.jsdelivr.net">
-  <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;700&family=Inter:wght@400;600;800&display=swap"
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=Orbitron:wght@400;700&family=Rajdhani:wght@500;600;700&display=swap"
     rel="stylesheet">
 
   <!-- Chart.js -->
@@ -31,11 +31,34 @@
 
     body {
       margin: 0;
-      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+      font-family: 'Inter', 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
       background: #0a0a0f;
       color: #eaeaea;
       overflow-x: hidden;
       position: relative;
+    }
+
+    button,
+    input,
+    select,
+    textarea {
+      font: inherit;
+    }
+
+    header h1,
+    .hero-topline,
+    .hero-code,
+    .hero-tags,
+    .tab-btn,
+    .filter-group label,
+    .eyebrow,
+    .nexus-stat-label,
+    .nexus-stat-value {
+      font-family: 'Rajdhani', 'Inter', sans-serif;
+    }
+
+    header h1 {
+      letter-spacing: 3px;
     }
 
     /* Animação de fundo cyberpunk */
@@ -2437,6 +2460,9 @@
   <nav class="tabs-container">
     <button class="tab-btn active" id="btn-ranking" onclick="switchTab('ranking')" data-i18n="tabRanking">🏆
       Ranking</button>
+    <button class="tab-btn" id="btn-device" onclick="switchTab('device')" data-i18n="tabDevice">🧬 Meu dispositivo</button>
+    <button class="tab-btn" id="btn-compatibility" onclick="switchTab('compatibility')" data-i18n="tabCompatibility">🧪 Compatibilidade</button>
+    <button class="tab-btn" id="btn-recipes" onclick="switchTab('recipes')" data-i18n="tabRecipes">🧰 Receitas</button>
     <button class="tab-btn" id="btn-charts" onclick="switchTab('charts')" data-i18n="tabDashboard">📊 Dashboard</button>
     <button class="tab-btn" id="btn-drivers-all" onclick="switchTab('drivers-all')" data-i18n="tabDriversAll">📁
       Drivers</button>
@@ -2489,12 +2515,23 @@
             </select>
           </div>
           <div class="filter-group">
+            <label data-i18n="scopeLabel">◈ Arena</label>
+            <select id="rankingScope" class="filter-select" onchange="updateFilters()">
+              <option value="emulators" data-i18n="scopeEmulators">Emuladores e projetos</option>
+              <option value="drivers" data-i18n="scopeDrivers">Drivers</option>
+              <option value="all" data-i18n="scopeAll">Tudo</option>
+            </select>
+          </div>
+          <div class="filter-group">
             <label data-i18n="sortLabel">⇅ Ordenar Por</label>
             <select id="sortRanking" class="filter-select" onchange="updateFilters()">
               <option value="downloadsDesc" data-i18n="sortByDownloadsDesc">Downloads (Maior p/ Menor)</option>
               <option value="downloadsAsc" data-i18n="sortByDownloadsAsc">Downloads (Menor p/ Maior)</option>
               <option value="nameAsc" data-i18n="sortByNameAsc">Nome (A-Z)</option>
               <option value="nameDesc" data-i18n="sortByNameDesc">Nome (Z-A)</option>
+              <option value="momentum" data-i18n="sortByMomentum">↗ Em alta (atividade recente)</option>
+              <option value="activity" data-i18n="sortByActivity">⚡ Mais ativos</option>
+              <option value="trust" data-i18n="sortByTrust">🛡 Mais confiáveis</option>
               <option value="upstream" data-i18n="groupByUpstream">Agrupar por Upstream</option>
             </select>
           </div>
@@ -2510,6 +2547,66 @@
             ⏱️ Carregando ranking...
           </div>
         </div>
+
+        <div id="momentumStrip" class="momentum-strip" aria-live="polite"></div>
+      </div>
+    </div>
+
+    <!-- CONTENT: DEVICE SCAN -->
+    <div id="tab-device" class="tab-content">
+      <div class="card device-scan-card">
+        <div class="collection-heading">
+          <div>
+            <span class="eyebrow">NEXUS SCAN</span>
+            <h2 data-i18n="deviceTitle">🧬 Meu dispositivo</h2>
+            <p class="section-lead" data-i18n="deviceLead">Detecte capacidades locais e receba recomendações sem criar conta.</p>
+          </div>
+          <button type="button" class="filter-action device-scan-button" id="deviceScanButton" onclick="scanDevice()" data-i18n="deviceScan">Detectar agora</button>
+        </div>
+        <div id="deviceProfileContainer" class="device-profile-container" aria-live="polite">
+          <div class="empty-state" data-i18n="deviceWaiting">Perfil preliminar será detectado nesta sessão.</div>
+        </div>
+        <div id="deviceRecommendations" class="device-recommendations"></div>
+      </div>
+    </div>
+
+    <!-- CONTENT: COMPATIBILITY EVIDENCE -->
+    <div id="tab-compatibility" class="tab-content">
+      <div class="card">
+        <div class="collection-heading">
+          <div>
+            <span class="eyebrow">EVIDENCE MATRIX</span>
+            <h2 data-i18n="compatibilityTitle">🧪 Compatibilidade baseada em evidência</h2>
+            <p class="section-lead" data-i18n="compatibilityLead">Jogo, versão, aparelho, GPU, driver, renderer, resultado e data — sem transformar palpite em garantia.</p>
+          </div>
+          <a class="filter-action" href="https://github.com/t3st31/Ranking-Emulators-Download/issues/new?title=Relato%20de%20compatibilidade&body=Jogo%3A%0AEmulador%20e%20vers%C3%A3o%3A%0AAparelho%3A%0AGPU%3A%0AAndroid%3A%0ADriver%3A%0ARenderer%3A%0AResultado%3A%0AData%3A" target="_blank" rel="noopener noreferrer" data-i18n="compatibilityReport">Enviar relato aberto</a>
+        </div>
+        <div class="compatibility-toolbar">
+          <input id="compatibilitySearch" class="filter-input" type="search" placeholder="Jogo, aparelho ou emulador..." oninput="renderCompatibility()" data-i18n-attr="placeholder:compatibilitySearchPlaceholder" />
+          <select id="compatibilityConfidence" class="filter-select" onchange="renderCompatibility()">
+            <option value="all" data-i18n="allConfidence">Todos os níveis</option>
+            <option value="confirmed" data-i18n="confidenceConfirmed">Confirmado</option>
+            <option value="community" data-i18n="confidenceCommunity">Testado pela comunidade</option>
+            <option value="inferred" data-i18n="confidenceInferred">Inferido por hardware</option>
+            <option value="stale" data-i18n="confidenceStale">Desatualizado</option>
+            <option value="unknown" data-i18n="confidenceUnknown">Desconhecido</option>
+          </select>
+        </div>
+        <div id="compatibilityContainer" class="compatibility-container"></div>
+      </div>
+    </div>
+
+    <!-- CONTENT: RECIPES -->
+    <div id="tab-recipes" class="tab-content">
+      <div class="card">
+        <div class="collection-heading">
+          <div>
+            <span class="eyebrow">LOADOUT RECIPES</span>
+            <h2 data-i18n="recipesTitle">🧰 Guias e receitas por hardware</h2>
+            <p class="section-lead" data-i18n="recipesLead">Pontos de partida claros, com nível de confiança e ressalvas visíveis.</p>
+          </div>
+        </div>
+        <div id="recipesContainer" class="recipes-grid"></div>
       </div>
     </div>
 
@@ -2619,6 +2716,7 @@
           </div>
           <button type="button" class="filter-action" onclick="clearFavorites()">Limpar favoritos</button>
         </div>
+        <div id="favoriteAlerts" class="favorite-alerts" aria-live="polite"></div>
         <div id="favoritesContainer" class="favorites-grid">
           <div class="empty-state">Você ainda não salvou nenhum projeto.</div>
         </div>
@@ -2632,7 +2730,10 @@
     <div class="modal-content">
       <div class="modal-header">
         <h2 id="modalTitle">Releases</h2>
-        <button type="button" class="close" onclick="closeModal()" aria-label="Fechar releases">&times;</button>
+        <div class="modal-header-actions">
+          <button type="button" class="share-project-btn" onclick="shareActiveProject()" title="Compartilhar página do projeto">↗ Compartilhar</button>
+          <button type="button" class="close" onclick="closeModal()" aria-label="Fechar releases">&times;</button>
+        </div>
       </div>
       <div class="modal-body" id="modalBody">
         <!-- Conteúdo dinâmico -->
@@ -4255,7 +4356,187 @@
     .favorite-actions { display: flex; gap: 7px; margin-top: 14px; }
     .favorite-actions button { flex: 1; min-height: 34px; border: 1px solid rgba(0,247,255,0.28); border-radius: 7px; background: rgba(0,247,255,0.08); color: #dffaff; cursor: pointer; font-weight: 700; }
     .favorite-actions button:hover { border-color: #00f7ff; color: #00f7ff; }
+    .favorite-alerts { display: grid; gap: 8px; margin: 0 0 14px; }
+    .favorite-alert { display: flex; align-items: center; justify-content: space-between; gap: 12px; padding: 11px 13px; border: 1px solid rgba(255, 0, 93, 0.32); border-radius: 10px; background: rgba(255, 0, 93, 0.08); color: #ffd9e5; font-size: 0.78rem; }
+    .favorite-alert strong { color: #fff; }
+    .favorite-alert a { color: #ff8cad; font-weight: 800; white-space: nowrap; }
     .ranking-actions { display: inline-flex; gap: 5px; margin-left: 8px; vertical-align: middle; }
+
+    .momentum-strip {
+      display: grid;
+      grid-template-columns: repeat(3, minmax(0, 1fr));
+      gap: 12px;
+      margin: 18px 0 4px;
+    }
+
+    .momentum-card {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      min-width: 0;
+      padding: 13px 15px;
+      border: 1px solid rgba(0, 255, 136, 0.2);
+      border-radius: 13px;
+      background: linear-gradient(135deg, rgba(0, 255, 136, 0.08), rgba(8, 20, 40, 0.78));
+    }
+
+    .momentum-card:hover {
+      border-color: rgba(0, 255, 136, 0.55);
+      transform: translateY(-2px);
+    }
+
+    .momentum-rank {
+      color: #00ff88;
+      font: 700 1.1rem 'Rajdhani', sans-serif;
+    }
+
+    .momentum-copy {
+      display: flex;
+      flex-direction: column;
+      min-width: 0;
+      gap: 3px;
+    }
+
+    .momentum-copy strong,
+    .momentum-copy span {
+      overflow: hidden;
+      text-overflow: ellipsis;
+      white-space: nowrap;
+    }
+
+    .momentum-copy strong { color: #efffff; font-size: 0.88rem; }
+    .momentum-copy span { color: #8cabc0; font-size: 0.72rem; }
+
+    .modal-header-actions {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+    }
+
+    .share-project-btn {
+      min-height: 34px;
+      padding: 7px 12px;
+      border: 1px solid rgba(255, 255, 255, 0.35);
+      border-radius: 8px;
+      background: rgba(0, 0, 0, 0.18);
+      color: #fff;
+      cursor: pointer;
+      font-size: 0.75rem;
+      font-weight: 800;
+    }
+
+    .share-project-btn:hover { background: rgba(0, 247, 255, 0.2); border-color: #00f7ff; }
+
+    .project-intel {
+      display: grid;
+      grid-template-columns: minmax(0, 1fr) auto;
+      gap: 14px;
+      align-items: stretch;
+      margin-bottom: 16px;
+      padding: 16px;
+      border: 1px solid rgba(0, 247, 255, 0.2);
+      border-radius: 15px;
+      background: linear-gradient(135deg, rgba(0, 247, 255, 0.08), rgba(118, 0, 255, 0.1));
+    }
+
+    .project-signal { display: flex; align-items: center; gap: 12px; min-width: 0; }
+    .project-signal-dot { width: 11px; height: 11px; border-radius: 50%; background: #00ff88; box-shadow: 0 0 14px #00ff88; flex: 0 0 auto; }
+    .project-signal-dot.is-muted { background: #8190a8; box-shadow: none; }
+    .project-signal-copy { display: flex; flex-direction: column; gap: 3px; min-width: 0; }
+    .project-signal-copy small { color: #7ea4bf; font: 700 0.68rem 'Rajdhani', sans-serif; letter-spacing: 1.3px; }
+    .project-signal-copy strong { color: #f5ffff; font-size: 1rem; }
+    .project-signal-copy span { color: #a6b9ce; font-size: 0.78rem; }
+    .project-signal-copy .project-source-line { color: #6f8ba3; font-size: 0.68rem; }
+    .project-intel-stats { display: flex; align-items: center; gap: 16px; flex-wrap: wrap; justify-content: flex-end; }
+    .project-intel-stats span { display: flex; flex-direction: column; gap: 3px; color: #8da9bd; font-size: 0.68rem; text-transform: uppercase; letter-spacing: 0.7px; text-align: right; }
+    .project-intel-stats b { color: #00f7ff; font-size: 0.98rem; letter-spacing: 0; }
+
+    .diagnostics-panel { max-width: 860px; }
+    .diagnostics-body { display: grid; gap: 12px; }
+    .diagnostics-summary { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 10px; }
+    .diagnostics-stat { padding: 14px; border: 1px solid rgba(0, 247, 255, 0.16); border-radius: 11px; background: rgba(0, 247, 255, 0.05); }
+    .diagnostics-stat small { display: block; color: #8fa9bd; font-size: 0.68rem; text-transform: uppercase; letter-spacing: 0.7px; }
+    .diagnostics-stat strong { display: block; margin-top: 5px; color: #efffff; font: 700 1.25rem 'Rajdhani', sans-serif; }
+    .diagnostics-list { display: grid; gap: 7px; max-height: 260px; overflow: auto; padding-right: 3px; }
+    .diagnostics-row { display: flex; justify-content: space-between; gap: 12px; padding: 10px 12px; border-radius: 9px; background: rgba(255, 77, 77, 0.08); color: #ffd8df; font-size: 0.78rem; }
+    .diagnostics-row span:last-child { color: #ff8da0; font-weight: 800; }
+
+    @media (max-width: 760px) {
+      .momentum-strip { grid-template-columns: 1fr; }
+      .project-intel { grid-template-columns: 1fr; }
+      .project-intel-stats { justify-content: flex-start; }
+      .project-intel-stats span { text-align: left; }
+      .diagnostics-summary { grid-template-columns: 1fr; }
+    }
+
+    .device-scan-card { overflow: hidden; }
+    .device-scan-button { border-color: rgba(0, 247, 255, 0.5); color: #dffaff; }
+    .device-profile-container { display: grid; gap: 14px; margin-top: 8px; }
+    .device-profile-header { display: flex; align-items: center; justify-content: space-between; gap: 14px; padding: 16px; border: 1px solid rgba(0, 247, 255, 0.26); border-radius: 15px; background: linear-gradient(135deg, rgba(0, 247, 255, 0.1), rgba(118, 0, 255, 0.1)); }
+    .device-profile-title { display: flex; flex-direction: column; gap: 4px; }
+    .device-profile-title strong { color: #f4ffff; font-size: 1.05rem; }
+    .device-profile-title span { color: #93aec3; font-size: 0.76rem; }
+    .device-confidence { padding: 6px 10px; border: 1px solid rgba(0, 255, 136, 0.32); border-radius: 999px; color: #00ff88; font: 700 0.68rem 'Rajdhani', sans-serif; text-transform: uppercase; letter-spacing: 0.8px; white-space: nowrap; }
+    .device-facts { display: grid; grid-template-columns: repeat(auto-fit, minmax(150px, 1fr)); gap: 10px; }
+    .device-fact { min-height: 72px; padding: 12px; border: 1px solid rgba(255, 255, 255, 0.1); border-radius: 11px; background: rgba(255, 255, 255, 0.035); }
+    .device-fact small { display: block; color: #7892aa; font-size: 0.65rem; text-transform: uppercase; letter-spacing: 0.8px; }
+    .device-fact strong { display: block; margin-top: 5px; color: #eaffff; font-size: 0.86rem; word-break: break-word; }
+    .device-note { color: #8da8bd; font-size: 0.76rem; line-height: 1.5; }
+    .device-recommendations { display: grid; gap: 10px; margin-top: 18px; }
+    .device-recommendation { display: flex; align-items: flex-start; gap: 10px; padding: 12px 14px; border-left: 3px solid #00ff88; border-radius: 9px; background: rgba(0, 255, 136, 0.06); }
+    .device-recommendation strong { color: #edffff; font-size: 0.82rem; }
+    .device-recommendation span { display: block; margin-top: 3px; color: #99b1c4; font-size: 0.74rem; line-height: 1.45; }
+
+    .compatibility-toolbar { display: flex; flex-wrap: wrap; gap: 10px; margin: 18px 0; }
+    .compatibility-toolbar .filter-input { flex: 1 1 260px; }
+    .compatibility-toolbar .filter-select { flex: 0 1 260px; }
+    .compatibility-container { overflow-x: auto; }
+    .compatibility-table { width: 100%; min-width: 980px; border-collapse: collapse; }
+    .compatibility-table th, .compatibility-table td { padding: 12px 10px; border-bottom: 1px solid rgba(0, 247, 255, 0.11); text-align: left; vertical-align: top; }
+    .compatibility-table th { color: #00f7ff; font: 700 0.7rem 'Rajdhani', sans-serif; letter-spacing: 0.9px; text-transform: uppercase; }
+    .compatibility-table td { color: #c7d7e7; font-size: 0.78rem; }
+    .compatibility-table strong { display: block; color: #f1ffff; }
+    .compatibility-table small { display: block; margin-top: 4px; color: #8da5b9; }
+    .evidence-badge { display: inline-flex; padding: 4px 8px; border-radius: 999px; background: rgba(0, 247, 255, 0.1); color: #00f7ff; font-size: 0.68rem; font-weight: 800; white-space: nowrap; }
+    .evidence-badge.confirmed { background: rgba(0, 255, 136, 0.12); color: #00ff88; }
+    .evidence-badge.stale { background: rgba(255, 204, 0, 0.12); color: #ffcc00; }
+    .evidence-badge.unknown { background: rgba(145, 160, 180, 0.14); color: #b7c3d4; }
+    .compatibility-empty { padding: 28px; border: 1px dashed rgba(0, 247, 255, 0.28); border-radius: 14px; text-align: center; color: #9bb0c2; line-height: 1.6; }
+    .compatibility-empty strong { display: block; margin-bottom: 5px; color: #eaffff; }
+
+    .recipes-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(290px, 1fr)); gap: 15px; }
+    .recipe-card { display: flex; flex-direction: column; gap: 14px; padding: 17px; border: 1px solid rgba(0, 247, 255, 0.18); border-radius: 15px; background: linear-gradient(145deg, rgba(17, 42, 78, 0.84), rgba(9, 17, 36, 0.95)); }
+    .recipe-card h3 { color: #efffff; font-size: 1rem; }
+    .recipe-card p { color: #9bb0c2; font-size: 0.77rem; line-height: 1.5; }
+    .recipe-meta { display: flex; justify-content: space-between; gap: 8px; color: #00f7ff; font: 700 0.7rem 'Rajdhani', sans-serif; text-transform: uppercase; }
+    .recipe-settings { display: grid; gap: 7px; }
+    .recipe-setting { display: flex; justify-content: space-between; gap: 12px; padding: 8px 0; border-bottom: 1px solid rgba(255, 255, 255, 0.07); font-size: 0.74rem; }
+    .recipe-setting span { color: #83a0b6; }
+    .recipe-setting strong { color: #e7faff; text-align: right; }
+    .recipe-checks { display: grid; gap: 6px; margin: 0; padding: 0 0 0 18px; color: #b3c6d5; font-size: 0.73rem; line-height: 1.45; }
+    .recipe-sources { display: flex; flex-wrap: wrap; gap: 7px; }
+    .recipe-source { color: #00d4ff; font-size: 0.68rem; }
+
+    .release-compare-toolbar { display: flex; align-items: center; flex-wrap: wrap; gap: 9px; margin: 14px 0 4px; padding: 12px; border: 1px solid rgba(255, 107, 255, 0.18); border-radius: 11px; background: rgba(255, 107, 255, 0.05); }
+    .release-compare-toolbar label { color: #d4b7dc; font-size: 0.72rem; font-weight: 700; }
+    .release-compare-toolbar select { min-width: 150px; padding: 7px 9px; border: 1px solid rgba(0, 247, 255, 0.26); border-radius: 7px; background: #0b1830; color: #edffff; }
+    .release-diff-output { display: grid; gap: 10px; margin: 12px 0 16px; padding: 14px; border: 1px solid rgba(255, 204, 0, 0.2); border-radius: 12px; background: rgba(255, 204, 0, 0.045); }
+    .release-diff-title { color: #ffcc00; font: 700 0.75rem 'Rajdhani', sans-serif; text-transform: uppercase; letter-spacing: 0.8px; }
+    .release-diff-grid { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 10px; }
+    .release-diff-column { padding: 10px; border-radius: 8px; background: rgba(255, 255, 255, 0.04); }
+    .release-diff-column h4 { margin-bottom: 6px; color: #eaffff; font-size: 0.75rem; }
+    .release-diff-column ul { display: grid; gap: 5px; margin: 0; padding-left: 16px; color: #b8c8d5; font-size: 0.72rem; line-height: 1.4; }
+    .changelog-chips { display: flex; flex-wrap: wrap; gap: 5px; margin-top: 8px; }
+    .changelog-chip { padding: 3px 7px; border: 1px solid rgba(0, 247, 255, 0.2); border-radius: 999px; color: #aeeeff; font-size: 0.63rem; font-weight: 800; }
+
+    .asset-integrity { display: flex; flex-wrap: wrap; gap: 8px; margin-top: 5px; color: #8098ad; font-size: 0.66rem; }
+    .asset-integrity code { color: #a6c5d9; word-break: break-all; }
+
+    @media (max-width: 620px) {
+      .device-profile-header { align-items: flex-start; flex-direction: column; }
+      .release-diff-grid { grid-template-columns: 1fr; }
+      .release-compare-toolbar select { flex: 1 1 130px; }
+    }
     .row-action { width: 28px; height: 28px; border: 1px solid rgba(0,247,255,0.25); border-radius: 6px; background: rgba(0,247,255,0.06); color: #8ca6bd; cursor: pointer; font-weight: 800; line-height: 1; }
     .row-action:hover, .row-action:focus-visible, .row-action.is-active { color: #00f7ff; border-color: #00f7ff; background: rgba(0,247,255,0.13); outline: none; }
     .compare-action.is-active { color: #ff2bd6; border-color: #ff2bd6; background: rgba(255,43,214,0.12); }
@@ -4413,6 +4694,17 @@
     </div>
   </div>
 
+  <div id="diagnosticsModal" class="utility-modal" role="dialog" aria-modal="true" aria-hidden="true">
+    <div class="utility-panel diagnostics-panel">
+      <div class="utility-heading">
+        <div><span class="eyebrow">SOURCE HEALTH</span><h2>Diagnóstico das fontes</h2></div>
+        <button type="button" class="utility-close" onclick="closeDiagnostics()" aria-label="Fechar diagnóstico">&times;</button>
+      </div>
+      <p class="section-lead">Visão operacional do último snapshot publicado. Esta tela é informativa; GitHub Pages não oferece autenticação.</p>
+      <div id="diagnosticsBody" class="diagnostics-body"></div>
+    </div>
+  </div>
+
   <div id="toast" class="nexus-toast" role="status" aria-live="polite"></div>
 
   <footer>
@@ -4436,6 +4728,9 @@
         subtitle: 'Rankings Automáticos • Atualizado a cada 1h',
         loading: '⏱️ Carregando dados...',
         tabRanking: '🏆 Ranking',
+        tabDevice: '🧬 Meu dispositivo',
+        tabCompatibility: '🧪 Compatibilidade',
+        tabRecipes: '🧰 Receitas',
         tabDashboard: '📊 Dashboard',
         tabNews: '🆕 Novidades',
         rankingTitle: '🏆 Ranking Global de Downloads',
@@ -4448,6 +4743,13 @@
         sortByDownloadsAsc: 'Downloads (Menor p/ Maior)',
         sortByNameAsc: 'Nome (A-Z)',
         sortByNameDesc: 'Nome (Z-A)',
+        sortByMomentum: '↗ Em alta (atividade recente)',
+        sortByActivity: '⚡ Mais ativos',
+        sortByTrust: '🛡 Mais confiáveis',
+        scopeLabel: '◈ Arena',
+        scopeEmulators: 'Emuladores e projetos',
+        scopeDrivers: 'Drivers',
+        scopeAll: 'Tudo',
         groupByUpstream: 'Agrupar por Upstream',
         loadingRanking: 'Carregando ranking...',
         geoVisitors: 'GEO-VISITANTES (TOP PAÍSES)',
@@ -4525,7 +4827,23 @@
         newReleaseTitle: 'NOVO LANÇAMENTO!',
         noProjectsFound: '🔍 Nenhum projeto encontrado.',
         totalReleases: 'Total de Releases',
-        avgDownloadsPerRelease: 'Média de Downloads/Release'
+        avgDownloadsPerRelease: 'Média de Downloads/Release',
+        deviceTitle: '🧬 Meu dispositivo',
+        deviceLead: 'Detecte capacidades locais e receba recomendações sem criar conta.',
+        deviceScan: 'Detectar agora',
+        deviceWaiting: 'Perfil preliminar será detectado nesta sessão.',
+        compatibilityTitle: '🧪 Compatibilidade baseada em evidência',
+        compatibilityLead: 'Jogo, versão, aparelho, GPU, driver, renderer, resultado e data — sem transformar palpite em garantia.',
+        compatibilityReport: 'Enviar relato aberto',
+        compatibilitySearchPlaceholder: 'Jogo, aparelho ou emulador...',
+        allConfidence: 'Todos os níveis',
+        confidenceConfirmed: 'Confirmado',
+        confidenceCommunity: 'Testado pela comunidade',
+        confidenceInferred: 'Inferido por hardware',
+        confidenceStale: 'Desatualizado',
+        confidenceUnknown: 'Desconhecido',
+        recipesTitle: '🧰 Guias e receitas por hardware',
+        recipesLead: 'Pontos de partida claros, com nível de confiança e ressalvas visíveis.'
       },
       'pt-PT': {
         title: '🎮 HUB EMULADORES',
@@ -4544,6 +4862,7 @@
         sortByDownloadsAsc: 'Transferências (Menor p/ Maior)',
         sortByNameAsc: 'Nome (A-Z)',
         sortByNameDesc: 'Nome (Z-A)',
+        sortByMomentum: '↗ Em alta (atividade recente)',
         loadingRanking: 'A carregar ranking...',
         geoVisitors: 'GEO-VISITANTES (TOP PAÍSES)',
         chartDownloads: '📊 Transferências por Projeto',
@@ -4619,6 +4938,9 @@
         subtitle: 'Automatic Rankings • Updated every 1h',
         loading: '⏱️ Loading data...',
         tabRanking: '🏆 Ranking',
+        tabDevice: '🧬 My device',
+        tabCompatibility: '🧪 Compatibility',
+        tabRecipes: '🧰 Recipes',
         tabDashboard: '📊 Dashboard',
         tabNews: '🆕 News',
         rankingTitle: '🏆 Global Download Ranking',
@@ -4631,6 +4953,13 @@
         sortByDownloadsAsc: 'Downloads (Low to High)',
         sortByNameAsc: 'Name (A-Z)',
         sortByNameDesc: 'Name (Z-A)',
+        sortByMomentum: '↗ Trending (recent activity)',
+        sortByActivity: '⚡ Most active',
+        sortByTrust: '🛡 Most trustworthy',
+        scopeLabel: '◈ Arena',
+        scopeEmulators: 'Emulators and projects',
+        scopeDrivers: 'Drivers',
+        scopeAll: 'Everything',
         groupByUpstream: 'Group by Upstream',
         loadingRanking: 'Loading ranking...',
         geoVisitors: 'GEO-VISITORS (TOP COUNTRIES)',
@@ -4709,6 +5038,22 @@
         noProjectsFound: '🔍 No projects found.',
         totalReleases: 'Total Releases',
         avgDownloadsPerRelease: 'Avg Downloads/Release',
+        deviceTitle: '🧬 My device',
+        deviceLead: 'Detect local capabilities and get recommendations without creating an account.',
+        deviceScan: 'Detect now',
+        deviceWaiting: 'A preliminary profile will be detected in this session.',
+        compatibilityTitle: '🧪 Evidence-based compatibility',
+        compatibilityLead: 'Game, version, device, GPU, driver, renderer, result and date — without turning guesses into guarantees.',
+        compatibilityReport: 'Submit public report',
+        compatibilitySearchPlaceholder: 'Game, device or emulator...',
+        allConfidence: 'All confidence levels',
+        confidenceConfirmed: 'Confirmed',
+        confidenceCommunity: 'Community tested',
+        confidenceInferred: 'Inferred from hardware',
+        confidenceStale: 'Stale',
+        confidenceUnknown: 'Unknown',
+        recipesTitle: '🧰 Hardware recipes and guides',
+        recipesLead: 'Clear starting points with visible confidence and caveats.',
         tabDrivers: '🏎️ Drivers',
         novosDrivers: '🏎️ New Drivers (Last 30 Days)',
         loadingDrivers: 'Fetching recent drivers...',
@@ -4731,6 +5076,7 @@
         sortByDownloadsAsc: 'Descargas (Menor a Mayor)',
         sortByNameAsc: 'Nombre (A-Z)',
         sortByNameDesc: 'Nombre (Z-A)',
+        sortByMomentum: '↗ En alza (actividad reciente)',
         groupByUpstream: 'Agrupar por Upstream',
         loadingRanking: 'Cargando ranking...',
         geoVisitors: 'GEO-VISITANTES (TOP PAÍSES)',
@@ -4823,6 +5169,7 @@
         sortByDownloadsAsc: 'Téléchargements (Croissant)',
         sortByNameAsc: 'Nom (A-Z)',
         sortByNameDesc: 'Nom (Z-A)',
+        sortByMomentum: '↗ En hausse (activité récente)',
         loadingRanking: 'Chargement du classement...',
         geoVisitors: 'GÉO-VISITEURS (TOP PAYS)',
         chartDownloads: '📊 Téléchargements par Projet',
@@ -4914,6 +5261,7 @@
         sortByDownloadsAsc: '下载量 (从低到高)',
         sortByNameAsc: '名称 (A-Z)',
         sortByNameDesc: '名称 (Z-A)',
+        sortByMomentum: '↗ 热门趋势（近期活跃度）',
         loadingRanking: '正在加载排名...',
         geoVisitors: '地理访问者 (热门国家)',
         chartDownloads: '📊 按项目下载',
@@ -5005,6 +5353,7 @@
         sortByDownloadsAsc: 'ダウンロード数 (少ない順)',
         sortByNameAsc: '名前 (A-Z)',
         sortByNameDesc: '名前 (Z-A)',
+        sortByMomentum: '↗ 急上昇（最近の活動）',
         loadingRanking: 'ランキングを読み込み中...',
         geoVisitors: '地域別訪問者 (トップ国)',
         chartDownloads: '📊 プロジェクト別ダウンロード',
@@ -5096,6 +5445,7 @@
         sortByDownloadsAsc: 'Загрузки (по возрастанию)',
         sortByNameAsc: 'Имя (А-Я)',
         sortByNameDesc: 'Имя (Я-А)',
+        sortByMomentum: '↗ В тренде (недавняя активность)',
         loadingRanking: 'Загрузка рейтинга...',
         geoVisitors: 'ГЕО-ПОСЕТИТЕЛИ (ТОП СТРАН)',
         chartDownloads: '📊 Загрузки по проектам',
@@ -5187,6 +5537,7 @@
         sortByDownloadsAsc: 'Download (Crescente)',
         sortByNameAsc: 'Nome (A-Z)',
         sortByNameDesc: 'Nome (Z-A)',
+        sortByMomentum: '↗ In crescita (attività recente)',
         loadingRanking: 'Caricamento classifica...',
         geoVisitors: 'GEO-VISITATORI (TOP PAESI)',
         chartDownloads: '📊 Download per Progetto',
@@ -5274,6 +5625,7 @@
         sortByDownloadsAsc: 'डाउनलोड (निम्न से उच्च)',
         sortByNameAsc: 'नाम (A-Z)',
         sortByNameDesc: 'नाम (Z-A)',
+        sortByMomentum: '↗ ट्रेंडिंग (हाल की गतिविधि)',
         loadingRanking: 'रैंकिंग लोड हो रही है...',
         geoVisitors: 'भू-आगंतुक (शीर्ष देश)',
         chartDownloads: '📊 प्रोजेक्ट के अनुसार डाउनलोड',
@@ -5361,6 +5713,7 @@
         sortByDownloadsAsc: 'التنزيلات (من الأقل إلى الأعلى)',
         sortByNameAsc: 'الاسم (أ-ي)',
         sortByNameDesc: 'الاسم (ي-أ)',
+        sortByMomentum: '↗ رائج (نشاط حديث)',
         loadingRanking: 'جارٍ تحميل التصنيف...',
         geoVisitors: 'الزوار الجغرافيون (أهم الدول)',
         chartDownloads: '📊 التنزيلات حسب المشروع',
@@ -5448,6 +5801,7 @@
         sortByDownloadsAsc: 'הורדות (מהנמוך לגבוה)',
         sortByNameAsc: 'שם (א-ת)',
         sortByNameDesc: 'שם (ת-א)',
+        sortByMomentum: '↗ במגמה (פעילות אחרונה)',
         loadingRanking: 'טוען דירוג...',
         geoVisitors: 'מבקרים לפי מדינה',
         chartDownloads: '📊 הורדות לפי פרויקט',
@@ -5589,12 +5943,19 @@
     let mapReady = false;
     let mapRenderPromise = null;
     let historyData = [];
+    let compatibilityData = [];
+    let compatibilityMeta = {};
+    let recipesData = [];
+    let deviceProfile = null;
     let favoritesOnly = false;
     const FAVORITES_STORAGE_KEY = 'hub-emulators-favorites-v2';
     const COMPARE_STORAGE_KEY = 'hub-emulators-compare-v2';
+    const FAVORITE_RELEASE_SEEN_KEY = 'hub-emulators-favorite-releases-v1';
     let favoriteRepos = readStorageSet(FAVORITES_STORAGE_KEY);
     let compareRepos = readStorageSet(COMPARE_STORAGE_KEY);
+    let favoriteReleaseSeen = readStoredObject(FAVORITE_RELEASE_SEEN_KEY) || {};
     let deferredInstallPrompt = null;
+    let activeProject = null;
 
     function readStorageSet(key) {
       try {
@@ -5615,6 +5976,273 @@
 
     function findProjectByKey(key) {
       return allData.find(project => projectKey(project) === key);
+    }
+
+    const DEVICE_PROFILE_STORAGE_KEY = 'hub-emulators-device-profile-v1';
+
+    function readStoredObject(key) {
+      try {
+        const value = JSON.parse(localStorage.getItem(key) || 'null');
+        return value && typeof value === 'object' ? value : null;
+      } catch {
+        return null;
+      }
+    }
+
+    function persistStoredObject(key, value) {
+      try { localStorage.setItem(key, JSON.stringify(value)); } catch { /* storage bloqueado */ }
+    }
+
+    function parseAndroidModel(userAgent) {
+      const match = String(userAgent || '').match(/Android\s[^;]+;\s([^;\)]+?)(?:\s+Build\/[^;\)]*)?[;\)]/i);
+      return match?.[1]?.trim() || '';
+    }
+
+    function readWebGLInfo() {
+      try {
+        const canvas = document.createElement('canvas');
+        const gl = canvas.getContext('webgl') || canvas.getContext('experimental-webgl');
+        if (!gl) return { supported: false, renderer: '', vendor: '' };
+        const debug = gl.getExtension('WEBGL_debug_renderer_info');
+        return {
+          supported: true,
+          renderer: debug ? String(gl.getParameter(debug.UNMASKED_RENDERER_WEBGL) || '') : '',
+          vendor: debug ? String(gl.getParameter(debug.UNMASKED_VENDOR_WEBGL) || '') : '',
+          version: String(gl.getParameter(gl.VERSION) || '')
+        };
+      } catch {
+        return { supported: false, renderer: '', vendor: '' };
+      }
+    }
+
+    async function readWebGPUInfo() {
+      if (!navigator.gpu) return { supported: false, renderer: '', vendor: '', architecture: '', features: [] };
+      try {
+        const adapter = await navigator.gpu.requestAdapter({ powerPreference: 'high-performance' });
+        if (!adapter) return { supported: false, renderer: '', vendor: '', architecture: '', features: [] };
+        const info = adapter.info || {};
+        return {
+          supported: true,
+          renderer: String(info.device || info.description || ''),
+          vendor: String(info.vendor || ''),
+          architecture: String(info.architecture || ''),
+          features: adapter.features ? [...adapter.features].slice(0, 10) : []
+        };
+      } catch {
+        return { supported: false, renderer: '', vendor: '', architecture: '', features: [] };
+      }
+    }
+
+    async function collectDeviceProfile({ deep = false } = {}) {
+      const ua = navigator.userAgent || '';
+      const uaData = navigator.userAgentData;
+      let highEntropy = {};
+      if (deep && uaData?.getHighEntropyValues) {
+        try {
+          highEntropy = await uaData.getHighEntropyValues(['architecture', 'bitness', 'model', 'platformVersion']);
+        } catch { /* alguns navegadores reduzem os dados por privacidade */ }
+      }
+
+      const webgl = readWebGLInfo();
+      const webgpu = deep ? await readWebGPUInfo() : { supported: Boolean(navigator.gpu), renderer: '', vendor: '', architecture: '', features: [] };
+      const platform = uaData?.platform || (/Android/i.test(ua) ? 'Android' : /iPhone|iPad/i.test(ua) ? 'iOS' : navigator.platform || 'Desconhecida');
+      const androidVersion = (/Android\s([\d.]+)/i.exec(ua)?.[1] || highEntropy.platformVersion || '').replace(/\.0$/, '');
+      const model = highEntropy.model || parseAndroidModel(ua) || '';
+      const webglRenderer = webgl.renderer || '';
+      const webgpuRenderer = webgpu.renderer || '';
+      const gpuLabel = webgpuRenderer || webglRenderer || 'GPU não exposta pelo navegador';
+      const isMobile = Boolean(uaData?.mobile || /Android|iPhone|iPad|Mobile/i.test(ua));
+
+      return {
+        detectedAt: new Date().toISOString(),
+        platform: String(platform),
+        mobile: isMobile,
+        model: String(model),
+        androidVersion: String(androidVersion),
+        architecture: String(highEntropy.architecture || (uaData?.architecture || (/arm64|aarch64/i.test(ua) ? 'arm64' : ''))),
+        bitness: String(highEntropy.bitness || ''),
+        cores: Number(navigator.hardwareConcurrency) || null,
+        memoryGB: Number(navigator.deviceMemory) || null,
+        screen: `${window.screen?.width || '?'}×${window.screen?.height || '?'}`,
+        dpr: Number(window.devicePixelRatio || 1).toFixed(2),
+        gpuLabel,
+        webgl,
+        webgpu,
+        gamepads: typeof navigator.getGamepads === 'function' ? [...navigator.getGamepads()].filter(Boolean).length : null,
+        deep,
+        confidence: model && (webgpuRenderer || webglRenderer) ? 'Alta' : (webglRenderer || androidVersion ? 'Parcial' : 'Limitada')
+      };
+    }
+
+    function formatDeviceValue(value, fallback = 'Não disponível') {
+      return value === null || value === undefined || value === '' ? fallback : String(value);
+    }
+
+    function deviceGpuFamily(profile) {
+      const text = `${profile?.gpuLabel || ''} ${profile?.webgl?.renderer || ''}`.toLowerCase();
+      if (/adreno|qualcomm/.test(text)) return 'Adreno';
+      if (/mali|arm\s+immortalis|immortalis/.test(text)) return 'Mali';
+      if (/powervr|imagination/.test(text)) return 'PowerVR';
+      if (/apple|apple gpu/.test(text)) return 'Apple';
+      if (/nvidia|geforce/.test(text)) return 'NVIDIA';
+      if (/radeon|amd/.test(text)) return 'AMD';
+      if (/intel/.test(text)) return 'Intel';
+      return 'Desconhecida';
+    }
+
+    function renderDeviceProfile(profile) {
+      const container = document.getElementById('deviceProfileContainer');
+      if (!container || !profile) return;
+      const gpuFamily = deviceGpuFamily(profile);
+      const facts = [
+        ['Plataforma', `${profile.platform}${profile.mobile ? ' · mobile' : ''}`],
+        ['Modelo', formatDeviceValue(profile.model)],
+        ['Android', formatDeviceValue(profile.androidVersion)],
+        ['GPU provável', `${gpuFamily} · ${formatDeviceValue(profile.gpuLabel, 'não exposta')}`],
+        ['Arquitetura', formatDeviceValue(profile.architecture)],
+        ['CPU lógica', profile.cores ? `${profile.cores} núcleos` : 'Não disponível'],
+        ['Memória estimada', profile.memoryGB ? `${profile.memoryGB} GB` : 'Não disponível'],
+        ['WebGPU', profile.webgpu?.supported ? 'Disponível' : 'Não disponível'],
+        ['Gamepad', profile.gamepads === null ? 'Não detectado' : `${profile.gamepads} conectado(s)`]
+      ];
+
+      container.innerHTML = `
+        <div class="device-profile-header">
+          <div class="device-profile-title"><strong>${escapeHtml(profile.model || profile.platform || 'Perfil do dispositivo')}</strong><span>Detectado em ${escapeHtml(formatDate(profile.detectedAt))} · GPU: ${escapeHtml(gpuFamily)}</span></div>
+          <span class="device-confidence">Confiança ${escapeHtml(profile.confidence)}</span>
+        </div>
+        <div class="device-facts">${facts.map(([label, value]) => `<div class="device-fact"><small>${escapeHtml(label)}</small><strong title="${escapeHtml(value)}">${escapeHtml(value)}</strong></div>`).join('')}</div>
+        <p class="device-note">O perfil foi lido localmente. O HUB não envia modelo, GPU ou renderer para um servidor; alguns navegadores ocultam esses dados por privacidade. ${profile.deep ? 'A leitura avançada foi executada sob ação explícita.' : 'Toque em “Detectar agora” para tentar obter dados gráficos mais detalhados.'}</p>
+      `;
+      renderDeviceRecommendations(profile);
+    }
+
+    function renderDeviceRecommendations(profile) {
+      const container = document.getElementById('deviceRecommendations');
+      if (!container) return;
+      const family = deviceGpuFamily(profile);
+      const notes = [];
+      if (family === 'Adreno') notes.push(['Driver radar', 'Priorize fontes Adreno/Turnip e confirme a compatibilidade do driver com a geração da GPU.']);
+      else if (family === 'Mali') notes.push(['Perfil Mali', 'Procure relatos específicos para sua geração; a família Mali sozinha não garante o mesmo resultado.']);
+      else if (family === 'Desconhecida') notes.push(['Perfil parcial', 'A GPU não foi exposta. As recomendações serão baseadas em atividade e precisam de confirmação manual.']);
+      else notes.push(['Perfil detectado', `A família ${family} foi identificada; ainda é necessário validar driver e renderer nos relatos reais.`]);
+      if (profile.webgpu?.supported) notes.push(['Capacidade gráfica', 'WebGPU está disponível no navegador; isso indica recursos gráficos modernos, mas não substitui um teste de emulação.']);
+      if (profile.architecture) notes.push(['Arquitetura', `O navegador reportou ${profile.architecture}; filtre APKs e builds pela arquitetura antes de instalar.`]);
+
+      const candidates = allData
+        .filter(project => project.category !== 'Drivers')
+        .sort((a, b) => getMomentumScore(b) - getMomentumScore(a))
+        .slice(0, 3);
+      if (candidates.length) notes.push(['Projetos em destaque', `Comece por ${candidates.map(project => project.name).join(', ')} e registre seu resultado na matriz de evidências.`]);
+
+      container.innerHTML = notes.map(([title, text]) => `<div class="device-recommendation"><span>◈</span><div><strong>${escapeHtml(title)}</strong><span>${escapeHtml(text)}</span></div></div>`).join('');
+    }
+
+    async function scanDevice() {
+      const button = document.getElementById('deviceScanButton');
+      if (button) { button.disabled = true; button.textContent = 'Detectando…'; }
+      try {
+        deviceProfile = await collectDeviceProfile({ deep: true });
+        persistStoredObject(DEVICE_PROFILE_STORAGE_KEY, deviceProfile);
+        renderDeviceProfile(deviceProfile);
+        showToast('Perfil local atualizado.');
+      } finally {
+        if (button) { button.disabled = false; button.textContent = t('deviceScan'); }
+      }
+    }
+
+    function getProjectSnapshots(project) {
+      const key = projectKey(project);
+      return historyData
+        .flatMap(entry => (entry.projects || []).map(snapshot => ({ ...snapshot, date: entry.date })))
+        .filter(snapshot => snapshot.repo === key)
+        .sort((a, b) => String(a.date).localeCompare(String(b.date)));
+    }
+
+    function getMomentumScore(project) {
+      const snapshots = getProjectSnapshots(project);
+      if (snapshots.length >= 2) {
+        const latest = snapshots[snapshots.length - 1];
+        const previous = snapshots[snapshots.length - 2];
+        const previousDownloads = Number(previous.downloads) || 0;
+        const delta = (Number(latest.downloads) || 0) - previousDownloads;
+        const growth = previousDownloads > 0 ? delta / previousDownloads : (delta > 0 ? 1 : 0);
+        return Math.max(0, Math.min(100, Math.round(50 + growth * 100)));
+      }
+
+      const now = Date.now();
+      const recentReleases = (project.releases || []).filter(release => {
+        const age = now - new Date(release.date).getTime();
+        return age >= 0 && age <= 90 * 86400000;
+      });
+      const recentDownloads = recentReleases.reduce((sum, release) => sum + (Number(release.downloads) || 0), 0);
+      const latestDate = project.releases?.[0]?.date ? new Date(project.releases[0].date).getTime() : 0;
+      const freshness = latestDate ? Math.max(0, 30 - Math.floor((now - latestDate) / 86400000)) : 0;
+      return Math.max(0, Math.min(100, Math.round(recentReleases.length * 18 + Math.log10(recentDownloads + 1) * 8 + freshness)));
+    }
+
+    function getProjectSignal(project) {
+      const snapshots = getProjectSnapshots(project);
+      if (snapshots.length >= 2) {
+        const latest = snapshots[snapshots.length - 1];
+        const previous = snapshots[snapshots.length - 2];
+        const previousDownloads = Number(previous.downloads) || 0;
+        const delta = (Number(latest.downloads) || 0) - previousDownloads;
+        const growth = previousDownloads > 0 ? (delta / previousDownloads) * 100 : (delta > 0 ? 100 : 0);
+        return {
+          label: growth >= 0 ? 'Crescimento observado' : 'Queda no último snapshot',
+          detail: `${growth >= 0 ? '+' : ''}${growth.toFixed(1)}% desde ${previous.date}`,
+          score: getMomentumScore(project),
+          active: growth >= 0
+        };
+      }
+
+      const recent = (project.releases || []).filter(release => {
+        const age = Date.now() - new Date(release.date).getTime();
+        return age >= 0 && age <= 90 * 86400000;
+      });
+      return {
+        label: recent.length ? 'Atividade recente' : 'Sem pulso recente',
+        detail: recent.length ? `${recent.length} release${recent.length === 1 ? '' : 's'} nos últimos 90 dias` : 'Aguardando novo snapshot',
+        score: getMomentumScore(project),
+        active: recent.length > 0
+      };
+    }
+
+    function getSourceMeta(project) {
+      const text = `${project?.name || ''} ${project?.repo || ''}`.toLowerCase();
+      const failed = (window.__rankingMeta?.failedRepos || []).some(item => item.repo === project?.repo);
+      const channel = project?.channel || (/nightly|ci/.test(text) ? 'nightly' : /beta/.test(text) ? 'beta' : /rc|release candidate/.test(text) ? 'rc' : 'stable/unknown');
+      const sourceKind = project?.sourceKind || (/fork|mod|cmod|patch|brasil|bionic|ludashi|ref4ik|ajay|coffin|xmod/.test(text)
+        ? 'fork/comunidade'
+          : project?.category === 'Drivers' ? 'driver/community'
+          : 'upstream/community');
+      return { failed, channel, sourceKind };
+    }
+
+    function getProjectActivityScore(project) {
+      const now = Date.now();
+      const releases = project.releases || [];
+      const recent = releases.filter(release => {
+        const age = now - new Date(release.date).getTime();
+        return age >= 0 && age <= 90 * 86400000;
+      });
+      const latestDate = releases[0]?.date ? new Date(releases[0].date).getTime() : 0;
+      const freshness = latestDate ? Math.max(0, 35 - Math.floor((now - latestDate) / 86400000)) : 0;
+      return Math.min(100, recent.length * 18 + freshness + Math.min(25, releases.length / 4));
+    }
+
+    function getProjectTrustScore(project) {
+      const source = getSourceMeta(project);
+      let score = 40;
+      if (!source.failed) score += 22;
+      if (project.releases?.length) score += 15;
+      if (project.releases?.[0]?.assets?.length) score += 10;
+      if (project.repoUrl?.startsWith('https://')) score += 8;
+      if (source.channel === 'stable/unknown') score += 5;
+      if (source.channel === 'nightly') score -= 8;
+      if (source.failed) score -= 30;
+      return Math.max(0, Math.min(100, Math.round(score)));
     }
 
     function showToast(message) {
@@ -5660,6 +6288,10 @@
       if (allData.length) {
         updateFilters();
         renderFavorites();
+        renderFavoriteAlerts();
+        renderCompatibility();
+        renderRecipes();
+        if (deviceProfile) renderDeviceProfile(deviceProfile);
         renderNexusOverview(allData);
         if (dashboardInitialized) {
           renderCharts(allData, historyData);
@@ -5674,14 +6306,20 @@
       if (!key) return;
       if (favoriteRepos.has(key)) {
         favoriteRepos.delete(key);
+        delete favoriteReleaseSeen[key];
         showToast('Projeto removido da sua coleção.');
       } else {
         favoriteRepos.add(key);
+        const project = findProjectByKey(key);
+        const latest = project?.releases?.[0];
+        if (latest && !favoriteReleaseSeen[key]) favoriteReleaseSeen[key] = latest.tag || latest.name || latest.date || '';
         showToast('Projeto salvo na sua coleção.');
       }
       persistStorageSet(FAVORITES_STORAGE_KEY, favoriteRepos);
+      persistStoredObject(FAVORITE_RELEASE_SEEN_KEY, favoriteReleaseSeen);
       updateCollectionUI();
       if (currentTab === 'collection') renderFavorites();
+      renderFavoriteAlerts();
       if (favoritesOnly) updateFilters();
     }
 
@@ -5726,17 +6364,69 @@
       }).join('');
     }
 
+    function renderFavoriteAlerts() {
+      const container = document.getElementById('favoriteAlerts');
+      if (!container) return;
+      const alerts = [...favoriteRepos].map(findProjectByKey).filter(Boolean).map(project => {
+        const latest = project.releases?.[0];
+        const key = projectKey(project);
+        const releaseKey = latest?.tag || latest?.name || latest?.date || '';
+        return latest && favoriteReleaseSeen[key] && favoriteReleaseSeen[key] !== releaseKey
+          ? { project, latest, key: encodeURIComponent(key) }
+          : null;
+      }).filter(Boolean);
+      container.innerHTML = alerts.map(({ project, latest, key }) => `<div class="favorite-alert"><span>🔥 <strong>${escapeHtml(project.name)}</strong> lançou ${escapeHtml(latest.tag || latest.name || 'uma nova versão')}.</span><a href="?project=${encodeURIComponent(projectKey(project))}" onclick="event.preventDefault(); openProjectByKey('${key}')">Abrir</a></div>`).join('');
+    }
+
+    function acknowledgeFavoriteRelease(project) {
+      const key = projectKey(project);
+      const latest = project.releases?.[0];
+      if (!key || !latest || !favoriteRepos.has(key)) return;
+      favoriteReleaseSeen[key] = latest.tag || latest.name || latest.date || '';
+      persistStoredObject(FAVORITE_RELEASE_SEEN_KEY, favoriteReleaseSeen);
+      renderFavoriteAlerts();
+    }
+
     function clearFavorites() {
       favoriteRepos.clear();
       persistStorageSet(FAVORITES_STORAGE_KEY, favoriteRepos);
       updateCollectionUI();
       renderFavorites();
+      renderFavoriteAlerts();
       showToast('Coleção limpa.');
     }
 
-    function openProjectByKey(encodedKey) {
+    function setProjectUrl(project, mode = 'pushState') {
+      const url = new URL(window.location.href);
+      url.searchParams.set('project', projectKey(project));
+      window.history[mode]({}, '', url);
+    }
+
+    async function shareActiveProject() {
+      if (!activeProject) return;
+      const url = new URL(window.location.href);
+      url.searchParams.set('project', projectKey(activeProject));
+      const shareData = {
+        title: `${activeProject.name} — HUB EMULATORS`,
+        text: `Confira ${activeProject.name} no HUB EMULATORS.`,
+        url: url.href
+      };
+
+      try {
+        if (navigator.share) {
+          await navigator.share(shareData);
+          return;
+        }
+        await navigator.clipboard.writeText(url.href);
+        showToast('Link compartilhável copiado.');
+      } catch (error) {
+        if (error?.name !== 'AbortError') showToast('Não foi possível compartilhar agora.');
+      }
+    }
+
+    function openProjectByKey(encodedKey, options = {}) {
       const project = findProjectByKey(decodeURIComponent(encodedKey || ''));
-      if (project) openModal(project);
+      if (project) openModal(project, options);
     }
 
     function toggleFavoritesFilter() {
@@ -5749,9 +6439,11 @@
     function clearFilters() {
       const search = document.getElementById('searchInput');
       const category = document.getElementById('categoryFilter');
+      const scope = document.getElementById('rankingScope');
       const sort = document.getElementById('sortRanking');
       if (search) search.value = '';
       if (category) category.value = 'all';
+      if (scope) scope.value = 'emulators';
       if (sort) sort.value = 'downloadsDesc';
       favoritesOnly = false;
       document.getElementById('favoritesFilterButton')?.classList.remove('is-active');
@@ -5783,7 +6475,8 @@
       const commands = !term ? [
         ['📊', 'Abrir Dashboard', 'Ver métricas e visitantes', "switchTab('charts'); closeCommandPalette();"],
         ['🆕', 'Abrir Novidades', 'Últimos lançamentos', "switchTab('news'); closeCommandPalette();"],
-        ['⭐', 'Abrir Minha Coleção', 'Projetos salvos', "switchTab('collection'); closeCommandPalette();"]
+        ['⭐', 'Abrir Minha Coleção', 'Projetos salvos', "switchTab('collection'); closeCommandPalette();"],
+        ['🛠', 'Diagnóstico das fontes', 'Saúde do último snapshot', "openDiagnostics(); closeCommandPalette();"]
       ] : [];
       container.innerHTML = commands.map(([icon, title, note, action]) => `<button type="button" class="command-result" onclick="${action}"><span>${icon}</span><span><b>${title}</b><small>${note}</small></span><strong>↵</strong></button>`).join('') + results.map(project => {
         const key = encodeURIComponent(projectKey(project));
@@ -5963,6 +6656,41 @@
       modal?.setAttribute('aria-hidden', 'true');
     }
 
+    function openDiagnostics() {
+      const modal = document.getElementById('diagnosticsModal');
+      const body = document.getElementById('diagnosticsBody');
+      if (!modal || !body) return;
+
+      const meta = window.__rankingMeta || {};
+      const failedRepos = Array.isArray(meta.failedRepos) ? meta.failedRepos : [];
+      const quality = meta.dataQuality || {};
+      const updatedAt = meta.updatedAt ? new Date(meta.updatedAt) : null;
+      const ageHours = updatedAt ? Math.max(0, (Date.now() - updatedAt.getTime()) / 3600000) : Infinity;
+      const status = failedRepos.length === 0 && ageHours < 30 ? 'SAUDÁVEL' : 'ATENÇÃO';
+
+      body.innerHTML = `
+        <div class="diagnostics-summary">
+          <div class="diagnostics-stat"><small>Status</small><strong>${status}</strong></div>
+          <div class="diagnostics-stat"><small>Fontes com falha</small><strong>${failedRepos.length}</strong></div>
+          <div class="diagnostics-stat"><small>Último snapshot</small><strong>${updatedAt ? formatDate(updatedAt) : '—'}</strong></div>
+        </div>
+        <div class="diagnostics-summary">
+          <div class="diagnostics-stat"><small>Downloads indexados</small><strong>${Number(quality.totalDownloads || 0).toLocaleString(currentLang)}</strong></div>
+          <div class="diagnostics-stat"><small>Releases indexadas</small><strong>${Number(quality.totalReleases || 0).toLocaleString(currentLang)}</strong></div>
+          <div class="diagnostics-stat"><small>Assets indexados</small><strong>${Number(quality.totalAssets || 0).toLocaleString(currentLang)}</strong></div>
+        </div>
+        ${failedRepos.length ? `<div class="diagnostics-list">${failedRepos.map(item => `<div class="diagnostics-row"><span>${escapeHtml(item.repo || 'Fonte desconhecida')}</span><span>HTTP ${escapeHtml(String(item.status || 'erro'))}</span></div>`).join('')}</div>` : '<div class="empty-state">Todas as fontes responderam no último ciclo publicado.</div>'}
+      `;
+      modal.classList.add('is-open');
+      modal.setAttribute('aria-hidden', 'false');
+    }
+
+    function closeDiagnostics() {
+      const modal = document.getElementById('diagnosticsModal');
+      modal?.classList.remove('is-open');
+      modal?.setAttribute('aria-hidden', 'true');
+    }
+
     function ensureDashboard() {
       if (dashboardInitialized || dashboardRenderQueued) return;
 
@@ -6024,6 +6752,15 @@
 
       if (tabName === 'collection') {
         renderFavorites();
+        renderFavoriteAlerts();
+      }
+
+      if (tabName === 'compatibility') {
+        renderCompatibility();
+      }
+
+      if (tabName === 'recipes') {
+        renderRecipes();
       }
 
       // Limpar destaque se clicar em novidades
@@ -6075,14 +6812,16 @@
     function updateFilters() {
       const searchTerm = document.getElementById('searchInput').value.toLowerCase();
       const category = document.getElementById('categoryFilter').value;
+      const scope = document.getElementById('rankingScope')?.value || 'emulators';
       const sortType = document.getElementById('sortRanking').value;
 
       let filtered = allData.filter(item => {
         const matchesSearch = item.name.toLowerCase().includes(searchTerm) ||
           (item.category && item.category.toLowerCase().includes(searchTerm));
         const matchesCategory = category === 'all' || item.category === category;
+        const matchesScope = scope === 'all' || (scope === 'drivers' ? item.category === 'Drivers' : item.category !== 'Drivers');
         const matchesFavorite = !favoritesOnly || favoriteRepos.has(projectKey(item));
-        return matchesSearch && matchesCategory && matchesFavorite;
+        return matchesSearch && matchesCategory && matchesScope && matchesFavorite;
       });
 
       // Ordenação (Upstream é tratado dentro de renderRanking)
@@ -6092,6 +6831,9 @@
           if (sortType === 'downloadsAsc') return a.downloads - b.downloads;
           if (sortType === 'nameAsc') return a.name.localeCompare(b.name);
           if (sortType === 'nameDesc') return b.name.localeCompare(a.name);
+          if (sortType === 'momentum') return getMomentumScore(b) - getMomentumScore(a);
+          if (sortType === 'activity') return getProjectActivityScore(b) - getProjectActivityScore(a);
+          if (sortType === 'trust') return getProjectTrustScore(b) - getProjectTrustScore(a);
           return 0;
         });
       }
@@ -6104,7 +6846,7 @@
       const summary = document.getElementById('filterSummary');
       if (!summary) return;
 
-      const visibleProjects = data.filter(project => project.category !== 'Drivers');
+      const visibleProjects = data;
       const totalDownloads = visibleProjects.reduce((sum, project) => sum + (Number(project.downloads) || 0), 0);
       summary.innerHTML = `◈ ${visibleProjects.length} projetos na arena · ${totalDownloads.toLocaleString(currentLang)} downloads no filtro atual`;
     }
@@ -6191,6 +6933,59 @@
       return extensions.some(ext => name.endsWith(ext));
     }
 
+    const CHANGELOG_RULES = [
+      ['Performance', /performance|fps|speed|optimization|optimiza|latency|fast|faster/i],
+      ['Compatibilidade', /compat|workaround|crash|freeze|startup|game|regression|fix/i],
+      ['GPU/driver', /gpu|vulkan|turnip|mesa|driver|vortek|zink|opengl|adreno|mali|shader/i],
+      ['Interface', /ui|interface|theme|menu|hud|layout|visual/i],
+      ['Controle', /gamepad|controller|input|keyboard|mouse|touch|gamepad/i],
+      ['Correção crítica', /security|critical|urgent|data loss|broken/i],
+      ['Experimental', /experimental|beta|nightly|wip|test|preview/i]
+    ];
+
+    function classifyChangelog(body) {
+      const text = String(body || '');
+      const labels = CHANGELOG_RULES.filter(([, pattern]) => pattern.test(text)).map(([label]) => label);
+      return labels.length ? labels : ['Geral'];
+    }
+
+    function changelogChips(body) {
+      return `<div class="changelog-chips">${classifyChangelog(body).map(label => `<span class="changelog-chip">${escapeHtml(label)}</span>`).join('')}</div>`;
+    }
+
+    function changelogLines(body) {
+      return String(body || '').split(/\r?\n/)
+        .map(line => line.replace(/^\s*[-*+]\s+/, '').replace(/^#+\s+/, '').trim())
+        .filter(line => line.length > 2 && !line.startsWith('```'));
+    }
+
+    function renderReleaseComparison() {
+      const output = document.getElementById('releaseCompareOutput');
+      if (!output || !activeProject) return;
+      const fromIndex = Number(document.getElementById('releaseCompareFrom')?.value || 1);
+      const toIndex = Number(document.getElementById('releaseCompareTo')?.value || 0);
+      const toRelease = activeProject.releases?.[toIndex];
+      const fromRelease = activeProject.releases?.[fromIndex];
+      if (!toRelease || !fromRelease) {
+        output.innerHTML = '<div class="release-diff-title">Selecione duas versões para comparar.</div>';
+        return;
+      }
+
+      const fromLines = changelogLines(fromRelease.body || fromRelease.description);
+      const toLines = changelogLines(toRelease.body || toRelease.description);
+      const fromSet = new Set(fromLines.map(line => line.toLowerCase()));
+      const toSet = new Set(toLines.map(line => line.toLowerCase()));
+      const added = toLines.filter(line => !fromSet.has(line.toLowerCase())).slice(0, 14);
+      const removed = fromLines.filter(line => !toSet.has(line.toLowerCase())).slice(0, 14);
+      const list = (items, empty) => items.length ? `<ul>${items.map(item => `<li>${escapeHtml(item)}</li>`).join('')}</ul>` : `<ul><li>${empty}</li></ul>`;
+      output.innerHTML = `
+        <div class="release-diff-title">${escapeHtml(fromRelease.tag || fromRelease.name || 'Versão anterior')} → ${escapeHtml(toRelease.tag || toRelease.name || 'Versão atual')}</div>
+        <div class="release-diff-grid">
+          <div class="release-diff-column"><h4>Entrou nesta versão</h4>${list(added, 'Nenhuma linha nova identificada.')}</div>
+          <div class="release-diff-column"><h4>Não aparece mais</h4>${list(removed, 'Nenhuma remoção identificada.')}</div>
+        </div>`;
+    }
+
     function hasNewReleases(project, daysThreshold = 7) {
       if (project.category === 'Drivers') return false; // Ignorar drivers na aba de novidades comuns
       if (!project.releases || project.releases.length === 0) return false;
@@ -6213,15 +7008,52 @@
       });
     }
 
-    function openModal(projectData) {
+    function openModal(projectData, { updateUrl = true } = {}) {
       const modal = document.getElementById('releasesModal');
       const modalTitle = document.getElementById('modalTitle');
       const modalBody = document.getElementById('modalBody');
+      activeProject = projectData;
+      acknowledgeFavoriteRelease(projectData);
+
+      if (updateUrl) {
+        const currentProject = new URL(window.location.href).searchParams.get('project');
+        if (currentProject !== projectKey(projectData)) setProjectUrl(projectData);
+      }
+
+      const signal = getProjectSignal(projectData);
+      const sourceMeta = getSourceMeta(projectData);
+      const trustScore = getProjectTrustScore(projectData);
+      const latestRelease = projectData.releases?.[0];
+      const releaseCompareToolbar = projectData.releases?.length > 1 ? `
+        <div class="release-compare-toolbar">
+          <label for="releaseCompareFrom">Comparar</label>
+          <select id="releaseCompareFrom" onchange="renderReleaseComparison()">${projectData.releases.map((release, index) => `<option value="${index}" ${index === 1 ? 'selected' : ''}>${escapeHtml(release.tag || release.name || `Release ${index + 1}`)}</option>`).join('')}</select>
+          <span>com</span>
+          <select id="releaseCompareTo" onchange="renderReleaseComparison()">${projectData.releases.map((release, index) => `<option value="${index}" ${index === 0 ? 'selected' : ''}>${escapeHtml(release.tag || release.name || `Release ${index + 1}`)}</option>`).join('')}</select>
+        </div>
+        <div id="releaseCompareOutput" class="release-diff-output"></div>` : '';
+      const projectIntel = `
+        <section class="project-intel" aria-label="Resumo do projeto">
+          <div class="project-signal">
+            <span class="project-signal-dot ${signal.active ? '' : 'is-muted'}"></span>
+            <div class="project-signal-copy">
+              <small>SINAL DO PROJETO · ${signal.score}/100</small>
+              <strong>${escapeHtml(signal.label)}</strong>
+              <span>${escapeHtml(signal.detail)}</span>
+              <span class="project-source-line">${escapeHtml(sourceMeta.sourceKind)} · ${escapeHtml(sourceMeta.channel)} · integridade ${trustScore}/100${sourceMeta.failed ? ' · fonte com falha' : ''}</span>
+            </div>
+          </div>
+          <div class="project-intel-stats">
+            <span><b>${Number(projectData.downloads || 0).toLocaleString(currentLang)}</b>downloads</span>
+            <span><b>${Number(projectData.releases?.length || 0).toLocaleString(currentLang)}</b>releases</span>
+            <span><b>${latestRelease?.tag ? escapeHtml(latestRelease.tag) : '—'}</b>versão atual</span>
+          </div>
+        </section>`;
 
       modalTitle.innerHTML = `${escapeHtml(projectData.name)} <span style="font-size: 0.6em; opacity: 0.8;">(${escapeHtml(projectData.category || '')})</span>`;
 
       if (!projectData.releases || projectData.releases.length === 0) {
-        modalBody.innerHTML = `
+        modalBody.innerHTML = `${projectIntel}
       <div class="no-releases">
         ${t('noReleasesFound')}
         <br><br>
@@ -6231,7 +7063,8 @@
       </div>
     `;
       } else {
-        let releasesHTML = `
+        let releasesHTML = `${projectIntel}
+      ${releaseCompareToolbar}
       <a href="${safeExternalUrl(projectData.repoUrl)}" target="_blank" rel="noopener noreferrer" class="repo-link">
         ${t('viewRepo')}
       </a>
@@ -6259,6 +7092,7 @@
             ${releaseName}
             ${isNew ? `<span class="new-badge">🔥 ${t('newRelease')}!</span>` : ''}
           </div>
+          ${changelogChips(description)}
           
           <div class="release-actions">
             <a href="${releaseUrl}" target="_blank" rel="noopener noreferrer" class="github-link-btn">
@@ -6288,6 +7122,7 @@
                 ⬇ ${t('download')} (${Number(asset.downloads || 0).toLocaleString(currentLang)})
               </a>
             </div>
+            <div class="asset-integrity"><span>${asset.digest ? 'SHA-256' : 'Integridade'}</span><code>${escapeHtml(asset.digest || 'digest não fornecido pela fonte')}</code></div>
           </div>
         `;
           });
@@ -6310,13 +7145,22 @@
       modal.setAttribute('aria-hidden', 'false');
       document.body.style.overflow = 'hidden';
       modal.querySelector('.close')?.focus();
+      renderReleaseComparison();
     }
 
-    function closeModal() {
+    function closeModal({ updateUrl = true } = {}) {
       const modal = document.getElementById('releasesModal');
       modal.style.display = 'none';
       modal.setAttribute('aria-hidden', 'true');
       document.body.style.overflow = 'auto';
+      activeProject = null;
+      if (updateUrl) {
+        const url = new URL(window.location.href);
+        if (url.searchParams.has('project')) {
+          url.searchParams.delete('project');
+          window.history.replaceState({}, '', url);
+        }
+      }
     }
 
     // Fechar modal ao clicar fora
@@ -6331,6 +7175,15 @@
     document.addEventListener('keydown', function (event) {
       if (event.key === 'Escape') {
         closeModal();
+      }
+    });
+
+    window.addEventListener('popstate', () => {
+      const requestedProject = new URL(window.location.href).searchParams.get('project');
+      if (requestedProject) {
+        openProjectByKey(encodeURIComponent(requestedProject), { updateUrl: false });
+      } else {
+        closeModal({ updateUrl: false });
       }
     });
 
@@ -6755,12 +7608,15 @@
         ? ((totalDownloads - previous.totalDownloads) / previous.totalDownloads) * 100
         : null;
       const growthLabel = growth === null ? 'Primeiro snapshot' : `${growth >= 0 ? '+' : ''}${growth.toFixed(2)}% desde o último snapshot`;
+      const failedSources = Array.isArray(window.__rankingMeta?.failedRepos) ? window.__rankingMeta.failedRepos.length : 0;
+      const radarStatus = failedSources > 0 ? 'PARCIAL' : 'ONLINE';
+      const radarNote = failedSources > 0 ? `${failedSources} fonte${failedSources === 1 ? '' : 's'} para revisar` : 'Todas as fontes responderam';
 
       container.innerHTML = [
         ['PROJETOS RASTREADOS', data.length.toLocaleString(currentLang), `${categories} categorias`],
         ['DOWNLOADS INDEXADOS', totalDownloads.toLocaleString(currentLang), growthLabel],
         ['RELEASES INDEXADAS', totalReleases.toLocaleString(currentLang), latest ? `Última: ${timeAgo(latest.date)}` : 'Sem releases'],
-        ['STATUS DO RADAR', 'ONLINE', 'Último snapshot disponível']
+        ['STATUS DO RADAR', radarStatus, radarNote]
       ].map(([label, value, note]) => `<div class="nexus-stat"><span class="nexus-stat-label">${label}</span><strong class="nexus-stat-value">${escapeHtml(value)}</strong><span class="nexus-stat-note">${escapeHtml(note)}</span></div>`).join('');
     }
 
@@ -6831,6 +7687,82 @@
       }).join('');
     }
 
+    function renderMomentumStrip(data) {
+      const container = document.getElementById('momentumStrip');
+      if (!container) return;
+
+      const trending = data
+        .filter(project => project.category !== 'Drivers')
+        .map(project => ({ project, signal: getProjectSignal(project) }))
+        .sort((a, b) => b.signal.score - a.signal.score)
+        .slice(0, 3);
+
+      container.innerHTML = trending.map(({ project, signal }, index) => {
+        const encodedKey = encodeURIComponent(projectKey(project));
+        return `<article class="momentum-card" onclick="openProjectByKey('${encodedKey}')" title="Abrir ${escapeHtml(project.name)}">
+          <span class="momentum-rank">↗ ${String(index + 1).padStart(2, '0')}</span>
+          <div class="momentum-copy"><strong>${escapeHtml(project.name)}</strong><span>${escapeHtml(signal.label)} · ${escapeHtml(signal.detail)}</span></div>
+        </article>`;
+      }).join('');
+    }
+
+    function confidenceLabel(id) {
+      return (compatibilityMeta.confidenceLevels || []).find(item => item.id === id)?.label || ({
+        confirmed: 'Confirmado',
+        community: 'Testado pela comunidade',
+        inferred: 'Inferido por hardware',
+        stale: 'Desatualizado',
+        unknown: 'Desconhecido'
+      }[id] || 'Desconhecido');
+    }
+
+    function renderCompatibility() {
+      const container = document.getElementById('compatibilityContainer');
+      if (!container) return;
+      const term = String(document.getElementById('compatibilitySearch')?.value || '').trim().toLowerCase();
+      const confidence = document.getElementById('compatibilityConfidence')?.value || 'all';
+      const reports = compatibilityData.filter(report => {
+        const haystack = [report.game, report.emulator, report.emulatorVersion, report.device, report.gpu, report.android, report.driver, report.renderer, report.result].join(' ').toLowerCase();
+        return (!term || haystack.includes(term)) && (confidence === 'all' || report.confidence === confidence);
+      });
+
+      if (!reports.length) {
+        container.innerHTML = `<div class="compatibility-empty"><strong>${compatibilityData.length ? 'Nenhum relato corresponde ao filtro.' : 'A matriz está pronta para receber os primeiros relatos.'}</strong>${compatibilityData.length ? 'Tente remover filtros ou buscar outro aparelho.' : 'Use “Enviar relato aberto” para publicar jogo, versão, dispositivo, GPU, driver, renderer, resultado e data. Nenhuma conta do HUB é necessária.'}</div>`;
+        return;
+      }
+
+      container.innerHTML = `<table class="compatibility-table"><thead><tr><th>Jogo</th><th>Emulador / versão</th><th>Aparelho / GPU</th><th>Driver / renderer</th><th>Resultado</th><th>Evidência</th><th>Data</th></tr></thead><tbody>${reports.map(report => `
+        <tr>
+          <td><strong>${escapeHtml(report.game || '—')}</strong><small>${escapeHtml(report.notes || '')}</small></td>
+          <td><strong>${escapeHtml(report.emulator || '—')}</strong><small>${escapeHtml(report.emulatorVersion || 'versão não informada')}</small></td>
+          <td><strong>${escapeHtml(report.device || '—')}</strong><small>${escapeHtml(report.gpu || 'GPU não informada')} · Android ${escapeHtml(report.android || '—')}</small></td>
+          <td><strong>${escapeHtml(report.driver || '—')}</strong><small>${escapeHtml(report.renderer || 'renderer não informado')}</small></td>
+          <td><strong>${escapeHtml(report.result || '—')}</strong></td>
+          <td><span class="evidence-badge ${escapeHtml(report.confidence || 'unknown')}">${escapeHtml(confidenceLabel(report.confidence))}</span>${report.source ? `<small><a href="${safeExternalUrl(report.source)}" target="_blank" rel="noopener noreferrer">Abrir evidência</a></small>` : ''}</td>
+          <td>${escapeHtml(report.date || '—')}</td>
+        </tr>`).join('')}</tbody></table>`;
+    }
+
+    function renderRecipes() {
+      const container = document.getElementById('recipesContainer');
+      if (!container) return;
+      const family = deviceProfile ? deviceGpuFamily(deviceProfile) : 'Desconhecida';
+      const recipes = recipesData.slice().sort((a, b) => Number(String(b.hardware).toLowerCase().includes(family.toLowerCase())) - Number(String(a.hardware).toLowerCase().includes(family.toLowerCase())));
+      if (!recipes.length) {
+        container.innerHTML = '<div class="compatibility-empty">Nenhuma receita publicada ainda.</div>';
+        return;
+      }
+      container.innerHTML = recipes.map(recipe => `
+        <article class="recipe-card">
+          <div class="recipe-meta"><span>${escapeHtml(recipe.hardware || 'Hardware')}</span><span>${escapeHtml(confidenceLabel(recipe.confidence))}</span></div>
+          <h3>${escapeHtml(recipe.title)}</h3>
+          <p>${escapeHtml(recipe.summary || '')}</p>
+          <div class="recipe-settings">${(recipe.settings || []).map(setting => `<div class="recipe-setting"><span>${escapeHtml(setting.label)}</span><strong>${escapeHtml(setting.value)}</strong></div>`).join('')}</div>
+          <ul class="recipe-checks">${(recipe.checks || []).map(check => `<li>${escapeHtml(check)}</li>`).join('')}</ul>
+          <div class="recipe-sources">${(recipe.sources || []).map(source => `<a class="recipe-source" href="${safeExternalUrl(source)}" target="_blank" rel="noopener noreferrer">Fonte ↗</a>`).join('')}</div>
+        </article>`).join('');
+    }
+
     function renderCategorizedDrivers(manifest) {
       const container = document.getElementById('driversCategorizedContainer');
       if (!manifest || Object.entries(manifest).filter(([k, v]) => v.length > 0).length === 0) {
@@ -6884,9 +7816,9 @@
     function renderRanking(data) {
       const container = document.getElementById('rankingContainer');
       const sortType = document.getElementById('sortRanking').value;
+      const scope = document.getElementById('rankingScope')?.value || 'emulators';
 
-      // Filtrar drivers do ranking
-      let filteredData = data.filter(p => p.category !== 'Drivers');
+      let filteredData = data.filter(p => scope === 'all' || (scope === 'drivers' ? p.category === 'Drivers' : p.category !== 'Drivers'));
 
       // Lógica de Agrupamento por Upstream
       if (sortType === 'upstream') {
@@ -7010,9 +7942,11 @@
     async function loadData() {
       try {
         const cacheVersion = Math.floor(Date.now() / (60 * 60 * 1000));
-        const [res, historyRes] = await Promise.all([
+        const [res, historyRes, compatibilityRes, recipesRes] = await Promise.all([
           fetch(`data/rankings.json?v=${cacheVersion}`, { cache: 'default' }),
-          fetch(`data/history.json?v=${cacheVersion}`, { cache: 'default' }).catch(() => null)
+          fetch(`data/history.json?v=${cacheVersion}`, { cache: 'default' }).catch(() => null),
+          fetch(`data/compatibility.json?v=${cacheVersion}`, { cache: 'default' }).catch(() => null),
+          fetch(`data/recipes.json?v=${cacheVersion}`, { cache: 'default' }).catch(() => null)
         ]);
         if (!res.ok) throw new Error(`Ranking HTTP ${res.status}`);
         const json = await res.json();
@@ -7020,6 +7954,15 @@
         if (historyRes?.ok) {
           const historyJson = await historyRes.json();
           historyData = Array.isArray(historyJson) ? historyJson : (historyJson.entries || []);
+        }
+        if (compatibilityRes?.ok) {
+          const compatibilityJson = await compatibilityRes.json();
+          compatibilityData = Array.isArray(compatibilityJson) ? compatibilityJson : (compatibilityJson.reports || []);
+          compatibilityMeta = Array.isArray(compatibilityJson) ? {} : compatibilityJson;
+        }
+        if (recipesRes?.ok) {
+          const recipesJson = await recipesRes.json();
+          recipesData = Array.isArray(recipesJson) ? recipesJson : (recipesJson.recipes || []);
         }
 
         const projects = Array.isArray(json) ? json : json?.results;
@@ -7109,9 +8052,23 @@
         renderDashboardOverview(allData);
         renderNexusOverview(allData);
         renderArenaSpotlight(allData);
+        renderMomentumStrip(allData);
         updateFilterSummary(allData);
         renderFavorites();
+        renderFavoriteAlerts();
         updateCollectionUI();
+        renderCompatibility();
+        renderRecipes();
+        deviceProfile = readStoredObject(DEVICE_PROFILE_STORAGE_KEY);
+        if (deviceProfile) {
+          renderDeviceProfile(deviceProfile);
+          renderRecipes();
+        }
+        else collectDeviceProfile({ deep: false }).then(profile => {
+          deviceProfile = profile;
+          renderDeviceProfile(profile);
+          renderRecipes();
+        }).catch(() => { /* perfil opcional */ });
 
         // Atualizar timestamp e HUB de Status
         if (json.updatedAt) {
@@ -7382,10 +8339,11 @@
       if (event.key === 'Escape') {
         closeCommandPalette();
         closeCompareModal();
+        closeDiagnostics();
       }
     });
 
-    ['commandPalette', 'compareModal'].forEach(id => {
+    ['commandPalette', 'compareModal', 'diagnosticsModal'].forEach(id => {
       document.getElementById(id)?.addEventListener('click', event => {
         if (event.target.id === id) event.currentTarget.classList.remove('is-open');
       });
@@ -7415,8 +8373,10 @@
 
     const requestedTab = new URLSearchParams(window.location.search).get('tab');
     loadData().then(() => {
-      const validTabs = ['ranking', 'charts', 'drivers-all', 'drivers', 'news', 'collection'];
+      const validTabs = ['ranking', 'device', 'compatibility', 'recipes', 'charts', 'drivers-all', 'drivers', 'news', 'collection'];
       if (validTabs.includes(requestedTab)) switchTab(requestedTab);
+      const requestedProject = new URLSearchParams(window.location.search).get('project');
+      if (requestedProject) openProjectByKey(encodeURIComponent(requestedProject), { updateUrl: false });
     });
     window.setTimeout(trackVisitorLocation, 1200);
   </script>
