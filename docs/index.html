@@ -427,6 +427,26 @@
       text-shadow: 0 0 10px rgba(0, 247, 255, 0.35);
     }
 
+    #visitorMap {
+      position: relative;
+    }
+
+    .map-empty-state {
+      position: absolute;
+      left: 50%;
+      bottom: 18px;
+      transform: translateX(-50%);
+      padding: 8px 14px;
+      border: 1px solid rgba(0, 247, 255, 0.28);
+      border-radius: 999px;
+      background: rgba(10, 10, 15, 0.82);
+      color: #8e9bb8;
+      font-size: 0.72em;
+      letter-spacing: 0.8px;
+      text-transform: uppercase;
+      white-space: nowrap;
+    }
+
     .hud-card {
       background: rgba(18, 18, 28, 0.7);
       backdrop-filter: blur(10px);
@@ -4947,19 +4967,19 @@
           `;
           document.getElementById('lastUpdate').innerHTML = statusHtml;
 
-          // --- Contadores Reais (via proxy CORS codetabs) ---
-          const CORS_PROXY = 'https://api.codetabs.com/v1/proxy?quest=';
+          // --- Contadores persistentes (CounterAPI.com) ---
+          // O antigo api.counterapi.dev/v1 foi descontinuado e passou a responder 410.
+          // CounterAPI.com oferece CORS direto e mantém os contadores fora do GitHub Pages.
 
-          // 'Online Agora': janela de 5 minutos via CounterAPI
+          // 'Online Agora': uma chave por janela de 5 minutos.
           const d = new Date();
-          const winKey = `${d.getFullYear()}${(d.getMonth() + 1)}${d.getDate()}-${d.getHours()}${(Math.floor(d.getMinutes() / 5) * 5)}`;
-          fetch(CORS_PROXY + encodeURIComponent(`https://api.counterapi.dev/v1/ranking-emul-hub-v2/online-${winKey}/up`))
-            .then(res => res.json())
-            .then(data => {
+          const winKey = `${d.getFullYear()}${String(d.getMonth() + 1).padStart(2, '0')}${String(d.getDate()).padStart(2, '0')}-${String(d.getHours()).padStart(2, '0')}${String(Math.floor(d.getMinutes() / 5) * 5).padStart(2, '0')}`;
+          counterRequest('online', `window-${winKey}`, { increment: true, unique: true })
+            .then(count => {
               const el = document.getElementById('onlineNow');
-              const count = data.count || data.value || 1;
               if (el) {
-                el.innerText = `${count} ${count === 1 ? t('user') : t('users')}`;
+                const online = Math.max(1, Number(count) || 1);
+                el.innerText = `${online} ${online === 1 ? t('user') : t('users')}`;
               }
             })
             .catch((e) => {
@@ -4968,20 +4988,16 @@
               if (el) el.innerText = `1 ${t('user')}`;
             });
 
-          // 'Total de Visitas': Via CounterAPI (mesmo namespace do Online Now)
-          fetch(CORS_PROXY + encodeURIComponent('https://api.counterapi.dev/v1/ranking-emul-hub-v2/total-hits/up'))
-            .then(res => res.json())
-            .then(data => {
+          // 'Total de Visitas': contador acumulado persistente.
+          counterRequest('view', 'total-hits', { increment: true })
+            .then(count => {
               const el = document.getElementById('totalVisits');
-              if (el && data && (data.count || data.value)) {
-                const count = parseInt(data.count || data.value) || 0;
-                el.innerText = count.toLocaleString(currentLang);
-              } else if (el) { el.innerText = '0'; }
+              if (el) el.innerText = (Number(count) || 0).toLocaleString(currentLang);
             })
             .catch((e) => {
               console.error('Erro ao carregar Total Visits:', e);
               const el = document.getElementById('totalVisits');
-              if (el) el.innerText = '---';
+              if (el) el.innerText = '—';
             });
 
           // Destaque na aba de Novidades
@@ -5018,41 +5034,64 @@
       }
     }
 
-    // --- Lógica do Mapa de Visitantes (Cyberpunk/Neon) ---
+    // --- Contadores persistentes e mapa de visitantes ---
+    const COUNTER_API_BASE = 'https://counterapi.com/api';
+    const COUNTER_NAMESPACE = 'hub-emulators-ranking-v2';
+
+    async function counterRequest(action, key, { increment = false, unique = false } = {}) {
+      const params = new URLSearchParams({
+        timeline: 'total',
+        _cb: Date.now().toString()
+      });
+
+      if (!increment) params.set('readOnly', 'true');
+      if (unique) params.set('unique', 'true');
+
+      const url = `${COUNTER_API_BASE}/${encodeURIComponent(COUNTER_NAMESPACE)}/${encodeURIComponent(action)}/${encodeURIComponent(key)}?${params}`;
+      const response = await fetch(url, { cache: 'no-store' });
+      if (!response.ok) throw new Error(`CounterAPI HTTP ${response.status}`);
+
+      const data = await response.json();
+      const value = Number(data.value ?? data.count);
+      if (!Number.isFinite(value)) throw new Error('Resposta inválida do CounterAPI');
+      return value;
+    }
+
     let mapInstance = null;
-    const VISITOR_NAMESPACE = 'ranking-v-map-v2';
+    const VISITOR_ACTION = 'country';
 
     async function trackVisitorLocation() {
       try {
-        // Tentar ipapi.co primeiro (geralmente mais preciso e permite CORS direto)
-        const geoRes = await fetch('https://ipapi.co/json/');
+        // ipwho.is é usado primeiro porque permite CORS e está respondendo normalmente.
+        const geoRes = await fetch('https://ipwho.is/', { cache: 'no-store' });
+        if (!geoRes.ok) throw new Error(`Geo HTTP ${geoRes.status}`);
         const geoData = await geoRes.json();
-        const countryCode = geoData.country_code;
+        const countryCode = (geoData.country_code || '').toUpperCase();
 
         console.log('🌍 Detecção de Localização:', geoData.country_name || countryCode);
 
         if (countryCode) {
-          const CORS_PROXY = 'https://api.codetabs.com/v1/proxy?quest=';
-          const upUrl = `https://api.counterapi.dev/v1/${VISITOR_NAMESPACE}/${countryCode}/up`;
-          await fetch(CORS_PROXY + encodeURIComponent(upUrl));
+          await counterRequest(VISITOR_ACTION, countryCode, { increment: true });
+          if (currentTab === 'charts') renderVisitorMap();
         }
       } catch (e) {
-        console.warn('Fallback: Erro no ipapi, tentando freeipapi...');
+        console.warn('Fallback: Erro no ipwho.is, tentando freeipapi...', e);
         try {
-          const CORS_PROXY = 'https://api.codetabs.com/v1/proxy?quest=';
-          const geoRes = await fetch(CORS_PROXY + encodeURIComponent('https://freeipapi.com/api/json'));
+          const geoRes = await fetch('https://freeipapi.com/api/json', { cache: 'no-store' });
+          if (!geoRes.ok) throw new Error(`Geo fallback HTTP ${geoRes.status}`);
           const geoData = await geoRes.json();
-          const countryCode = geoData.countryCode;
+          const countryCode = (geoData.countryCode || '').toUpperCase();
           if (countryCode) {
-            const upUrl = `https://api.counterapi.dev/v1/${VISITOR_NAMESPACE}/${countryCode}/up`;
-            await fetch(CORS_PROXY + encodeURIComponent(upUrl));
+            await counterRequest(VISITOR_ACTION, countryCode, { increment: true });
+            if (currentTab === 'charts') renderVisitorMap();
           }
-        } catch (err) { }
+        } catch (err) {
+          console.error('Não foi possível salvar o país do visitante:', err);
+        }
       }
     }
 
     async function renderVisitorMap() {
-      const CORS_PROXY = 'https://api.codetabs.com/v1/proxy?quest=';
       const container = document.getElementById('visitorMap');
       if (!container) return;
       container.innerHTML = '<div class="loading" style="height:100%; display:flex; align-items:center; justify-content:center; color:#00fff9; font-family:Orbitron; letter-spacing:2px; font-size:14px; text-shadow: 0 0 10px #00fff9;">SYNCING DATA...</div>';
@@ -5060,21 +5099,22 @@
       const commonCountries = ['BR', 'US', 'ES', 'FR', 'DE', 'IT', 'PT', 'GB', 'AR', 'MX', 'CL', 'CO', 'PE', 'RU', 'CN', 'JP', 'KR', 'IN'];
       const stats = {};
       const countryColorIndices = {};
+      let failedReads = 0;
       const neonPalette = ['#00fff9', '#ff0080', '#ffea00', '#00ff66', '#7000ff', '#ff8a00', '#009dff', '#ff0055', '#9dff00'];
 
       try {
         // Buscar todos os dados em paralelo ANTES de renderizar
         await Promise.all(commonCountries.map(async (code) => {
           try {
-            const res = await fetch(CORS_PROXY + encodeURIComponent(`https://api.counterapi.dev/v1/${VISITOR_NAMESPACE}/${code}`));
-            const data = await res.json();
-            const count = (data && data.count) ? parseInt(data.count) : 0;
+            const count = await counterRequest(VISITOR_ACTION, code);
             if (count > 0) {
               stats[code] = count;
               // Atribuir índice aleatório da paleta neon (jsVectorMap precisa de números para usar com scale)
               countryColorIndices[code] = Math.floor(Math.random() * neonPalette.length);
             }
-          } catch (err) { }
+          } catch (err) {
+            failedReads++;
+          }
         }));
 
         container.innerHTML = '';
@@ -5100,6 +5140,13 @@
             tooltip.text(`<b>${tooltip.text()}</b><br/><span style="color:${color}">${t('visits')}: ${count.toLocaleString(currentLang)}</span>`, true);
           }
         });
+
+        if (Object.keys(stats).length === 0) {
+          const message = failedReads === commonCountries.length
+            ? 'SERVIÇO DE VISITANTES INDISPONÍVEL'
+            : 'AGUARDANDO OS PRIMEIROS VISITANTES';
+          container.insertAdjacentHTML('beforeend', `<div class="map-empty-state">${message}</div>`);
+        }
       } catch (err) {
         container.innerHTML = `<div style="color:red; text-align:center; padding:20px;">${t('errorMap')}</div>`;
         console.error('Erro ao renderizar mapa:', err);
