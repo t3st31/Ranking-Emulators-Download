@@ -23,9 +23,6 @@ jobs:
         with:
           node-version: 20
 
-      - name: Install dependencies (if any)
-        run: npm ci || true
-
       - name: Prepare folders
         run: |
           mkdir -p data
@@ -36,10 +33,22 @@ jobs:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
         run: node scripts/fetch_downloads.js
 
+      - name: Validate generated data
+        run: |
+          node --check scripts/fetch_downloads.js
+          node --check scripts/generate_readme.js
+          node -e "const fs=require('fs'); const p=JSON.parse(fs.readFileSync('data/rankings.json','utf8')); if (!Array.isArray(p.results) || !p.results.length) throw new Error('Ranking vazio'); if (!fs.existsSync('data/history.json')) throw new Error('Historico ausente');"
+
+      - name: Generate README
+        run: node scripts/generate_readme.js
+
       - name: Move rankings to docs
         run: |
           if [ -f data/rankings.json ]; then
             mv data/rankings.json docs/data/rankings.json
+          fi
+          if [ -f data/history.json ]; then
+            mv data/history.json docs/data/history.json
           fi
 
       - name: Commit and push
@@ -47,7 +56,7 @@ jobs:
           git config user.name "github-actions"
           git config user.email "actions@github.com"
 
-          git add docs/data/rankings.json
+          git add README.md docs/data/rankings.json docs/data/history.json
 
           git commit -m "Update rankings (auto)" || exit 0
 
