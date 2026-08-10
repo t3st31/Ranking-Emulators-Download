@@ -1,5 +1,23 @@
 import fs from "fs";
 
+const GITHUB_TOKEN = process.env.GITHUB_TOKEN || process.env.GH_TOKEN || "";
+const REQUEST_DELAY_MS = GITHUB_TOKEN ? 150 : 1100;
+
+function getPreviousOutput() {
+  const candidates = ["docs/data/rankings.json", "data/rankings.json"];
+
+  for (const file of candidates) {
+    try {
+      const parsed = JSON.parse(fs.readFileSync(file, "utf8"));
+      if (parsed && Array.isArray(parsed.results)) return parsed;
+    } catch {
+      // Primeiro ciclo ou arquivo ainda inexistente.
+    }
+  }
+
+  return { results: [] };
+}
+
 const repos = [
   // GAMEHUB
   { name: "GameHub Lite (Producdevity)", repo: "Producdevity/gamehub-lite", category: "GameHub", logo: "gamehub.png" },
@@ -99,16 +117,21 @@ async function getGitHubReleasesData(repo) {
   try {
     console.log(`  → Buscando releases de ${repo} (GitHub)...`);
 
-    const res = await fetch(`https://api.github.com/repos/${repo}/releases`, {
-      headers: {
-        'Accept': 'application/vnd.github.v3+json',
-        'User-Agent': 'Emulator-Battle-Arena'
-      }
+    const headers = {
+      'Accept': 'application/vnd.github+json',
+      'X-GitHub-Api-Version': '2022-11-28',
+      'User-Agent': 'Emulator-Battle-Arena'
+    };
+
+    if (GITHUB_TOKEN) headers.Authorization = `Bearer ${GITHUB_TOKEN}`;
+
+    const res = await fetch(`https://api.github.com/repos/${repo}/releases?per_page=100`, {
+      headers
     });
 
     if (!res.ok) {
       console.log(`  ⚠️  Status ${res.status} para ${repo}`);
-      return { total: 0, releases: [] };
+      return { total: 0, releases: [], failed: true, status: res.status };
     }
 
     const releases = await res.json();
@@ -122,7 +145,7 @@ async function getGitHubReleasesData(repo) {
 
   } catch (error) {
     console.error(`  ❌ Erro ao buscar ${repo}:`, error.message);
-    return { total: 0, releases: [] };
+    return { total: 0, releases: [], failed: true, status: "network" };
   }
 }
 
@@ -140,7 +163,7 @@ async function getGiteaReleasesData(host, repo) {
 
     if (!res.ok) {
       console.log(`  ⚠️  Status ${res.status} para ${repo} (Gitea)`);
-      return { total: 0, releases: [] };
+      return { total: 0, releases: [], failed: true, status: res.status };
     }
 
     const releases = await res.json();
@@ -155,7 +178,7 @@ async function getGiteaReleasesData(host, repo) {
 
   } catch (error) {
     console.error(`  ❌ Erro ao buscar ${repo} (Gitea):`, error.message);
-    return { total: 0, releases: [] };
+    return { total: 0, releases: [], failed: true, status: "network" };
   }
 }
 
@@ -232,6 +255,8 @@ function parseReleases(releases, isGitea = false) {
   console.log("\n🎮 EMULATOR BATTLE ARENA - Buscando dados...\n");
 
   const results = [];
+  const previousOutput = getPreviousOutput();
+  const previousByRepo = new Map(previousOutput.results.map(item => [item.repo, item]));
   let successCount = 0;
   let errorCount = 0;
 
@@ -249,25 +274,32 @@ function parseReleases(releases, isGitea = false) {
       ? `${r.apiHost}/${r.repo}`
       : `https://github.com/${r.repo}`;
 
+    // Se a API bloquear a execução (rate limit, 403/429 ou falha de rede),
+    // mantém o último resultado válido para não publicar um ranking zerado.
+    const previous = previousByRepo.get(r.repo);
+    const mergedData = data.failed && previous
+      ? { total: previous.downloads || 0, releases: previous.releases || [] }
+      : data;
+
     results.push({
       name: r.name,
       repo: r.repo,
       category: r.category,
       logo: r.logo || null,
       extensions: r.extensions || null,
-      downloads: data.total,
-      releases: data.releases,
+      downloads: mergedData.total,
+      releases: mergedData.releases,
       repoUrl: repoUrl
     });
 
-    if (data.total > 0) {
+    if (mergedData.total > 0) {
       successCount++;
     } else {
       errorCount++;
     }
 
-    // Delay para evitar rate limit (máximo 60 req/hora sem auth)
-    await new Promise(resolve => setTimeout(resolve, 1100));
+    // Sem token, respeita o limite público. No Actions usamos GITHUB_TOKEN.
+    await new Promise(resolve => setTimeout(resolve, REQUEST_DELAY_MS));
   }
 
   // Buscar drivers do manifest
@@ -275,6 +307,16 @@ function parseReleases(releases, isGitea = false) {
 
   // Ordenar por downloads (decrescente)
   results.sort((a, b) => b.downloads - a.downloads);
+
+  const previousHasData = previousOutput.results.some(item =>
+    (item.downloads || 0) > 0 || (item.releases && item.releases.length > 0)
+  );
+
+  if (successCount === 0) {
+    throw new Error(previousHasData
+      ? "Nenhum projeto retornou dados e o último ranking válido foi preservado."
+      : "Nenhum projeto retornou dados; publicação cancelada para evitar um ranking vazio.");
+  }
 
   // Criar diretório data se não existir
   fs.mkdirSync("data", { recursive: true });
