@@ -1,0 +1,55 @@
+{
+  "schemaVersion": 1,
+  "updatedAt": "2026-08-10T00:00:00.000Z",
+  "recipes": [
+    {
+      "id": "winlator-adreno-starter",
+      "title": "Winlator + Adreno · perfil inicial",
+      "projectQuery": "Winlator",
+      "hardware": "Adreno",
+      "confidence": "inferred",
+      "summary": "Ponto de partida para aparelhos Qualcomm. Ajuste por jogo e confirme os relatos da comunidade.",
+      "settings": [
+        { "label": "Driver gráfico", "value": "Turnip / AdrenoTools quando compatível" },
+        { "label": "Renderer", "value": "Vulkan" },
+        { "label": "Wrapper", "value": "Começar com DXVK; testar VKD3D apenas para DirectX 12" },
+        { "label": "Resolução", "value": "1280×720 ou nativa reduzida" },
+        { "label": "Box64", "value": "Preset padrão do projeto antes de ajustar manualmente" },
+        { "label": "Áudio", "value": "ALSA como primeira tentativa" }
+      ],
+      "checks": [
+        "Confirmar se o driver corresponde à GPU e à versão do Android.",
+        "Testar primeiro sem modificar várias opções ao mesmo tempo.",
+        "Registrar versão, driver, wrapper e resultado ao relatar compatibilidade."
+      ],
+      "sources": [
+        "https://github.com/brunodev85/winlator/releases",
+        "https://github.com/K11MCH1/AdrenoToolsDrivers"
+      ]
+    },
+    {
+      "id": "winlator-mali-starter",
+      "title": "Winlator + Mali · perfil inicial",
+      "projectQuery": "Winlator",
+      "hardware": "Mali",
+      "confidence": "inferred",
+      "summary": "Ponto de partida experimental para Mali. O resultado varia muito por geração, driver e jogo.",
+      "settings": [
+        { "label": "Driver gráfico", "value": "Vortek ou driver do sistema, conforme suporte" },
+        { "label": "Renderer", "value": "Vulkan quando disponível; testar OpenGL como fallback" },
+        { "label": "Wrapper", "value": "Começar com DXVK e reduzir a complexidade se houver artefatos" },
+        { "label": "Resolução", "value": "1280×720 para o primeiro teste" },
+        { "label": "Box64", "value": "Preset padrão do projeto" },
+        { "label": "Áudio", "value": "ALSA como primeira tentativa" }
+      ],
+      "checks": [
+        "Confirmar o renderer realmente usado pelo container.",
+        "Testar um jogo conhecido antes de concluir que o emulador é incompatível.",
+        "Registrar artefatos gráficos, travamentos e temperatura observada."
+      ],
+      "sources": [
+        "https://github.com/brunodev85/winlator/releases"
+      ]
+    }
+  ]
+}

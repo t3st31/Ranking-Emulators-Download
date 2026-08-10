@@ -1,0 +1,12 @@
+{
+  "schemaVersion": 1,
+  "updatedAt": null,
+  "confidenceLevels": [
+    { "id": "confirmed", "label": "Confirmado", "description": "Resultado repetido ou validado por evidência direta." },
+    { "id": "community", "label": "Testado pela comunidade", "description": "Relato público com versão e configuração identificadas." },
+    { "id": "inferred", "label": "Inferido por hardware", "description": "Recomendação baseada em capacidades do dispositivo, sem teste do jogo." },
+    { "id": "stale", "label": "Desatualizado", "description": "O teste existe, mas a versão ou o ambiente mudou." },
+    { "id": "unknown", "label": "Desconhecido", "description": "Ainda não há evidência suficiente." }
+  ],
+  "reports": []
+}
