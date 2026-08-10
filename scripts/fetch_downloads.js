@@ -2,6 +2,36 @@ import fs from "fs";
 
 const GITHUB_TOKEN = process.env.GITHUB_TOKEN || process.env.GH_TOKEN || "";
 const REQUEST_DELAY_MS = GITHUB_TOKEN ? 150 : 1100;
+const MAX_RELEASE_PAGES = 10;
+const RETRYABLE_STATUS = new Set([408, 425, 429, 500, 502, 503, 504]);
+
+function wait(ms) {
+  return new Promise(resolve => setTimeout(resolve, ms));
+}
+
+async function fetchWithRetry(url, options = {}, attempts = 3) {
+  let lastResponse = null;
+
+  for (let attempt = 0; attempt < attempts; attempt++) {
+    try {
+      const response = await fetch(url, options);
+      lastResponse = response;
+
+      if (response.ok || !RETRYABLE_STATUS.has(response.status)) return response;
+
+      const retryAfter = Number(response.headers.get("retry-after"));
+      const backoff = retryAfter > 0 ? retryAfter * 1000 : 500 * (attempt + 1);
+      console.log(`  ↻ Tentativa ${attempt + 1}/${attempts} após HTTP ${response.status}...`);
+      await wait(backoff);
+    } catch (error) {
+      if (attempt === attempts - 1) throw error;
+      console.log(`  ↻ Tentativa ${attempt + 1}/${attempts} após falha de rede...`);
+      await wait(500 * (attempt + 1));
+    }
+  }
+
+  return lastResponse;
+}
 
 function getPreviousOutput() {
   const candidates = ["docs/data/rankings.json", "data/rankings.json"];
@@ -16,6 +46,21 @@ function getPreviousOutput() {
   }
 
   return { results: [] };
+}
+
+function getPreviousHistory() {
+  const candidates = ["docs/data/history.json", "data/history.json"];
+
+  for (const file of candidates) {
+    try {
+      const parsed = JSON.parse(fs.readFileSync(file, "utf8"));
+      if (parsed && Array.isArray(parsed.entries)) return parsed;
+    } catch {
+      // Primeiro ciclo ou arquivo ainda inexistente.
+    }
+  }
+
+  return { entries: [] };
 }
 
 const repos = [
@@ -125,16 +170,27 @@ async function getGitHubReleasesData(repo) {
 
     if (GITHUB_TOKEN) headers.Authorization = `Bearer ${GITHUB_TOKEN}`;
 
-    const res = await fetch(`https://api.github.com/repos/${repo}/releases?per_page=100`, {
-      headers
-    });
+    const releases = [];
 
-    if (!res.ok) {
-      console.log(`  ⚠️  Status ${res.status} para ${repo}`);
-      return { total: 0, releases: [], failed: true, status: res.status };
+    for (let page = 1; page <= MAX_RELEASE_PAGES; page++) {
+      const res = await fetchWithRetry(
+        `https://api.github.com/repos/${repo}/releases?per_page=100&page=${page}`,
+        { headers }
+      );
+
+      if (!res.ok) {
+        console.log(`  ⚠️  Status ${res.status} para ${repo}`);
+        return { total: 0, releases: [], failed: true, status: res.status };
+      }
+
+      const pageReleases = await res.json();
+      if (!Array.isArray(pageReleases)) {
+        return { total: 0, releases: [], failed: true, status: "invalid-response" };
+      }
+
+      releases.push(...pageReleases);
+      if (pageReleases.length < 100) break;
     }
-
-    const releases = await res.json();
 
     if (!Array.isArray(releases) || releases.length === 0) {
       console.log(`  ℹ️  Nenhuma release encontrada para ${repo}`);
@@ -154,7 +210,7 @@ async function getGiteaReleasesData(host, repo) {
   try {
     console.log(`  → Buscando releases de ${repo} (Gitea: ${host})...`);
 
-    const res = await fetch(`${host}/api/v1/repos/${repo}/releases`, {
+    const res = await fetchWithRetry(`${host}/api/v1/repos/${repo}/releases`, {
       headers: {
         'Accept': 'application/json',
         'User-Agent': 'Emulator-Battle-Arena'
@@ -186,7 +242,7 @@ async function getGiteaReleasesData(host, repo) {
 async function fetchManifestDrivers() {
   try {
     console.log(`\n📂 Buscando manifest de drivers (Winlator-Contents)...`);
-    const res = await fetch("https://raw.githubusercontent.com/StevenMXZ/Winlator-Contents/main/contents.json");
+    const res = await fetchWithRetry("https://raw.githubusercontent.com/StevenMXZ/Winlator-Contents/main/contents.json");
     if (!res.ok) throw new Error(`Status ${res.status}`);
     const data = await res.json();
 
@@ -256,7 +312,9 @@ function parseReleases(releases, isGitea = false) {
 
   const results = [];
   const previousOutput = getPreviousOutput();
+  const previousHistory = getPreviousHistory();
   const previousByRepo = new Map(previousOutput.results.map(item => [item.repo, item]));
+  const failedRepos = [];
   let successCount = 0;
   let errorCount = 0;
 
@@ -268,6 +326,10 @@ function parseReleases(releases, isGitea = false) {
       data = await getGiteaReleasesData(r.apiHost, r.repo);
     } else {
       data = await getGitHubReleasesData(r.repo);
+    }
+
+    if (data.failed) {
+      failedRepos.push({ repo: r.repo, status: data.status });
     }
 
     const repoUrl = r.apiType === "gitea"
@@ -303,7 +365,10 @@ function parseReleases(releases, isGitea = false) {
   }
 
   // Buscar drivers do manifest
-  const manifestDrivers = await fetchManifestDrivers();
+  const fetchedManifestDrivers = await fetchManifestDrivers();
+  const manifestDrivers = Object.keys(fetchedManifestDrivers).length > 0
+    ? fetchedManifestDrivers
+    : (previousOutput.manifestDrivers || {});
 
   // Ordenar por downloads (decrescente)
   results.sort((a, b) => b.downloads - a.downloads);
@@ -321,17 +386,41 @@ function parseReleases(releases, isGitea = false) {
   // Criar diretório data se não existir
   fs.mkdirSync("data", { recursive: true });
 
+  const totalDownloads = results.reduce((sum, item) => sum + (Number(item.downloads) || 0), 0);
+  const totalReleases = results.reduce((sum, item) => sum + (item.releases?.length || 0), 0);
+  const totalAssets = results.reduce((sum, item) => sum + (item.releases || [])
+    .reduce((releaseSum, release) => releaseSum + (release.assets?.length || 0), 0), 0);
+  const today = new Date().toISOString().slice(0, 10);
+  const historyEntries = (previousHistory.entries || [])
+    .filter(entry => entry.date !== today)
+    .concat({
+      date: today,
+      totalDownloads,
+      totalProjects: results.length,
+      totalReleases,
+      totalAssets
+    })
+    .sort((a, b) => a.date.localeCompare(b.date))
+    .slice(-365);
+
   // Salvar JSON
   const output = {
     updatedAt: new Date().toISOString(),
     totalProjects: results.length,
-    projectsWithReleases: successCount,
-    projectsWithoutReleases: errorCount,
+    projectsWithReleases: results.filter(item => item.releases?.length > 0).length,
+    projectsWithoutReleases: results.filter(item => !item.releases?.length).length,
+    projectsWithDownloads: successCount,
+    failedRepos,
+    dataQuality: { totalDownloads, totalReleases, totalAssets },
     results: results,
     manifestDrivers: manifestDrivers // Novos drivers categorizados do manifest
   };
 
   fs.writeFileSync("data/rankings.json", JSON.stringify(output, null, 2));
+  fs.writeFileSync("data/history.json", JSON.stringify({
+    updatedAt: new Date().toISOString(),
+    entries: historyEntries
+  }, null, 2));
 
   console.log("\n" + "=".repeat(60));
   console.log("✅ Rankings atualizados com sucesso!");
@@ -340,6 +429,7 @@ function parseReleases(releases, isGitea = false) {
   console.log(`✅ Com releases: ${successCount}`);
   console.log(`⚠️  Sem releases: ${errorCount}`);
   console.log(`💾 Arquivo salvo em: data/rankings.json`);
+  console.log(`📈 Histórico salvo em: data/history.json (${historyEntries.length} pontos)`);
   console.log("=".repeat(60) + "\n");
 
   // Mostrar top 5
