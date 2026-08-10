@@ -1,4 +1,4 @@
-const CACHE_NAME = 'hub-emuladores-nexus-v2';
+const CACHE_NAME = 'hub-emuladores-nexus-v2.1';
 const APP_SHELL = ['./', './index.html', './favicon.png', './manifest.webmanifest'];
 
 self.addEventListener('install', event => {
