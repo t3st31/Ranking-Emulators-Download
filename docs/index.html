@@ -4518,11 +4518,41 @@
     .recipe-sources { display: flex; flex-wrap: wrap; gap: 7px; }
     .recipe-source { color: #00d4ff; font-size: 0.68rem; }
 
-    .release-compare-toolbar { display: flex; align-items: center; flex-wrap: wrap; gap: 9px; margin: 14px 0 4px; padding: 12px; border: 1px solid rgba(255, 107, 255, 0.18); border-radius: 11px; background: rgba(255, 107, 255, 0.05); }
-    .release-compare-toolbar label { color: #d4b7dc; font-size: 0.72rem; font-weight: 700; }
-    .release-compare-toolbar select { min-width: 150px; padding: 7px 9px; border: 1px solid rgba(0, 247, 255, 0.26); border-radius: 7px; background: #0b1830; color: #edffff; }
+    .release-compare-toolbar { display: grid; grid-template-columns: minmax(190px, 0.8fr) minmax(0, 1.7fr); align-items: center; gap: 16px; margin: 14px 0 4px; padding: 15px; border: 1px solid rgba(255, 107, 255, 0.24); border-radius: 13px; background: linear-gradient(135deg, rgba(255, 43, 214, 0.08), rgba(0, 247, 255, 0.045)); }
+    .release-compare-heading { display: grid; gap: 4px; min-width: 0; }
+    .release-compare-kicker { color: #ff72df; font: 700 0.62rem 'Orbitron', sans-serif; letter-spacing: 1.2px; text-transform: uppercase; }
+    .release-compare-heading strong { color: #f5ffff; font-size: 0.98rem; }
+    .release-compare-heading small { color: #9db0c2; font-size: 0.7rem; line-height: 1.4; }
+    .release-compare-selectors { display: grid; grid-template-columns: minmax(0, 1fr) auto minmax(0, 1fr); align-items: end; gap: 9px; min-width: 0; }
+    .release-compare-selectors label { display: grid; gap: 5px; min-width: 0; color: #cdb8d6; font-size: 0.68rem; font-weight: 800; }
+    .release-compare-selectors select { width: 100%; min-width: 0; padding: 9px 10px; border: 1px solid rgba(0, 247, 255, 0.3); border-radius: 8px; background: #0b1830; color: #edffff; text-overflow: ellipsis; }
+    .release-compare-arrow { padding-bottom: 9px; color: #ff72df; font: 800 1rem 'Rajdhani', sans-serif; }
     .release-diff-output { display: grid; gap: 10px; min-width: 0; overflow: hidden; margin: 12px 0 16px; padding: 14px; border: 1px solid rgba(255, 204, 0, 0.2); border-radius: 12px; background: rgba(255, 204, 0, 0.045); }
     .release-diff-title { color: #ffcc00; font: 700 0.75rem 'Rajdhani', sans-serif; text-transform: uppercase; letter-spacing: 0.8px; }
+    .release-diff-summary { display: grid; grid-template-columns: minmax(0, 1fr) auto minmax(0, 1fr) repeat(2, minmax(86px, 0.5fr)); align-items: center; gap: 9px; }
+    .release-diff-version, .release-diff-stat { min-width: 0; padding: 10px; border: 1px solid rgba(255, 255, 255, 0.08); border-radius: 9px; background: rgba(255, 255, 255, 0.04); }
+    .release-diff-version.is-current { border-color: rgba(0, 247, 255, 0.3); background: rgba(0, 247, 255, 0.07); }
+    .release-diff-version small, .release-diff-stat span { display: block; color: #8298ad; font-size: 0.62rem; text-transform: uppercase; letter-spacing: 0.7px; }
+    .release-diff-version strong { display: block; overflow: hidden; margin-top: 4px; color: #eaffff; font-size: 0.82rem; text-overflow: ellipsis; white-space: nowrap; }
+    .release-diff-version time { display: block; margin-top: 3px; color: #90a8ba; font-size: 0.65rem; }
+    .release-diff-arrow { color: #ffcc00; font: 800 1.25rem 'Rajdhani', sans-serif; }
+    .release-diff-stat strong { display: block; margin-top: 4px; color: #ffcc00; font: 800 1rem 'Rajdhani', sans-serif; }
+    .release-diff-note { padding: 9px 11px; border-left: 3px solid rgba(255, 204, 0, 0.65); color: #aebecd; font-size: 0.7rem; line-height: 1.45; }
+    .release-change-section { display: grid; gap: 9px; }
+    .release-change-section + .release-change-section { margin-top: 4px; }
+    .release-change-section-header { display: flex; align-items: center; justify-content: space-between; gap: 10px; color: #eaffff; font-size: 0.78rem; font-weight: 800; }
+    .release-change-section-header span:last-child { color: #8fa7b9; font-size: 0.66rem; font-weight: 700; }
+    .release-change-groups { display: grid; grid-template-columns: repeat(auto-fit, minmax(220px, 1fr)); gap: 8px; }
+    .release-change-group { min-width: 0; padding: 10px; border: 1px solid rgba(0, 247, 255, 0.12); border-radius: 9px; background: rgba(0, 247, 255, 0.035); }
+    .release-change-group-heading { display: flex; align-items: center; gap: 6px; margin-bottom: 6px; color: #aeeeff; font-size: 0.69rem; font-weight: 800; }
+    .release-change-group-heading span:last-child { margin-left: auto; color: #718ca1; font-size: 0.62rem; }
+    .release-change-group ul { display: grid; gap: 5px; margin: 0; padding-left: 16px; color: #c3d2df; font-size: 0.7rem; line-height: 1.4; }
+    .release-change-group li { overflow-wrap: anywhere; word-break: break-word; }
+    .release-diff-empty { padding: 15px; border: 1px dashed rgba(0, 247, 255, 0.2); border-radius: 9px; color: #91a7b8; font-size: 0.72rem; line-height: 1.5; }
+    .release-diff-empty strong { display: block; margin-bottom: 3px; color: #eaffff; }
+    .release-legacy { border-top: 1px solid rgba(255, 255, 255, 0.08); padding-top: 9px; }
+    .release-legacy summary { cursor: pointer; color: #aebecd; font-size: 0.7rem; font-weight: 800; }
+    .release-legacy[open] summary { margin-bottom: 9px; color: #ffb9ed; }
     .release-diff-grid { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 10px; min-width: 0; }
     .release-diff-column { min-width: 0; overflow: hidden; padding: 10px; border-radius: 8px; background: rgba(255, 255, 255, 0.04); }
     .release-diff-column h4 { margin-bottom: 6px; color: #eaffff; font-size: 0.75rem; }
@@ -4536,6 +4566,9 @@
 
     @media (max-width: 620px) {
       .device-profile-header { align-items: flex-start; flex-direction: column; }
+      .release-compare-toolbar { grid-template-columns: 1fr; gap: 12px; }
+      .release-diff-summary { grid-template-columns: minmax(0, 1fr) minmax(0, 1fr); }
+      .release-diff-arrow { display: none; }
       .release-diff-grid { grid-template-columns: 1fr; }
       .release-compare-toolbar select { flex: 1 1 130px; }
     }
@@ -6960,30 +6993,102 @@
       return `<div class="changelog-chips">${classifyChangelog(body).map(label => `<span class="changelog-chip">${escapeHtml(label)}</span>`).join('')}</div>`;
     }
 
+    const CHANGELOG_CATEGORY_META = {
+      Performance: { icon: '⚡', label: 'Performance' },
+      Compatibilidade: { icon: '🧩', label: 'Compatibilidade' },
+      'GPU/driver': { icon: '🎨', label: 'GPU / driver' },
+      Interface: { icon: '🖥️', label: 'Interface' },
+      Controle: { icon: '🎮', label: 'Controle' },
+      'Correção crítica': { icon: '🚨', label: 'Correções críticas' },
+      Experimental: { icon: '🧪', label: 'Experimental' },
+      Geral: { icon: '✦', label: 'Geral' }
+    };
+
+    function decodeChangelogEntities(value) {
+      return String(value || '')
+        .replace(/&nbsp;|&#160;|&#xA0;/gi, ' ')
+        .replace(/&amp;/gi, '&')
+        .replace(/&quot;/gi, '"')
+        .replace(/&#39;|&apos;/gi, "'")
+        .replace(/&lt;/gi, '<')
+        .replace(/&gt;/gi, '>')
+        .replace(/&#(\d+);/g, (_, code) => String.fromCharCode(Number(code)));
+    }
+
     function cleanChangelogLine(line) {
-      return String(line || '')
-        .replace(/<img\b[^>]*>/gi, ' ')
-        .replace(/<a\b[^>]*>(.*?)<\/a>/gi, '$1')
-        .replace(/<\/?(?:p|br|div|span|strong|em|ul|ol|li|table|thead|tbody|tr|td|th)\b[^>]*>/gi, ' ')
+      return decodeChangelogEntities(line)
+        .replace(/<br\s*\/?>/gi, ' ')
+        .replace(/<\/?(?:p|div|span|strong|em|ul|ol|li|table|thead|tbody|tr|td|th|a|img)\b[^>]*>/gi, ' ')
+        .replace(/<[^>]+>/g, ' ')
         .replace(/!\[[^\]]*\]\([^)]*\)/g, ' ')
         .replace(/\[([^\]]+)\]\([^)]+\)/g, '$1')
+        .replace(/\b(?:alt|src|href|width|height|align|target|rel|class|style|id|loading|title)\s*=\s*(?:"[^"]*"|'[^']*'|[^\s>]+)/gi, ' ')
         .replace(/https?:\/\/\S+/gi, ' ')
-        .replace(/<[^>]+>/g, ' ')
+        .replace(/`{1,3}/g, '')
+        .replace(/^\s*(?:[-*+•◦▪·]|\d+[.)])\s*/, '')
         .replace(/\s+/g, ' ')
         .trim();
     }
 
     function changelogLines(body) {
-      return String(body || '').split(/\r?\n/)
-        .map(line => line.replace(/^\s*[-*+]\s+/, '').replace(/^#+\s+/, '').trim())
+      const source = decodeChangelogEntities(body)
+        .replace(/<br\s*\/?>/gi, '\n')
+        .replace(/<\/(?:p|li|div|tr)>/gi, '\n');
+      const seen = new Set();
+      return source.split(/\r?\n/)
+        .map(line => cleanChangelogLine(line.replace(/^\s*#+\s*/, '')))
         .filter(line => {
-          if (!line || line.startsWith('```')) return false;
-          if (/^(?:https?:\/\/|<[/!]?(?:img|a|p|div|table|br)\b)/i.test(line)) return false;
-          if (/shields\.io|buymeacoffee|user-attachments/i.test(line)) return false;
+          const lower = line.toLowerCase();
+          if (line.length < 3 || line.startsWith('```')) return false;
+          if (/^(?:alt|src|href|width|height|align|target|rel|class|style|id|loading|title)\s*=/i.test(line)) return false;
+          if (/^(?:https?:\/\/|www\.)/i.test(line)) return false;
+          if (/shields\.io|buymeacoffee|githubusercontent|user-attachments|imgur\.com|badge/i.test(lower)) return false;
+          if (/(?:escolha seu idioma|choose your language|clique na imagem|click on the image|buy me a coffee)/i.test(lower)) return false;
+          if (/^[\s"'`=<>/|()[\].:_-]+$/.test(line)) return false;
+          const key = lower.replace(/\s+/g, ' ');
+          if (seen.has(key)) return false;
+          seen.add(key);
           return true;
         })
-        .map(cleanChangelogLine)
-        .filter(line => line.length > 2);
+        .map(line => line.length > 260 ? `${line.slice(0, 257).trim()}…` : line)
+        .slice(0, 30);
+    }
+
+    function changelogCategory(line) {
+      const match = CHANGELOG_RULES.find(([, pattern]) => pattern.test(line));
+      return match ? match[0] : 'Geral';
+    }
+
+    function groupChangelogLines(lines) {
+      const groups = new Map();
+      lines.forEach(line => {
+        const category = changelogCategory(line);
+        if (!groups.has(category)) groups.set(category, []);
+        groups.get(category).push(line);
+      });
+      return [...groups.entries()];
+    }
+
+    function renderChangelogGroups(lines, emptyTitle, emptyText) {
+      if (!lines.length) return `<div class="release-diff-empty"><strong>${escapeHtml(emptyTitle)}</strong>${escapeHtml(emptyText)}</div>`;
+      return `<div class="release-change-groups">${groupChangelogLines(lines).map(([category, items]) => {
+        const meta = CHANGELOG_CATEGORY_META[category] || CHANGELOG_CATEGORY_META.Geral;
+        const visible = items.slice(0, 5);
+        const extra = items.length - visible.length;
+        return `<div class="release-change-group">
+          <div class="release-change-group-heading"><span>${meta.icon}</span><span>${escapeHtml(meta.label)}</span><span>${items.length}</span></div>
+          <ul>${visible.map(item => `<li>${escapeHtml(item)}</li>`).join('')}${extra > 0 ? `<li>+ ${extra} outra${extra === 1 ? '' : 's'} nesta categoria</li>` : ''}</ul>
+        </div>`;
+      }).join('')}</div>`;
+    }
+
+    function releaseDisplayName(release, index = 0) {
+      return String(release?.tag || release?.name || `Release ${index + 1}`);
+    }
+
+    function releaseOptionLabel(release, index) {
+      const date = release?.date ? ` · ${formatDate(release.date)}` : '';
+      return `${releaseDisplayName(release, index)}${date}`;
     }
 
     function renderReleaseComparison() {
@@ -6994,23 +7099,38 @@
       const toRelease = activeProject.releases?.[toIndex];
       const fromRelease = activeProject.releases?.[fromIndex];
       if (!toRelease || !fromRelease) {
-        output.innerHTML = '<div class="release-diff-title">Selecione duas versões para comparar.</div>';
+        output.innerHTML = '<div class="release-diff-empty"><strong>Selecione duas versões diferentes.</strong>Escolha uma versão anterior e uma versão atual para gerar o resumo.</div>';
+        return;
+      }
+      if (fromIndex === toIndex) {
+        output.innerHTML = '<div class="release-diff-empty"><strong>As versões são iguais.</strong>Escolha releases diferentes para que o HUB consiga identificar mudanças.</div>';
         return;
       }
 
-      const fromLines = changelogLines(fromRelease.body || fromRelease.description);
-      const toLines = changelogLines(toRelease.body || toRelease.description);
+      const fromBody = fromRelease.body || fromRelease.description || '';
+      const toBody = toRelease.body || toRelease.description || '';
+      const fromLines = changelogLines(fromBody);
+      const toLines = changelogLines(toBody);
       const fromSet = new Set(fromLines.map(line => line.toLowerCase()));
       const toSet = new Set(toLines.map(line => line.toLowerCase()));
       const added = toLines.filter(line => !fromSet.has(line.toLowerCase())).slice(0, 14);
       const removed = fromLines.filter(line => !toSet.has(line.toLowerCase())).slice(0, 14);
-      const list = (items, empty) => items.length ? `<ul>${items.map(item => `<li>${escapeHtml(item)}</li>`).join('')}</ul>` : `<ul><li>${empty}</li></ul>`;
+      const sourceHadMarkup = /<\/?(?:img|a|p|div|table|br)\b|&nbsp;|shields\.io/i.test(`${fromBody}\n${toBody}`);
       output.innerHTML = `
-        <div class="release-diff-title">${escapeHtml(fromRelease.tag || fromRelease.name || 'Versão anterior')} → ${escapeHtml(toRelease.tag || toRelease.name || 'Versão atual')}</div>
-        <div class="release-diff-grid">
-          <div class="release-diff-column"><h4>Entrou nesta versão</h4>${list(added, 'Nenhuma linha nova identificada.')}</div>
-          <div class="release-diff-column"><h4>Não aparece mais</h4>${list(removed, 'Nenhuma remoção identificada.')}</div>
-        </div>`;
+        <div class="release-diff-title">Resumo inteligente da evolução</div>
+        <div class="release-diff-summary">
+          <div class="release-diff-version"><small>Versão anterior</small><strong title="${escapeHtml(releaseDisplayName(fromRelease, fromIndex))}">${escapeHtml(releaseDisplayName(fromRelease, fromIndex))}</strong><time>${escapeHtml(formatDate(fromRelease.date))}</time></div>
+          <span class="release-diff-arrow">→</span>
+          <div class="release-diff-version is-current"><small>Versão atual</small><strong title="${escapeHtml(releaseDisplayName(toRelease, toIndex))}">${escapeHtml(releaseDisplayName(toRelease, toIndex))}</strong><time>${escapeHtml(formatDate(toRelease.date))}</time></div>
+          <div class="release-diff-stat"><span>Novidades</span><strong>${added.length}</strong></div>
+          <div class="release-diff-stat"><span>Texto anterior</span><strong>${removed.length}</strong></div>
+        </div>
+        <div class="release-diff-note">${sourceHadMarkup ? 'A fonte mistura changelog com README/HTML. O HUB removeu tags, badges, atributos e links antes de comparar.' : 'A comparação usa as notas publicadas pela fonte e agrupa as linhas por assunto.'} Itens em “texto anterior” não significam necessariamente que uma função foi removida.</div>
+        <div class="release-change-section">
+          <div class="release-change-section-header"><span>✨ Novidades identificadas</span><span>${added.length ? `${added.length} item${added.length === 1 ? '' : 's'}` : 'sem itens'}</span></div>
+          ${renderChangelogGroups(added, 'Nenhuma novidade legível encontrada.', 'A fonte não publicou um changelog estruturado para esta versão.')}
+        </div>
+        ${removed.length ? `<details class="release-legacy"><summary>Ver texto que só aparece na versão anterior (${removed.length})</summary>${renderChangelogGroups(removed, 'Sem texto anterior', 'Não foi encontrada uma nota exclusiva da versão anterior.')}</details>` : ''}`;
     }
 
     function hasNewReleases(project, daysThreshold = 7) {
@@ -7053,10 +7173,16 @@
       const latestRelease = projectData.releases?.[0];
       const releaseCompareToolbar = projectData.releases?.length > 1 ? `
         <div class="release-compare-toolbar">
-          <label for="releaseCompareFrom">Comparar</label>
-          <select id="releaseCompareFrom" onchange="renderReleaseComparison()">${projectData.releases.map((release, index) => `<option value="${index}" ${index === 1 ? 'selected' : ''}>${escapeHtml(release.tag || release.name || `Release ${index + 1}`)}</option>`).join('')}</select>
-          <span>com</span>
-          <select id="releaseCompareTo" onchange="renderReleaseComparison()">${projectData.releases.map((release, index) => `<option value="${index}" ${index === 0 ? 'selected' : ''}>${escapeHtml(release.tag || release.name || `Release ${index + 1}`)}</option>`).join('')}</select>
+          <div class="release-compare-heading">
+            <span class="release-compare-kicker">Comparador de versões</span>
+            <strong>Veja o que mudou</strong>
+            <small>Escolha uma versão anterior e uma atual. O HUB transforma as notas em um resumo por assunto.</small>
+          </div>
+          <div class="release-compare-selectors">
+            <label for="releaseCompareFrom"><span>Versão anterior</span><select id="releaseCompareFrom" onchange="renderReleaseComparison()">${projectData.releases.map((release, index) => `<option value="${index}" ${index === 1 ? 'selected' : ''}>${escapeHtml(releaseOptionLabel(release, index))}</option>`).join('')}</select></label>
+            <span class="release-compare-arrow" aria-hidden="true">→</span>
+            <label for="releaseCompareTo"><span>Versão atual</span><select id="releaseCompareTo" onchange="renderReleaseComparison()">${projectData.releases.map((release, index) => `<option value="${index}" ${index === 0 ? 'selected' : ''}>${escapeHtml(releaseOptionLabel(release, index))}</option>`).join('')}</select></label>
+          </div>
         </div>
         <div id="releaseCompareOutput" class="release-diff-output"></div>` : '';
       const projectIntel = `
