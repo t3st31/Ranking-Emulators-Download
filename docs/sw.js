@@ -1,5 +1,5 @@
-const CACHE_NAME = 'hub-emuladores-nexus-v2.1';
-const APP_SHELL = ['./', './index.html', './favicon.png', './manifest.webmanifest'];
+const CACHE_NAME = 'hub-emuladores-nexus-v2.4';
+const APP_SHELL = ['./', './index.html', './favicon.png', './manifest.webmanifest', './data/rankings.json', './data/history.json', './data/compatibility.json', './data/recipes.json', './data/driver-sources.json'];
 
 self.addEventListener('install', event => {
   event.waitUntil(caches.open(CACHE_NAME).then(cache => cache.addAll(APP_SHELL)));
@@ -20,12 +20,12 @@ self.addEventListener('fetch', event => {
   if (request.method !== 'GET') return;
 
   const url = new URL(request.url);
-  if (url.pathname.endsWith('/data/rankings.json') || url.pathname.endsWith('/data/history.json')) {
+  if (url.pathname.endsWith('/data/rankings.json') || url.pathname.endsWith('/data/history.json') || url.pathname.endsWith('/data/driver-sources.json')) {
     event.respondWith(fetch(request).then(response => {
       const copy = response.clone();
       caches.open(CACHE_NAME).then(cache => cache.put(request, copy));
       return response;
-    }).catch(() => caches.match(request)));
+    }).catch(() => caches.match(request).then(cached => cached || caches.match(url.pathname))));
     return;
   }
 
