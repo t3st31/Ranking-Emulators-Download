@@ -1,0 +1,77 @@
+{
+  "schemaVersion": 1,
+  "sources": [
+    {
+      "name": "K11MCH1 Turnip Drivers",
+      "repo": "K11MCH1/AdrenoToolsDrivers",
+      "apiUrl": "https://api.github.com/repos/K11MCH1/AdrenoToolsDrivers/releases",
+      "repoUrl": "https://github.com/K11MCH1/AdrenoToolsDrivers",
+      "family": "Adreno / Turnip",
+      "extensions": [".zip"]
+    },
+    {
+      "name": "The412Banner Turnip Drivers",
+      "repo": "The412Banner/Banners-Turnip",
+      "apiUrl": "https://api.github.com/repos/The412Banner/Banners-Turnip/releases",
+      "repoUrl": "https://github.com/The412Banner/Banners-Turnip",
+      "family": "Adreno / Turnip",
+      "extensions": [".zip"]
+    },
+    {
+      "name": "whitebelyash AdrenoTools Drivers",
+      "repo": "whitebelyash/AdrenoToolsDrivers",
+      "apiUrl": "https://api.github.com/repos/whitebelyash/AdrenoToolsDrivers/releases",
+      "repoUrl": "https://github.com/whitebelyash/AdrenoToolsDrivers",
+      "family": "Adreno / Turnip",
+      "extensions": [".zip"]
+    },
+    {
+      "name": "Snapdragon Elite Drivers",
+      "repo": "StevenMXZ/Adrenotools-Drivers",
+      "apiUrl": "https://api.github.com/repos/StevenMXZ/Adrenotools-Drivers/releases",
+      "repoUrl": "https://github.com/StevenMXZ/Adrenotools-Drivers",
+      "family": "Adreno / Turnip",
+      "extensions": [".zip"]
+    },
+    {
+      "name": "Weab-Chan Turnip Drivers",
+      "repo": "Weab-chan/freedreno_turnip-CI",
+      "apiUrl": "https://api.github.com/repos/Weab-chan/freedreno_turnip-CI/releases",
+      "repoUrl": "https://github.com/Weab-chan/freedreno_turnip-CI",
+      "family": "Adreno / Turnip",
+      "extensions": [".zip"]
+    },
+    {
+      "name": "Turnip - StevenMXZ",
+      "repo": "StevenMXZ/freedreno_turnip-CI",
+      "apiUrl": "https://api.github.com/repos/StevenMXZ/freedreno_turnip-CI/releases",
+      "repoUrl": "https://github.com/StevenMXZ/freedreno_turnip-CI",
+      "family": "Adreno / Turnip",
+      "extensions": [".zip"]
+    },
+    {
+      "name": "A8XX - Turnip",
+      "repo": "whitebelyash/freedreno_turnip-CI",
+      "apiUrl": "https://api.github.com/repos/whitebelyash/freedreno_turnip-CI/releases",
+      "repoUrl": "https://github.com/whitebelyash/freedreno_turnip-CI",
+      "family": "Adreno A8XX / Turnip",
+      "extensions": [".zip"]
+    },
+    {
+      "name": "Xclipse Turnip",
+      "repo": "jhinzuo/upload_grave",
+      "apiUrl": "https://api.github.com/repos/jhinzuo/upload_grave/releases",
+      "repoUrl": "https://github.com/jhinzuo/upload_grave",
+      "family": "Xclipse / Turnip",
+      "extensions": [".zip"]
+    },
+    {
+      "name": "Wrappers - Mali",
+      "repo": "winlatorbrasil/wrappers",
+      "apiUrl": "https://api.github.com/repos/winlatorbrasil/wrappers/releases",
+      "repoUrl": "https://github.com/winlatorbrasil/wrappers",
+      "family": "Mali / Wrappers",
+      "extensions": [".wcp", ".zip"]
+    }
+  ]
+}
