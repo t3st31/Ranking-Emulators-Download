@@ -2464,6 +2464,7 @@
     <button class="tab-btn" id="btn-compatibility" onclick="switchTab('compatibility')" data-i18n="tabCompatibility">🧪 Compatibilidade</button>
     <button class="tab-btn" id="btn-recipes" onclick="switchTab('recipes')" data-i18n="tabRecipes">🧰 Receitas</button>
     <button class="tab-btn" id="btn-charts" onclick="switchTab('charts')" data-i18n="tabDashboard">📊 Dashboard</button>
+    <button type="button" class="tab-btn quick-search-tab" id="btn-quick-search" onclick="openCommandPalette()" aria-label="Abrir busca rápida"><span aria-hidden="true">⌕</span> <span data-i18n="quickSearchTop">Busca rápida</span> <kbd>Ctrl K</kbd></button>
     <button class="tab-btn" id="btn-drivers-all" onclick="switchTab('drivers-all')" data-i18n="tabDriversAll">📁
       Drivers</button>
     <button class="tab-btn" id="btn-drivers" onclick="switchTab('drivers')" data-i18n="tabDriversNovos">🏎️ Drivers
@@ -2476,7 +2477,6 @@
   </nav>
 
   <div class="nexus-toolbar" aria-label="Ferramentas rápidas">
-    <button type="button" class="tool-btn" onclick="openCommandPalette()">⌘ <span>Busca rápida</span></button>
     <label class="language-switcher" for="languageSelect"><span>文</span>
       <select id="languageSelect" onchange="changeLanguage(this.value)" aria-label="Idioma">
         <option value="auto">Auto</option>
@@ -2612,6 +2612,25 @@
     <!-- CONTENT: DASHBOARD -->
     <div id="tab-charts" class="tab-content">
       <div id="nexusOverview" class="nexus-overview" aria-live="polite"></div>
+      <div class="dashboard-command-bar">
+        <div>
+          <span class="eyebrow">ANALYTICS CORE</span>
+          <strong>Leia o radar antes de escolher</strong>
+          <small>Os gráficos separam drivers de emuladores para evitar que downloads de fontes técnicas distorçam a arena.</small>
+          <span class="dashboard-live-signal"><i></i> TELEMETRIA ATIVA <b>•</b> DADOS LOCAIS + FONTES</span>
+        </div>
+        <div class="dashboard-command-controls">
+          <label for="dashboardScope">Arena
+            <select id="dashboardScope" onchange="refreshDashboard()">
+              <option value="emulators">Emuladores e projetos</option>
+              <option value="drivers">Drivers</option>
+              <option value="all">Tudo</option>
+            </select>
+          </label>
+          <button type="button" class="filter-action" onclick="refreshDashboard()">↻ Atualizar radar</button>
+        </div>
+      </div>
+      <div id="dashboardInsights" class="dashboard-insights" aria-live="polite"></div>
       <div class="card map-full-card">
         <h2 class="section-title"><span class="icon">🌍</span> <span data-i18n="geoVisitors">GEO-VISITANTES (TOP
             PAÍSES)</span></h2>
@@ -2624,6 +2643,7 @@
         </div>
       </div>
       <div class="charts-grid">
+        <div class="dashboard-section-label"><span>01</span><div><strong>Alcance e catálogo</strong><small>Popularidade, volume e variedade da arena selecionada.</small></div></div>
         <div class="chart-card">
           <h3 data-i18n="chartDownloads">📊 Downloads por Projeto</h3>
           <div style="height: 300px;"><canvas id="chart-downloads"></canvas></div>
@@ -2652,6 +2672,7 @@
           <h3 data-i18n="chartPolar">🌐 Visão Polar de Categorias</h3>
           <div style="height: 300px;"><canvas id="chart-polar"></canvas></div>
         </div>
+        <div class="dashboard-section-label"><span>02</span><div><strong>Radar operacional</strong><small>Atividade, crescimento recente, formatos e trajetória de downloads.</small></div></div>
         <div class="chart-card">
           <h3 data-i18n="chartBubble">🫧 Popularidade vs Atividade</h3>
           <div style="height: 300px;"><canvas id="chart-bubble"></canvas></div>
@@ -2663,6 +2684,29 @@
         <div class="chart-card">
           <h3 data-i18n="chartAssets">📚 Distribuição de Assets</h3>
           <div style="height: 300px;"><canvas id="chart-stacked"></canvas></div>
+        </div>
+        <div class="chart-card">
+          <h3>🚀 Velocidade recente dos projetos</h3>
+          <div style="height: 300px;"><canvas id="chart-momentum"></canvas></div>
+        </div>
+        <div class="chart-card">
+          <h3>🧩 Formatos disponíveis para download</h3>
+          <div style="height: 300px;"><canvas id="chart-format-coverage"></canvas></div>
+        </div>
+        <div class="dashboard-section-label"><span>03</span><div><strong>Confiabilidade e atualização</strong><small>Frescor das releases e resposta das fontes no último ciclo.</small></div></div>
+        <div class="chart-card">
+          <h3>⏱ Radar de atualização</h3>
+          <p class="chart-caption">Dias desde a última release publicada — quanto menor, mais recente.</p>
+          <div style="height: 300px;"><canvas id="chart-release-freshness"></canvas></div>
+        </div>
+        <div class="chart-card">
+          <h3>🛡 Saúde das fontes</h3>
+          <p class="chart-caption">Resposta das APIs no último ciclo; não representa qualidade do driver.</p>
+          <div style="height: 300px;"><canvas id="chart-source-health"></canvas></div>
+        </div>
+        <div class="chart-card chart-wide">
+          <h3>🛰 Cadência de releases por mês</h3>
+          <div style="height: 300px;"><canvas id="chart-release-cadence"></canvas></div>
         </div>
       </div>
     </div>
@@ -3437,6 +3481,42 @@
 
     .charts-grid {
       gap: 18px;
+    }
+
+    .chart-wide { grid-column: 1 / -1; }
+    .dashboard-command-bar { display: flex; align-items: end; justify-content: space-between; gap: 18px; margin: 0 0 16px; padding: 16px 18px; border: 1px solid rgba(0, 247, 255, 0.2); border-radius: 16px; background: linear-gradient(120deg, rgba(0, 247, 255, 0.07), rgba(133, 87, 255, 0.08)); }
+    .dashboard-command-bar > div:first-child { display: grid; gap: 4px; min-width: 0; }
+    .dashboard-command-bar strong { color: #eaffff; font-size: 1rem; }
+    .dashboard-command-bar small { color: #91a9bb; font-size: 0.72rem; line-height: 1.45; }
+    .dashboard-command-controls { display: flex; align-items: end; flex-wrap: wrap; gap: 8px; }
+    .dashboard-command-controls label { display: grid; gap: 5px; color: #8eaac0; font-size: 0.66rem; font-weight: 800; text-transform: uppercase; letter-spacing: 0.8px; }
+    .dashboard-command-controls select { min-height: 36px; padding: 8px 10px; border: 1px solid rgba(0, 247, 255, 0.28); border-radius: 8px; background: #07152a; color: #eaffff; }
+    .dashboard-insights { display: grid; grid-template-columns: repeat(4, minmax(0, 1fr)); gap: 10px; margin: 0 0 16px; }
+    .dashboard-insight { position: relative; display: grid; gap: 5px; min-width: 0; padding: 13px 14px; border: 1px solid rgba(255, 43, 214, 0.2); border-radius: 12px; background: linear-gradient(145deg, rgba(22, 28, 58, 0.86), rgba(8, 14, 30, 0.92)); overflow: hidden; }
+    .dashboard-insight::after { content: ""; position: absolute; right: -18px; bottom: -24px; width: 76px; height: 76px; border: 1px solid rgba(0, 247, 255, 0.16); border-radius: 50%; }
+    .dashboard-insight small { color: #8197ad; font: 700 0.6rem 'Orbitron', sans-serif; letter-spacing: 0.9px; }
+    .dashboard-insight strong { overflow: hidden; color: #efffff; font-size: 0.86rem; text-overflow: ellipsis; white-space: nowrap; }
+    .dashboard-insight span { overflow: hidden; color: #00f7ff; font-size: 0.7rem; text-overflow: ellipsis; white-space: nowrap; }
+    .dashboard-insight.is-pink { border-color: rgba(255, 43, 214, 0.38); }
+    .dashboard-insight.is-green { border-color: rgba(0, 255, 136, 0.32); }
+    .dashboard-insight.is-yellow { border-color: rgba(255, 204, 0, 0.32); }
+    .dashboard-section-label { display: flex; grid-column: 1 / -1; align-items: center; gap: 11px; padding: 6px 2px 1px; border-bottom: 1px solid rgba(0, 247, 255, 0.16); }
+    .dashboard-section-label > span { color: #ff2bd6; font: 800 0.82rem 'Orbitron', sans-serif; letter-spacing: 1px; }
+    .dashboard-section-label div { display: grid; gap: 2px; }
+    .dashboard-section-label strong { color: #dffaff; font-size: 0.8rem; }
+    .dashboard-section-label small { color: #7f98ae; font-size: 0.68rem; }
+    .chart-caption { min-height: 30px; margin: -10px 0 8px; color: #829bb0; font-size: 0.69rem; line-height: 1.4; }
+
+    @media (max-width: 900px) {
+      .dashboard-insights { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+      .dashboard-command-bar { align-items: flex-start; flex-direction: column; }
+      .chart-wide { grid-column: auto; }
+    }
+
+    @media (max-width: 620px) {
+      .dashboard-insights { grid-template-columns: 1fr; }
+      .dashboard-command-controls { width: 100%; }
+      .dashboard-command-controls label, .dashboard-command-controls select, .dashboard-command-controls .filter-action { flex: 1; }
     }
 
     .ranking-table-wrapper {
@@ -4327,6 +4407,215 @@
     #btn-compare:not(.active), #btn-collection:not(.active) { border-color: rgba(255, 43, 214, 0.48); background: rgba(255, 43, 214, 0.08); color: #ffb3ed; }
     #btn-compare:not(.active):hover, #btn-collection:not(.active):hover { border-color: #ff2bd6; background: rgba(255, 43, 214, 0.16); color: #fff; box-shadow: 0 0 15px rgba(255, 43, 214, 0.28); }
 
+    /* Busca vira um comando de primeira classe, no mesmo nível das áreas do HUB. */
+    #btn-quick-search {
+      position: relative;
+      gap: 6px;
+      border-color: rgba(0, 247, 255, 0.68);
+      background: linear-gradient(135deg, rgba(0, 247, 255, 0.2), rgba(49, 100, 255, 0.16));
+      color: #eaffff;
+      box-shadow: inset 0 1px 0 rgba(255,255,255,0.12), 0 0 20px rgba(0, 247, 255, 0.12);
+    }
+    #btn-quick-search::before {
+      content: "";
+      width: 6px;
+      height: 6px;
+      border-radius: 50%;
+      background: #00ff88;
+      box-shadow: 0 0 10px #00ff88;
+    }
+    #btn-quick-search kbd {
+      margin-left: 2px;
+      padding: 2px 5px;
+      border: 1px solid rgba(234,255,255,0.28);
+      border-radius: 5px;
+      background: rgba(2, 12, 26, 0.54);
+      color: #bdf9ff;
+      font: 800 0.54rem 'Rajdhani', sans-serif;
+      letter-spacing: 0.45px;
+      line-height: 1;
+    }
+    #btn-quick-search:hover {
+      border-color: #00f7ff;
+      background: linear-gradient(135deg, rgba(0, 247, 255, 0.3), rgba(133, 87, 255, 0.24));
+      box-shadow: 0 0 25px rgba(0, 247, 255, 0.27), inset 0 1px 0 rgba(255,255,255,0.16);
+    }
+
+    /* DASHBOARD NEXUS // command deck visual da nova geração */
+    #tab-charts { position: relative; isolation: isolate; }
+    #tab-charts .nexus-overview { gap: 14px; margin-bottom: 18px; }
+    #tab-charts .nexus-stat {
+      position: relative;
+      overflow: hidden;
+      min-height: 108px;
+      border-color: rgba(0, 247, 255, 0.3);
+      border-radius: 17px;
+      background:
+        linear-gradient(145deg, rgba(12, 34, 65, 0.96), rgba(7, 12, 29, 0.96)),
+        linear-gradient(90deg, transparent, rgba(0,247,255,0.08));
+      box-shadow: inset 0 1px 0 rgba(255,255,255,0.08), 0 14px 28px rgba(0,0,0,0.18);
+    }
+    #tab-charts .nexus-stat::before {
+      content: "";
+      position: absolute;
+      top: 0;
+      left: 16px;
+      width: 42px;
+      height: 2px;
+      background: #00f7ff;
+      box-shadow: 0 0 14px #00f7ff;
+    }
+    #tab-charts .nexus-stat::after {
+      content: "";
+      position: absolute;
+      right: -31px;
+      bottom: -43px;
+      width: 112px;
+      height: 112px;
+      border: 1px solid rgba(133, 87, 255, 0.35);
+      border-radius: 50%;
+      box-shadow: inset 0 0 22px rgba(0, 247, 255, 0.08);
+    }
+    #tab-charts .nexus-stat-label { color: #91b6d3; }
+    #tab-charts .nexus-stat-value { color: #e9ffff; text-shadow: 0 0 18px rgba(0,247,255,0.44); }
+
+    #tab-charts .dashboard-command-bar {
+      position: relative;
+      isolation: isolate;
+      align-items: center;
+      margin-bottom: 18px;
+      padding: 21px 22px;
+      overflow: hidden;
+      border: 1px solid rgba(116, 128, 255, 0.46);
+      border-radius: 20px;
+      background: radial-gradient(circle at 8% 0%, rgba(0,247,255,0.18), transparent 34%), linear-gradient(118deg, rgba(8,23,51,0.98), rgba(18,10,47,0.96));
+      box-shadow: inset 0 1px rgba(255,255,255,0.09), 0 18px 40px rgba(0,0,0,0.22), 0 0 34px rgba(75,68,255,0.11);
+    }
+    #tab-charts .dashboard-command-bar::before {
+      content: "";
+      position: absolute;
+      inset: 0;
+      z-index: 0;
+      opacity: 0.3;
+      background-image: linear-gradient(rgba(0,247,255,0.22) 1px, transparent 1px), linear-gradient(90deg, rgba(0,247,255,0.16) 1px, transparent 1px);
+      background-size: 28px 28px;
+      mask-image: linear-gradient(90deg, #000, transparent 78%);
+      pointer-events: none;
+    }
+    #tab-charts .dashboard-command-bar::after {
+      content: "";
+      position: absolute;
+      top: 0;
+      right: 8%;
+      width: 160px;
+      height: 2px;
+      background: linear-gradient(90deg, transparent, #ff2bd6, #00f7ff, transparent);
+      box-shadow: 0 0 18px rgba(255,43,214,0.65);
+    }
+    #tab-charts .dashboard-command-bar > * { position: relative; z-index: 1; }
+    #tab-charts .dashboard-command-bar strong {
+      color: #f1ffff;
+      font: 800 clamp(1.25rem, 2.2vw, 1.72rem) 'Rajdhani', sans-serif;
+      letter-spacing: 0.3px;
+      line-height: 1;
+    }
+    #tab-charts .dashboard-command-bar small { max-width: 660px; color: #adc3d8; font-size: 0.78rem; }
+    .dashboard-live-signal {
+      display: inline-flex;
+      align-items: center;
+      flex-wrap: wrap;
+      gap: 6px;
+      width: fit-content;
+      margin-top: 7px;
+      color: #78ffe0;
+      font: 800 0.57rem 'Orbitron', sans-serif;
+      letter-spacing: 0.9px;
+    }
+    .dashboard-live-signal i { width: 7px; height: 7px; border-radius: 50%; background: #00ff88; box-shadow: 0 0 13px #00ff88; animation: dashboard-pulse 1.9s ease-in-out infinite; }
+    .dashboard-live-signal b { color: #ff2bd6; font-size: 0.72rem; }
+    @keyframes dashboard-pulse { 50% { opacity: 0.44; transform: scale(0.7); } }
+    #tab-charts .dashboard-command-controls { gap: 10px; padding: 8px; border: 1px solid rgba(180,208,255,0.16); border-radius: 13px; background: rgba(3,8,23,0.52); }
+    #tab-charts .dashboard-command-controls label { color: #afc6dd; }
+    #tab-charts .dashboard-command-controls select { min-width: 180px; min-height: 40px; border-color: rgba(0,247,255,0.42); border-radius: 9px; background: rgba(4,18,40,0.94); box-shadow: inset 0 0 16px rgba(0,247,255,0.05); }
+    #tab-charts .dashboard-command-controls .filter-action { min-height: 40px; border-color: rgba(255,43,214,0.6); background: linear-gradient(135deg, rgba(255,43,214,0.22), rgba(91,75,255,0.34)); color: #fff; }
+    #tab-charts .dashboard-command-controls .filter-action:hover { border-color: #00f7ff; box-shadow: 0 0 18px rgba(0,247,255,0.24); }
+
+    #tab-charts .dashboard-insights { gap: 13px; margin-bottom: 18px; }
+    #tab-charts .dashboard-insight {
+      padding: 15px 16px;
+      border-color: rgba(100,140,255,0.28);
+      border-radius: 15px;
+      background: linear-gradient(145deg, rgba(18,32,68,0.94), rgba(7,12,29,0.98));
+      box-shadow: inset 0 1px rgba(255,255,255,0.06), 0 10px 22px rgba(0,0,0,0.14);
+      transition: transform 180ms ease, border-color 180ms ease, box-shadow 180ms ease;
+    }
+    #tab-charts .dashboard-insight::before { content: ""; position: absolute; top: 0; left: 14px; right: 14px; height: 1px; background: linear-gradient(90deg, transparent, rgba(0,247,255,0.85), transparent); }
+    #tab-charts .dashboard-insight:hover { transform: translateY(-3px); border-color: rgba(0,247,255,0.68); box-shadow: 0 13px 28px rgba(0,0,0,0.25), 0 0 19px rgba(0,247,255,0.1); }
+    #tab-charts .dashboard-insight strong { color: #f4ffff; font-size: 0.92rem; }
+
+    #tab-charts .map-full-card {
+      padding: 19px;
+      border: 1px solid rgba(0,247,255,0.28);
+      border-radius: 20px;
+      background: linear-gradient(145deg, rgba(11,27,54,0.92), rgba(5,10,25,0.98));
+      box-shadow: inset 0 1px rgba(255,255,255,0.07), 0 16px 32px rgba(0,0,0,0.18);
+    }
+    #tab-charts .map-full-card .section-title { margin-bottom: 16px; color: #eaffff; }
+    #tab-charts .visitor-country-list { border-color: rgba(0,247,255,0.26); border-radius: 13px; background: rgba(2,10,27,0.76); }
+    #tab-charts .visitor-country-row { border: 1px solid transparent; background: rgba(0,247,255,0.05); }
+    #tab-charts .visitor-country-row:hover { border-color: rgba(0,247,255,0.35); background: rgba(0,247,255,0.1); }
+
+    #tab-charts .charts-grid { grid-template-columns: repeat(auto-fit, minmax(340px, 1fr)); gap: 16px; }
+    #tab-charts .dashboard-section-label {
+      position: relative;
+      align-items: center;
+      min-height: 76px;
+      margin-top: 8px;
+      padding: 13px 16px;
+      overflow: hidden;
+      border: 1px solid rgba(0,247,255,0.2);
+      border-radius: 15px;
+      background: linear-gradient(100deg, rgba(0,247,255,0.09), rgba(133,87,255,0.09), rgba(3,7,20,0.2));
+    }
+    #tab-charts .dashboard-section-label::after { content: ""; position: absolute; right: -25px; width: 96px; height: 96px; border: 1px solid rgba(255,43,214,0.3); border-radius: 50%; }
+    #tab-charts .dashboard-section-label > span { display: grid; place-items: center; width: 42px; height: 42px; border: 1px solid rgba(255,43,214,0.5); border-radius: 11px; background: rgba(255,43,214,0.1); color: #ffd1f6; box-shadow: 0 0 17px rgba(255,43,214,0.18); }
+    #tab-charts .dashboard-section-label strong { color: #edffff; font-size: 0.91rem; }
+    #tab-charts .dashboard-section-label small { color: #9eb8cf; font-size: 0.72rem; }
+
+    #tab-charts .chart-card {
+      position: relative;
+      isolation: isolate;
+      min-height: 365px;
+      padding: 18px;
+      overflow: hidden;
+      border-color: rgba(0,247,255,0.28);
+      border-radius: 18px;
+      background: radial-gradient(circle at 100% 0%, rgba(100,73,255,0.16), transparent 36%), linear-gradient(145deg, rgba(14,29,58,0.96), rgba(5,11,27,0.98));
+      box-shadow: inset 0 1px rgba(255,255,255,0.07), 0 16px 32px rgba(0,0,0,0.2);
+      transition: transform 200ms ease, border-color 200ms ease, box-shadow 200ms ease;
+    }
+    #tab-charts .chart-card::before { content: ""; position: absolute; top: 0; left: 18px; width: 57px; height: 2px; background: linear-gradient(90deg, #00f7ff, #8b5cff); box-shadow: 0 0 15px rgba(0,247,255,0.7); }
+    #tab-charts .chart-card::after { content: ""; position: absolute; right: -35px; bottom: -35px; width: 118px; height: 118px; border: 1px solid rgba(0,247,255,0.15); border-radius: 50%; box-shadow: inset 0 0 26px rgba(133,87,255,0.07); }
+    #tab-charts .chart-card > * { position: relative; z-index: 1; }
+    #tab-charts .chart-card:hover { transform: translateY(-5px); border-color: rgba(0,247,255,0.7); box-shadow: inset 0 1px rgba(255,255,255,0.11), 0 23px 38px rgba(0,0,0,0.26), 0 0 26px rgba(0,247,255,0.11); }
+    #tab-charts .chart-card h3 { display: flex; align-items: center; min-height: 29px; margin: 0 0 17px; padding: 0 0 10px; border: 0; border-bottom: 1px solid rgba(0,247,255,0.16); color: #dffcff; font: 800 1.02rem 'Rajdhani', sans-serif; letter-spacing: 0.25px; }
+    #tab-charts .chart-card .chart-caption { min-height: 35px; margin: -7px 0 10px; color: #91abc3; }
+
+    @media (max-width: 900px) {
+      #tab-charts .dashboard-command-bar { align-items: flex-start; }
+      #tab-charts .dashboard-command-controls { width: 100%; }
+    }
+    @media (max-width: 680px) {
+      #btn-quick-search kbd { display: none; }
+      #tab-charts .nexus-overview, #tab-charts .dashboard-insights { gap: 9px; }
+      #tab-charts .dashboard-command-bar { padding: 17px; border-radius: 16px; }
+      #tab-charts .dashboard-command-controls { align-items: stretch; flex-direction: column; }
+      #tab-charts .dashboard-command-controls label, #tab-charts .dashboard-command-controls select, #tab-charts .dashboard-command-controls .filter-action { width: 100%; }
+      #tab-charts .charts-grid { grid-template-columns: 1fr; gap: 12px; }
+      #tab-charts .chart-card { min-height: 336px; padding: 15px; border-radius: 15px; }
+      #tab-charts .chart-card h3 { font-size: 0.92rem; }
+    }
+
     .filter-actions {
       display: flex;
       align-items: end;
@@ -4849,6 +5138,7 @@
         tabRecipes: '🧰 Receitas',
         tabDashboard: '📊 Dashboard',
         tabNews: '🆕 Novidades',
+        quickSearchTop: 'Busca rápida',
         compareTop: '⚔ Comparar',
         favoritesTop: '⭐ Favoritos',
         rankingTitle: '🏆 Ranking Global de Downloads',
@@ -5061,6 +5351,7 @@
         tabRecipes: '🧰 Recipes',
         tabDashboard: '📊 Dashboard',
         tabNews: '🆕 News',
+        quickSearchTop: 'Quick search',
         compareTop: '⚔ Compare',
         favoritesTop: '⭐ Favorites',
         rankingTitle: '🏆 Global Download Ranking',
@@ -6063,6 +6354,7 @@
     let mapReady = false;
     let mapRenderPromise = null;
     let historyData = [];
+    let projectSnapshotsData = [];
     let compatibilityData = [];
     let compatibilityMeta = {};
     let recipesData = [];
@@ -6210,7 +6502,10 @@
         const canvas = document.createElement('canvas');
         const gl = canvas.getContext('webgl') || canvas.getContext('experimental-webgl');
         if (!gl) return { supported: false, renderer: '', vendor: '', rendererSource: '', debugRenderer: false };
-        const debug = gl.getExtension('WEBGL_debug_renderer_info');
+        // Firefox descontinuou a extensão de debug. No navegador dele usamos apenas
+        // os campos WebGL padrão, evitando aviso no console sem inventar dados.
+        const isFirefox = /firefox/i.test(navigator.userAgent || '');
+        const debug = isFirefox ? null : gl.getExtension('WEBGL_debug_renderer_info');
         const standardRenderer = String(gl.getParameter(gl.RENDERER) || '');
         const standardVendor = String(gl.getParameter(gl.VENDOR) || '');
         return {
@@ -6402,7 +6697,8 @@
 
     function getProjectSnapshots(project) {
       const key = projectKey(project);
-      return historyData
+      const source = projectSnapshotsData.length ? projectSnapshotsData : historyData;
+      return source
         .flatMap(entry => (entry.projects || []).map(snapshot => ({ ...snapshot, date: entry.date })))
         .filter(snapshot => snapshot.repo === key)
         .sort((a, b) => String(a.date).localeCompare(String(b.date)));
@@ -7665,8 +7961,67 @@
       container.innerHTML = html;
     }
 
+    function getDashboardScope() {
+      return document.getElementById('dashboardScope')?.value || 'emulators';
+    }
+
+    function getDashboardProjects(data, scope = getDashboardScope()) {
+      return data.filter(project => scope === 'all' || (scope === 'drivers' ? project.category === 'Drivers' : project.category !== 'Drivers'));
+    }
+
+    function getDashboardHistory(history, scope) {
+      if (scope === 'all' || !projectSnapshotsData.length) return history;
+      return projectSnapshotsData.map(entry => ({
+        date: entry.date,
+        totalDownloads: (entry.projects || [])
+          .filter(snapshot => scope === 'drivers' ? allData.find(project => project.repo === snapshot.repo)?.category === 'Drivers' : allData.find(project => project.repo === snapshot.repo)?.category !== 'Drivers')
+          .reduce((sum, snapshot) => sum + (Number(snapshot.downloads) || 0), 0)
+      })).filter(entry => entry.totalDownloads > 0);
+    }
+
+    function renderDashboardInsights(data, scope = getDashboardScope()) {
+      const container = document.getElementById('dashboardInsights');
+      if (!container) return;
+      const projects = data.filter(project => project.releases?.length || Number(project.downloads) > 0);
+      if (!projects.length) {
+        container.innerHTML = '<div class="dashboard-insight"><small>RADAR</small><strong>Sem dados para esta arena</strong><span>Escolha outro recorte.</span></div>';
+        return;
+      }
+      const momentum = projects.slice().sort((a, b) => getMomentumScore(b) - getMomentumScore(a))[0];
+      const activity = projects.slice().sort((a, b) => (b.releases?.length || 0) - (a.releases?.length || 0))[0];
+      const trust = projects.slice().sort((a, b) => getProjectTrustScore(b) - getProjectTrustScore(a))[0];
+      const formats = {};
+      projects.forEach(project => (project.releases || []).forEach(release => (release.assets || []).forEach(asset => {
+        const match = String(asset.name || '').toLowerCase().match(/(\.wcp\.xz|\.tar\.gz|\.[a-z0-9]+)$/i);
+        const extension = match ? match[1] : 'outros';
+        formats[extension] = (formats[extension] || 0) + 1;
+      })));
+      const topFormat = Object.entries(formats).sort((a, b) => b[1] - a[1])[0];
+      const card = (className, label, title, note) => `<div class="dashboard-insight ${className}"><small>${label}</small><strong title="${escapeHtml(title)}">${escapeHtml(title)}</strong><span>${escapeHtml(note)}</span></div>`;
+      container.innerHTML = [
+        card('is-green', '↗ EM ALTA', momentum?.name || '—', `sinal ${getMomentumScore(momentum)}/100`),
+        card('', '⚡ MAIS ATIVO', activity?.name || '—', `${activity?.releases?.length || 0} releases indexadas`),
+        card('is-pink', '🛡 FONTE MAIS ÍNTEGRA', trust?.name || '—', `integridade heurística ${getProjectTrustScore(trust)}/100`),
+        card('is-yellow', '🧩 FORMATO DOMINANTE', topFormat?.[0] || '—', `${topFormat?.[1] || 0} assets nesta arena`)
+      ].join('');
+    }
+
+    function refreshDashboard() {
+      if (currentTab !== 'charts') return;
+      dashboardInitialized = false;
+      dashboardRenderQueued = false;
+      Object.values(charts).forEach(chart => chart?.destroy());
+      charts = {};
+      ensureDashboard();
+    }
+
     function renderCharts(data, history = historyData) {
       if (!window.Chart) return;
+
+      const scope = getDashboardScope();
+      data = getDashboardProjects(data, scope);
+      history = getDashboardHistory(history, scope);
+      renderDashboardInsights(data, scope);
 
       // Configurações globais de legibilidade para tema escuro
       Chart.defaults.color = '#e0e0e0';
@@ -7918,6 +8273,141 @@
           plugins: {
             legend: { labels: { color: '#ffffff' } }
           }
+        }
+      });
+
+      // 11. Velocidade recente: usa snapshots quando existirem e sinais públicos quando ainda há pouco histórico.
+      const momentumProjects = projects
+        .map(project => ({ project, score: getMomentumScore(project) }))
+        .sort((a, b) => b.score - a.score)
+        .slice(0, 12);
+      charts.momentum = new Chart(document.getElementById('chart-momentum'), {
+        type: 'bar',
+        data: {
+          labels: momentumProjects.map(item => item.project.name),
+          datasets: [{
+            label: 'Sinal de velocidade (0–100)',
+            data: momentumProjects.map(item => item.score),
+            backgroundColor: momentumProjects.map(item => item.score >= 75 ? 'rgba(0, 255, 136, 0.62)' : item.score >= 55 ? 'rgba(0, 247, 255, 0.55)' : 'rgba(255, 204, 0, 0.55)'),
+            borderColor: momentumProjects.map(item => item.score >= 75 ? '#00ff88' : item.score >= 55 ? '#00f7ff' : '#ffcc00'),
+            borderWidth: 1,
+            borderRadius: 6
+          }]
+        },
+        options: {
+          indexAxis: 'y', responsive: true, maintainAspectRatio: false,
+          scales: {
+            x: { min: 0, max: 100, grid: { color: 'rgba(255,255,255,0.09)' }, ticks: { color: '#9eb8c8' } },
+            y: { grid: { display: false }, ticks: { color: '#dbefff' } }
+          },
+          plugins: { legend: { display: false }, tooltip: { callbacks: { label: context => `Sinal ${context.raw}/100` } } }
+        }
+      });
+
+      // 12. Cobertura por formato: indica como os downloads estão distribuídos, não compatibilidade.
+      const formatMap = {};
+      projects.forEach(project => (project.releases || []).forEach(release => (release.assets || []).forEach(asset => {
+        const extension = String(asset.name || '').toLowerCase().match(/(\.wcp\.xz|\.tar\.gz|\.[a-z0-9]+)$/i)?.[1] || 'outros';
+        formatMap[extension] = (formatMap[extension] || 0) + 1;
+      })));
+      const formatEntries = Object.entries(formatMap).sort((a, b) => b[1] - a[1]).slice(0, 8);
+      charts.formatCoverage = new Chart(document.getElementById('chart-format-coverage'), {
+        type: 'doughnut',
+        data: {
+          labels: formatEntries.length ? formatEntries.map(([extension]) => extension) : ['Sem assets'],
+          datasets: [{
+            data: formatEntries.length ? formatEntries.map(([, count]) => count) : [1],
+            backgroundColor: themeColors.map(color => `${color}bb`),
+            borderColor: '#0b1222',
+            borderWidth: 3
+          }]
+        },
+        options: {
+          responsive: true, maintainAspectRatio: false, cutout: '58%',
+          plugins: { legend: { position: 'bottom', labels: { color: '#d8e8f6', boxWidth: 12 } } }
+        }
+      });
+
+      // 13. Cadência mensal: todas as releases indexadas da arena selecionada.
+      const cadenceMap = {};
+      projects.forEach(project => (project.releases || []).forEach(release => {
+        const date = new Date(release.date);
+        if (Number.isNaN(date.getTime())) return;
+        const key = `${date.getUTCFullYear()}-${String(date.getUTCMonth() + 1).padStart(2, '0')}`;
+        cadenceMap[key] = (cadenceMap[key] || 0) + 1;
+      }));
+      const cadenceEntries = Object.entries(cadenceMap).sort(([a], [b]) => a.localeCompare(b)).slice(-12);
+      const cadenceLabels = cadenceEntries.length ? cadenceEntries.map(([key]) => {
+        const [year, month] = key.split('-').map(Number);
+        return new Intl.DateTimeFormat(currentLang, { month: 'short', year: '2-digit' }).format(new Date(Date.UTC(year, month - 1, 1)));
+      }) : ['Sem histórico'];
+      charts.releaseCadence = new Chart(document.getElementById('chart-release-cadence'), {
+        type: 'bar',
+        data: {
+          labels: cadenceLabels,
+          datasets: [{
+            label: 'Releases indexadas',
+            data: cadenceEntries.length ? cadenceEntries.map(([, count]) => count) : [0],
+            backgroundColor: 'rgba(133, 87, 255, 0.5)',
+            borderColor: '#a88aff',
+            borderWidth: 1,
+            borderRadius: 6
+          }]
+        },
+        options: {
+          responsive: true, maintainAspectRatio: false,
+          scales: { y: { beginAtZero: true, grid: { color: 'rgba(255,255,255,0.09)' } }, x: { grid: { display: false } } },
+          plugins: { legend: { labels: { color: '#d8e8f6' } } }
+        }
+      });
+
+      // 14. Frescor: uma resposta prática para “qual projeto foi atualizado por último?”.
+      const now = Date.now();
+      const freshness = projects
+        .map(project => {
+          const latest = (project.releases || []).map(release => new Date(release.date)).filter(date => !Number.isNaN(date.getTime())).sort((a, b) => b - a)[0];
+          return latest ? { project, days: Math.max(0, Math.floor((now - latest.getTime()) / 86400000)) } : null;
+        })
+        .filter(Boolean)
+        .sort((a, b) => a.days - b.days)
+        .slice(0, 12);
+      charts.freshness = new Chart(document.getElementById('chart-release-freshness'), {
+        type: 'bar',
+        data: {
+          labels: freshness.length ? freshness.map(item => item.project.name) : ['Sem releases datadas'],
+          datasets: [{
+            label: 'Dias desde a última release',
+            data: freshness.length ? freshness.map(item => item.days) : [0],
+            backgroundColor: freshness.length ? freshness.map(item => item.days <= 30 ? 'rgba(0, 255, 136, 0.62)' : item.days <= 90 ? 'rgba(0, 247, 255, 0.55)' : 'rgba(255, 204, 0, 0.58)') : ['rgba(132, 150, 170, 0.5)'],
+            borderColor: freshness.length ? freshness.map(item => item.days <= 30 ? '#00ff88' : item.days <= 90 ? '#00f7ff' : '#ffcc00') : ['#8490ad'],
+            borderWidth: 1,
+            borderRadius: 6
+          }]
+        },
+        options: {
+          indexAxis: 'y', responsive: true, maintainAspectRatio: false,
+          scales: { x: { beginAtZero: true, grid: { color: 'rgba(255,255,255,0.09)' } }, y: { grid: { display: false } } },
+          plugins: { legend: { display: false }, tooltip: { callbacks: { label: context => `${context.raw} dia${context.raw === 1 ? '' : 's'} sem release` } } }
+        }
+      });
+
+      // 15. Saúde das fontes: erro de coleta é separado de qualidade do projeto.
+      const failedRepoSet = new Set((window.__rankingMeta?.failedRepos || []).map(item => item.repo));
+      const failedSources = projects.filter(project => failedRepoSet.has(project.repo)).length;
+      const healthySources = Math.max(0, projects.length - failedSources);
+      charts.sourceHealth = new Chart(document.getElementById('chart-source-health'), {
+        type: 'doughnut',
+        data: {
+          labels: ['Fontes responsivas', 'Fontes com falha'],
+          datasets: [{ data: [healthySources, failedSources], backgroundColor: ['rgba(0, 255, 136, 0.72)', 'rgba(255, 77, 125, 0.72)'], borderColor: '#0b1222', borderWidth: 3 }]
+        },
+        options: {
+          responsive: true, maintainAspectRatio: false, cutout: '64%',
+          plugins: {
+            legend: { position: 'bottom', labels: { color: '#d8e8f6', boxWidth: 12 } },
+            tooltip: { callbacks: { label: context => `${context.label}: ${context.raw}` } }
+          },
+          onClick: () => openDiagnostics()
         }
       });
     }
@@ -8406,6 +8896,7 @@
         if (historyRes?.ok) {
           const historyJson = await historyRes.json();
           historyData = Array.isArray(historyJson) ? historyJson : (historyJson.entries || []);
+          projectSnapshotsData = Array.isArray(historyJson) ? [] : (historyJson.projectSnapshots || []);
         }
         if (compatibilityRes?.ok) {
           const compatibilityJson = await compatibilityRes.json();
