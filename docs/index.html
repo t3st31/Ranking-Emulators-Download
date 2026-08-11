@@ -4483,6 +4483,7 @@
     .device-fact small { display: block; color: #7892aa; font-size: 0.65rem; text-transform: uppercase; letter-spacing: 0.8px; }
     .device-fact strong { display: block; margin-top: 5px; color: #eaffff; font-size: 0.86rem; word-break: break-word; }
     .device-note { color: #8da8bd; font-size: 0.76rem; line-height: 1.5; }
+    .device-note strong { color: #eaffff; }
     .device-recommendations { display: grid; gap: 10px; margin-top: 18px; }
     .device-recommendation { display: flex; align-items: flex-start; gap: 10px; padding: 12px 14px; border-left: 3px solid #00ff88; border-radius: 9px; background: rgba(0, 255, 136, 0.06); }
     .device-recommendation strong { color: #edffff; font-size: 0.82rem; }
@@ -4517,6 +4518,11 @@
     .recipe-checks { display: grid; gap: 6px; margin: 0; padding: 0 0 0 18px; color: #b3c6d5; font-size: 0.73rem; line-height: 1.45; }
     .recipe-sources { display: flex; flex-wrap: wrap; gap: 7px; }
     .recipe-source { color: #00d4ff; font-size: 0.68rem; }
+    .driver-source-card { border-style: dashed; border-color: rgba(255, 43, 214, 0.28); }
+    .driver-source-badge { display: inline-flex; margin-left: 6px; padding: 3px 6px; border: 1px solid rgba(255, 43, 214, 0.35); border-radius: 999px; color: #ff9be9; font: 700 0.58rem 'Rajdhani', sans-serif; letter-spacing: 0.7px; vertical-align: middle; }
+    .driver-source-links { display: flex; flex-wrap: wrap; align-items: center; gap: 8px; margin-top: auto; }
+    .driver-source-links .driver-download-btn { flex: 1 1 auto; }
+    .driver-api-link { color: #9bdfff; font-size: 0.68rem; font-weight: 800; white-space: nowrap; }
 
     .release-compare-toolbar { display: grid; grid-template-columns: minmax(190px, 0.8fr) minmax(0, 1.7fr); align-items: center; gap: 16px; margin: 14px 0 4px; padding: 15px; border: 1px solid rgba(255, 107, 255, 0.24); border-radius: 13px; background: linear-gradient(135deg, rgba(255, 43, 214, 0.08), rgba(0, 247, 255, 0.045)); }
     .release-compare-heading { display: grid; gap: 4px; min-width: 0; }
@@ -5985,6 +5991,7 @@
     let compatibilityData = [];
     let compatibilityMeta = {};
     let recipesData = [];
+    let driverSourcesData = [];
     let deviceProfile = null;
     let favoritesOnly = false;
     const FAVORITES_STORAGE_KEY = 'hub-emulators-favorites-v2';
@@ -6017,7 +6024,7 @@
       return allData.find(project => projectKey(project) === key);
     }
 
-    const DEVICE_PROFILE_STORAGE_KEY = 'hub-emulators-device-profile-v1';
+    const DEVICE_PROFILE_STORAGE_KEY = 'hub-emulators-device-profile-v2';
 
     function readStoredObject(key) {
       try {
@@ -6032,25 +6039,101 @@
       try { localStorage.setItem(key, JSON.stringify(value)); } catch { /* storage bloqueado */ }
     }
 
+    function cleanReportedModel(value) {
+      let model = String(value || '').replace(/\0/g, '').trim();
+      try { model = decodeURIComponent(model); } catch { /* valor já está normalizado */ }
+      model = model.replace(/\s+Build\/[^;\)]*/i, '').replace(/\s*;?\s*(?:wv|Mobile)$/i, '').trim();
+      if (!model || /^(?:k|wv|mobile|android|unknown|generic|linux|phone|tablet)$/i.test(model) || model.length < 2) return '';
+      return model;
+    }
+
     function parseAndroidModel(userAgent) {
-      const match = String(userAgent || '').match(/Android\s[^;]+;\s([^;\)]+?)(?:\s+Build\/[^;\)]*)?[;\)]/i);
-      return match?.[1]?.trim() || '';
+      const ua = String(userAgent || '');
+      const androidPart = ua.match(/Android\s[^;\)]*;([^\)]*)/i)?.[1] || '';
+      const candidates = androidPart.split(';').map(value => value.trim()).reverse();
+      for (const candidate of candidates) {
+        if (/^(?:[a-z]{2}(?:-[A-Z]{2})?|wv|mobile)$/i.test(candidate)) continue;
+        const model = cleanReportedModel(candidate);
+        if (model && !/^(?:build|version|android)\b/i.test(model)) return model;
+      }
+      return '';
+    }
+
+    function inferDeviceManufacturer(model) {
+      const value = String(model || '').trim();
+      if (!value) return '';
+      if (/^(?:SM-|GT-|SCH-|SGH-|SC-)/i.test(value)) return 'Samsung';
+      if (/^Pixel\b/i.test(value)) return 'Google';
+      if (/^(?:XT\d|Moto\b|motorola\b)/i.test(value)) return 'Motorola';
+      if (/^(?:XQ-|SO-\w)/i.test(value)) return 'Sony';
+      if (/^(?:ASUS|ROG Phone)/i.test(value)) return 'ASUS';
+      if (/^(?:IN\d|NE\d|CPH\d)/i.test(value)) return 'OnePlus / OPPO';
+      if (/^(?:MI |Mi |Redmi|POCO|\d{6,}[A-Z])/i.test(value)) return 'Xiaomi';
+      if (/^(?:V\d{3,}|vivo\b)/i.test(value)) return 'vivo';
+      if (/^(?:RMX|realme\b)/i.test(value)) return 'realme';
+      if (/^(?:H\d{3}|VOG-|ELE-|JDN-)/i.test(value)) return 'Huawei';
+      if (/^Nothing\b/i.test(value)) return 'Nothing';
+      return '';
+    }
+
+    function normalizeArchitecture(value) {
+      const architecture = String(value || '').toLowerCase();
+      if (/arm64|aarch64|armv8/.test(architecture)) return 'arm64';
+      if (/arm/.test(architecture)) return 'arm';
+      if (/x86_64|amd64/.test(architecture)) return 'x86_64';
+      if (/x86|i[3-6]86/.test(architecture)) return 'x86';
+      return String(value || '');
+    }
+
+    function isUsefulGpuRenderer(value) {
+      const renderer = String(value || '').trim();
+      if (!renderer) return false;
+      return !/^(?:webgl|webgl\s+\d|webkit webgl|mozilla|generic renderer)$/i.test(renderer);
+    }
+
+    function identifyGpuRenderer(value) {
+      const renderer = String(value || '').trim();
+      if (!isUsefulGpuRenderer(renderer)) return '';
+      const patterns = [
+        [/Adreno(?:\s*\(TM\))?\s*([\w.-]+)/i, match => `Adreno ${match[1]}`],
+        [/(Mali[- ](?:G\d+|\w+))/i, match => match[1]],
+        [/(Immortalis[- ]\w+)/i, match => match[1]],
+        [/(Xclipse\s*\w*)/i, match => match[1].trim()],
+        [/(Apple GPU)/i, match => match[1]],
+        [/(RTX\s*\w+|GTX\s*\w+)/i, match => match[1]],
+        [/(Radeon\s+\w+)/i, match => match[1]],
+        [/(Intel\s+(?:Iris|UHD|HD)[^,)]*)/i, match => match[1].trim()]
+      ];
+      for (const [pattern, formatter] of patterns) {
+        const match = renderer.match(pattern);
+        if (match) return formatter(match);
+      }
+      return renderer.replace(/^ANGLE\s*\((.*)\)$/i, '$1').split(',')[0].trim();
+    }
+
+    function normalizeAndroidVersion(value) {
+      const match = String(value || '').match(/\d+(?:\.\d+)*/);
+      return match ? match[0].replace(/(?:\.0)+$/, '') : '';
     }
 
     function readWebGLInfo() {
       try {
         const canvas = document.createElement('canvas');
         const gl = canvas.getContext('webgl') || canvas.getContext('experimental-webgl');
-        if (!gl) return { supported: false, renderer: '', vendor: '' };
+        if (!gl) return { supported: false, renderer: '', vendor: '', rendererSource: '', debugRenderer: false };
         const debug = gl.getExtension('WEBGL_debug_renderer_info');
+        const standardRenderer = String(gl.getParameter(gl.RENDERER) || '');
+        const standardVendor = String(gl.getParameter(gl.VENDOR) || '');
         return {
           supported: true,
-          renderer: debug ? String(gl.getParameter(debug.UNMASKED_RENDERER_WEBGL) || '') : '',
-          vendor: debug ? String(gl.getParameter(debug.UNMASKED_VENDOR_WEBGL) || '') : '',
-          version: String(gl.getParameter(gl.VERSION) || '')
+          renderer: debug ? String(gl.getParameter(debug.UNMASKED_RENDERER_WEBGL) || '') : standardRenderer,
+          vendor: debug ? String(gl.getParameter(debug.UNMASKED_VENDOR_WEBGL) || '') : standardVendor,
+          version: String(gl.getParameter(gl.VERSION) || ''),
+          rendererSource: debug ? 'WEBGL_debug_renderer_info' : 'WebGL padrão',
+          debugRenderer: Boolean(debug)
         };
       } catch {
-        return { supported: false, renderer: '', vendor: '' };
+        return { supported: false, renderer: '', vendor: '', rendererSource: '', debugRenderer: false };
       }
     }
 
@@ -6059,7 +6142,10 @@
       try {
         const adapter = await navigator.gpu.requestAdapter({ powerPreference: 'high-performance' });
         if (!adapter) return { supported: false, renderer: '', vendor: '', architecture: '', features: [] };
-        const info = adapter.info || {};
+        let info = adapter.info || {};
+        if ((!info.device && !info.description) && adapter.requestAdapterInfo) {
+          try { info = await adapter.requestAdapterInfo(); } catch { /* navegador não expõe detalhes */ }
+        }
         return {
           supported: true,
           renderer: String(info.device || info.description || ''),
@@ -6078,38 +6164,64 @@
       let highEntropy = {};
       if (deep && uaData?.getHighEntropyValues) {
         try {
-          highEntropy = await uaData.getHighEntropyValues(['architecture', 'bitness', 'model', 'platformVersion']);
-        } catch { /* alguns navegadores reduzem os dados por privacidade */ }
+          highEntropy = await uaData.getHighEntropyValues(['architecture', 'bitness', 'model', 'platformVersion', 'formFactors']);
+        } catch {
+          try { highEntropy = await uaData.getHighEntropyValues(['architecture', 'bitness', 'model', 'platformVersion']); } catch { /* dados reduzidos por privacidade */ }
+        }
       }
 
       const webgl = readWebGLInfo();
       const webgpu = deep ? await readWebGPUInfo() : { supported: Boolean(navigator.gpu), renderer: '', vendor: '', architecture: '', features: [] };
       const platform = uaData?.platform || (/Android/i.test(ua) ? 'Android' : /iPhone|iPad/i.test(ua) ? 'iOS' : navigator.platform || 'Desconhecida');
-      const androidVersion = (/Android\s([\d.]+)/i.exec(ua)?.[1] || highEntropy.platformVersion || '').replace(/\.0$/, '');
-      const model = highEntropy.model || parseAndroidModel(ua) || '';
+      const androidVersion = normalizeAndroidVersion(/Android\s([\d.]+)/i.exec(ua)?.[1] || highEntropy.platformVersion || '');
+      const reportedModel = cleanReportedModel(highEntropy.model) || parseAndroidModel(ua);
+      const modelSource = cleanReportedModel(highEntropy.model) ? 'Client Hints do navegador' : (reportedModel ? 'User-Agent do navegador' : 'Não exposto');
       const webglRenderer = webgl.renderer || '';
       const webgpuRenderer = webgpu.renderer || '';
-      const gpuLabel = webgpuRenderer || webglRenderer || 'GPU não exposta pelo navegador';
+      const rawGpuRenderer = isUsefulGpuRenderer(webgpuRenderer) ? webgpuRenderer : webglRenderer;
+      const gpuLabel = identifyGpuRenderer(rawGpuRenderer) || rawGpuRenderer || 'GPU não exposta pelo navegador';
+      const gpuSource = webgpuRenderer && isUsefulGpuRenderer(webgpuRenderer)
+        ? 'WebGPU · renderer exposto'
+        : (webglRenderer && isUsefulGpuRenderer(webglRenderer) ? `WebGL · ${webgl.rendererSource || 'renderer exposto'}` : 'Não exposto');
       const isMobile = Boolean(uaData?.mobile || /Android|iPhone|iPad|Mobile/i.test(ua));
+      const gpuEvidence = isUsefulGpuRenderer(rawGpuRenderer);
+      const manufacturer = inferDeviceManufacturer(reportedModel);
+      const deviceLabel = reportedModel
+        ? `${manufacturer ? `${manufacturer} · ` : ''}${reportedModel}`
+        : (platform === 'Android' ? 'Android · modelo oculto' : platform === 'iOS' ? 'iPhone/iPad · modelo oculto' : platform);
 
       return {
         detectedAt: new Date().toISOString(),
         platform: String(platform),
         mobile: isMobile,
-        model: String(model),
+        model: String(reportedModel),
+        manufacturer,
+        deviceLabel,
+        modelSource,
         androidVersion: String(androidVersion),
-        architecture: String(highEntropy.architecture || (uaData?.architecture || (/arm64|aarch64/i.test(ua) ? 'arm64' : ''))),
+        architecture: normalizeArchitecture(highEntropy.architecture || (uaData?.architecture || (/arm64|aarch64/i.test(ua) ? 'arm64' : ''))),
         bitness: String(highEntropy.bitness || ''),
         cores: Number(navigator.hardwareConcurrency) || null,
         memoryGB: Number(navigator.deviceMemory) || null,
         screen: `${window.screen?.width || '?'}×${window.screen?.height || '?'}`,
+        viewport: `${window.innerWidth || '?'}×${window.innerHeight || '?'}`,
         dpr: Number(window.devicePixelRatio || 1).toFixed(2),
         gpuLabel,
+        gpuSource,
+        gpuRendererRaw: rawGpuRenderer,
         webgl,
         webgpu,
         gamepads: typeof navigator.getGamepads === 'function' ? [...navigator.getGamepads()].filter(Boolean).length : null,
+        touchPoints: Number(navigator.maxTouchPoints) || 0,
+        formFactors: Array.isArray(highEntropy.formFactors) ? highEntropy.formFactors : [],
         deep,
-        confidence: model && (webgpuRenderer || webglRenderer) ? 'Alta' : (webglRenderer || androidVersion ? 'Parcial' : 'Limitada')
+        evidence: {
+          model: modelSource,
+          gpu: gpuSource,
+          browserHints: Boolean(uaData),
+          webglDebug: Boolean(webgl.debugRenderer)
+        },
+        confidence: reportedModel && gpuEvidence ? 'Alta' : (reportedModel || gpuEvidence || androidVersion ? 'Parcial' : 'Limitada')
       };
     }
 
@@ -6121,6 +6233,7 @@
       const text = `${profile?.gpuLabel || ''} ${profile?.webgl?.renderer || ''}`.toLowerCase();
       if (/adreno|qualcomm/.test(text)) return 'Adreno';
       if (/mali|arm\s+immortalis|immortalis/.test(text)) return 'Mali';
+      if (/xclipse/.test(text)) return 'Xclipse';
       if (/powervr|imagination/.test(text)) return 'PowerVR';
       if (/apple|apple gpu/.test(text)) return 'Apple';
       if (/nvidia|geforce/.test(text)) return 'NVIDIA';
@@ -6133,25 +6246,33 @@
       const container = document.getElementById('deviceProfileContainer');
       if (!container || !profile) return;
       const gpuFamily = deviceGpuFamily(profile);
+      const gpuValue = profile.gpuLabel && profile.gpuLabel !== 'GPU não exposta pelo navegador'
+        ? `${gpuFamily} · ${profile.gpuLabel}`
+        : `${gpuFamily} · GPU não exposta`;
       const facts = [
         ['Plataforma', `${profile.platform}${profile.mobile ? ' · mobile' : ''}`],
-        ['Modelo', formatDeviceValue(profile.model)],
+        ['Fabricante provável', formatDeviceValue(profile.manufacturer, 'Não identificado')],
+        ['Modelo reportado', formatDeviceValue(profile.model, 'Oculto/reduzido pelo navegador')],
         ['Android', formatDeviceValue(profile.androidVersion)],
-        ['GPU provável', `${gpuFamily} · ${formatDeviceValue(profile.gpuLabel, 'não exposta')}`],
+        ['GPU / renderer', gpuValue],
+        ['Fonte da GPU', formatDeviceValue(profile.gpuSource)],
+        ['Origem do modelo', formatDeviceValue(profile.modelSource)],
         ['Arquitetura', formatDeviceValue(profile.architecture)],
         ['CPU lógica', profile.cores ? `${profile.cores} núcleos` : 'Não disponível'],
         ['Memória estimada', profile.memoryGB ? `${profile.memoryGB} GB` : 'Não disponível'],
+        ['Tela / DPR', `${formatDeviceValue(profile.screen)} · ${formatDeviceValue(profile.dpr)}`],
+        ['Toque', profile.touchPoints ? `${profile.touchPoints} ponto(s)` : 'Não informado'],
         ['WebGPU', profile.webgpu?.supported ? 'Disponível' : 'Não disponível'],
         ['Gamepad', profile.gamepads === null ? 'Não detectado' : `${profile.gamepads} conectado(s)`]
       ];
 
       container.innerHTML = `
         <div class="device-profile-header">
-          <div class="device-profile-title"><strong>${escapeHtml(profile.model || profile.platform || 'Perfil do dispositivo')}</strong><span>Detectado em ${escapeHtml(formatDate(profile.detectedAt))} · GPU: ${escapeHtml(gpuFamily)}</span></div>
+          <div class="device-profile-title"><strong>${escapeHtml(profile.deviceLabel || profile.model || profile.platform || 'Perfil do dispositivo')}</strong><span>Detectado em ${escapeHtml(formatDate(profile.detectedAt))} · Modelo: ${escapeHtml(profile.modelSource || 'não exposto')} · GPU: ${escapeHtml(profile.gpuSource || 'não exposta')}</span></div>
           <span class="device-confidence">Confiança ${escapeHtml(profile.confidence)}</span>
         </div>
         <div class="device-facts">${facts.map(([label, value]) => `<div class="device-fact"><small>${escapeHtml(label)}</small><strong title="${escapeHtml(value)}">${escapeHtml(value)}</strong></div>`).join('')}</div>
-        <p class="device-note">O perfil foi lido localmente. O HUB não envia modelo, GPU ou renderer para um servidor; alguns navegadores ocultam esses dados por privacidade. ${profile.deep ? 'A leitura avançada foi executada sob ação explícita.' : 'Toque em “Detectar agora” para tentar obter dados gráficos mais detalhados.'}</p>
+        <p class="device-note">O perfil é lido localmente e atualizado nesta sessão. O HUB não envia modelo, GPU ou renderer para um servidor. A identificação usa Client Hints, User-Agent, WebGL e WebGPU; se o navegador ocultar o modelo ou o renderer, exibimos essa limitação em vez de inventar uma identificação. ${profile.deep ? 'A leitura avançada foi executada automaticamente e pode ser repetida no botão acima.' : 'Toque em “Detectar agora” para tentar obter dados gráficos mais detalhados.'}</p>
       `;
       renderDeviceRecommendations(profile);
     }
@@ -7918,6 +8039,23 @@
 
     function renderCategorizedDrivers(manifest) {
       const container = document.getElementById('driversCategorizedContainer');
+      manifest = manifest || {};
+      driverSourcesData.forEach(source => {
+        const category = source.family || 'Other Drivers';
+        if (!manifest[category]) manifest[category] = [];
+        const exists = manifest[category].some(item => item.name === source.name || item.repo === source.repo || item.fullProject?.repo === source.repo);
+        if (!exists) {
+          manifest[category].push({
+            name: source.name,
+            repo: source.repo,
+            version: 'Fonte GitHub · releases',
+            url: source.repoUrl,
+            repoUrl: source.repoUrl,
+            apiUrl: source.apiUrl,
+            sourceOnly: true
+          });
+        }
+      });
       if (!manifest || Object.entries(manifest).filter(([k, v]) => v.length > 0).length === 0) {
         container.innerHTML = `<div class="no-recent-drivers">😓 ${t('noDriversFound')}</div>`;
         return;
@@ -7933,15 +8071,19 @@
               ${items.map(item => {
           const itemKey = item.fullProject ? encodeURIComponent(projectKey(item.fullProject)) : null;
           const clickAction = itemKey ? `onclick="openProjectByKey('${itemKey}')"` : '';
+          const sourceOnly = Boolean(item.sourceOnly);
           return `
-                <div class="driver-item-card" ${clickAction} style="${itemKey ? 'cursor:pointer;' : ''}" title="${escapeHtml(item.name)} ${escapeHtml(item.version || '')}">
+                <div class="driver-item-card${sourceOnly ? ' driver-source-card' : ''}" ${clickAction} style="${itemKey ? 'cursor:pointer;' : ''}" title="${escapeHtml(item.name)} ${escapeHtml(item.version || '')}">
                   <div class="driver-item-name">
                     ${escapeHtml(item.name)}
+                    ${sourceOnly ? '<span class="driver-source-badge">FONTE</span>' : ''}
                     ${(item.fullProject && hasNewReleases(item.fullProject)) ? `<span class="new-release-badge" style="font-size: 0.6em; margin-left: 5px;">🔥 NOVO!</span>` : ''}
-                    <button class="copy-btn" onclick="copyEncodedToClipboard('${encodeURIComponent(item.url || '')}', event)" title="Copy Link" style="background:none; border:none; cursor:pointer; font-size:1.1em; margin-left:5px; vertical-align:middle;">📋</button>
+                    ${item.url ? `<button class="copy-btn" onclick="copyEncodedToClipboard('${encodeURIComponent(item.url || '')}', event)" title="Copy Link" style="background:none; border:none; cursor:pointer; font-size:1.1em; margin-left:5px; vertical-align:middle;">📋</button>` : ''}
                   </div>
                   <div class="driver-item-ver">${escapeHtml(item.version || 'v1.0')}</div>
-                  ${itemKey
+                  ${sourceOnly
+              ? `<div class="driver-source-links"><a href="${safeExternalUrl(item.repoUrl || item.url)}" target="_blank" rel="noopener noreferrer" class="driver-download-btn">↗ Abrir releases</a>${item.apiUrl ? `<a href="${safeExternalUrl(item.apiUrl)}" target="_blank" rel="noopener noreferrer" class="driver-api-link">API GitHub ↗</a>` : ''}</div>`
+              : itemKey
               ? `<div class="driver-download-btn">📂 ${t('viewReleases') || 'Ver Releases'}</div>`
               : `<a href="${safeExternalUrl(item.url)}" target="_blank" rel="noopener noreferrer" class="driver-download-btn">⬇ Download .wcp</a>`
             }
@@ -8095,11 +8237,12 @@
     async function loadData() {
       try {
         const cacheVersion = Math.floor(Date.now() / (60 * 60 * 1000));
-        const [res, historyRes, compatibilityRes, recipesRes] = await Promise.all([
+        const [res, historyRes, compatibilityRes, recipesRes, driverSourcesRes] = await Promise.all([
           fetch(`data/rankings.json?v=${cacheVersion}`, { cache: 'default' }),
           fetch(`data/history.json?v=${cacheVersion}`, { cache: 'default' }).catch(() => null),
           fetch(`data/compatibility.json?v=${cacheVersion}`, { cache: 'default' }).catch(() => null),
-          fetch(`data/recipes.json?v=${cacheVersion}`, { cache: 'default' }).catch(() => null)
+          fetch(`data/recipes.json?v=${cacheVersion}`, { cache: 'default' }).catch(() => null),
+          fetch(`data/driver-sources.json?v=${cacheVersion}`, { cache: 'default' }).catch(() => null)
         ]);
         if (!res.ok) throw new Error(`Ranking HTTP ${res.status}`);
         const json = await res.json();
@@ -8116,6 +8259,10 @@
         if (recipesRes?.ok) {
           const recipesJson = await recipesRes.json();
           recipesData = Array.isArray(recipesJson) ? recipesJson : (recipesJson.recipes || []);
+        }
+        if (driverSourcesRes?.ok) {
+          const driverSourcesJson = await driverSourcesRes.json();
+          driverSourcesData = Array.isArray(driverSourcesJson) ? driverSourcesJson : (driverSourcesJson.sources || []);
         }
 
         const projects = Array.isArray(json) ? json : json?.results;
@@ -8172,11 +8319,11 @@
         allData.forEach(p => {
           if (p.category === 'Drivers') {
             // Categorização mais inteligente para drivers do GitHub
-            let githubType = 'Adreno GPU Drivers';
-            if (p.name.toLowerCase().includes('turnip') || p.repo.toLowerCase().includes('turnip')) {
-              githubType = 'Turnip Drivers';
-            } else if (p.category === 'Drivers' && !p.name.toLowerCase().includes('adreno')) {
-              githubType = 'Other Drivers';
+            let githubType = p.driverFamily || 'Other Drivers';
+            if (!p.driverFamily && (p.name.toLowerCase().includes('turnip') || p.repo.toLowerCase().includes('turnip'))) {
+              githubType = 'Adreno / Turnip';
+            } else if (!p.driverFamily && p.name.toLowerCase().includes('adreno')) {
+              githubType = 'Adreno GPU Drivers';
             }
 
             if (!manifestDrivers[githubType]) manifestDrivers[githubType] = [];
@@ -8217,8 +8364,10 @@
           renderDeviceProfile(deviceProfile);
           renderRecipes();
         }
-        else collectDeviceProfile({ deep: false }).then(profile => {
+        // Atualização automática completa: Client Hints, WebGL e WebGPU quando o navegador permitir.
+        collectDeviceProfile({ deep: true }).then(profile => {
           deviceProfile = profile;
+          persistStoredObject(DEVICE_PROFILE_STORAGE_KEY, profile);
           renderDeviceProfile(profile);
           renderRecipes();
         }).catch(() => { /* perfil opcional */ });
