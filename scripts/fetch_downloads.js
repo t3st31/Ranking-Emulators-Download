@@ -4,6 +4,12 @@ const GITHUB_TOKEN = process.env.GITHUB_TOKEN || process.env.GH_TOKEN || "";
 const REQUEST_DELAY_MS = GITHUB_TOKEN ? 150 : 1100;
 const MAX_RELEASE_PAGES = 10;
 const RETRYABLE_STATUS = new Set([408, 425, 429, 500, 502, 503, 504]);
+// Uso manual: atualiza apenas os repositórios informados e preserva os demais
+// dados publicados. Ex.: ONLY_REPOS="owner/repo,owner/outro" npm run fetch
+const ONLY_REPOS = new Set((process.env.ONLY_REPOS || "")
+  .split(",")
+  .map(repo => repo.trim())
+  .filter(Boolean));
 
 function wait(ms) {
   return new Promise(resolve => setTimeout(resolve, ms));
@@ -72,13 +78,16 @@ const repos = [
   { name: "BannerHub (The412Banner)", repo: "The412Banner/bannerhub", category: "GameHub", logo: "bannerhub.png" },
 
     // DRIVERS
-  { name: "Adreno Tools Drivers", repo: "K11MCH1/AdrenoToolsDrivers", category: "Drivers", logo: "drivers.png", extensions: [".zip"] },
-  { name: "Adrenotools Drivers (StevenMXZ)", repo: "StevenMXZ/Adrenotools-Drivers", category: "Drivers", logo: "drivers.png", extensions: [".zip"] },
-  { name: "Freedreno Turnip CI (Weab-chan)", repo: "Weab-chan/freedreno_turnip-CI", category: "Drivers", logo: "drivers.png", extensions: [".zip"] },
-  { name: "Freedreno Turnip CI (StevenMXZ)", repo: "StevenMXZ/freedreno_turnip-CI", category: "Drivers", logo: "drivers.png", extensions: [".zip"] },
-  { name: "Freedreno Turnip CI (whitebelyash)", repo: "whitebelyash/freedreno_turnip-CI", category: "Drivers", logo: "drivers.png", extensions: [".zip"] },
-  { name: "Upload Grave", repo: "jhinzuo/upload_grave", category: "Drivers", logo: "drivers.png", extensions: [".zip"] },
-  { name: "Winlator Ref4ik (Drivers/Wine)", repo: "REF4IK/winlator-ref4ik-", category: "Drivers", logo: "drivers.png", extensions: [".wcp"] },
+  { name: "K11MCH1 Turnip Drivers", repo: "K11MCH1/AdrenoToolsDrivers", category: "Drivers", driverFamily: "Adreno / Turnip", logo: "drivers.png", extensions: [".zip", ".apk"] },
+  { name: "The412Banner Turnip Drivers", repo: "The412Banner/Banners-Turnip", category: "Drivers", driverFamily: "Adreno / Turnip", logo: "drivers.png", extensions: [".zip"] },
+  { name: "whitebelyash AdrenoTools Drivers", repo: "whitebelyash/AdrenoToolsDrivers", category: "Drivers", driverFamily: "Adreno / Turnip", logo: "drivers.png", extensions: [".zip", ".so"] },
+  { name: "Snapdragon Elite Drivers", repo: "StevenMXZ/Adrenotools-Drivers", category: "Drivers", driverFamily: "Adreno / Turnip", logo: "drivers.png", extensions: [".zip"] },
+  { name: "Weab-Chan Turnip Drivers", repo: "Weab-chan/freedreno_turnip-CI", category: "Drivers", driverFamily: "Adreno / Turnip", logo: "drivers.png", extensions: [".zip"] },
+  { name: "Turnip - StevenMXZ", repo: "StevenMXZ/freedreno_turnip-CI", category: "Drivers", driverFamily: "Adreno / Turnip", logo: "drivers.png", extensions: [".zip"] },
+  { name: "A8XX - Turnip", repo: "whitebelyash/freedreno_turnip-CI", category: "Drivers", driverFamily: "Adreno A8XX / Turnip", logo: "drivers.png", extensions: [".zip", ".so"] },
+  { name: "Xclipse Turnip", repo: "jhinzuo/upload_grave", category: "Drivers", driverFamily: "Xclipse / Turnip", logo: "drivers.png", extensions: [".zip", ".wcp"] },
+  { name: "Wrappers - Mali", repo: "winlatorbrasil/wrappers", category: "Drivers", driverFamily: "Mali / Wrappers", logo: "drivers.png", extensions: [".wcp", ".zip", ".tzst"] },
+  { name: "Winlator Ref4ik (Drivers/Wine)", repo: "REF4IK/winlator-ref4ik-", category: "Drivers", logo: "drivers.png", extensions: [".wcp", ".apk"] },
   { name: "StevenMXZ Contents Cmod", repo: "StevenMXZ/Contents-Cmod", category: "Drivers", logo: "drivers.png", extensions: [".wcp", ".wcp.xz"] },
 
   // GAMENATIVE
@@ -108,6 +117,8 @@ const repos = [
   { name: "Winlator Brasil", repo: "winlatorbrasil/Winlator-Brasil", category: "Winlator", logo: "winlator-brasil.png" },
   { name: "Steamlator", repo: "slaker222/Steamlator", category: "Winlator", logo: "winlator.png" },
   { name: "WinNative (fork)", repo: "WinDroidEmulation/WinNative", category: "Winlator", logo: "winnative.jpeg" },
+  { name: "Bannerlator", repo: "The412Banner/Bannerlator", category: "Winlator", logo: "bannerlator.jpg", sourceKind: "fork/comunidade" },
+  { name: "WinNative (WinNative-Emu)", repo: "WinNative-Emu/WinNative", category: "Winlator", logo: "winnative-emu.png", sourceKind: "fork/comunidade" },
 
   // PC EMULATOR
   { name: "MiceWine", repo: "KreitinnSoftware/MiceWine-Application", category: "PC Emulator", logo: "micewine.png" },
@@ -122,6 +133,8 @@ const repos = [
   
   // XBOX
   { name: "X1 BOX", repo: "NETHERSTRIKER/x1-box-apk-1.1.4-compiled-via-izzy2lost-source-code", category: "Xbox", logo: "x1-box.png" },
+  { name: "XenDroid", repo: "rfandango/XenDroid", category: "Xbox", logo: "xendroid.png", sourceKind: "fork/comunidade" },
+  { name: "X360 Mobile", repo: "Ashnar2602/X360-Mobile---OFFICIAL", category: "Xbox", logo: "x360-mobile.png", sourceKind: "fork/comunidade" },
 
   // Nintendo Switch Emulator
   { name: "Eden Emulator", repo: "eden-emulator/Releases", category: "Nintendo Switch Emulator", logo: "eden.png" },
@@ -137,11 +150,15 @@ const repos = [
   // Emulator PS3
   { name: "APS3e", repo: "aenu1/aps3e", category: "Emulator PS3", logo: "aps3e.png" },
   { name: "RPCSX Android", repo: "RPCSX/rpcsx-ui-android", category: "Emulator PS3", logo: "rpcsx.png" },
+  { name: "ARMSX3", repo: "ARMSX2/ARMSX3", category: "Emulator PS3", logo: "armsx3.png", sourceKind: "fork/comunidade" },
 
   // Emulator PS2
   { name: "ARMSX2", repo: "ARMSX2/ARMSX2", category: "Emulator PS2", logo: "armsx2.png" },
   { name: "NetherSX2 Patch", repo: "Trixarian/NetherSX2-patch", category: "Emulator PS2", logo: "nethersx2.png" },
   { name: "NetherSX2 Classic", repo: "Trixarian/NetherSX2-classic", category: "Emulator PS2", logo: "nethersx2.png" },
+
+  // Emulator PS5
+  { name: "SharpEmu ARM64", repo: "edeegg/sharpemu-arm64", category: "Emulator PS5", logo: "sharpemu.png", sourceKind: "fork/comunidade" },
 
   // PSVITA
   { name: "Vita3K Android", repo: "Vita3K/Vita3K-Android", category: "PSVITA", logo: "vita3k.png" },
@@ -337,7 +354,15 @@ function parseReleases(releases, isGitea = false) {
     console.log(`\n📦 ${r.name}`);
 
     let data;
-    if (r.apiType === "gitea") {
+    const shouldFetch = ONLY_REPOS.size === 0 || ONLY_REPOS.has(r.repo);
+    const previous = previousByRepo.get(r.repo);
+
+    if (!shouldFetch) {
+      data = previous
+        ? { total: previous.downloads || 0, releases: previous.releases || [] }
+        : { total: 0, releases: [] };
+      if (!previous) console.warn(`  ⚠️  Sem dado anterior para ${r.repo}; execute uma atualização completa depois.`);
+    } else if (r.apiType === "gitea") {
       data = await getGiteaReleasesData(r.apiHost, r.repo);
     } else {
       data = await getGitHubReleasesData(r.repo);
@@ -354,7 +379,6 @@ function parseReleases(releases, isGitea = false) {
 
     // Se a API bloquear a execução (rate limit, 403/429 ou falha de rede),
     // mantém o último resultado válido para não publicar um ranking zerado.
-    const previous = previousByRepo.get(r.repo);
     const mergedData = data.failed && previous
       ? { total: previous.downloads || 0, releases: previous.releases || [] }
       : data;
@@ -363,6 +387,7 @@ function parseReleases(releases, isGitea = false) {
       name: r.name,
       repo: r.repo,
       category: r.category,
+      driverFamily: r.driverFamily || null,
       logo: r.logo || null,
       extensions: r.extensions || null,
       sourceKind: sourceMeta.sourceKind,
@@ -379,7 +404,7 @@ function parseReleases(releases, isGitea = false) {
     }
 
     // Sem token, respeita o limite público. No Actions usamos GITHUB_TOKEN.
-    await new Promise(resolve => setTimeout(resolve, REQUEST_DELAY_MS));
+    if (shouldFetch) await new Promise(resolve => setTimeout(resolve, REQUEST_DELAY_MS));
   }
 
   // Buscar drivers do manifest
@@ -401,8 +426,9 @@ function parseReleases(releases, isGitea = false) {
       : "Nenhum projeto retornou dados; publicação cancelada para evitar um ranking vazio.");
   }
 
-  // Criar diretório data se não existir
+  // Criar os diretórios de dados do coletor e da publicação estática.
   fs.mkdirSync("data", { recursive: true });
+  fs.mkdirSync("docs/data", { recursive: true });
 
   const totalDownloads = results.reduce((sum, item) => sum + (Number(item.downloads) || 0), 0);
   const totalReleases = results.reduce((sum, item) => sum + (item.releases?.length || 0), 0);
@@ -445,12 +471,20 @@ function parseReleases(releases, isGitea = false) {
     manifestDrivers: manifestDrivers // Novos drivers categorizados do manifest
   };
 
-  fs.writeFileSync("data/rankings.json", JSON.stringify(output, null, 2));
-  fs.writeFileSync("data/history.json", JSON.stringify({
+  const historyOutput = {
     updatedAt: new Date().toISOString(),
     entries: historyEntries,
     projectSnapshots
-  }, null, 2));
+  };
+  const rankingsJson = JSON.stringify(output, null, 2);
+  const historyJson = JSON.stringify(historyOutput, null, 2);
+
+  // O site GitHub Pages consome docs/data; manter ambos idênticos evita que o
+  // dashboard publique um ranking anterior ao que foi gerado pelo coletor.
+  fs.writeFileSync("data/rankings.json", rankingsJson);
+  fs.writeFileSync("data/history.json", historyJson);
+  fs.writeFileSync("docs/data/rankings.json", rankingsJson);
+  fs.writeFileSync("docs/data/history.json", historyJson);
 
   console.log("\n" + "=".repeat(60));
   console.log("✅ Rankings atualizados com sucesso!");
@@ -458,8 +492,8 @@ function parseReleases(releases, isGitea = false) {
   console.log(`📊 Total de projetos: ${results.length}`);
   console.log(`✅ Com releases: ${successCount}`);
   console.log(`⚠️  Sem releases: ${errorCount}`);
-  console.log(`💾 Arquivo salvo em: data/rankings.json`);
-  console.log(`📈 Histórico salvo em: data/history.json (${historyEntries.length} pontos)`);
+  console.log(`💾 Rankings salvos em: data/rankings.json e docs/data/rankings.json`);
+  console.log(`📈 Histórico salvo em: data/history.json e docs/data/history.json (${historyEntries.length} pontos)`);
   console.log("=".repeat(60) + "\n");
 
   // Mostrar top 5
