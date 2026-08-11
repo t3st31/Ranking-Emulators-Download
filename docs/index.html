@@ -2469,15 +2469,14 @@
     <button class="tab-btn" id="btn-drivers" onclick="switchTab('drivers')" data-i18n="tabDriversNovos">🏎️ Drivers
       Novos</button>
     <button class="tab-btn" id="btn-news" onclick="switchTab('news')" data-i18n="tabNews">🆕 Novidades</button>
-    <button class="tab-btn" id="btn-collection" onclick="switchTab('collection')">⭐ Minha Coleção <span
+    <button class="tab-btn" id="btn-compare" onclick="openCompareModal()"><span data-i18n="compareTop">⚔ Comparar</span> <span
+        id="compareCountTop" class="tab-count">0</span></button>
+    <button class="tab-btn" id="btn-collection" onclick="switchTab('collection')"><span data-i18n="favoritesTop">⭐ Favoritos</span> <span
         id="favoritesCount" class="tab-count">0</span></button>
   </nav>
 
   <div class="nexus-toolbar" aria-label="Ferramentas rápidas">
     <button type="button" class="tool-btn" onclick="openCommandPalette()">⌘ <span>Busca rápida</span></button>
-    <button type="button" class="tool-btn" onclick="openCompareModal()">⚔ <span>Comparar</span> <b
-        id="compareCount">0</b></button>
-    <button type="button" class="tool-btn" onclick="switchTab('collection')">☆ <span>Favoritos</span></button>
     <label class="language-switcher" for="languageSelect"><span>文</span>
       <select id="languageSelect" onchange="changeLanguage(this.value)" aria-label="Idioma">
         <option value="auto">Auto</option>
@@ -4307,6 +4306,8 @@
 
     #btn-collection { position: relative; }
     #btn-collection .tab-count { margin-left: 2px; }
+    #btn-compare:not(.active), #btn-collection:not(.active) { border-color: rgba(255, 43, 214, 0.48); background: rgba(255, 43, 214, 0.08); color: #ffb3ed; }
+    #btn-compare:not(.active):hover, #btn-collection:not(.active):hover { border-color: #ff2bd6; background: rgba(255, 43, 214, 0.16); color: #fff; box-shadow: 0 0 15px rgba(255, 43, 214, 0.28); }
 
     .filter-actions {
       display: flex;
@@ -4520,12 +4521,13 @@
     .release-compare-toolbar { display: flex; align-items: center; flex-wrap: wrap; gap: 9px; margin: 14px 0 4px; padding: 12px; border: 1px solid rgba(255, 107, 255, 0.18); border-radius: 11px; background: rgba(255, 107, 255, 0.05); }
     .release-compare-toolbar label { color: #d4b7dc; font-size: 0.72rem; font-weight: 700; }
     .release-compare-toolbar select { min-width: 150px; padding: 7px 9px; border: 1px solid rgba(0, 247, 255, 0.26); border-radius: 7px; background: #0b1830; color: #edffff; }
-    .release-diff-output { display: grid; gap: 10px; margin: 12px 0 16px; padding: 14px; border: 1px solid rgba(255, 204, 0, 0.2); border-radius: 12px; background: rgba(255, 204, 0, 0.045); }
+    .release-diff-output { display: grid; gap: 10px; min-width: 0; overflow: hidden; margin: 12px 0 16px; padding: 14px; border: 1px solid rgba(255, 204, 0, 0.2); border-radius: 12px; background: rgba(255, 204, 0, 0.045); }
     .release-diff-title { color: #ffcc00; font: 700 0.75rem 'Rajdhani', sans-serif; text-transform: uppercase; letter-spacing: 0.8px; }
-    .release-diff-grid { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 10px; }
-    .release-diff-column { padding: 10px; border-radius: 8px; background: rgba(255, 255, 255, 0.04); }
+    .release-diff-grid { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 10px; min-width: 0; }
+    .release-diff-column { min-width: 0; overflow: hidden; padding: 10px; border-radius: 8px; background: rgba(255, 255, 255, 0.04); }
     .release-diff-column h4 { margin-bottom: 6px; color: #eaffff; font-size: 0.75rem; }
     .release-diff-column ul { display: grid; gap: 5px; margin: 0; padding-left: 16px; color: #b8c8d5; font-size: 0.72rem; line-height: 1.4; }
+    .release-diff-column li { overflow-wrap: anywhere; word-break: break-word; }
     .changelog-chips { display: flex; flex-wrap: wrap; gap: 5px; margin-top: 8px; }
     .changelog-chip { padding: 3px 7px; border: 1px solid rgba(0, 247, 255, 0.2); border-radius: 999px; color: #aeeeff; font-size: 0.63rem; font-weight: 800; }
 
@@ -4733,6 +4735,8 @@
         tabRecipes: '🧰 Receitas',
         tabDashboard: '📊 Dashboard',
         tabNews: '🆕 Novidades',
+        compareTop: '⚔ Comparar',
+        favoritesTop: '⭐ Favoritos',
         rankingTitle: '🏆 Ranking Global de Downloads',
         searchLabel: '🔍 Buscar Projeto',
         searchPlaceholder: 'Ex: Winlator, Cemu...',
@@ -4943,6 +4947,8 @@
         tabRecipes: '🧰 Recipes',
         tabDashboard: '📊 Dashboard',
         tabNews: '🆕 News',
+        compareTop: '⚔ Compare',
+        favoritesTop: '⭐ Favorites',
         rankingTitle: '🏆 Global Download Ranking',
         searchLabel: '🔍 Search Project',
         searchPlaceholder: 'Ex: Winlator, Cemu...',
@@ -6257,8 +6263,9 @@
     function updateCollectionUI() {
       const count = document.getElementById('favoritesCount');
       if (count) count.textContent = favoriteRepos.size;
-      const compareCount = document.getElementById('compareCount');
-      if (compareCount) compareCount.textContent = compareRepos.size;
+      document.querySelectorAll('#compareCount, #compareCountTop').forEach(element => {
+        element.textContent = compareRepos.size;
+      });
       document.querySelectorAll('[data-favorite-key]').forEach(button => {
         const key = decodeURIComponent(button.dataset.favoriteKey || '');
         const active = favoriteRepos.has(key);
@@ -6953,10 +6960,30 @@
       return `<div class="changelog-chips">${classifyChangelog(body).map(label => `<span class="changelog-chip">${escapeHtml(label)}</span>`).join('')}</div>`;
     }
 
+    function cleanChangelogLine(line) {
+      return String(line || '')
+        .replace(/<img\b[^>]*>/gi, ' ')
+        .replace(/<a\b[^>]*>(.*?)<\/a>/gi, '$1')
+        .replace(/<\/?(?:p|br|div|span|strong|em|ul|ol|li|table|thead|tbody|tr|td|th)\b[^>]*>/gi, ' ')
+        .replace(/!\[[^\]]*\]\([^)]*\)/g, ' ')
+        .replace(/\[([^\]]+)\]\([^)]+\)/g, '$1')
+        .replace(/https?:\/\/\S+/gi, ' ')
+        .replace(/<[^>]+>/g, ' ')
+        .replace(/\s+/g, ' ')
+        .trim();
+    }
+
     function changelogLines(body) {
       return String(body || '').split(/\r?\n/)
         .map(line => line.replace(/^\s*[-*+]\s+/, '').replace(/^#+\s+/, '').trim())
-        .filter(line => line.length > 2 && !line.startsWith('```'));
+        .filter(line => {
+          if (!line || line.startsWith('```')) return false;
+          if (/^(?:https?:\/\/|<[/!]?(?:img|a|p|div|table|br)\b)/i.test(line)) return false;
+          if (/shields\.io|buymeacoffee|user-attachments/i.test(line)) return false;
+          return true;
+        })
+        .map(cleanChangelogLine)
+        .filter(line => line.length > 2);
     }
 
     function renderReleaseComparison() {
