@@ -4078,6 +4078,11 @@
       font-size: 0.85em;
     }
 
+    .asset-source-note { margin: 7px 0; padding: 8px 10px; border-left: 3px solid #ffcc00; border-radius: 6px; background: rgba(255, 204, 0, 0.07); color: #d8c98c; font-size: 0.7em; line-height: 1.4; }
+    .assets-empty { display: grid; gap: 7px; padding: 11px 10px; border: 1px dashed rgba(0, 247, 255, 0.18); border-radius: 8px; color: #9ba9bc; font-size: 0.76em; }
+    .assets-empty a { color: #7cefff; font-weight: 800; text-decoration: none; }
+    .assets-empty a:hover { color: #fff; text-decoration: underline; }
+
     .asset-item {
       padding: 8px 9px;
       border-radius: 9px;
@@ -7167,15 +7172,23 @@
 
     function getValidExtensions(project) {
       const exts = ['.apk'];
+      if (project.category === 'Drivers') {
+        ['.zip', '.wcp', '.wcp.xz', '.tzst', '.so', '.apk', '.tar.gz', '.7z'].forEach(extension => {
+          if (!exts.includes(extension)) exts.push(extension);
+        });
+      }
       if (project.extensions && Array.isArray(project.extensions)) {
-        project.extensions.forEach(e => { if (!exts.includes(e)) exts.push(e); });
+        project.extensions.forEach(e => {
+          const extension = String(e || '').toLowerCase();
+          if (extension && !exts.includes(extension)) exts.push(extension);
+        });
       }
       return exts;
     }
 
     function assetMatchesExtensions(assetName, extensions) {
-      const name = assetName.toLowerCase();
-      return extensions.some(ext => name.endsWith(ext));
+      const name = String(assetName || '').toLowerCase();
+      return extensions.some(ext => name.endsWith(String(ext || '').toLowerCase()));
     }
 
     const CHANGELOG_RULES = [
@@ -7469,8 +7482,13 @@
       `;
 
           const validExts = getValidExtensions(projectData);
-          const validAssets = (release.assets || []).filter(a => assetMatchesExtensions(a.name, validExts));
-          validAssets.forEach(asset => {
+          const allAssets = Array.isArray(release.assets) ? release.assets : [];
+          const validAssets = allAssets.filter(a => assetMatchesExtensions(a.name, validExts));
+          const assetsForDisplay = validAssets.length > 0 || projectData.category !== 'Drivers' ? validAssets : allAssets;
+          if (projectData.category === 'Drivers' && allAssets.length > 0 && validAssets.length === 0) {
+            releasesHTML += `<div class="asset-source-note">⚠️ A fonte publicou arquivos com uma extensão ainda não catalogada. Eles estão sendo exibidos para download.</div>`;
+          }
+          assetsForDisplay.forEach(asset => {
             releasesHTML += `
           <div class="asset-item">
               <span class="asset-name">${escapeHtml(asset.name)}</span>
@@ -7485,8 +7503,8 @@
         `;
           });
 
-          if (validAssets.length === 0) {
-            releasesHTML += `<div style="color: #aaa; padding: 10px 0; font-size: 0.9em;">📭 ${t('noFilesAvailable')}</div>`;
+          if (assetsForDisplay.length === 0) {
+            releasesHTML += `<div class="assets-empty">📭 ${t('noFilesAvailable')} ${releaseUrl ? `<a href="${releaseUrl}" target="_blank" rel="noopener noreferrer">Abrir a página desta release ↗</a>` : ''}</div>`;
           }
 
           releasesHTML += `
