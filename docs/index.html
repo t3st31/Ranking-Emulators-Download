@@ -2670,7 +2670,20 @@
     <!-- CONTENT: DRIVERS CATEGORIZED (ALL) -->
     <div id="tab-drivers-all" class="tab-content">
       <div class="card">
-        <h2 data-i18n="driversAllTitle">📁 Biblioteca de Drivers</h2>
+        <div class="drivers-library-heading">
+          <div>
+            <span class="eyebrow">DRIVER COMMAND CENTER</span>
+            <h2 data-i18n="driversAllTitle">📁 Biblioteca de Drivers</h2>
+            <p class="section-lead">Drivers monitorados, wrappers e fontes upstream em um único painel.</p>
+          </div>
+          <div id="driversLibrarySummary" class="drivers-library-summary">Sincronizando fontes…</div>
+        </div>
+        <div class="drivers-library-toolbar">
+          <input id="driverLibrarySearch" class="filter-input" type="search" placeholder="Buscar driver, GPU ou repositório…" oninput="renderCategorizedDrivers(manifestDriversData)" />
+          <select id="driverLibraryFamily" class="filter-select" onchange="renderCategorizedDrivers(manifestDriversData)">
+            <option value="all">Todos os perfis</option>
+          </select>
+        </div>
         <div id="driversCategorizedContainer">
           <div class="loading" data-i18n="loadingDrivers">
             ⏱️ Carregando drivers...
@@ -4523,6 +4536,14 @@
     .driver-source-links { display: flex; flex-wrap: wrap; align-items: center; gap: 8px; margin-top: auto; }
     .driver-source-links .driver-download-btn { flex: 1 1 auto; }
     .driver-api-link { color: #9bdfff; font-size: 0.68rem; font-weight: 800; white-space: nowrap; }
+    .driver-cat-title { display: flex; align-items: center; justify-content: space-between; gap: 12px; }
+    .driver-cat-title small { color: #7495ad; font: 700 0.62rem 'Rajdhani', sans-serif; letter-spacing: 0.7px; white-space: nowrap; }
+    .drivers-library-heading { display: flex; align-items: flex-end; justify-content: space-between; gap: 18px; margin-bottom: 18px; }
+    .drivers-library-summary { display: grid; min-width: 170px; padding: 10px 13px; border: 1px solid rgba(0, 247, 255, 0.2); border-radius: 10px; background: rgba(0, 247, 255, 0.05); color: #91aec1; font-size: 0.68rem; line-height: 1.45; text-align: right; }
+    .drivers-library-summary strong { display: block; color: #00f7ff; font: 800 1.05rem 'Rajdhani', sans-serif; }
+    .drivers-library-toolbar { display: flex; flex-wrap: wrap; gap: 9px; margin: 0 0 20px; padding: 10px; border: 1px solid rgba(0, 247, 255, 0.13); border-radius: 11px; background: rgba(2, 10, 25, 0.5); }
+    .drivers-library-toolbar .filter-input { flex: 1 1 280px; min-width: 0; }
+    .drivers-library-toolbar .filter-select { flex: 0 1 240px; }
 
     .release-compare-toolbar { display: grid; grid-template-columns: minmax(190px, 0.8fr) minmax(0, 1.7fr); align-items: center; gap: 16px; margin: 14px 0 4px; padding: 15px; border: 1px solid rgba(255, 107, 255, 0.24); border-radius: 13px; background: linear-gradient(135deg, rgba(255, 43, 214, 0.08), rgba(0, 247, 255, 0.045)); }
     .release-compare-heading { display: grid; gap: 4px; min-width: 0; }
@@ -4572,6 +4593,8 @@
 
     @media (max-width: 620px) {
       .device-profile-header { align-items: flex-start; flex-direction: column; }
+      .drivers-library-heading { align-items: flex-start; flex-direction: column; }
+      .drivers-library-summary { width: 100%; text-align: left; }
       .release-compare-toolbar { grid-template-columns: 1fr; gap: 12px; }
       .release-diff-summary { grid-template-columns: minmax(0, 1fr) minmax(0, 1fr); }
       .release-diff-arrow { display: none; }
@@ -4672,6 +4695,44 @@
     .nexus-toast { position: fixed; right: 18px; bottom: 18px; z-index: 2100; max-width: 360px; padding: 12px 15px; border: 1px solid #00f7ff; border-radius: 9px; background: #08162b; color: #eaffff; box-shadow: 0 0 25px rgba(0,247,255,0.2); opacity: 0; transform: translateY(12px); pointer-events: none; transition: opacity 160ms ease, transform 160ms ease; }
     .nexus-toast.is-visible { opacity: 1; transform: translateY(0); }
 
+    /* Footer command deck */
+    footer.nexus-footer { position: relative; isolation: isolate; overflow: hidden; margin-top: 72px; padding: 44px 20px 24px; border-top: 1px solid rgba(0, 247, 255, 0.48); background: linear-gradient(180deg, rgba(8, 13, 28, 0.9), rgba(3, 5, 14, 0.98)); box-shadow: 0 -18px 55px rgba(0, 247, 255, 0.07); }
+    footer.nexus-footer::before { height: 3px; background: linear-gradient(90deg, transparent, #00f7ff 22%, #8557ff 50%, #ff2bd6 78%, transparent); box-shadow: 0 0 18px rgba(0, 247, 255, 0.75), 0 0 26px rgba(255, 43, 214, 0.35); }
+    footer.nexus-footer::after { content: ""; position: absolute; inset: 3px 0 0; z-index: -1; pointer-events: none; opacity: 0.42; background: linear-gradient(120deg, transparent 0 30%, rgba(0, 247, 255, 0.08) 30.1% 30.2%, transparent 30.3% 70%, rgba(255, 43, 214, 0.08) 70.1% 70.2%, transparent 70.3%), repeating-linear-gradient(90deg, transparent 0 72px, rgba(0, 247, 255, 0.022) 73px, transparent 74px); }
+    footer.nexus-footer .footer-content { width: min(1120px, 100%); gap: 22px; }
+    .footer-brand-lockup { display: grid; gap: 7px; text-align: center; }
+    .footer-kicker { color: #00f7ff; font: 700 0.62rem 'Orbitron', sans-serif; letter-spacing: 2px; text-shadow: 0 0 12px rgba(0, 247, 255, 0.55); }
+    footer.nexus-footer .footer-credit { margin: 0; color: #d8eaff; font-size: 0.78rem; letter-spacing: 1.4px; }
+    .footer-subline { color: #7189a4; font-size: 0.68rem; letter-spacing: 0.4px; }
+    footer.nexus-footer .footer-actions { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); width: min(860px, 100%); gap: 14px; }
+    footer.nexus-footer .premium-link.footer-command-card { display: grid; grid-template-columns: 46px minmax(0, 1fr) auto; align-items: center; min-width: 0; min-height: 78px; padding: 13px 16px; border-radius: 14px; text-align: left; letter-spacing: 0; animation: none; transform: none; }
+    .footer-command-card { position: relative; isolation: isolate; }
+    .footer-command-card::before { content: ""; position: absolute; inset: 0; z-index: -1; background: linear-gradient(110deg, transparent 15%, rgba(255, 255, 255, 0.14) 47%, transparent 67%); transform: translateX(-120%); transition: transform 500ms ease; }
+    .footer-command-card:hover::before { transform: translateX(120%); }
+    footer.nexus-footer .youtube-btn { border: 1px solid rgba(255, 72, 104, 0.72); background: linear-gradient(135deg, rgba(110, 12, 42, 0.92), rgba(41, 8, 31, 0.98)); box-shadow: inset 0 1px rgba(255, 255, 255, 0.08), 0 0 22px rgba(255, 43, 92, 0.15); }
+    footer.nexus-footer .github-btn { border: 1px solid rgba(133, 87, 255, 0.7); background: linear-gradient(135deg, rgba(47, 28, 95, 0.94), rgba(13, 23, 55, 0.98)); box-shadow: inset 0 1px rgba(255, 255, 255, 0.08), 0 0 22px rgba(133, 87, 255, 0.16); }
+    footer.nexus-footer .footer-command-card:hover { border-color: #00f7ff; box-shadow: 0 0 28px rgba(0, 247, 255, 0.2), inset 0 1px rgba(255, 255, 255, 0.16); transform: translateY(-4px); }
+    .footer-command-icon { display: grid; place-items: center; width: 38px; height: 38px; border: 1px solid currentColor; border-radius: 11px; background: rgba(0, 0, 0, 0.22); color: #ff668c; box-shadow: 0 0 16px currentColor; }
+    .github-btn .footer-command-icon { color: #a88aff; }
+    .footer-command-icon svg { width: 20px; height: 20px; fill: currentColor; }
+    .footer-command-copy { display: grid; gap: 5px; min-width: 0; }
+    .footer-command-copy small { overflow: hidden; color: #9babc7; font: 700 0.57rem 'Orbitron', sans-serif; letter-spacing: 1px; text-overflow: ellipsis; white-space: nowrap; }
+    .footer-command-copy strong { overflow: hidden; color: #f2f8ff; font: 800 0.91rem 'Rajdhani', sans-serif; letter-spacing: 1px; text-overflow: ellipsis; white-space: nowrap; }
+    .footer-command-arrow { align-self: start; color: #dffaff; font: 800 1.15rem 'Rajdhani', sans-serif; transition: transform 180ms ease, color 180ms ease; }
+    .footer-command-card:hover .footer-command-arrow { color: #00f7ff; transform: translate(2px, -2px); }
+    .footer-status-line { display: flex; align-items: center; justify-content: center; flex-wrap: wrap; gap: 9px; color: #66809b; font: 700 0.58rem 'Orbitron', sans-serif; letter-spacing: 1px; }
+    .footer-status-dot { width: 7px; height: 7px; border-radius: 50%; background: #00ff88; box-shadow: 0 0 11px #00ff88; }
+    .footer-status-line i { width: 3px; height: 3px; border-radius: 50%; background: #8557ff; }
+    .footer-top-btn { padding: 0; border: 0; background: transparent; color: #a9dff2; font: inherit; letter-spacing: inherit; cursor: pointer; }
+    .footer-top-btn:hover { color: #00f7ff; text-shadow: 0 0 12px rgba(0, 247, 255, 0.55); }
+
+    @media (max-width: 680px) {
+      footer.nexus-footer { margin-top: 48px; padding: 36px 14px 22px; }
+      footer.nexus-footer .footer-actions { grid-template-columns: 1fr; }
+      footer.nexus-footer .premium-link.footer-command-card { min-height: 70px; }
+      .footer-status-line { gap: 7px; font-size: 0.52rem; }
+    }
+
     @media (max-width: 900px) {
       .nexus-overview { grid-template-columns: repeat(2, minmax(0, 1fr)); }
       .map-layout { grid-template-columns: 1fr; }
@@ -4748,17 +4809,26 @@
 
   <div id="toast" class="nexus-toast" role="status" aria-live="polite"></div>
 
-  <footer>
+  <footer class="nexus-footer">
     <div class="footer-content">
-      <span class="footer-credit" data-i18n="developedBy">Developed by ⚡FurulipoGames - GameHub Brazil</span>
+      <div class="footer-brand-lockup">
+        <span class="footer-kicker">HUB EMULADORES // COMMUNITY LINK</span>
+        <span class="footer-credit" data-i18n="developedBy">Developed by ⚡FurulipoGames - GameHub Brazil</span>
+        <span class="footer-subline">Dados abertos · releases monitoradas · sem login</span>
+      </div>
       <div class="footer-actions">
-        <a href="https://youtube.com/@FurulipoGames" target="_blank" rel="noopener noreferrer" class="premium-link youtube-btn">
-          📺 <span data-i18n="footerVisitChannel">CANAL YOUTUBE</span>
+        <a href="https://youtube.com/@FurulipoGames" target="_blank" rel="noopener noreferrer" class="premium-link footer-command-card youtube-btn" aria-label="Abrir canal do YouTube">
+          <span class="footer-command-icon" aria-hidden="true"><svg viewBox="0 0 24 24" role="img"><path d="M23.5 6.2a3 3 0 0 0-2.1-2.1C19.5 3.6 12 3.6 12 3.6s-7.5 0-9.4.5A3 3 0 0 0 .5 6.2 31 31 0 0 0 0 12a31 31 0 0 0 .5 5.8 3 3 0 0 0 2.1 2.1c1.9.5 9.4.5 9.4.5s7.5 0 9.4-.5a3 3 0 0 0 2.1-2.1A31 31 0 0 0 24 12a31 31 0 0 0-.5-5.8ZM9.6 15.6V8.4l6.3 3.6-6.3 3.6Z"/></svg></span>
+          <span class="footer-command-copy"><small>CONTENT // VIDEO FEED</small><strong data-i18n="footerVisitChannel">CANAL YOUTUBE</strong></span>
+          <span class="footer-command-arrow" aria-hidden="true">↗</span>
         </a>
-        <a href="https://github.com/winlatorbrasil" target="_blank" rel="noopener noreferrer" class="premium-link github-btn">
-          📦 <span data-i18n="viewOnGithub">CODE GITHUB</span>
+        <a href="https://github.com/winlatorbrasil" target="_blank" rel="noopener noreferrer" class="premium-link footer-command-card github-btn" aria-label="Abrir organização no GitHub">
+          <span class="footer-command-icon" aria-hidden="true"><svg viewBox="0 0 24 24" role="img"><path d="M12 .7a12 12 0 0 0-3.8 23.4c.6.1.8-.3.8-.6v-2.2c-3.4.7-4.1-1.6-4.1-1.6-.5-1.4-1.3-1.7-1.3-1.7-1.1-.8.1-.8.1-.8 1.2.1 1.8 1.2 1.8 1.2 1.1 1.8 2.8 1.3 3.5 1 .1-.8.4-1.3.8-1.6-2.7-.3-5.5-1.4-5.5-6A4.7 4.7 0 0 1 5.6 9c-.1-.3-.5-1.6.1-3.3 0 0 1-.3 3.3 1.2a11.4 11.4 0 0 1 6 0c2.3-1.5 3.3-1.2 3.3-1.2.6 1.7.2 3 .1 3.3a4.7 4.7 0 0 1 1.2 3.3c0 4.6-2.8 5.7-5.5 6 .4.3.8 1 .8 2v3c0 .3.2.7.8.6A12 12 0 0 0 12 .7Z"/></svg></span>
+          <span class="footer-command-copy"><small>SOURCE // OPEN CODE</small><strong data-i18n="viewOnGithub">CODE GITHUB</strong></span>
+          <span class="footer-command-arrow" aria-hidden="true">↗</span>
         </a>
       </div>
+      <div class="footer-status-line"><span class="footer-status-dot"></span><span>SYSTEM ONLINE</span><i></i><span>OPEN DATA</span><i></i><button type="button" class="footer-top-btn" onclick="window.scrollTo({ top: 0, behavior: 'smooth' })">↑ VOLTAR AO TOPO</button></div>
     </div>
   </footer>
 
@@ -6021,7 +6091,21 @@
     }
 
     function findProjectByKey(key) {
-      return allData.find(project => projectKey(project) === key);
+      const project = allData.find(item => projectKey(item) === key);
+      if (project) return project;
+      const source = driverSourcesData.find(item => item.repo === key);
+      return source ? {
+        name: source.name,
+        repo: source.repo,
+        category: 'Drivers',
+        driverFamily: source.family,
+        extensions: source.extensions,
+        repoUrl: source.repoUrl,
+        downloads: 0,
+        releases: [],
+        sourceKind: 'GitHub',
+        channel: 'community'
+      } : null;
     }
 
     const DEVICE_PROFILE_STORAGE_KEY = 'hub-emulators-device-profile-v2';
@@ -8040,38 +8124,92 @@
     function renderCategorizedDrivers(manifest) {
       const container = document.getElementById('driversCategorizedContainer');
       manifest = manifest || {};
+      const catalogByRepo = new Map(driverSourcesData.map(source => [source.repo, source]));
+      const catalogByName = new Map(driverSourcesData.map(source => [String(source.name || '').toLowerCase(), source]));
+      const linkDriverItem = item => {
+        const source = catalogByRepo.get(item.repo) || catalogByName.get(String(item.name || '').toLowerCase());
+        if (source) {
+          item.repo = source.repo;
+          item.repoUrl = source.repoUrl;
+          item.apiUrl = source.apiUrl;
+        }
+        const linkedProject = item.fullProject || findProjectByKey(item.repo) || allData.find(project => project.name === item.name);
+        if (!linkedProject) return item;
+        item.fullProject = linkedProject;
+        item.sourceOnly = false;
+        const latest = linkedProject.releases?.[0];
+        const validAsset = latest?.assets?.find(asset => assetMatchesExtensions(asset.name, getValidExtensions(linkedProject)));
+        item.name = linkedProject.name;
+        item.repo = linkedProject.repo;
+        item.version = latest?.tag || 'Releases disponíveis';
+        item.url = validAsset?.url || source?.repoUrl || linkedProject.repoUrl;
+        item.repoUrl = source?.repoUrl || linkedProject.repoUrl;
+        item.apiUrl = source?.apiUrl;
+        return item;
+      };
+
       driverSourcesData.forEach(source => {
         const category = source.family || 'Other Drivers';
         if (!manifest[category]) manifest[category] = [];
-        const exists = manifest[category].some(item => item.name === source.name || item.repo === source.repo || item.fullProject?.repo === source.repo);
-        if (!exists) {
-          manifest[category].push({
+        const existing = Object.values(manifest).flat().find(item => item.repo === source.repo || item.fullProject?.repo === source.repo);
+        if (existing) {
+          linkDriverItem(existing);
+        } else {
+          const sourceItem = linkDriverItem({
             name: source.name,
             repo: source.repo,
             version: 'Fonte GitHub · releases',
             url: source.repoUrl,
             repoUrl: source.repoUrl,
             apiUrl: source.apiUrl,
+            fullProject: null,
             sourceOnly: true
           });
+          manifest[category].push(sourceItem);
         }
       });
-      if (!manifest || Object.entries(manifest).filter(([k, v]) => v.length > 0).length === 0) {
+
+      // Corrige também itens antigos do manifest que não tinham o repo gravado.
+      Object.values(manifest).flat().forEach(linkDriverItem);
+
+      const search = String(document.getElementById('driverLibrarySearch')?.value || '').trim().toLowerCase();
+      const familySelect = document.getElementById('driverLibraryFamily');
+      const currentFamily = familySelect?.value || 'all';
+      const categories = Object.keys(manifest).filter(category => Array.isArray(manifest[category]) && manifest[category].length > 0).sort((a, b) => a.localeCompare(b));
+      if (familySelect) {
+        familySelect.innerHTML = `<option value="all">Todos os perfis</option>${categories.map(category => `<option value="${escapeHtml(category)}">${escapeHtml(category)}</option>`).join('')}`;
+        familySelect.value = categories.includes(currentFamily) ? currentFamily : 'all';
+      }
+
+      const matches = (item, category) => {
+        if (familySelect?.value !== 'all' && familySelect?.value !== category) return false;
+        if (!search) return true;
+        const haystack = `${category} ${item.name || ''} ${item.repo || ''} ${item.fullProject?.repo || ''} ${item.fullProject?.driverFamily || ''}`.toLowerCase();
+        return haystack.includes(search);
+      };
+      const allItems = Object.values(manifest).flat().filter(Boolean);
+      const visibleEntries = categories.map(category => [category, manifest[category].filter(item => matches(item, category))]).filter(([, items]) => items.length > 0);
+      const summary = document.getElementById('driversLibrarySummary');
+      if (summary) {
+        const monitored = allItems.filter(item => item.fullProject).length;
+        const sources = allItems.filter(item => item.sourceOnly).length;
+        summary.innerHTML = `<strong>${allItems.length}</strong>${monitored} monitorados · ${sources} fontes catalogadas`;
+      }
+      if (visibleEntries.length === 0) {
         container.innerHTML = `<div class="no-recent-drivers">😓 ${t('noDriversFound')}</div>`;
         return;
       }
 
       let html = '';
-      for (const [category, items] of Object.entries(manifest)) {
-        if (items.length === 0) continue;
+      for (const [category, items] of visibleEntries) {
         html += `
           <div class="driver-cat-section">
-            <h3 class="driver-cat-title">📂 ${escapeHtml(category)}</h3>
+            <h3 class="driver-cat-title"><span>📂 ${escapeHtml(category)}</span><small>${items.length} item${items.length === 1 ? '' : 's'}</small></h3>
             <div class="driver-item-grid">
               ${items.map(item => {
           const itemKey = item.fullProject ? encodeURIComponent(projectKey(item.fullProject)) : null;
           const clickAction = itemKey ? `onclick="openProjectByKey('${itemKey}')"` : '';
-          const sourceOnly = Boolean(item.sourceOnly);
+          const sourceOnly = Boolean(item.sourceOnly && !item.fullProject);
           return `
                 <div class="driver-item-card${sourceOnly ? ' driver-source-card' : ''}" ${clickAction} style="${itemKey ? 'cursor:pointer;' : ''}" title="${escapeHtml(item.name)} ${escapeHtml(item.version || '')}">
                   <div class="driver-item-name">
