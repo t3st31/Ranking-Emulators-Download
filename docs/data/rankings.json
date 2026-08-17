@@ -1,9 +1,9 @@
 {
-  "updatedAt": "2026-08-17T14:21:05.913Z",
+  "updatedAt": "2026-08-17T15:20:08.193Z",
   "totalProjects": 71,
-  "projectsWithReleases": 2,
-  "projectsWithoutReleases": 69,
-  "projectsWithDownloads": 2,
+  "projectsWithReleases": 4,
+  "projectsWithoutReleases": 67,
+  "projectsWithDownloads": 4,
   "failedRepos": [
     {
       "repo": "maxjivi05/GameNative-Performance",
@@ -35,912 +35,746 @@
     }
   ],
   "dataQuality": {
-    "totalDownloads": 132315,
-    "totalReleases": 34,
-    "totalAssets": 50
+    "totalDownloads": 181716,
+    "totalReleases": 28,
+    "totalAssets": 37
   },
   "results": [
     {
-      "name": "Winlator Bionic Stredohiri",
-      "repo": "Stredohori/Winlator-CMOD",
+      "name": "Pluvia",
+      "repo": "oxters168/Pluvia",
+      "category": "PC Emulator",
+      "driverFamily": null,
+      "logo": "pluvia.png",
+      "extensions": null,
+      "sourceKind": "upstream/community",
+      "channel": "stable/unknown",
+      "downloads": 98917,
+      "releases": [
+        {
+          "name": "v1.3.2",
+          "tag": "v1.3.2",
+          "date": "2025-03-02T00:58:48Z",
+          "downloads": 67084,
+          "body": "Fixes:\r\n- Notification action \"Exit\" not terminating service when not in focus. - @LossyDragon @oxters168\r\n- Proper fix for library padding crash from 1.3.1 hotfix. - @LossyDragon\r\n- Left pane in a 2-Pane layout should fill the width properly (Library and Friends list) - @LossyDragon\r\n- Hide keyboard when pressing search/enter button. - @LossyDragon\r\n- Fix family shared games missing from library list @LossyDragon @oxters168\r\n\r\nAdditions:\r\n- New app icon/logo by @Prowi3 Huge THANK YOU for this awesome icon!\r\n- Apply new icons for Pluvia. - @LossyDragon @oxters168\r\n- Expose some debug options in Settings. - @LossyDragon\r\n- Friends list now shows game names. - @LossyDragon\r\n- \"Family\" filter item for library list - @LossyDragon\r\n\r\nDependency Updates: \r\n- JavaSteam 1.6.1 with Family Sharing support and misc fixes.\r\n\r\n**Full Changelog**: https://github.com/oxters168/Pluvia/compare/v1.3.1...v1.3.2",
+          "prerelease": false,
+          "assets": [
+            {
+              "name": "universal.apk",
+              "size": 284413333,
+              "downloads": 67084,
+              "url": "https://github.com/oxters168/Pluvia/releases/download/v1.3.2/universal.apk",
+              "digest": null,
+              "contentType": "application/vnd.android.package-archive",
+              "createdAt": "2025-03-02T00:54:10Z",
+              "updatedAt": "2025-03-02T00:54:30Z"
+            }
+          ],
+          "htmlUrl": "https://github.com/oxters168/Pluvia/releases/tag/v1.3.2"
+        },
+        {
+          "name": "v1.3.1",
+          "tag": "v1.3.1",
+          "date": "2025-02-13T21:32:17Z",
+          "downloads": 12944,
+          "body": "# Hotfix\r\nFix of crash for top padding must be non-negative",
+          "prerelease": false,
+          "assets": [
+            {
+              "name": "universal.apk",
+              "size": 284332046,
+              "downloads": 12944,
+              "url": "https://github.com/oxters168/Pluvia/releases/download/v1.3.1/universal.apk",
+              "digest": null,
+              "contentType": "application/vnd.android.package-archive",
+              "createdAt": "2025-02-13T21:31:03Z",
+              "updatedAt": "2025-02-13T21:31:22Z"
+            }
+          ],
+          "htmlUrl": "https://github.com/oxters168/Pluvia/releases/tag/v1.3.1"
+        },
+        {
+          "name": "v1.3.0",
+          "tag": "v1.3.0",
+          "date": "2025-02-13T20:24:35Z",
+          "downloads": 710,
+          "body": "Additions: \r\n- [Preference] Day, Night, Auto theme.\r\n- [Preference] Theme color palette.\r\n- [Preference] Which screen to launch on. (Library, Downloads, or Friends).\r\n- Chatting with friends, with message history, emoticon and sticker support. \r\n- Friend profiles, with basic friend management.\r\n- Option to view external web links in app or externally with a browser of choice.\r\n- Game app screen shows basic information.\r\n- More library filer options, which are retained. \r\n\r\nFixes: \r\n- Profile dialog works better for long names now.\r\n- Crash when null messages are logged. \r\n- Crashes when a failed sign in occurred, such as invalid credentials. \r\n- Correct display of install/run button and download progress for apps. Thanks @Producdevity\r\n- Add smooth transitions for download state. Thanks @Producdevity\r\n- Friends list groups able to be collapsible now.\r\n- Library scroll position should remember when navigating away.\r\n- Library list optimization.\r\n- Soft resize issue with on-screen keyboard is opened/closed.\r\n- Rotating the screen closes some dialogs.\r\n- Dialog list scrolling on small screen height. Thanks @Producdevity\r\n- Themed app icon being oversized.\r\n- Game app screen image loading shifting.\r\n\r\nChanges: \r\n- Connection to steam now uses the Web Socket protocol.\r\n- Login errors are shown in a snackbar.\r\n- Various theme unification for light and dark mode.\r\n- Various Compose tweaks.\r\n- Access tokens now encrypted.\r\n- Removed automatic app backup.\r\n- Actively filter out Spacewar (game).\r\n- Library filter options now is a bottom sheet modal.\r\n\r\nMisc: \r\n- Add Github Actions for snapshot and validation builds.\r\n- Update readme.\r\n- Dependency updates. Now using JavaSteam 1.6.0.\r\n\r\n**Full Changelog**: https://github.com/oxters168/Pluvia/compare/v1.2.0...v1.3.0",
+          "prerelease": false,
+          "assets": [
+            {
+              "name": "universal.apk",
+              "size": 284332046,
+              "downloads": 710,
+              "url": "https://github.com/oxters168/Pluvia/releases/download/v1.3.0/universal.apk",
+              "digest": null,
+              "contentType": "application/vnd.android.package-archive",
+              "createdAt": "2025-02-13T20:24:05Z",
+              "updatedAt": "2025-02-13T20:24:26Z"
+            }
+          ],
+          "htmlUrl": "https://github.com/oxters168/Pluvia/releases/tag/v1.3.0"
+        },
+        {
+          "name": "v1.2.0",
+          "tag": "v1.2.0",
+          "date": "2025-01-20T15:02:45Z",
+          "downloads": 13639,
+          "body": "## What's Changed\r\n\r\n- Readme updates.\r\n- Add library search functionality.\r\n- Add container settings\r\n    - Add per app container settings.\r\n    - Add default app container settings (Settings).\r\n    - Add Box64 presets (Settings). \r\n- Change how the crash log report is organized.\r\n- Allow the login screen to scroll when keyboard takes up too much of the screen when in landscape\r\n- Fix the service from being stopped and started in login screen when device is rotated.\r\n- Fix retry button in login screen when QR login times out.\r\n- Fix infinite loading when signing out of Pluvia.\r\n- Show which Fab filter is applied in Library list.\r\n- JavaSteam snapshot updates.\r\n- Various internal refactoring.\r\n\r\n\r\n**Full Changelog**: https://github.com/oxters168/Pluvia/compare/v1.1.0...v1.2.0",
+          "prerelease": false,
+          "assets": [
+            {
+              "name": "universal.apk",
+              "size": 283697177,
+              "downloads": 13639,
+              "url": "https://github.com/oxters168/Pluvia/releases/download/v1.2.0/universal.apk",
+              "digest": null,
+              "contentType": "application/vnd.android.package-archive",
+              "createdAt": "2025-01-20T15:01:54Z",
+              "updatedAt": "2025-01-20T15:02:13Z"
+            }
+          ],
+          "htmlUrl": "https://github.com/oxters168/Pluvia/releases/tag/v1.2.0"
+        },
+        {
+          "name": "v1.1.0",
+          "tag": "v1.1.0",
+          "date": "2025-01-10T22:47:40Z",
+          "downloads": 2939,
+          "body": "## What's Changed\r\n* Better logging support by @LossyDragon in https://github.com/oxters168/Pluvia/pull/22\r\n* Update README.md by @LossyDragon in https://github.com/oxters168/Pluvia/pull/23\r\n* Add exit button to service notification. by @LossyDragon in https://github.com/oxters168/Pluvia/pull/24\r\n* Custom crash handler by @LossyDragon in https://github.com/oxters168/Pluvia/pull/25\r\n* Fixed issue during 2FA login by @LossyDragon in https://github.com/Longi94/JavaSteam/pull/314\r\n* Changed version name to use semantic versioning by @oxters168 in https://github.com/oxters168/Pluvia/pull/33\r\n\r\n\r\n**Full Changelog**: https://github.com/oxters168/Pluvia/compare/v1.0...v1.1.0",
+          "prerelease": false,
+          "assets": [
+            {
+              "name": "universal.apk",
+              "size": 283175423,
+              "downloads": 2939,
+              "url": "https://github.com/oxters168/Pluvia/releases/download/v1.1.0/universal.apk",
+              "digest": null,
+              "contentType": "application/vnd.android.package-archive",
+              "createdAt": "2025-01-10T22:46:35Z",
+              "updatedAt": "2025-01-10T22:46:52Z"
+            }
+          ],
+          "htmlUrl": "https://github.com/oxters168/Pluvia/releases/tag/v1.1.0"
+        },
+        {
+          "name": "v1.0",
+          "tag": "v1.0",
+          "date": "2025-01-09T01:15:58Z",
+          "downloads": 1601,
+          "body": "# First Release\r\n- View game library\r\n- Download games\r\n- Execute DRM-free games\r\n- Sync saves\r\n- View friends list",
+          "prerelease": false,
+          "assets": [
+            {
+              "name": "universal.apk",
+              "size": 283200313,
+              "downloads": 1601,
+              "url": "https://github.com/oxters168/Pluvia/releases/download/v1.0/universal.apk",
+              "digest": null,
+              "contentType": "application/vnd.android.package-archive",
+              "createdAt": "2025-01-09T01:07:34Z",
+              "updatedAt": "2025-01-09T01:07:51Z"
+            }
+          ],
+          "htmlUrl": "https://github.com/oxters168/Pluvia/releases/tag/v1.0"
+        }
+      ],
+      "repoUrl": "https://github.com/oxters168/Pluvia"
+    },
+    {
+      "name": "Snapdragon Elite Drivers",
+      "repo": "StevenMXZ/Adrenotools-Drivers",
+      "category": "Drivers",
+      "driverFamily": "Adreno / Turnip",
+      "logo": "drivers.png",
+      "extensions": [
+        ".zip"
+      ],
+      "sourceKind": "driver/community",
+      "channel": "stable/unknown",
+      "downloads": 48097,
+      "releases": [
+        {
+          "name": "v849",
+          "tag": "v849",
+          "date": "2026-01-05T10:36:05Z",
+          "downloads": 24074,
+          "body": "for adreno a8xx devices only",
+          "prerelease": false,
+          "assets": [
+            {
+              "name": "849.zip",
+              "size": 13279106,
+              "downloads": 24074,
+              "url": "https://github.com/StevenMXZ/Adrenotools-Drivers/releases/download/v849/849.zip",
+              "digest": "sha256:d8365a036f9d5e0f7e5ec4400eab13a635d3b0093efe25d7745e8785e538a483",
+              "contentType": "application/zip",
+              "createdAt": "2026-01-05T10:35:43Z",
+              "updatedAt": "2026-01-05T10:35:47Z"
+            }
+          ],
+          "htmlUrl": "https://github.com/StevenMXZ/Adrenotools-Drivers/releases/tag/v849"
+        },
+        {
+          "name": "v842.19",
+          "tag": "v842.19",
+          "date": "2025-12-30T00:41:13Z",
+          "downloads": 8665,
+          "body": " for Adreno a8xx devices only",
+          "prerelease": false,
+          "assets": [
+            {
+              "name": "842.19.zip",
+              "size": 13208669,
+              "downloads": 8665,
+              "url": "https://github.com/StevenMXZ/Adrenotools-Drivers/releases/download/v842.19/842.19.zip",
+              "digest": "sha256:0b18558768b5bbad81220f350c0c66ca8a0964f0f13b7af053fca2474a21ebf3",
+              "contentType": "application/zip",
+              "createdAt": "2025-12-30T00:40:52Z",
+              "updatedAt": "2025-12-30T00:40:58Z"
+            }
+          ],
+          "htmlUrl": "https://github.com/StevenMXZ/Adrenotools-Drivers/releases/tag/v842.19"
+        },
+        {
+          "name": "v842.13",
+          "tag": "v842.13",
+          "date": "2026-01-05T10:35:25Z",
+          "downloads": 4851,
+          "body": "for adreno a8xx devices only",
+          "prerelease": false,
+          "assets": [
+            {
+              "name": "842.13.zip",
+              "size": 24496631,
+              "downloads": 4851,
+              "url": "https://github.com/StevenMXZ/Adrenotools-Drivers/releases/download/v842.13/842.13.zip",
+              "digest": "sha256:5794c600a99574ee2ff82b2ac354eae929982f95561816d6e8aef8d06670ec3e",
+              "contentType": "application/zip",
+              "createdAt": "2026-01-05T10:34:54Z",
+              "updatedAt": "2026-01-05T10:35:01Z"
+            }
+          ],
+          "htmlUrl": "https://github.com/StevenMXZ/Adrenotools-Drivers/releases/tag/v842.13"
+        },
+        {
+          "name": "v800.64",
+          "tag": "v800.64",
+          "date": "2025-12-30T00:42:18Z",
+          "downloads": 5411,
+          "body": "for adreno a8xx Devices only ",
+          "prerelease": false,
+          "assets": [
+            {
+              "name": "800.64.zip",
+              "size": 27509787,
+              "downloads": 5411,
+              "url": "https://github.com/StevenMXZ/Adrenotools-Drivers/releases/download/v800.64/800.64.zip",
+              "digest": "sha256:a30ec35761225a0d1eb593d75f3d8ea41ab3c1dfc129627d4491ccc5ee1487b5",
+              "contentType": "application/zip",
+              "createdAt": "2025-12-30T00:41:39Z",
+              "updatedAt": "2025-12-30T00:41:47Z"
+            }
+          ],
+          "htmlUrl": "https://github.com/StevenMXZ/Adrenotools-Drivers/releases/tag/v800.64"
+        },
+        {
+          "name": "v800.60",
+          "tag": "v800.60",
+          "date": "2025-12-30T00:36:25Z",
+          "downloads": 5096,
+          "body": "for adreno a8xx devices only",
+          "prerelease": false,
+          "assets": [
+            {
+              "name": "800.60.zip",
+              "size": 27509947,
+              "downloads": 5096,
+              "url": "https://github.com/StevenMXZ/Adrenotools-Drivers/releases/download/v800.60/800.60.zip",
+              "digest": "sha256:ab6db9a6bd9150433fc9012a491f413daa041a29255157d6905281b4d32201d8",
+              "contentType": "application/zip",
+              "createdAt": "2025-12-30T00:36:01Z",
+              "updatedAt": "2025-12-30T00:36:09Z"
+            }
+          ],
+          "htmlUrl": "https://github.com/StevenMXZ/Adrenotools-Drivers/releases/tag/v800.60"
+        }
+      ],
+      "repoUrl": "https://github.com/StevenMXZ/Adrenotools-Drivers"
+    },
+    {
+      "name": "Winlator Honkon",
+      "repo": "Honkonx/winlator-honkon",
       "category": "Winlator",
       "driverFamily": null,
       "logo": "winlator.png",
       "extensions": null,
-      "sourceKind": "fork/comunidade",
+      "sourceKind": "upstream/community",
       "channel": "stable/unknown",
-      "downloads": 131298,
+      "downloads": 29371,
       "releases": [
         {
-          "name": "CMOD_Benchmark",
-          "tag": "e120cf1",
-          "date": "2026-02-02T12:47:23Z",
-          "downloads": 25411,
-          "body": "Latest changes from the developer.\r\nFixed graphical response of pressing the button by coffincolors.\r\nThe controller will _not_ work with this version.\r\nSet box64-0.4.1-fix, wowbox64-0.4.1-fix, fexcore-2601 and turnip-26.0.0 by StevenMXZ as default.\r\nAdvanced box64 profile settings.\r\nUse apk's at your own risk.\r\n\r\n_Assets:_\r\n\r\n- **CMOD_Genshin:**\r\n Can activate hidden features like frame interpolation on Realme devices.\r\n- **CMOD_AnTuTu:**\r\n Can maximize clocks of all single cores of the CPU part on certain devices.\r\n- **CMOD_3DMark:**\r\n Can maximize GPU utilization on certain devices. (needs further testing).\r\n",
-          "prerelease": true,
+          "name": "Winlator~Honkon v11",
+          "tag": "V11.1",
+          "date": "2025-10-19T16:44:57Z",
+          "downloads": 11188,
+          "body": "### VERSION WINLATOR V11 MOD\r\n\r\n***Esta versión sigue siendo básica pero trae algunas mejoras en general y otras más específicas para dispositivo mediatek,gpu mali y gpu xclipse.***\r\n\r\n### _registro_ _de_ _cambios_\r\n\r\n•Todo los cambios de la versión oficial de Bruno.\r\n•Se agregó el menu de contenido de la versión afeimod(creditos y agradecimiento).\r\n•Traduje gran parte de la interfaz a español además de cambiar el logo y tema.\r\n•Se cambió el directorio de donde se descarga el contenido,esto para agregar DXVK parcheado como stripped o sarek para mayor compatibilidad con vulkan 1.1 o 1.2 con pocas extenciones disponibles, también se agregaron varios wined3d para descargar.\r\n•Se agregaron varías variables en la configuración de box64 para mayor rendimiento y compatibilidad.\r\n•Se agregaron parches para el rendimiento y compatibilidad.\r\n•se agregaron complemento necesario para distintos títulos funcionen correctamente.\r\n•se agregaron distintas variables para rendimiento, compatibilidad y estabilidad.",
+          "prerelease": false,
           "assets": [
             {
-              "name": "CMOD_3DMark.apk",
-              "size": 526043927,
-              "downloads": 9091,
-              "url": "https://github.com/Stredohori/Winlator-CMOD/releases/download/e120cf1/CMOD_3DMark.apk",
-              "digest": "sha256:4849351c8c438edb1be6929ac5ab834ac1669baa4252a06ec6dc8d6bb96a353c",
+              "name": "Winlator.honkon_v11.apk",
+              "size": 410786290,
+              "downloads": 11188,
+              "url": "https://github.com/Honkonx/winlator-honkon/releases/download/V11.1/Winlator.honkon_v11.apk",
+              "digest": "sha256:02df82b35889865d6bbb5ea1fa5e223c3308354ab5238ccc0f97a16b2f3e4381",
               "contentType": "application/vnd.android.package-archive",
-              "createdAt": "2026-02-15T21:23:45Z",
-              "updatedAt": "2026-02-15T21:24:06Z"
+              "createdAt": "2025-10-19T16:37:53Z",
+              "updatedAt": "2025-10-19T16:39:01Z"
+            }
+          ],
+          "htmlUrl": "https://github.com/Honkonx/winlator-honkon/releases/tag/V11.1"
+        },
+        {
+          "name": "Winlator~honkon v10.1",
+          "tag": "V11",
+          "date": "2025-04-21T19:17:23Z",
+          "downloads": 13850,
+          "body": "### vortek+DXVK ya funciona en gpu mali\r\n\r\nEsta versión sigue siendo básica pero trae algunas mejoras en general y otras más específicas para dispositivo mediatek,gpu mali y xclipse,más adelante subiré una versión completa :)\r\n\r\nAVISO:vortek no funciona en todo los dispositivos con mediatek,esto debido a varios factores lo cuales son driver, versión de vulkan \r\n,extenciones etc...\r\nBruno trabajo arduamente para mejorar la compatibilidad y rendimiento de winlator en dispositivos con gpu mali y xclipse.\r\n\r\n### Registro de cambios:\r\n\r\n1- se uso la versión de afie mod como inspiración,créditos y agradecimiento..\r\nAquí la versión por si la quieren probar [mod afei](https://github.com/afeimod/winlator-mod/releases/tag/10.0-Amod5fix) \r\n\r\n1.1• se elimino la opción de comandos y traduje la opción para agregar contenido...\r\nTenga en cuenta que algunas cajas y controladores deben instalarse con wine9.16.whp antes de poder usarse,está opción solo es para pruebas, por favor apoya al autor original.\r\n\r\n2•Se cambió el directorio de donde se descarga el contenido,esto para agregar DXVK parcheado como stripped o sarek para mayor compatibilidad con vulkan 1.1 o 1.2 con pocas extenciones disponibles, también se agregaron varios wined3d para descargar.\r\n3•Se agregaron parches para el rendimiento y compatibilidad.\r\n4•se agregaron complemento necesario para distintos títulos funcionen correctamente.\r\n5•se agregaron distintas variables para rendimiento, compatibilidad y estabilidad.\r\n<img src=\"https://github.com/Honkonx/winlator/blob/main/v11.jpg\" alt=\"Alt Text\" width=\"400\" height=\"400\">",
+          "prerelease": false,
+          "assets": [
+            {
+              "name": "wine9.16.whp",
+              "size": 41522768,
+              "downloads": 1536,
+              "url": "https://github.com/Honkonx/winlator-honkon/releases/download/V11/wine9.16.whp",
+              "digest": null,
+              "contentType": "application/octet-stream",
+              "createdAt": "2025-04-21T19:19:10Z",
+              "updatedAt": "2025-04-21T19:19:38Z"
             },
             {
-              "name": "CMOD_AnTuTu.apk",
-              "size": 526043971,
-              "downloads": 12039,
-              "url": "https://github.com/Stredohori/Winlator-CMOD/releases/download/e120cf1/CMOD_AnTuTu.apk",
-              "digest": "sha256:2cef5fbc6a308d8659dfd53845722e405470631933a86836ce0462aef82b07bb",
+              "name": "Winlator_10.1.Honkon.apk",
+              "size": 502777593,
+              "downloads": 12314,
+              "url": "https://github.com/Honkonx/winlator-honkon/releases/download/V11/Winlator_10.1.Honkon.apk",
+              "digest": null,
               "contentType": "application/vnd.android.package-archive",
-              "createdAt": "2026-02-15T21:24:11Z",
-              "updatedAt": "2026-02-15T21:24:34Z"
-            },
-            {
-              "name": "CMOD_Genshin.apk",
-              "size": 526043955,
-              "downloads": 4281,
-              "url": "https://github.com/Stredohori/Winlator-CMOD/releases/download/e120cf1/CMOD_Genshin.apk",
-              "digest": "sha256:49ce27ae2d9e7945d3b802982ff531b35176f8b009a7c60d60fa13f9e71c279e",
-              "contentType": "application/vnd.android.package-archive",
-              "createdAt": "2026-02-02T12:46:37Z",
-              "updatedAt": "2026-02-02T12:47:05Z"
+              "createdAt": "2025-04-21T18:31:20Z",
+              "updatedAt": "2025-04-21T18:43:50Z"
             }
           ],
-          "htmlUrl": "https://github.com/Stredohori/Winlator-CMOD/releases/tag/e120cf1"
+          "htmlUrl": "https://github.com/Honkonx/winlator-honkon/releases/tag/V11"
         },
         {
-          "name": "Winlator-CMOD -(git-e994f7a)",
-          "tag": "e994f7a",
-          "date": "2026-01-17T20:36:50Z",
-          "downloads": 71912,
-          "body": "This update brings support for BCn texture decompression using compute shader for Mali users.\r\nFor some Adreno users it may not work, so use the  **app-debug-adreno-fix.apk** instead.",
+          "name": "Winlator~honkon v10",
+          "tag": "V10",
+          "date": "2025-04-21T03:40:49Z",
+          "downloads": 684,
+          "body": "•\"vortek+DXVK ya funciona en gpu mali\"\r\n\r\n•\"Esta es una versión básica,solo agregué el contenido de winlator v9~honkon más algunas novedades,más adelante subiré una versión completa\" :)\r\n\r\n•Se cambió el directorio de donde se descarga el contenido,esto para agregar DXVK parcheado como stripped o sarek para mayor compatibilidad con vulkan 1.1 o 1.2 con pocas extenciones disponibles, también se agregaron varios wined3d para descargar.\r\n•Se agregaron parches para el rendimiento y compatibilidad.\r\n•se agregaron complemento necesario para distintos títulos funcionen correctamente.\r\n•se agregaron distintas variables para rendimiento, compatibilidad y estabilidad=\r\nBOX64_FPU_MODE=1 \r\nMESA_NO_DITHER=1\r\nBOX64_SKIP_SIGSEGV=1\r\nBOX64_DYNAREC_DIRTY=1",
           "prerelease": false,
           "assets": [
             {
-              "name": "app-debug-adreno-fix.apk",
-              "size": 525130447,
-              "downloads": 40447,
-              "url": "https://github.com/Stredohori/Winlator-CMOD/releases/download/e994f7a/app-debug-adreno-fix.apk",
-              "digest": "sha256:9a173a66ee3a75450d74c6636aa5eb4c2d644d6e88388f2c41275a278d431958",
+              "name": "Winlator_10.0.honkon.apk",
+              "size": 446524727,
+              "downloads": 684,
+              "url": "https://github.com/Honkonx/winlator-honkon/releases/download/V10/Winlator_10.0.honkon.apk",
+              "digest": null,
               "contentType": "application/vnd.android.package-archive",
-              "createdAt": "2026-01-18T00:07:27Z",
-              "updatedAt": "2026-01-18T00:07:53Z"
-            },
-            {
-              "name": "app-debug.apk",
-              "size": 523744528,
-              "downloads": 31465,
-              "url": "https://github.com/Stredohori/Winlator-CMOD/releases/download/e994f7a/app-debug.apk",
-              "digest": "sha256:a3842d5c801bc4d202bc2659162c372bb625127154f6f7b156f7f33ad2d4958b",
-              "contentType": "application/vnd.android.package-archive",
-              "createdAt": "2026-01-17T20:36:38Z",
-              "updatedAt": "2026-01-17T20:36:49Z"
+              "createdAt": "2025-04-21T03:28:29Z",
+              "updatedAt": "2025-04-21T03:40:12Z"
             }
           ],
-          "htmlUrl": "https://github.com/Stredohori/Winlator-CMOD/releases/tag/e994f7a"
+          "htmlUrl": "https://github.com/Honkonx/winlator-honkon/releases/tag/V10"
         },
         {
-          "name": "Winlator-CMOD -(git-f6ffd7f)",
-          "tag": "f6ffd7f",
-          "date": "2026-01-09T21:41:31Z",
-          "downloads": 7094,
-          "body": "",
+          "name": "Winlator~honkon 9",
+          "tag": "V9",
+          "date": "2025-01-15T19:40:59Z",
+          "downloads": 259,
+          "body": "•\"Esta es una versión básica, solo agregué el contenido de winlator v8~honkon,más adelante subiré una versión completa\"  :)\r\n\r\n•Se agregaron wined3d en las configuraciones del container,se recomienda entrar con el wined3d por default al crear el container para evitar errores.\r\n•Se cambió el directorio de donde se descarga el contenido.\r\n•Se dejó la opción de DXVK,esto para los usuarios Mali que soporten vortek.\r\n•Se agregaron parches para el rendimiento y compatibilidad.\r\n•se subió una sola versión que será \"benchmark\",esto para mayor rendimiento pero no interfiere con otras versión de winlator.",
           "prerelease": false,
           "assets": [
             {
-              "name": "app-debug.apk",
-              "size": 523630092,
-              "downloads": 7094,
-              "url": "https://github.com/Stredohori/Winlator-CMOD/releases/download/f6ffd7f/app-debug.apk",
-              "digest": "sha256:8105798572264d76f9828e61dd15c3ea788c5708e5295d218a8a1eeee2cc8793",
+              "name": "Winlator-9.honkon.apk",
+              "size": 493991042,
+              "downloads": 259,
+              "url": "https://github.com/Honkonx/winlator-honkon/releases/download/V9/Winlator-9.honkon.apk",
+              "digest": null,
               "contentType": "application/vnd.android.package-archive",
-              "createdAt": "2026-01-09T21:41:12Z",
-              "updatedAt": "2026-01-09T21:41:31Z"
+              "createdAt": "2025-01-15T19:31:53Z",
+              "updatedAt": "2025-01-15T19:40:26Z"
             }
           ],
-          "htmlUrl": "https://github.com/Stredohori/Winlator-CMOD/releases/tag/f6ffd7f"
+          "htmlUrl": "https://github.com/Honkonx/winlator-honkon/releases/tag/V9"
         },
         {
-          "name": "Winlator-CMOD -(git-ca5324a)",
-          "tag": "ca5324a",
-          "date": "2025-12-28T22:37:46Z",
-          "downloads": 4421,
-          "body": "",
+          "name": "Winlator v8.0 R1~Honkon ",
+          "tag": "V8",
+          "date": "2024-11-22T01:25:07Z",
+          "downloads": 222,
+          "body": "Registro de cambios\r\n\r\n•Se aplicaron los cambios de la versión anterior \"winlator~honkon v8\"\r\n•Se eliminaron algunos Wined3d y complementos para reducir el peso del apk.\r\n• algunas correcciones,mejoras en el rendimiento y compatibilidad.\r\n•se subió una sola versión que será \"bench\",esto para mayor rendimiento pero no interfiere con otras versión de winlator.",
           "prerelease": false,
           "assets": [
             {
-              "name": "app-debug.apk",
-              "size": 527364604,
-              "downloads": 4421,
-              "url": "https://github.com/Stredohori/Winlator-CMOD/releases/download/ca5324a/app-debug.apk",
-              "digest": "sha256:13e38a28694b052b7e5c8463f376073429b332a6f9870f9bddb7964ad52005ad",
+              "name": "Winlator.honkon.v8-r1_bench.apk",
+              "size": 643947204,
+              "downloads": 222,
+              "url": "https://github.com/Honkonx/winlator-honkon/releases/download/V8/Winlator.honkon.v8-r1_bench.apk",
+              "digest": null,
               "contentType": "application/vnd.android.package-archive",
-              "createdAt": "2025-12-28T22:37:31Z",
-              "updatedAt": "2025-12-28T22:37:45Z"
+              "createdAt": "2024-11-22T01:25:51Z",
+              "updatedAt": "2024-11-22T01:43:12Z"
             }
           ],
-          "htmlUrl": "https://github.com/Stredohori/Winlator-CMOD/releases/tag/ca5324a"
+          "htmlUrl": "https://github.com/Honkonx/winlator-honkon/releases/tag/V8"
         },
         {
-          "name": "Winlator-CMOD -(git-19243b1)",
-          "tag": "19243b1",
-          "date": "2025-12-23T17:27:47Z",
-          "downloads": 1630,
-          "body": "Changes since last update:\r\n\r\n- [arrays: add a few more entries to device memory array](https://github.com/Stredohori/Winlator-CMOD/commit/20c20bf2ab9da97b123c1784c6dd888682fe6e49)\r\n- [assets: update wrapper](https://github.com/Stredohori/Winlator-CMOD/commit/32d56cdbdaf7997c0c8cf4cd1d6af47827d98bca)",
+          "name": "Winlator~honkon v7pre-final (gran aumento de rendimiento)",
+          "tag": "V7",
+          "date": "2024-11-03T00:27:59Z",
+          "downloads": 1498,
+          "body": "Para los amantes de winlator Mali,se volvió a modificar la versión v7 de winlator para dar el mayor rendimiento y compatibilidad posible en dispositivos con gpu Mali,créditos y agradecimiento a BrunoSX.\r\n\r\nRegistro de cambios\r\n\r\n•Se actualizo el wine 9.2custom,créditos y agradecimiento a coffincolors.\r\n•Se agrego distintos parches,créditos y agradecimiento a Frost.\r\n\r\n• se agregaron Wined3d en las configuraciones del container en el apartado DX wrapper...\r\nPara evitar errores se recomienda crear el container y abrirlo por primera vez,después ya puede cambiar el Wined3d sin ningún problema.\r\n\r\n•se actualizo libvirglrender.so para mayor rendimiento, créditos y agradecimiento a EatingSumo/longjunyu2.\r\n•Se actualizo mesa VirGL para mayor rendimiento.\r\n•Se aplicaron los cambios de la versión anteriores honkon.\r\n•Se eliminaron algunos Wined3d y complementos para reducir el peso del apk.\r\n• algunas correcciones,mejoras en el rendimiento y compatibilidad.\r\n•se subió una sola versión que será \"bench\",esto para mayor rendimiento pero no interfiere con otras versión de winlator.",
           "prerelease": false,
           "assets": [
             {
-              "name": "app-debug.apk",
-              "size": 527364336,
-              "downloads": 1630,
-              "url": "https://github.com/Stredohori/Winlator-CMOD/releases/download/19243b1/app-debug.apk",
-              "digest": "sha256:eecbfd75fac37c57b2835bffb5d5b1a67cb5d43343f881faaca0eb25c98d9e91",
+              "name": "Winlator.honkon.v7pre-final.apk",
+              "size": 580898289,
+              "downloads": 1498,
+              "url": "https://github.com/Honkonx/winlator-honkon/releases/download/V7/Winlator.honkon.v7pre-final.apk",
+              "digest": null,
               "contentType": "application/vnd.android.package-archive",
-              "createdAt": "2025-12-23T17:27:34Z",
-              "updatedAt": "2025-12-23T17:27:46Z"
+              "createdAt": "2024-11-04T01:49:22Z",
+              "updatedAt": "2024-11-04T02:06:13Z"
             }
           ],
-          "htmlUrl": "https://github.com/Stredohori/Winlator-CMOD/releases/tag/19243b1"
+          "htmlUrl": "https://github.com/Honkonx/winlator-honkon/releases/tag/V7"
         },
         {
-          "name": "Winlator-CMOD -(git-5ae2a0c)",
-          "tag": "5ae2a0c",
-          "date": "2025-12-21T16:47:15Z",
-          "downloads": 820,
-          "body": "",
-          "prerelease": false,
-          "assets": [
-            {
-              "name": "app-debug.apk",
-              "size": 523624980,
-              "downloads": 820,
-              "url": "https://github.com/Stredohori/Winlator-CMOD/releases/download/5ae2a0c/app-debug.apk",
-              "digest": "sha256:77db443615458c67cb9c1a0ce0982c0b4a008b25b8d1621c17b79169510e06ca",
-              "contentType": "application/vnd.android.package-archive",
-              "createdAt": "2025-12-21T16:46:59Z",
-              "updatedAt": "2025-12-21T16:47:14Z"
-            }
-          ],
-          "htmlUrl": "https://github.com/Stredohori/Winlator-CMOD/releases/tag/5ae2a0c"
-        },
-        {
-          "name": "Winlator-CMOD -(git-1327378)",
-          "tag": "1327378",
-          "date": "2025-11-24T21:34:59Z",
-          "downloads": 2748,
-          "body": "",
-          "prerelease": false,
-          "assets": [
-            {
-              "name": "app-debug.apk",
-              "size": 523624324,
-              "downloads": 2748,
-              "url": "https://github.com/Stredohori/Winlator-CMOD/releases/download/1327378/app-debug.apk",
-              "digest": "sha256:d73ef16b0da2bfc3e4b8000ed0c5f939b8c8a902ecc95a5d98454e6cc9d057c8",
-              "contentType": "application/vnd.android.package-archive",
-              "createdAt": "2025-11-24T21:34:59Z",
-              "updatedAt": "2025-11-24T21:35:15Z"
-            }
-          ],
-          "htmlUrl": "https://github.com/Stredohori/Winlator-CMOD/releases/tag/1327378"
-        },
-        {
-          "name": "Winlator GlibC - OLD!",
-          "tag": "9c3f213",
-          "date": "2025-11-26T20:22:47Z",
-          "downloads": 894,
-          "body": "_src is recompiled with assets and custom mods.",
-          "prerelease": false,
-          "assets": [
-            {
-              "name": "app-debug.apk",
-              "size": 361472445,
-              "downloads": 550,
-              "url": "https://github.com/Stredohori/Winlator-CMOD/releases/download/9c3f213/app-debug.apk",
-              "digest": "sha256:7392bdcdcd3e501e767b003aeef3fe8aa6fda36bd5b70d442c49da88ad9b79e7",
-              "contentType": "application/vnd.android.package-archive",
-              "createdAt": "2025-11-26T20:22:48Z",
-              "updatedAt": "2025-11-26T20:23:04Z"
-            },
-            {
-              "name": "app-debug_src.apk",
-              "size": 700602686,
-              "downloads": 344,
-              "url": "https://github.com/Stredohori/Winlator-CMOD/releases/download/9c3f213/app-debug_src.apk",
-              "digest": "sha256:89a1475beb8ab14b2df6ee0fe7ada2981f7ad78fa8c612aaee39fefb510adaf5",
-              "contentType": "application/vnd.android.package-archive",
-              "createdAt": "2025-11-26T22:08:11Z",
-              "updatedAt": "2025-11-26T22:08:45Z"
-            }
-          ],
-          "htmlUrl": "https://github.com/Stredohori/Winlator-CMOD/releases/tag/9c3f213"
-        },
-        {
-          "name": "Winlator-CMOD -(git-92b2fb7)",
-          "tag": "92b2fb7",
-          "date": "2025-11-19T23:42:01Z",
-          "downloads": 998,
-          "body": "",
-          "prerelease": false,
-          "assets": [
-            {
-              "name": "app-debug.apk",
-              "size": 523624304,
-              "downloads": 998,
-              "url": "https://github.com/Stredohori/Winlator-CMOD/releases/download/92b2fb7/app-debug.apk",
-              "digest": "sha256:cf4dd1bb609dc614d4b1b1a9100acb1f1d3a771e456c79f13991040907b2ba1b",
-              "contentType": "application/vnd.android.package-archive",
-              "createdAt": "2025-11-19T23:42:01Z",
-              "updatedAt": "2025-11-19T23:42:16Z"
-            }
-          ],
-          "htmlUrl": "https://github.com/Stredohori/Winlator-CMOD/releases/tag/92b2fb7"
-        },
-        {
-          "name": "Winlator-CMOD -(git-eb66619)",
-          "tag": "eb66619",
-          "date": "2025-11-17T22:30:18Z",
-          "downloads": 425,
-          "body": "",
-          "prerelease": false,
-          "assets": [
-            {
-              "name": "app-debug.apk",
-              "size": 523622836,
-              "downloads": 425,
-              "url": "https://github.com/Stredohori/Winlator-CMOD/releases/download/eb66619/app-debug.apk",
-              "digest": "sha256:678f52f7f964f235f6e8b56e5f5642b3557314260e11ea8b3547fc8874ea5906",
-              "contentType": "application/vnd.android.package-archive",
-              "createdAt": "2025-11-17T22:30:18Z",
-              "updatedAt": "2025-11-17T22:30:32Z"
-            }
-          ],
-          "htmlUrl": "https://github.com/Stredohori/Winlator-CMOD/releases/tag/eb66619"
-        },
-        {
-          "name": "Winlator-CMOD -(bionic11)",
-          "tag": "3f84168",
-          "date": "2025-11-16T15:55:26Z",
-          "downloads": 1104,
-          "body": "**_Updated 16. Nowember 2025_** \r\n\r\nThis is the **latest** and **greatest** update containing all the latest changes from the developer including a fixed wrapper for Turnip and BCn texture decompression support for Mali GPUs.\r\n_app-debug-smsung.apk_ for those using Gaming Hub. ❤️",
-          "prerelease": true,
-          "assets": [
-            {
-              "name": "app-debug-smsung.apk",
-              "size": 522377966,
-              "downloads": 512,
-              "url": "https://github.com/Stredohori/Winlator-CMOD/releases/download/3f84168/app-debug-smsung.apk",
-              "digest": "sha256:ceb2ed4925a16feb5bc257f1fee0203f389dc05f6b07ea340e066185a8c44593",
-              "contentType": "application/vnd.android.package-archive",
-              "createdAt": "2025-11-16T17:08:40Z",
-              "updatedAt": "2025-11-16T17:09:08Z"
-            },
-            {
-              "name": "app-debug.apk",
-              "size": 523622612,
-              "downloads": 592,
-              "url": "https://github.com/Stredohori/Winlator-CMOD/releases/download/3f84168/app-debug.apk",
-              "digest": "sha256:a135e656b45c9e5b8118889e0a5ead422f0cbee3cb24450ff804c3885f3dc53a",
-              "contentType": "application/vnd.android.package-archive",
-              "createdAt": "2025-11-16T15:55:27Z",
-              "updatedAt": "2025-11-16T15:55:44Z"
-            }
-          ],
-          "htmlUrl": "https://github.com/Stredohori/Winlator-CMOD/releases/tag/3f84168"
-        },
-        {
-          "name": "Winlator-CMOD -(git-6dcf4ea)",
-          "tag": "6dcf4ea",
-          "date": "2025-11-15T16:54:08Z",
-          "downloads": 126,
-          "body": "All latest changes from the developer included , wrapper is working again.",
-          "prerelease": false,
-          "assets": [
-            {
-              "name": "app-debug.apk",
-              "size": 523623920,
-              "downloads": 126,
-              "url": "https://github.com/Stredohori/Winlator-CMOD/releases/download/6dcf4ea/app-debug.apk",
-              "digest": "sha256:c78062650cbd26bffaf03aa2377280550676ae765a199d2fe0885090ace4c264",
-              "contentType": "application/vnd.android.package-archive",
-              "createdAt": "2025-11-15T16:54:08Z",
-              "updatedAt": "2025-11-15T16:54:20Z"
-            }
-          ],
-          "htmlUrl": "https://github.com/Stredohori/Winlator-CMOD/releases/tag/6dcf4ea"
-        },
-        {
-          "name": "Winlator-CMOD -(git-b3bd5e5)",
-          "tag": "b3bd5e5",
-          "date": "2025-11-13T18:25:36Z",
-          "downloads": 151,
-          "body": "",
-          "prerelease": false,
-          "assets": [
-            {
-              "name": "app-debug.apk",
-              "size": 523622520,
-              "downloads": 151,
-              "url": "https://github.com/Stredohori/Winlator-CMOD/releases/download/b3bd5e5/app-debug.apk",
-              "digest": "sha256:ce2faadea0d09b8e6519f795a1967e44193cab2cdc7bdb7a671cb396d32928bd",
-              "contentType": "application/vnd.android.package-archive",
-              "createdAt": "2025-11-13T18:25:36Z",
-              "updatedAt": "2025-11-13T18:25:52Z"
-            }
-          ],
-          "htmlUrl": "https://github.com/Stredohori/Winlator-CMOD/releases/tag/b3bd5e5"
-        },
-        {
-          "name": "Winlator-CMOD -(git-642487e)",
-          "tag": "642487e",
-          "date": "2025-11-12T13:19:18Z",
-          "downloads": 103,
-          "body": "",
-          "prerelease": false,
-          "assets": [
-            {
-              "name": "app-debug.apk",
-              "size": 523510684,
-              "downloads": 103,
-              "url": "https://github.com/Stredohori/Winlator-CMOD/releases/download/642487e/app-debug.apk",
-              "digest": "sha256:7dc35924e16839de9324b74452cdfd609154a315c15189c59c50c4f6f14975ea",
-              "contentType": "application/vnd.android.package-archive",
-              "createdAt": "2025-11-12T13:19:18Z",
-              "updatedAt": "2025-11-12T13:19:38Z"
-            }
-          ],
-          "htmlUrl": "https://github.com/Stredohori/Winlator-CMOD/releases/tag/642487e"
-        },
-        {
-          "name": "Winlator-CMOD -(git-e8aeaa3)",
-          "tag": "e8aeaa3",
-          "date": "2025-11-08T20:57:06Z",
-          "downloads": 272,
-          "body": "",
-          "prerelease": false,
-          "assets": [
-            {
-              "name": "app-debug.apk",
-              "size": 523695068,
-              "downloads": 272,
-              "url": "https://github.com/Stredohori/Winlator-CMOD/releases/download/e8aeaa3/app-debug.apk",
-              "digest": "sha256:332b9b77cc3ba851cfa5b33d4003971f3e68d5559c30ef4d16c1e50c3e2bfe87",
-              "contentType": "application/vnd.android.package-archive",
-              "createdAt": "2025-11-08T20:57:06Z",
-              "updatedAt": "2025-11-08T20:57:18Z"
-            }
-          ],
-          "htmlUrl": "https://github.com/Stredohori/Winlator-CMOD/releases/tag/e8aeaa3"
-        },
-        {
-          "name": "Winlator-CMOD (bionic10)",
-          "tag": "cf54784",
-          "date": "2025-10-25T11:03:53Z",
-          "downloads": 1116,
-          "body": "**Updated 2. nowember. 2025**\r\n\r\n- [ ] Use at own risk! \r\n- [ ] _app-debug-smsung.apk_ adds itself to Gaming Hub, allows showing perf. metrics.\r\n\r\n_Added:_\r\n- Many environment variables for box64 settings\r\n- Scale & opacity to DXVK HUD\r\n\r\n_Updated:_\r\n- Returned latest known working wrapper (don't know if the new functions like blitting work with it).",
-          "prerelease": false,
-          "assets": [
-            {
-              "name": "app-debug-smsung.apk",
-              "size": 524302482,
-              "downloads": 276,
-              "url": "https://github.com/Stredohori/Winlator-CMOD/releases/download/cf54784/app-debug-smsung.apk",
-              "digest": "sha256:8c34c4dfb6a16ad0a63b7a1b01b3d7e800820a5ed60490771c66540749d56e20",
-              "contentType": "application/vnd.android.package-archive",
-              "createdAt": "2025-11-02T21:04:03Z",
-              "updatedAt": "2025-11-02T21:04:31Z"
-            },
-            {
-              "name": "app-debug.apk",
-              "size": 526281837,
-              "downloads": 840,
-              "url": "https://github.com/Stredohori/Winlator-CMOD/releases/download/cf54784/app-debug.apk",
-              "digest": "sha256:3fab19bc74ac0a27e0f9c8d0d32c42664d0c0f6454ba17aa49a546dd0ccd7472",
-              "contentType": "application/vnd.android.package-archive",
-              "createdAt": "2025-10-25T11:03:54Z",
-              "updatedAt": "2025-10-25T11:04:12Z"
-            }
-          ],
-          "htmlUrl": "https://github.com/Stredohori/Winlator-CMOD/releases/tag/cf54784"
-        },
-        {
-          "name": "Winlator-CMOD -(git-85bb8a3)",
-          "tag": "85bb8a3",
-          "date": "2025-10-23T05:59:04Z",
-          "downloads": 84,
-          "body": "",
-          "prerelease": false,
-          "assets": [
-            {
-              "name": "app-debug.apk",
-              "size": 526365505,
-              "downloads": 84,
-              "url": "https://github.com/Stredohori/Winlator-CMOD/releases/download/85bb8a3/app-debug.apk",
-              "digest": "sha256:3131e4393d7aa49e580811c2474ad84f2b367e48ad49c8a34bedd90f6c9f3b0f",
-              "contentType": "application/vnd.android.package-archive",
-              "createdAt": "2025-10-23T05:59:04Z",
-              "updatedAt": "2025-10-23T05:59:14Z"
-            }
-          ],
-          "htmlUrl": "https://github.com/Stredohori/Winlator-CMOD/releases/tag/85bb8a3"
-        },
-        {
-          "name": "Winlator-CMOD -(git-7091332)",
-          "tag": "7091332",
-          "date": "2025-10-13T19:03:47Z",
-          "downloads": 497,
-          "body": "GPU acceleration may not work in this version, install the previous one instead.",
-          "prerelease": false,
-          "assets": [
-            {
-              "name": "app-debug.apk",
-              "size": 526374937,
-              "downloads": 497,
-              "url": "https://github.com/Stredohori/Winlator-CMOD/releases/download/7091332/app-debug.apk",
-              "digest": "sha256:dd839e8904ee0db96ee2a91a619d796456a85ddc4a7023b00294dd0649032955",
-              "contentType": "application/vnd.android.package-archive",
-              "createdAt": "2025-10-13T19:03:48Z",
-              "updatedAt": "2025-10-13T19:04:02Z"
-            }
-          ],
-          "htmlUrl": "https://github.com/Stredohori/Winlator-CMOD/releases/tag/7091332"
-        },
-        {
-          "name": "Winlator-CMOD -(git-c17a2c4)",
-          "tag": "c17a2c4",
-          "date": "2025-09-11T18:18:37Z",
-          "downloads": 1490,
-          "body": "",
-          "prerelease": false,
-          "assets": [
-            {
-              "name": "app-debug.apk",
-              "size": 519148249,
-              "downloads": 1490,
-              "url": "https://github.com/Stredohori/Winlator-CMOD/releases/download/c17a2c4/app-debug.apk",
-              "digest": "sha256:dcc025885624784782768780cf66390624e6891cfad367cfbd2d875f074e74bb",
-              "contentType": "application/vnd.android.package-archive",
-              "createdAt": "2025-09-11T18:18:38Z",
-              "updatedAt": "2025-09-11T18:18:50Z"
-            }
-          ],
-          "htmlUrl": "https://github.com/Stredohori/Winlator-CMOD/releases/tag/c17a2c4"
-        },
-        {
-          "name": "Winlator-CMOD -(git-cc362cd)",
-          "tag": "cc362cd",
-          "date": "2025-09-10T18:15:57Z",
-          "downloads": 142,
-          "body": "",
-          "prerelease": false,
-          "assets": [
-            {
-              "name": "app-debug.apk",
-              "size": 519148169,
-              "downloads": 142,
-              "url": "https://github.com/Stredohori/Winlator-CMOD/releases/download/cc362cd/app-debug.apk",
-              "digest": "sha256:cd9b69c50637cc038bf7a0484fab9646fed67733ac3b2b369640093ecd4c5cf3",
-              "contentType": "application/vnd.android.package-archive",
-              "createdAt": "2025-09-10T18:15:58Z",
-              "updatedAt": "2025-09-10T18:16:10Z"
-            }
-          ],
-          "htmlUrl": "https://github.com/Stredohori/Winlator-CMOD/releases/tag/cc362cd"
-        },
-        {
-          "name": "Winlator-CMOD-(git-343be8d)",
-          "tag": "343be8d",
-          "date": "2025-09-02T16:34:46Z",
-          "downloads": 523,
-          "body": "",
-          "prerelease": false,
-          "assets": [
-            {
-              "name": "app-debug.apk",
-              "size": 519147877,
-              "downloads": 523,
-              "url": "https://github.com/Stredohori/Winlator-CMOD/releases/download/343be8d/app-debug.apk",
-              "digest": "sha256:6321dcf6a1faf6b1d2cdb1d230d8e7d6af61c1b6e34ef4cfb48a83a5e1240de2",
-              "contentType": "application/vnd.android.package-archive",
-              "createdAt": "2025-09-03T02:18:30Z",
-              "updatedAt": "2025-09-03T02:18:47Z"
-            }
-          ],
-          "htmlUrl": "https://github.com/Stredohori/Winlator-CMOD/releases/tag/343be8d"
-        },
-        {
-          "name": "v13.1.1",
-          "tag": "6a8c710",
-          "date": "2025-08-14T18:59:54Z",
-          "downloads": 2843,
-          "body": "**Update 27. 08. 2025:**\r\n- Clone simplified 4smsung devices",
-          "prerelease": false,
-          "assets": [
-            {
-              "name": "app-debug.apk",
-              "size": 639518607,
-              "downloads": 1058,
-              "url": "https://github.com/Stredohori/Winlator-CMOD/releases/download/6a8c710/app-debug.apk",
-              "digest": "sha256:f6c36b4cf2a46e9aa27a7d2ab6789196ef12de0d9c79cbab59ffe97cb7538573",
-              "contentType": "application/vnd.android.package-archive",
-              "createdAt": "2025-08-14T18:59:55Z",
-              "updatedAt": "2025-08-14T19:00:09Z"
-            },
-            {
-              "name": "Winlator-Cmod-13.1.1_smsng.apk",
-              "size": 698420455,
-              "downloads": 1785,
-              "url": "https://github.com/Stredohori/Winlator-CMOD/releases/download/6a8c710/Winlator-Cmod-13.1.1_smsng.apk",
-              "digest": "sha256:ee41165039839147ff8ac0b9eae5225a36acbd9c7c9fa465e1a20d72a0d42c9e",
-              "contentType": "application/vnd.android.package-archive",
-              "createdAt": "2025-08-27T12:19:45Z",
-              "updatedAt": "2025-08-27T12:20:21Z"
-            }
-          ],
-          "htmlUrl": "https://github.com/Stredohori/Winlator-CMOD/releases/tag/6a8c710"
-        },
-        {
-          "name": "4Smsung",
-          "tag": "b2e303d",
-          "date": "2025-07-26T04:43:13Z",
-          "downloads": 608,
-          "body": "It will be recognized by Gaming hub as a game\r\n\r\n***IMPORTANT INFO:***\r\n> I do ***not*** compile libraries, so don't expect the controller, ALSA reflector, or any other Cmod v13 exclusives to work.\r\n> I'm creating the mod purely for my own needs, but if anyone finds it useful, he can use it at his own risk.",
-          "prerelease": false,
-          "assets": [
-            {
-              "name": "app-debug.apk",
-              "size": 623387773,
-              "downloads": 250,
-              "url": "https://github.com/Stredohori/Winlator-CMOD/releases/download/b2e303d/app-debug.apk",
-              "digest": "sha256:beaefe9f6da6eb861d7dc5ca586755806a3b47ad19a7bd6997605d25bdb7b128",
-              "contentType": "application/vnd.android.package-archive",
-              "createdAt": "2025-07-26T04:43:14Z",
-              "updatedAt": "2025-07-26T04:43:29Z"
-            },
-            {
-              "name": "smsung_game_v13.apk",
-              "size": 642840822,
-              "downloads": 194,
-              "url": "https://github.com/Stredohori/Winlator-CMOD/releases/download/b2e303d/smsung_game_v13.apk",
-              "digest": "sha256:8d04773ec46ef7e80bc60ac2b93f70461ebb7d9d7041df3fcdbb6ebfebd4f407",
-              "contentType": "application/vnd.android.package-archive",
-              "createdAt": "2025-07-29T22:25:31Z",
-              "updatedAt": "2025-07-29T22:26:40Z"
-            },
-            {
-              "name": "Winlator-smsng-crsr-fix.apk",
-              "size": 678111178,
-              "downloads": 164,
-              "url": "https://github.com/Stredohori/Winlator-CMOD/releases/download/b2e303d/Winlator-smsng-crsr-fix.apk",
-              "digest": "sha256:4af040914dd7f4f86ada03d979b0b5a55289769e0124e171ec8f986fc69b7e99",
-              "contentType": "application/vnd.android.package-archive",
-              "createdAt": "2025-08-02T22:27:42Z",
-              "updatedAt": "2025-08-02T22:28:22Z"
-            }
-          ],
-          "htmlUrl": "https://github.com/Stredohori/Winlator-CMOD/releases/tag/b2e303d"
-        },
-        {
-          "name": "Winlator CMOD (dev4) - updated 20. 07. 2025",
-          "tag": "aacd257",
-          "date": "2025-07-20T06:06:23Z",
-          "downloads": 3091,
-          "body": "Apk built and recompiled from the _dev_ branch. Install ***Winlator-CMOD-dev4.apk*** only !\r\n\r\nChanges up to: https://github.com/Pipetto-crypto/winlator/commit/f9ea8f0e6b7781469c71589a12e7d358a1112b61\r\n\r\nNote:. Before each update, you should uninstall the previous version to prevent data corruption.",
-          "prerelease": false,
-          "assets": [
-            {
-              "name": "app-debug.apk",
-              "size": 326001269,
-              "downloads": 559,
-              "url": "https://github.com/Stredohori/Winlator-CMOD/releases/download/aacd257/app-debug.apk",
-              "digest": "sha256:6aa24efbb85b7d81a6ee3114348ae072df8ab076f2b2a90829cde102aeea011b",
-              "contentType": "application/vnd.android.package-archive",
-              "createdAt": "2025-07-20T06:06:23Z",
-              "updatedAt": "2025-07-20T06:06:30Z"
-            },
-            {
-              "name": "Winlator-CMOD-dev4.apk",
-              "size": 621065383,
-              "downloads": 2532,
-              "url": "https://github.com/Stredohori/Winlator-CMOD/releases/download/aacd257/Winlator-CMOD-dev4.apk",
-              "digest": "sha256:5e0c7769a7a67004228ca1e82d4cec370f1adb1128c56477797dbd88cb79ce78",
-              "contentType": "application/vnd.android.package-archive",
-              "createdAt": "2025-07-20T06:14:42Z",
-              "updatedAt": "2025-07-20T06:15:16Z"
-            }
-          ],
-          "htmlUrl": "https://github.com/Stredohori/Winlator-CMOD/releases/tag/aacd257"
-        },
-        {
-          "name": "Winlator CMOD (dev3)",
-          "tag": "8f69821",
-          "date": "2025-07-17T11:56:42Z",
-          "downloads": 456,
-          "body": "Apk built and recompiled from the _dev_ branch. Install ***Winlator-CMOD-dev3.apk*** only !\r\n\r\nChanges up to: https://github.com/Pipetto-crypto/winlator/commit/83e5439639811d2d54fc6e691d0148431d7506e5",
-          "prerelease": false,
-          "assets": [
-            {
-              "name": "app-debug.apk",
-              "size": 323174421,
-              "downloads": 70,
-              "url": "https://github.com/Stredohori/Winlator-CMOD/releases/download/8f69821/app-debug.apk",
-              "digest": "sha256:e44844443677b67e16837b72d8c9d4fcbe48779dc2011c4bbbcca930020736b2",
-              "contentType": "application/vnd.android.package-archive",
-              "createdAt": "2025-07-17T11:56:43Z",
-              "updatedAt": "2025-07-17T11:56:50Z"
-            },
-            {
-              "name": "Winlator-CMOD-dev3.apk",
-              "size": 618239111,
-              "downloads": 386,
-              "url": "https://github.com/Stredohori/Winlator-CMOD/releases/download/8f69821/Winlator-CMOD-dev3.apk",
-              "digest": "sha256:abb464e95d00524742d916304242f0d14b491e51582f3481489ccf4976420b82",
-              "contentType": "application/vnd.android.package-archive",
-              "createdAt": "2025-07-17T12:16:23Z",
-              "updatedAt": "2025-07-17T12:20:51Z"
-            }
-          ],
-          "htmlUrl": "https://github.com/Stredohori/Winlator-CMOD/releases/tag/8f69821"
-        },
-        {
-          "name": "Winlator CMOD (dev2)",
-          "tag": "6b53cba",
-          "date": "2025-07-14T21:24:57Z",
-          "downloads": 244,
-          "body": "Apk built and recompiled from the _dev_ branch. Install ***Winlator-CMOD-dev2.apk*** only !\r\n\r\nChanges:\r\n\r\n- XServerDisplayActivity: pause and resume Wine processes when exiting or re-entering the app\r\n- Move relative mouse input into shortcut and container settings\r\n- Allow to properly create WineInfo from installed contents identifier",
-          "prerelease": false,
-          "assets": [
-            {
-              "name": "app-debug.apk",
-              "size": 321352358,
-              "downloads": 42,
-              "url": "https://github.com/Stredohori/Winlator-CMOD/releases/download/6b53cba/app-debug.apk",
-              "digest": "sha256:4548316d28117cd11b7b8f28bf7055b626291b60aecc783e1b653080af3d9d22",
-              "contentType": "application/vnd.android.package-archive",
-              "createdAt": "2025-07-14T21:24:58Z",
-              "updatedAt": "2025-07-14T21:25:06Z"
-            },
-            {
-              "name": "Winlator-CMOD-dev2.apk",
-              "size": 647013588,
-              "downloads": 202,
-              "url": "https://github.com/Stredohori/Winlator-CMOD/releases/download/6b53cba/Winlator-CMOD-dev2.apk",
-              "digest": "sha256:39d032ce176e46661c4616f9f1f96d64c286836447d8e0fbbe59e2f8cf4fecc3",
-              "contentType": "application/vnd.android.package-archive",
-              "createdAt": "2025-07-14T21:33:31Z",
-              "updatedAt": "2025-07-14T21:34:56Z"
-            }
-          ],
-          "htmlUrl": "https://github.com/Stredohori/Winlator-CMOD/releases/tag/6b53cba"
-        },
-        {
-          "name": "Winlator CMOD (dev 1)",
-          "tag": "fa475aa",
-          "date": "2025-07-12T19:59:06Z",
-          "downloads": 589,
-          "body": "Apk built and recompiled from the _dev_ branch. Install ***Winlator-CMOD-dev.apk*** only !\r\n\r\nChanges up to: https://github.com/Pipetto-crypto/winlator/commit/cb6ecd0700aa6300bd559f30a7a8bdede3dded91",
-          "prerelease": true,
-          "assets": [
-            {
-              "name": "app-debug.apk",
-              "size": 321352150,
-              "downloads": 129,
-              "url": "https://github.com/Stredohori/Winlator-CMOD/releases/download/fa475aa/app-debug.apk",
-              "digest": "sha256:d1c582e5cb57efb0d3fee11ff07d1810c0350295c311fb0ffb158ecfb2c85c58",
-              "contentType": "application/vnd.android.package-archive",
-              "createdAt": "2025-07-12T19:59:06Z",
-              "updatedAt": "2025-07-12T19:59:14Z"
-            },
-            {
-              "name": "Winlator-CMOD-dev.apk",
-              "size": 647013512,
-              "downloads": 460,
-              "url": "https://github.com/Stredohori/Winlator-CMOD/releases/download/fa475aa/Winlator-CMOD-dev.apk",
-              "digest": "sha256:afbec1f8861abaf421c7ed734be10d277c57fae3d09a49434f5312fbbafdf0ef",
-              "contentType": "application/vnd.android.package-archive",
-              "createdAt": "2025-07-12T20:43:02Z",
-              "updatedAt": "2025-07-12T20:43:57Z"
-            }
-          ],
-          "htmlUrl": "https://github.com/Stredohori/Winlator-CMOD/releases/tag/fa475aa"
-        },
-        {
-          "name": "Winlator CMOD (newest)",
-          "tag": "560c335",
-          "date": "2025-06-23T11:46:26Z",
-          "downloads": 506,
-          "body": "*Winlator-CMOD.apk* is the installable apk with latest changes from the dev.",
-          "prerelease": true,
-          "assets": [
-            {
-              "name": "app-debug.apk",
-              "size": 336246548,
-              "downloads": 87,
-              "url": "https://github.com/Stredohori/Winlator-CMOD/releases/download/560c335/app-debug.apk",
-              "digest": "sha256:107d4678ee67ddbcfae5483ceddd6a3bd093b3a42cf75c05428438bf38cb4526",
-              "contentType": "application/vnd.android.package-archive",
-              "createdAt": "2025-06-23T11:46:26Z",
-              "updatedAt": "2025-06-23T11:46:34Z"
-            },
-            {
-              "name": "Winlator-CMOD.apk",
-              "size": 809977218,
-              "downloads": 419,
-              "url": "https://github.com/Stredohori/Winlator-CMOD/releases/download/560c335/Winlator-CMOD.apk",
-              "digest": "sha256:63e2ea49f6c2f3970f28a2f359b06803e10280a94166cdc4f5dcbe444e340679",
-              "contentType": "application/vnd.android.package-archive",
-              "createdAt": "2025-06-23T14:02:09Z",
-              "updatedAt": "2025-06-23T14:03:30Z"
-            }
-          ],
-          "htmlUrl": "https://github.com/Stredohori/Winlator-CMOD/releases/tag/560c335"
-        },
-        {
-          "name": "Winlator CMOD (new)",
-          "tag": "7fcd1ed",
-          "date": "2025-06-16T18:09:29Z",
-          "downloads": 350,
-          "body": "You need to use *Winlator-CMOD.apk* only.\r\n- Contains all latest changes from the dev,  as well as the switchable proton wine's.\r\n-  Hopefully this is not the last build.",
-          "prerelease": false,
-          "assets": [
-            {
-              "name": "app-debug.apk",
-              "size": 331765189,
-              "downloads": 79,
-              "url": "https://github.com/Stredohori/Winlator-CMOD/releases/download/7fcd1ed/app-debug.apk",
-              "digest": "sha256:b8a0d98a4c90b669c220271d313d6f552696b697465f56e762606b632391e4ae",
-              "contentType": "application/vnd.android.package-archive",
-              "createdAt": "2025-06-16T18:09:29Z",
-              "updatedAt": "2025-06-16T18:09:39Z"
-            },
-            {
-              "name": "Winlator-CMOD.apk",
-              "size": 799749148,
-              "downloads": 271,
-              "url": "https://github.com/Stredohori/Winlator-CMOD/releases/download/7fcd1ed/Winlator-CMOD.apk",
-              "digest": "sha256:dc688255b3290d0a0906975cf6135f335f74479dda692879c99bdba60098698b",
-              "contentType": "application/vnd.android.package-archive",
-              "createdAt": "2025-06-16T19:34:08Z",
-              "updatedAt": "2025-06-16T19:35:39Z"
-            }
-          ],
-          "htmlUrl": "https://github.com/Stredohori/Winlator-CMOD/releases/tag/7fcd1ed"
-        },
-        {
-          "name": "Winlator CMOD (old)",
-          "tag": "0447ce1",
-          "date": "2025-06-11T15:33:55Z",
-          "downloads": 240,
-          "body": "- _app-debug.apk_ is a clean build without image and prefix - **Do not istall !**\r\n- _winlator-CMOD.apk_ is a recompiled package with missing files added. This one should work as intended.\r\n- CnC ddraw wrapper was removed, no other changes were made.",
-          "prerelease": false,
-          "assets": [
-            {
-              "name": "app-debug.apk",
-              "size": 312483625,
-              "downloads": 82,
-              "url": "https://github.com/Stredohori/Winlator-CMOD/releases/download/0447ce1/app-debug.apk",
-              "digest": "sha256:e73198be10b2be215ab788b2fcf1366421e601de0699c7ade5f5b1ab236b2bee",
-              "contentType": "application/vnd.android.package-archive",
-              "createdAt": "2025-06-11T15:33:56Z",
-              "updatedAt": "2025-06-11T15:34:04Z"
-            },
-            {
-              "name": "winlator-CMOD.apk",
-              "size": 741344068,
-              "downloads": 158,
-              "url": "https://github.com/Stredohori/Winlator-CMOD/releases/download/0447ce1/winlator-CMOD.apk",
-              "digest": "sha256:5dada859bcb724e2e9621e3078a078dd4c872b7ea858156243e0bcf3ed0284eb",
-              "contentType": "application/vnd.android.package-archive",
-              "createdAt": "2025-06-15T08:36:44Z",
-              "updatedAt": "2025-06-15T08:43:06Z"
-            }
-          ],
-          "htmlUrl": "https://github.com/Stredohori/Winlator-CMOD/releases/tag/0447ce1"
-        },
-        {
-          "name": "Winlator Bionic-Glibc",
-          "tag": "e0ca72f",
-          "date": "2025-06-03T23:49:16Z",
-          "downloads": 241,
-          "body": "_**This is the last build before GlibC removal.**_\r\nChange of GPU driver in GlibC cont. possible again thx to @jhinzuo",
-          "prerelease": true,
-          "assets": [
-            {
-              "name": "app-debug.apk",
-              "size": 666121421,
-              "downloads": 241,
-              "url": "https://github.com/Stredohori/Winlator-CMOD/releases/download/e0ca72f/app-debug.apk",
-              "digest": "sha256:d291163dee312fb0a694592b75201d01793c8462f1ebf767463d29b6ebcb1628",
-              "contentType": "application/vnd.android.package-archive",
-              "createdAt": "2025-06-03T23:49:16Z",
-              "updatedAt": "2025-06-03T23:49:34Z"
-            }
-          ],
-          "htmlUrl": "https://github.com/Stredohori/Winlator-CMOD/releases/tag/e0ca72f"
-        },
-        {
-          "name": "winlator_bionic -(git-efaa9e6)",
-          "tag": "efaa9e6",
-          "date": "2025-06-02T01:04:59Z",
+          "name": "Winlator~honkon v8.0",
+          "tag": "V6",
+          "date": "2024-10-25T16:25:26Z",
           "downloads": 169,
-          "body": "",
+          "body": "### Registro de cambios ### \r\n\r\n•Se agregaron los cambios incluidos en la versión de frot,crédito y agradecimiento.\r\n\r\n•se remplazo libvirglrender.so y mesa VirGL por el de winlator glibc para mayor rendimiento.\r\n•Cómo la opción de GLversión en el apartado de mesa VirGL render da error al tener COMPAT se agregó la opción en las variables de entorno.\r\n\r\n•ahora podrá cambiar ***MESA_GL_VERSION_OVERRIDE y MESA_EXTENSION_MAX_YEAR*** de forma facil en las variables de entorno,esto se encuentra en las configuraciones del container.\r\n•***extenciones extras de OpenGL para VirGL***\r\n\r\n• encontrará configuración para distintos juegos en el apartado de Star dentro del container, agradecimiento a Fcharan.\r\n• se agregó Wined3d en las configuraciones del container, puede no funcionar.\r\n• se agregó box86,box64,Wined3d,mesa VirGL,wine gecko,mono offline y algunos complementos.\r\n• algunas correcciones,mejoras en el rendimiento y compatibilidad.\r\n•se subió una sola versión que será \"bench\",esto  para mayor rendimiento pero no interfiere con otras versión de winlator",
           "prerelease": false,
           "assets": [
             {
-              "name": "app-debug.apk",
-              "size": 666121485,
+              "name": "Winlator.Honkon.v8.0.apk",
+              "size": 697381191,
               "downloads": 169,
-              "url": "https://github.com/Stredohori/Winlator-CMOD/releases/download/efaa9e6/app-debug.apk",
-              "digest": "sha256:c4f4f0f35f5663ba0530588127a5c96ddfde02a203e4990f5f1c8cc824b3324b",
+              "url": "https://github.com/Honkonx/winlator-honkon/releases/download/V6/Winlator.Honkon.v8.0.apk",
+              "digest": null,
               "contentType": "application/vnd.android.package-archive",
-              "createdAt": "2025-06-02T01:04:59Z",
-              "updatedAt": "2025-06-02T01:05:13Z"
+              "createdAt": "2024-10-25T15:58:59Z",
+              "updatedAt": "2024-10-25T16:24:59Z"
             }
           ],
-          "htmlUrl": "https://github.com/Stredohori/Winlator-CMOD/releases/tag/efaa9e6"
+          "htmlUrl": "https://github.com/Honkonx/winlator-honkon/releases/tag/V6"
+        },
+        {
+          "name": "Winlator.v7.1.3 glibc~honkon v2",
+          "tag": "V5",
+          "date": "2024-10-13T20:00:30Z",
+          "downloads": 255,
+          "body": "Registro de cambios \r\n\r\n• actualización de virglrender.so\r\n• se agrego parches para mejora la compatibilidad, agradecimiento a afie.\r\n• correcciones y mejoras.",
+          "prerelease": false,
+          "assets": [
+            {
+              "name": "glibc.honkon.v3.1.apk",
+              "size": 543589718,
+              "downloads": 255,
+              "url": "https://github.com/Honkonx/winlator-honkon/releases/download/V5/glibc.honkon.v3.1.apk",
+              "digest": null,
+              "contentType": "application/vnd.android.package-archive",
+              "createdAt": "2024-10-13T19:49:26Z",
+              "updatedAt": "2024-10-13T19:59:13Z"
+            }
+          ],
+          "htmlUrl": "https://github.com/Honkonx/winlator-honkon/releases/tag/V5"
+        },
+        {
+          "name": "Winlator~honkon v7.1-v3",
+          "tag": "V4",
+          "date": "2024-10-13T19:42:23Z",
+          "downloads": 188,
+          "body": "Registro de cambios \r\n\r\n• actualización de virglrender.so\r\n• se agrego parches para mejora la compatibilidad, agradecimiento a afie.\r\n• correcciones y mejoras.",
+          "prerelease": false,
+          "assets": [
+            {
+              "name": "Winlator.honkok.v7.1.v3.antutu.apk",
+              "size": 597564497,
+              "downloads": 76,
+              "url": "https://github.com/Honkonx/winlator-honkon/releases/download/V4/Winlator.honkok.v7.1.v3.antutu.apk",
+              "digest": null,
+              "contentType": "application/vnd.android.package-archive",
+              "createdAt": "2024-10-13T19:23:21Z",
+              "updatedAt": "2024-10-13T19:42:13Z"
+            },
+            {
+              "name": "Winlator.honkok.v7.1.v3.apk",
+              "size": 597564495,
+              "downloads": 112,
+              "url": "https://github.com/Honkonx/winlator-honkon/releases/download/V4/Winlator.honkok.v7.1.v3.apk",
+              "digest": null,
+              "contentType": "application/vnd.android.package-archive",
+              "createdAt": "2024-10-13T19:14:41Z",
+              "updatedAt": "2024-10-13T19:23:13Z"
+            }
+          ],
+          "htmlUrl": "https://github.com/Honkonx/winlator-honkon/releases/tag/V4"
+        },
+        {
+          "name": "Winlator v7.1.3 glibc~honkon",
+          "tag": "V3",
+          "date": "2024-10-12T01:44:25Z",
+          "downloads": 389,
+          "body": "Registro de cambios \r\n\r\n•ahora podrá cambiar ***MESA_GL_VERSION_OVERRIDE y MESA_EXTENSION_MAX_YEAR*** de forma fácil en las variables de entorno,esto se encuentra en las configuraciones del container \r\n\r\n•***extenciones extras de OpenGL para VirGL***\r\n\r\n• encontrará configuración para distintos juegos en el apartado de Star dentro del container, agradecimiento a Fcharan.\r\n• se agregó Wined3d en las configuraciones del container, puede no funcionar.\r\n• se agregó box86,box64,Wined3d,mesa VirGL y algunos complementos.\r\n• algunas correcciones,mejoras en el rendimiento y compatibilidad.\r\n\r\n•dejare los mesa VirGL en formato wcp si los quieren bajar y así los tienen en la configuración del container y no dentro, creditos y agradecimiento a ajay por empaquetarlos.",
+          "prerelease": false,
+          "assets": [
+            {
+              "name": "glibc.honkon.v3.apk",
+              "size": 453051734,
+              "downloads": 280,
+              "url": "https://github.com/Honkonx/winlator-honkon/releases/download/V3/glibc.honkon.v3.apk",
+              "digest": null,
+              "contentType": "application/vnd.android.package-archive",
+              "createdAt": "2024-10-12T01:14:04Z",
+              "updatedAt": "2024-10-12T01:41:55Z"
+            },
+            {
+              "name": "virgl-22.1.7.wcp",
+              "size": 3121340,
+              "downloads": 38,
+              "url": "https://github.com/Honkonx/winlator-honkon/releases/download/V3/virgl-22.1.7.wcp",
+              "digest": null,
+              "contentType": "application/octet-stream",
+              "createdAt": "2024-10-12T01:42:08Z",
+              "updatedAt": "2024-10-12T01:42:34Z"
+            },
+            {
+              "name": "virgl-23.1.9-v2.wcp",
+              "size": 3519363,
+              "downloads": 40,
+              "url": "https://github.com/Honkonx/winlator-honkon/releases/download/V3/virgl-23.1.9-v2.wcp",
+              "digest": null,
+              "contentType": "application/octet-stream",
+              "createdAt": "2024-10-12T01:44:02Z",
+              "updatedAt": "2024-10-12T01:44:20Z"
+            },
+            {
+              "name": "virgl-23.1.9.wcp",
+              "size": 2969696,
+              "downloads": 31,
+              "url": "https://github.com/Honkonx/winlator-honkon/releases/download/V3/virgl-23.1.9.wcp",
+              "digest": null,
+              "contentType": "application/octet-stream",
+              "createdAt": "2024-10-12T01:43:05Z",
+              "updatedAt": "2024-10-12T01:43:47Z"
+            }
+          ],
+          "htmlUrl": "https://github.com/Honkonx/winlator-honkon/releases/tag/V3"
+        },
+        {
+          "name": "Winlator~honkon v7.1-v2",
+          "tag": "V2",
+          "date": "2024-10-12T01:13:19Z",
+          "downloads": 58,
+          "body": "Registro de cambios \r\n\r\n• actualización de wine 9.2 custom,se añadido algunos parches y rempaquetado de imagefs,esto para mayor rendimiento y compatibilidad...\r\nagradecimientos a efei y ajay.\r\n•Box64-0.3.0 de Winlator v8 ",
+          "prerelease": false,
+          "assets": [
+            {
+              "name": "Winlator.Honkon.v7.1.v2.antutu.apk",
+              "size": 538952767,
+              "downloads": 30,
+              "url": "https://github.com/Honkonx/winlator-honkon/releases/download/V2/Winlator.Honkon.v7.1.v2.antutu.apk",
+              "digest": null,
+              "contentType": "application/vnd.android.package-archive",
+              "createdAt": "2024-10-12T00:53:21Z",
+              "updatedAt": "2024-10-12T01:13:08Z"
+            },
+            {
+              "name": "Winlator.Honkon.v7.1.v2.apk",
+              "size": 539595840,
+              "downloads": 28,
+              "url": "https://github.com/Honkonx/winlator-honkon/releases/download/V2/Winlator.Honkon.v7.1.v2.apk",
+              "digest": null,
+              "contentType": "application/vnd.android.package-archive",
+              "createdAt": "2024-10-12T00:32:30Z",
+              "updatedAt": "2024-10-12T00:53:07Z"
+            }
+          ],
+          "htmlUrl": "https://github.com/Honkonx/winlator-honkon/releases/tag/V2"
+        },
+        {
+          "name": "Winlator~honkon v7.1",
+          "tag": "Winlator_honkon",
+          "date": "2024-10-09T13:02:44Z",
+          "downloads": 335,
+          "body": "Registro de cambios \r\n\r\n• se actualizo la carpeta lib para mayor rendimiento,menor tiempo de carga  y compatibilidad con dispositivos que no admiten 32bit,puede no funcionar.\r\n\r\n•ahora podrá cambiar ***MESA_GL_VERSION_OVERRIDE y MESA_EXTENSION_MAX_YEAR*** de forma facil en las variables de entorno,esto se encuentra en las configuraciones del container \r\n\r\n•***extenciones extras de OpenGL para VirGL,además de reemplazar libGL.so.1.7.0 -64bit por el de glibc para mayor rendimiento, igual se mantiene libGL.so.1.7.0-32bit de winlator V7.1***\r\n\r\n• encontrará configuración para distintos juegos en el apartado de Star dentro del container, agradecimiento a Fcharan.\r\n• se agregó Wined3d en las configuraciones del container, puede no funcionar.\r\n• se agregó box86,box64,Wined3d,mesa VirGL y algunos complementos.\r\n• algunas correcciones,mejoras en el rendimiento y compatibilidad.\r\n•version antutu para mayor rendimiento,puede dar mayor calentamiento dependió del juego, dispositivos y otros factores pero no suele ser un gran problema.\r\n\r\n",
+          "prerelease": false,
+          "assets": [
+            {
+              "name": "Winlator.Honkon.v7.1.apk",
+              "size": 656651249,
+              "downloads": 320,
+              "url": "https://github.com/Honkonx/winlator-honkon/releases/download/Winlator_honkon/Winlator.Honkon.v7.1.apk",
+              "digest": null,
+              "contentType": "application/vnd.android.package-archive",
+              "createdAt": "2024-10-09T12:56:34Z",
+              "updatedAt": "2024-10-09T13:02:33Z"
+            },
+            {
+              "name": "Winlator.Honkon.v7.1.bench.apk",
+              "size": 648627185,
+              "downloads": 15,
+              "url": "https://github.com/Honkonx/winlator-honkon/releases/download/Winlator_honkon/Winlator.Honkon.v7.1.bench.apk",
+              "digest": null,
+              "contentType": "application/vnd.android.package-archive",
+              "createdAt": "2024-10-09T12:42:51Z",
+              "updatedAt": "2024-10-09T12:51:54Z"
+            }
+          ],
+          "htmlUrl": "https://github.com/Honkonx/winlator-honkon/releases/tag/Winlator_honkon"
+        },
+        {
+          "name": "Winlator~honkon v7",
+          "tag": "Winlator.honkon",
+          "date": "2024-10-09T12:41:35Z",
+          "downloads": 129,
+          "body": "Registro de cambios \r\n\r\n• se remplazo la imagefs por la de winlator v7.1,esto para mayor rendimiento, compatibilidad y solucionar errores con Xinput...\r\n\r\n• se actualizo la carpeta lib para mayor rendimiento,menor tiempo de carga  y compatibilidad con dispositivos que no admiten 32bit,puede no funcionar.\r\n\r\n•ahora podrá cambiar ***MESA_GL_VERSION_OVERRIDE y MESA_EXTENSION_MAX_YEAR*** de forma facil en las variables de entorno,esto se encuentra en las configuraciones del container \r\n\r\n•***extenciones extras de OpenGL para VirGL,además de reemplazar libGL.so.1.7.0 -64bit por el de glibc para mayor rendimiento, igual se mantiene libGL.so.1.7.0-32bit de winlator V7.1***\r\n\r\n• encontrará configuración para distintos juegos en el apartado de Star dentro del container, agradecimiento a Fcharan.\r\n• se agregó Wined3d en las configuraciones del container, puede no funcionar.\r\n• se agregó box86,box64,Wined3d,mesa VirGL y algunos complementos.\r\n• algunas correcciones,mejoras en el rendimiento y compatibilidad.\r\n•version antutu para mayor rendimiento,puede causar mayor calentamiento dependió del juego, dispositivos y otros factores pero no suele ser un gran problema.",
+          "prerelease": false,
+          "assets": [
+            {
+              "name": "Winlator.Honkon.v7.antutu.apk",
+              "size": 636197446,
+              "downloads": 24,
+              "url": "https://github.com/Honkonx/winlator-honkon/releases/download/Winlator.honkon/Winlator.Honkon.v7.antutu.apk",
+              "digest": null,
+              "contentType": "application/vnd.android.package-archive",
+              "createdAt": "2024-10-09T12:32:36Z",
+              "updatedAt": "2024-10-09T12:39:48Z"
+            },
+            {
+              "name": "Winlator.Honkon.v7.apk",
+              "size": 636234310,
+              "downloads": 105,
+              "url": "https://github.com/Honkonx/winlator-honkon/releases/download/Winlator.honkon/Winlator.Honkon.v7.apk",
+              "digest": null,
+              "contentType": "application/vnd.android.package-archive",
+              "createdAt": "2024-10-09T12:23:38Z",
+              "updatedAt": "2024-10-09T12:32:31Z"
+            }
+          ],
+          "htmlUrl": "https://github.com/Honkonx/winlator-honkon/releases/tag/Winlator.honkon"
+        },
+        {
+          "name": "Winlator~honkon V6.1",
+          "tag": "Winlator-honkon",
+          "date": "2024-10-08T16:23:49Z",
+          "downloads": 147,
+          "body": "• **actualización de wine 8.0.2 para mayor rendimiento y compatibilidad, agradecimientos a efei y ajay.**\r\n• **se reemplazo la carpeta lib para mayor rendimiento,menor tiempo de carga y compatibilidad con dispositivos que no admiten 32bit,puede no funcionar.**\r\n• **se agregó Wined3d en las configuraciones del container, puede no funcionar.**\r\n• **se agregó box86,box64,Wined3d,mesa VirGL y algunos complementos.**\r\n• **algunas correcciones y mejoras en el rendimiento.**\r\n",
+          "prerelease": false,
+          "assets": [
+            {
+              "name": "Winlator.honkon.v6.1.apk",
+              "size": 646888761,
+              "downloads": 132,
+              "url": "https://github.com/Honkonx/winlator-honkon/releases/download/Winlator-honkon/Winlator.honkon.v6.1.apk",
+              "digest": null,
+              "contentType": "application/vnd.android.package-archive",
+              "createdAt": "2024-10-08T15:27:24Z",
+              "updatedAt": "2024-10-08T15:47:38Z"
+            },
+            {
+              "name": "Winlator.honkon.v6.1.bench.apk",
+              "size": 646888763,
+              "downloads": 15,
+              "url": "https://github.com/Honkonx/winlator-honkon/releases/download/Winlator-honkon/Winlator.honkon.v6.1.bench.apk",
+              "digest": null,
+              "contentType": "application/vnd.android.package-archive",
+              "createdAt": "2024-10-08T15:57:13Z",
+              "updatedAt": "2024-10-08T16:23:19Z"
+            }
+          ],
+          "htmlUrl": "https://github.com/Honkonx/winlator-honkon/releases/tag/Winlator-honkon"
         }
       ],
-      "repoUrl": "https://github.com/Stredohori/Winlator-CMOD"
+      "repoUrl": "https://github.com/Honkonx/winlator-honkon"
     },
     {
-      "name": "SharpEmu ARM64",
-      "repo": "edeegg/sharpemu-arm64",
-      "category": "Emulator PS5",
+      "name": "Winlator XR",
+      "repo": "WinlatorXR/WinlatorXR",
+      "category": "Winlator",
       "driverFamily": null,
-      "logo": "sharpemu.png",
+      "logo": "winlator.png",
       "extensions": null,
-      "sourceKind": "fork/comunidade",
+      "sourceKind": "upstream/community",
       "channel": "stable/unknown",
-      "downloads": 1017,
+      "downloads": 5331,
       "releases": [
         {
-          "name": "SharpEmu Android 0.0.2_poc",
-          "tag": "android-v0.0.2_poc",
-          "date": "2026-08-05T07:38:15Z",
-          "downloads": 967,
-          "body": "Automated Android proof-of-concept build (0.0.2_poc).",
+          "name": "Computers Are Totally Screwed 27",
+          "tag": "winlatorxr_cats27",
+          "date": "2026-07-01T14:17:23Z",
+          "downloads": 1399,
+          "body": "# Changelog\r\n\r\n### Core\r\n* Components list by [StevenMXZ](https://github.com/StevenMXZ) and [Xnick417x](https://github.com/Xnick417x/winlator-nightly-wcp)\r\n* Runtime download content by [Arihany](https://github.com/Arihany/WinlatorWCPHub#-runtime-packages) and [ajay9634](https://github.com/ajay9634/Ajay-prefix)\r\n* Store feature from [Ludashi-plus](https://github.com/The412Banner/Ludashi-plus/releases/tag/v3.1.2-pre2)\r\n* Win components from [Winlator 11](https://github.com/brunodev85/winlator/releases/tag/v11.0.0)\r\n\r\n### Drivers\r\n* Add DD7to9 v1.7 wrapper\r\n* Add new Qualcomm and Turnip drivers\r\n* Defaults for Pico and Quest headsets updated\r\n* DXVK framesync, MangoHUD, DXVK framerates updated\r\n* Improvements to global default values\r\n* Installing and updating content on app start fixed\r\n* Set default DXVK frame limit to refresh rate\r\n\r\n### Modding tools\r\n* Improved game support for Reshade\r\n* Injecting Reshade from Z drive fixed\r\n* TrackIR emulation using opentrack_wxr integrated\r\n\r\n### Updated UI\r\n* Box64 RC manager moved into settings\r\n* Close Controller Manager dialog on app pause/close\r\n* Controller notice removed\r\n* Controller tweaks moved from settings into Controller manager\r\n* Default container resolutions cleanup\r\n* Do not show Proton in contents type list\r\n* DXVK guide into selection dialog added\r\n* Move wheel mapping option into motion controls dialog\r\n* Move left-handed mapping option into controller manager\r\n* New cleaned settings UI\r\n* Shortcut option to autoclose container added\r\n\r\n### XrAPI v0.5\r\n* Cache framesync mapping between the sessions\r\n* Controller grip quaternions exposed\r\n* Container resolution in Z:\\tmp\\xr\\system\r\n* HMD altitude exposed\r\n* XServer input APIs added\r\n\r\n### XR support\r\n* CAS screen effect\r\n* Controller updates mouse buttons only if state changed\r\n* Custom keyboard instead of OS keyboard\r\n* Gray out passthrough when in immersive mode\r\n* Immersive mode with user defined distance\r\n* Improve snapturn mapping\r\n* Increase controller thumbstick deadzone\r\n* Pixmap update frequency increased to 72Hz\r\n* Virtual wheel mapping now uses analog joystick input\r\n\r\n# Credits\r\n* Drivers and wrappers were updated and tested by @GmoLargey\r\n* The store integration has been polished by @lvonasek, @Gilleece\r\n* TrackIR integration has been done by @bigelod",
           "prerelease": false,
           "assets": [
             {
-              "name": "SharpEmu-Android-0.0.2_poc.apk",
-              "size": 91198273,
-              "downloads": 967,
-              "url": "https://github.com/edeegg/sharpemu-arm64/releases/download/android-v0.0.2_poc/SharpEmu-Android-0.0.2_poc.apk",
-              "digest": "sha256:aad7c8ae312163c688832e719d9a3e6d0b6418d1058db153a898c2ce494a1a0a",
+              "name": "WinlatorXR-cats-27.apk",
+              "size": 735159442,
+              "downloads": 1399,
+              "url": "https://github.com/WinlatorXR/WinlatorXR/releases/download/winlatorxr_cats27/WinlatorXR-cats-27.apk",
+              "digest": "sha256:168dcc51ab9cc3c95e0d3e115d85694825c5eac61e12d23bcf576d5048b489f7",
               "contentType": "application/vnd.android.package-archive",
-              "createdAt": "2026-08-05T07:38:12Z",
-              "updatedAt": "2026-08-05T07:38:14Z"
+              "createdAt": "2026-07-01T14:14:06Z",
+              "updatedAt": "2026-07-01T14:16:43Z"
             }
           ],
-          "htmlUrl": "https://github.com/edeegg/sharpemu-arm64/releases/tag/android-v0.0.2_poc"
+          "htmlUrl": "https://github.com/WinlatorXR/WinlatorXR/releases/tag/winlatorxr_cats27"
         },
         {
-          "name": "SharpEmu Android 0.0.1_poc",
-          "tag": "android-v0.0.1_poc",
-          "date": "2026-08-05T03:58:39Z",
-          "downloads": 50,
-          "body": "Automated Android proof-of-concept build (0.0.1_poc).",
+          "name": "Bringing Legacy Into Today 16",
+          "tag": "winlatorxr_blit16",
+          "date": "2026-04-01T06:12:13Z",
+          "downloads": 2201,
+          "body": "### 3D rendering\r\n* Option to add/remove Reshade from shortcut dialog\r\n* Option to force DXGI at Reshade injection\r\n* Reshade automatic installation for DirectX 9 and higher\r\n* Reshade popular community shaders included\r\n* SBS support for windowed and lower resolution apps\r\n\r\n### Bug fixes\r\n* Crash when switching tabs fixed\r\n* Do not load XR on unsupported devices\r\n* Quick menu on Quest bigger\r\n* Unsupported \"Big Picture Mode\" option removed\r\n\r\n### Core\r\n* Allow bigger screen distance\r\n* License into the code added\r\n* Option to support 6GB VRAM\r\n* Select 4GB VRAM by default on container creation\r\n* XR code refactor\r\n\r\n### Input\r\n* Decrease latency when typing\r\n* Laser gun option added\r\n* Steering wheel emulation added (experimental)\r\n\r\n### UI\r\n* Change tab About to More (containing online info)\r\n* Move Adreno GPU drivers under content tab\r\n* Quck menu rearranged\r\n* Quick menu SBS support\r\n* Relative mouse renamed and moved into Controller Manager\r\n* Show controller manager in quick menu\r\n\r\n### XR API 0.4\r\n* Additional screen mode with head tracking\r\n* Map haptics events to bHaptics/ProTube accessory\r\n* Send UDP data on multiple ports",
           "prerelease": false,
           "assets": [
             {
-              "name": "SharpEmu-Android-0.0.1_poc.apk",
-              "size": 91198273,
-              "downloads": 50,
-              "url": "https://github.com/edeegg/sharpemu-arm64/releases/download/android-v0.0.1_poc/SharpEmu-Android-0.0.1_poc.apk",
-              "digest": "sha256:4e9e9233a55667cd4440ee3fa0b01544ac13978306f76ce94b23e22e14b021f7",
+              "name": "WinlatorXR-blit-16.apk",
+              "size": 705538680,
+              "downloads": 2201,
+              "url": "https://github.com/WinlatorXR/WinlatorXR/releases/download/winlatorxr_blit16/WinlatorXR-blit-16.apk",
+              "digest": "sha256:25f6e96f82d3f41170b444bfb068d89e94e24c4228aa59697377136f0dd170c9",
               "contentType": "application/vnd.android.package-archive",
-              "createdAt": "2026-08-05T03:58:36Z",
-              "updatedAt": "2026-08-05T03:58:39Z"
+              "createdAt": "2026-04-01T06:09:45Z",
+              "updatedAt": "2026-04-01T06:12:04Z"
             }
           ],
-          "htmlUrl": "https://github.com/edeegg/sharpemu-arm64/releases/tag/android-v0.0.1_poc"
+          "htmlUrl": "https://github.com/WinlatorXR/WinlatorXR/releases/tag/winlatorxr_blit16"
+        },
+        {
+          "name": "Almost Ready to Fly 11",
+          "tag": "winlatorxr_arf11",
+          "date": "2026-01-24T07:34:06Z",
+          "downloads": 1731,
+          "body": "### New UI\r\n* Automatically save container/settings\r\n* Hide touch input controls screen\r\n* Hide unsupported shortcut features\r\n* Quick menu size fixed\r\n* Remember previously opened menu screen\r\n* Updated logo/icon\r\n* Use tabs instead of navigation menu\r\n\r\n### XR API 0.3\r\n* AER support added\r\n* Disable head->mouse mapping when UDP is running\r\n* Expose immersive and SBS mode\r\n* Incorrectly rounded negative values fixed\r\n* Increase framesync cache length\r\n* Let user control stereo\r\n* Option to enable UDP communication without VR\r\n* Support higher resolutions\r\n\r\n### XR Core\r\n* Autoclose the app when there are no windows\r\n* CPU/GPU level and refresh rate options added\r\n* Decrease XR latency\r\n* Do not allow portrait container resolution\r\n* Shortcut resolution option fixed by @bigelod\r\n* Swapchain indexing fixed\r\n\r\n### XR Screen features\r\n* Bloom and fake reflection effects added\r\n* Curved screen support\r\n* Screen effects support in XR mode\r\n* Screen zooming added\r\n* Wideangle screen support\r\n\r\n### XR Support\r\n* [Flawless Wide Screen](https://www.flawlesswidescreen.org/)\r\n* [OpenTrack WXR](https://github.com/bigelod/opentrackWXR)\r\n\r\nBig thanks to @GmoLargey for testing and reporting many bugs during the development.",
+          "prerelease": false,
+          "assets": [
+            {
+              "name": "WinlatorXR-arf-11.apk",
+              "size": 697183697,
+              "downloads": 1731,
+              "url": "https://github.com/WinlatorXR/WinlatorXR/releases/download/winlatorxr_arf11/WinlatorXR-arf-11.apk",
+              "digest": "sha256:38ece2786d1301c534f030de279de8b3b8bce85d41df5a07bea00f6c70bcaae2",
+              "contentType": "application/vnd.android.package-archive",
+              "createdAt": "2026-01-23T18:32:05Z",
+              "updatedAt": "2026-01-23T18:34:37Z"
+            }
+          ],
+          "htmlUrl": "https://github.com/WinlatorXR/WinlatorXR/releases/tag/winlatorxr_arf11"
         }
       ],
-      "repoUrl": "https://github.com/edeegg/sharpemu-arm64"
+      "repoUrl": "https://github.com/WinlatorXR/WinlatorXR"
     },
     {
       "name": "GameHub Lite (Producdevity)",
@@ -1053,21 +887,6 @@
       "downloads": 0,
       "releases": [],
       "repoUrl": "https://github.com/whitebelyash/AdrenoToolsDrivers"
-    },
-    {
-      "name": "Snapdragon Elite Drivers",
-      "repo": "StevenMXZ/Adrenotools-Drivers",
-      "category": "Drivers",
-      "driverFamily": "Adreno / Turnip",
-      "logo": "drivers.png",
-      "extensions": [
-        ".zip"
-      ],
-      "sourceKind": "driver/community",
-      "channel": "stable/unknown",
-      "downloads": 0,
-      "releases": [],
-      "repoUrl": "https://github.com/StevenMXZ/Adrenotools-Drivers"
     },
     {
       "name": "Weab-Chan Turnip Drivers",
@@ -1324,19 +1143,6 @@
       "repoUrl": "https://github.com/jhinzuo/winlator"
     },
     {
-      "name": "Winlator XR",
-      "repo": "WinlatorXR/WinlatorXR",
-      "category": "Winlator",
-      "driverFamily": null,
-      "logo": "winlator.png",
-      "extensions": null,
-      "sourceKind": "upstream/community",
-      "channel": "stable/unknown",
-      "downloads": 0,
-      "releases": [],
-      "repoUrl": "https://github.com/WinlatorXR/WinlatorXR"
-    },
-    {
       "name": "Winlator Bionic cjxyz",
       "repo": "winlator/releases",
       "category": "Winlator",
@@ -1363,6 +1169,19 @@
       "repoUrl": "https://github.com/duckyduckG/winlator"
     },
     {
+      "name": "Winlator Bionic Stredohiri",
+      "repo": "Stredohori/Winlator-CMOD",
+      "category": "Winlator",
+      "driverFamily": null,
+      "logo": "winlator.png",
+      "extensions": null,
+      "sourceKind": "fork/comunidade",
+      "channel": "stable/unknown",
+      "downloads": 0,
+      "releases": [],
+      "repoUrl": "https://github.com/Stredohori/Winlator-CMOD"
+    },
+    {
       "name": "Winlator Bionic Alexoqool",
       "repo": "Alexoqool/winlator-bionic-build",
       "category": "Winlator",
@@ -1374,19 +1193,6 @@
       "downloads": 0,
       "releases": [],
       "repoUrl": "https://github.com/Alexoqool/winlator-bionic-build"
-    },
-    {
-      "name": "Winlator Honkon",
-      "repo": "Honkonx/winlator-honkon",
-      "category": "Winlator",
-      "driverFamily": null,
-      "logo": "winlator.png",
-      "extensions": null,
-      "sourceKind": "upstream/community",
-      "channel": "stable/unknown",
-      "downloads": 0,
-      "releases": [],
-      "repoUrl": "https://github.com/Honkonx/winlator-honkon"
     },
     {
       "name": "Winlator Glibc",
@@ -1571,19 +1377,6 @@
       "downloads": 0,
       "releases": [],
       "repoUrl": "https://github.com/jaycore/mobox-patched"
-    },
-    {
-      "name": "Pluvia",
-      "repo": "oxters168/Pluvia",
-      "category": "PC Emulator",
-      "driverFamily": null,
-      "logo": "pluvia.png",
-      "extensions": null,
-      "sourceKind": "upstream/community",
-      "channel": "stable/unknown",
-      "downloads": 0,
-      "releases": [],
-      "repoUrl": "https://github.com/oxters168/Pluvia"
     },
     {
       "name": "Cemu",
@@ -1807,6 +1600,19 @@
       "repoUrl": "https://github.com/Trixarian/NetherSX2-classic"
     },
     {
+      "name": "SharpEmu ARM64",
+      "repo": "edeegg/sharpemu-arm64",
+      "category": "Emulator PS5",
+      "driverFamily": null,
+      "logo": "sharpemu.png",
+      "extensions": null,
+      "sourceKind": "fork/comunidade",
+      "channel": "stable/unknown",
+      "downloads": 0,
+      "releases": [],
+      "repoUrl": "https://github.com/edeegg/sharpemu-arm64"
+    },
+    {
       "name": "Vita3K Android",
       "repo": "Vita3K/Vita3K-Android",
       "category": "PSVITA",
@@ -1878,7 +1684,7 @@
         "name": "Proton-9-x86_64",
         "version": "1",
         "url": "https://github.com/StevenMXZ/Winlator-Contents/releases/download/1.0/Proton.9.0-x86_64.wcp",
-        "date": "2026-08-17T14:21:05.905Z"
+        "date": "2026-08-17T15:20:08.185Z"
       }
     ],
     "Wine": [
@@ -1886,13 +1692,13 @@
         "name": "proton-10-arm64ec",
         "version": "1",
         "url": "https://github.com/StevenMXZ/Winlator-Contents/releases/download/1.0/proton-10-arm64ec.wcp.xz",
-        "date": "2026-08-17T14:21:05.905Z"
+        "date": "2026-08-17T15:20:08.186Z"
       },
       {
         "name": "wine-9.20-x86_64",
         "version": "1",
         "url": "https://github.com/StevenMXZ/Winlator-Contents/releases/download/1.0/wine-9.20.wcp",
-        "date": "2026-08-17T14:21:05.905Z"
+        "date": "2026-08-17T15:20:08.186Z"
       }
     ],
     "Box64": [
@@ -1900,49 +1706,49 @@
         "name": "0.3.5",
         "version": "1",
         "url": "https://github.com/ziad9267/Winlator-Contents/raw/refs/heads/main/Box64/box64-0.3.5.wcp",
-        "date": "2026-08-17T14:21:05.905Z"
+        "date": "2026-08-17T15:20:08.186Z"
       },
       {
         "name": "036fix",
         "version": "1",
         "url": "https://github.com/StevenMXZ/Winlator-Contents/raw/refs/heads/main/Box64/box64-036fix.wcp",
-        "date": "2026-08-17T14:21:05.905Z"
+        "date": "2026-08-17T15:20:08.186Z"
       },
       {
         "name": "0.3.7",
         "version": "1",
         "url": "https://github.com/StevenMXZ/Winlator-Contents/raw/refs/heads/main/Box64/box64-0.3.7.wcp",
-        "date": "2026-08-17T14:21:05.905Z"
+        "date": "2026-08-17T15:20:08.186Z"
       },
       {
         "name": "0.3.8",
         "version": "1",
         "url": "https://github.com/StevenMXZ/Winlator-Contents/raw/refs/heads/main/Box64/box64-0.3.8.wcp",
-        "date": "2026-08-17T14:21:05.905Z"
+        "date": "2026-08-17T15:20:08.186Z"
       },
       {
         "name": "0.3.9",
         "version": "1",
         "url": "https://github.com/StevenMXZ/Winlator-Contents/raw/refs/heads/main/Box64/box64-0.3.9.wcp",
-        "date": "2026-08-17T14:21:05.905Z"
+        "date": "2026-08-17T15:20:08.186Z"
       },
       {
         "name": "0.4.1-fix",
         "version": "1",
         "url": "https://github.com/StevenMXZ/Winlator-Contents/raw/refs/heads/main/Box64/box64-0.4.1-fix.wcp",
-        "date": "2026-08-17T14:21:05.905Z"
+        "date": "2026-08-17T15:20:08.186Z"
       },
       {
         "name": "0.4.2-fix",
         "version": "1",
         "url": "https://github.com/StevenMXZ/Winlator-Contents/raw/refs/heads/main/Box64/box64-0.4.2-fix.wcp",
-        "date": "2026-08-17T14:21:05.905Z"
+        "date": "2026-08-17T15:20:08.186Z"
       },
       {
         "name": "0.4.4",
         "version": "1",
         "url": "https://github.com/StevenMXZ/Winlator-Contents/raw/refs/heads/main/Box64/box64-0.4.4.wcp",
-        "date": "2026-08-17T14:21:05.905Z"
+        "date": "2026-08-17T15:20:08.186Z"
       }
     ],
     "WOWBox64": [
@@ -1950,31 +1756,31 @@
         "name": "0.3.7-5768989",
         "version": "1",
         "url": "https://github.com/StevenMXZ/Winlator-Contents/raw/refs/heads/main/WOWBox64/WowBox64-0.3.7-5768989.wcp",
-        "date": "2026-08-17T14:21:05.905Z"
+        "date": "2026-08-17T15:20:08.186Z"
       },
       {
         "name": "0.3.9-056999e",
         "version": "1",
         "url": "https://github.com/StevenMXZ/Winlator-Contents/raw/refs/heads/main/WOWBox64/WOWBox64-0.3.9-056999e.wcp",
-        "date": "2026-08-17T14:21:05.905Z"
+        "date": "2026-08-17T15:20:08.186Z"
       },
       {
         "name": "0.4.1-fix",
         "version": "1",
         "url": "https://github.com/StevenMXZ/Winlator-Contents/raw/refs/heads/main/WOWBox64/WOWBox64-0.4.1-fix.wcp",
-        "date": "2026-08-17T14:21:05.905Z"
+        "date": "2026-08-17T15:20:08.186Z"
       },
       {
         "name": "0.4.2",
         "version": "1",
         "url": "https://github.com/StevenMXZ/Winlator-Contents/raw/refs/heads/main/WOWBox64/wowbox64-0.4.2.wcp",
-        "date": "2026-08-17T14:21:05.905Z"
+        "date": "2026-08-17T15:20:08.186Z"
       },
       {
         "name": "0.4.4",
         "version": "1",
         "url": "https://github.com/StevenMXZ/Winlator-Contents/raw/refs/heads/main/WOWBox64/Wowbox64-0.4.4.wcp",
-        "date": "2026-08-17T14:21:05.905Z"
+        "date": "2026-08-17T15:20:08.186Z"
       }
     ],
     "DXVK": [
@@ -1982,91 +1788,91 @@
         "name": "1.5.5",
         "version": "1",
         "url": "https://github.com/StevenMXZ/Winlator-Contents/raw/refs/heads/main/DXVK/dxvk-1.5.5.wcp",
-        "date": "2026-08-17T14:21:05.905Z"
+        "date": "2026-08-17T15:20:08.186Z"
       },
       {
         "name": "1.7.2",
         "version": "1",
         "url": "https://github.com/StevenMXZ/Winlator-Contents/raw/refs/heads/main/DXVK/dxvk-1.7.2.wcp",
-        "date": "2026-08-17T14:21:05.905Z"
+        "date": "2026-08-17T15:20:08.186Z"
       },
       {
         "name": "1.9.4",
         "version": "1",
         "url": "https://github.com/StevenMXZ/Winlator-Contents/raw/refs/heads/main/DXVK/dxvk-1.9.4.wcp",
-        "date": "2026-08-17T14:21:05.905Z"
+        "date": "2026-08-17T15:20:08.186Z"
       },
       {
         "name": "1.10.3-async",
         "version": "1",
         "url": "https://github.com/StevenMXZ/Winlator-Contents/raw/refs/heads/main/DXVK/dxvk-1.10.3-async.wcp",
-        "date": "2026-08-17T14:21:05.905Z"
+        "date": "2026-08-17T15:20:08.186Z"
       },
       {
         "name": "11.1-sarek-async",
         "version": "1",
         "url": "https://github.com/StevenMXZ/Winlator-Contents/raw/refs/heads/main/DXVK/dxvk-11.1-sarek-async.wcp",
-        "date": "2026-08-17T14:21:05.905Z"
+        "date": "2026-08-17T15:20:08.186Z"
       },
       {
         "name": "1.12.0-sarek",
         "version": "1",
         "url": "https://github.com/StevenMXZ/Winlator-Contents/raw/refs/heads/main/DXVK/dxvk-sarek-1.12.0.wcp",
-        "date": "2026-08-17T14:21:05.905Z"
+        "date": "2026-08-17T15:20:08.186Z"
       },
       {
         "name": "2.3.1-gplasync",
         "version": "1",
         "url": "https://github.com/StevenMXZ/Winlator-Contents/raw/refs/heads/main/DXVK/dxvk-2.3.1-gplasync.wcp",
-        "date": "2026-08-17T14:21:05.905Z"
+        "date": "2026-08-17T15:20:08.186Z"
       },
       {
         "name": "2.4.1.1-gplasync-sp",
         "version": "1",
         "url": "https://github.com/StevenMXZ/Winlator-Contents/raw/refs/heads/main/DXVK/dxvk-2.4.1.1-gplasync-sp.wcp",
-        "date": "2026-08-17T14:21:05.905Z"
+        "date": "2026-08-17T15:20:08.186Z"
       },
       {
         "name": "2.4.1-fix",
         "version": "1",
         "url": "https://github.com/StevenMXZ/Winlator-Contents/raw/refs/heads/main/DXVK/dxvk-2.4.1-fix.wcp",
-        "date": "2026-08-17T14:21:05.905Z"
+        "date": "2026-08-17T15:20:08.186Z"
       },
       {
         "name": "2.4.1-arm64ec-gplasync",
         "version": "1",
         "url": "https://github.com/StevenMXZ/Winlator-Contents/raw/refs/heads/main/DXVK/dxvk-2.4.1-arm64ec-gplasync.wcp",
-        "date": "2026-08-17T14:21:05.905Z"
+        "date": "2026-08-17T15:20:08.186Z"
       },
       {
         "name": "2.5.3-1-gplasync",
         "version": "1",
         "url": "https://github.com/StevenMXZ/Winlator-Contents/raw/refs/heads/main/DXVK/dxvk-2.5.3-1-gplasync.wcp",
-        "date": "2026-08-17T14:21:05.905Z"
+        "date": "2026-08-17T15:20:08.186Z"
       },
       {
         "name": "2.6-2-gplasync",
         "version": "1",
         "url": "https://github.com/StevenMXZ/Winlator-Contents/raw/refs/heads/main/DXVK/dxvk-2.6-2-gplasync.wcp",
-        "date": "2026-08-17T14:21:05.905Z"
+        "date": "2026-08-17T15:20:08.186Z"
       },
       {
         "name": "2.6.2-arm64ec-gplasync",
         "version": "0",
         "url": "https://github.com/StevenMXZ/Winlator-Contents/raw/refs/heads/main/DXVK/dxvk-2.6.2-arm64ec-gplasync.wcp",
-        "date": "2026-08-17T14:21:05.905Z"
+        "date": "2026-08-17T15:20:08.186Z"
       },
       {
         "name": "2.7.1-gplasync",
         "version": "1",
         "url": "https://github.com/StevenMXZ/Winlator-Contents/raw/refs/heads/main/DXVK/dxvk-2.7.1-gplasync.wcp",
-        "date": "2026-08-17T14:21:05.905Z"
+        "date": "2026-08-17T15:20:08.186Z"
       },
       {
         "name": "2.7.1-arm64ec-gplasync-fix-leegao",
         "version": "1",
         "url": "https://github.com/StevenMXZ/Winlator-Contents/raw/refs/heads/main/DXVK/dxvk-2.7.1-arm64ec-gplasync-fix-leegao.wcp",
-        "date": "2026-08-17T14:21:05.905Z"
+        "date": "2026-08-17T15:20:08.186Z"
       }
     ],
     "FEXCore": [
@@ -2074,91 +1880,91 @@
         "name": "241214",
         "version": "1",
         "url": "https://github.com/ziad9267/Winlator-Contents/raw/refs/heads/main/FEXCore/fexcore_241214.wcp",
-        "date": "2026-08-17T14:21:05.905Z"
+        "date": "2026-08-17T15:20:08.186Z"
       },
       {
         "name": "2505",
         "version": "1",
         "url": "https://github.com/StevenMXZ/Winlator-Contents/raw/refs/heads/main/FEXCore/fexcore-2505.wcp",
-        "date": "2026-08-17T14:21:05.905Z"
+        "date": "2026-08-17T15:20:08.186Z"
       },
       {
         "name": "2507_fix",
         "version": "1",
         "url": "https://github.com/StevenMXZ/Winlator-Contents/raw/refs/heads/main/FEXCore/fexcore_2507_fix.wcp",
-        "date": "2026-08-17T14:21:05.905Z"
+        "date": "2026-08-17T15:20:08.186Z"
       },
       {
         "name": "2508.1",
         "version": "1",
         "url": "https://github.com/StevenMXZ/Winlator-Contents/raw/refs/heads/main/FEXCore/2508.1.wcp",
-        "date": "2026-08-17T14:21:05.905Z"
+        "date": "2026-08-17T15:20:08.186Z"
       },
       {
         "name": "2509.1",
         "version": "1",
         "url": "https://github.com/StevenMXZ/Winlator-Contents/raw/refs/heads/main/FEXCore/2509.1.wcp",
-        "date": "2026-08-17T14:21:05.905Z"
+        "date": "2026-08-17T15:20:08.186Z"
       },
       {
         "name": "2510.1",
         "version": "1",
         "url": "https://github.com/StevenMXZ/Winlator-Contents/raw/refs/heads/main/FEXCore/2510.1.wcp",
-        "date": "2026-08-17T14:21:05.905Z"
+        "date": "2026-08-17T15:20:08.186Z"
       },
       {
         "name": "2511",
         "version": "1",
         "url": "https://github.com/StevenMXZ/Winlator-Contents/raw/refs/heads/main/FEXCore/2511.wcp",
-        "date": "2026-08-17T14:21:05.905Z"
+        "date": "2026-08-17T15:20:08.186Z"
       },
       {
         "name": "2512",
         "version": "1",
         "url": "https://github.com/StevenMXZ/Winlator-Contents/raw/refs/heads/main/FEXCore/2512.wcp",
-        "date": "2026-08-17T14:21:05.905Z"
+        "date": "2026-08-17T15:20:08.186Z"
       },
       {
         "name": "2601",
         "version": "1",
         "url": "https://github.com/StevenMXZ/Winlator-Contents/raw/refs/heads/main/FEXCore/2601.wcp",
-        "date": "2026-08-17T14:21:05.905Z"
+        "date": "2026-08-17T15:20:08.186Z"
       },
       {
         "name": "2601-aabdded-nightly",
         "version": "1",
         "url": "https://github.com/StevenMXZ/Winlator-Contents/raw/refs/heads/main/FEXCore/FEXCore-2601-aabdded.wcp",
-        "date": "2026-08-17T14:21:05.905Z"
+        "date": "2026-08-17T15:20:08.186Z"
       },
       {
         "name": "2603",
         "version": "1",
         "url": "https://github.com/StevenMXZ/Winlator-Contents/raw/refs/heads/main/FEXCore/2603.wcp",
-        "date": "2026-08-17T14:21:05.905Z"
+        "date": "2026-08-17T15:20:08.186Z"
       },
       {
         "name": "2604",
         "version": "1",
         "url": "https://github.com/StevenMXZ/Winlator-Contents/raw/refs/heads/main/FEXCore/2604.wcp",
-        "date": "2026-08-17T14:21:05.905Z"
+        "date": "2026-08-17T15:20:08.186Z"
       },
       {
         "name": "2605",
         "version": "1",
         "url": "https://github.com/StevenMXZ/Winlator-Contents/raw/refs/heads/main/FEXCore/2605.wcp",
-        "date": "2026-08-17T14:21:05.905Z"
+        "date": "2026-08-17T15:20:08.186Z"
       },
       {
         "name": "2607",
         "version": "1",
         "url": "https://github.com/StevenMXZ/Winlator-Contents/raw/refs/heads/main/FEXCore/2607.wcp",
-        "date": "2026-08-17T14:21:05.905Z"
+        "date": "2026-08-17T15:20:08.186Z"
       },
       {
         "name": "2608",
         "version": "1",
         "url": "https://github.com/StevenMXZ/Winlator-Contents/raw/refs/heads/main/FEXCore/2608.wcp",
-        "date": "2026-08-17T14:21:05.905Z"
+        "date": "2026-08-17T15:20:08.186Z"
       }
     ],
     "VKD3D": [
@@ -2166,49 +1972,49 @@
         "name": "2.7-proton",
         "version": "1",
         "url": "https://github.com/StevenMXZ/Winlator-Contents/raw/refs/heads/main/VKD3D/vkd3d-proton-2.7.wcp",
-        "date": "2026-08-17T14:21:05.905Z"
+        "date": "2026-08-17T15:20:08.186Z"
       },
       {
         "name": "2.9-proton",
         "version": "1",
         "url": "https://github.com/StevenMXZ/Winlator-Contents/raw/refs/heads/main/VKD3D/vkd3d-proton-2.9.wcp",
-        "date": "2026-08-17T14:21:05.905Z"
+        "date": "2026-08-17T15:20:08.186Z"
       },
       {
         "name": "2.12-proton",
         "version": "1",
         "url": "https://github.com/StevenMXZ/Winlator-Contents/raw/refs/heads/main/VKD3D/vkd3d-proton-2.12.wcp",
-        "date": "2026-08-17T14:21:05.905Z"
+        "date": "2026-08-17T15:20:08.186Z"
       },
       {
         "name": "2.14.1-arm64ec",
         "version": "0",
         "url": "https://github.com/StevenMXZ/Winlator-Contents/raw/refs/heads/main/VKD3D/vkd3d-2.14.1-arm64ec.wcp",
-        "date": "2026-08-17T14:21:05.905Z"
+        "date": "2026-08-17T15:20:08.186Z"
       },
       {
         "name": "proton-3.0a.wcp",
         "version": "0",
         "url": "https://github.com/StevenMXZ/Winlator-Contents/raw/refs/heads/main/VKD3D/vkd3d-proton-3.0a.wcp",
-        "date": "2026-08-17T14:21:05.905Z"
+        "date": "2026-08-17T15:20:08.186Z"
       },
       {
         "name": "arm64ec-3.0a.wcp",
         "version": "0",
         "url": "https://github.com/StevenMXZ/Winlator-Contents/raw/refs/heads/main/VKD3D/vkd3d-arm64ec-3.0a.wcp",
-        "date": "2026-08-17T14:21:05.905Z"
+        "date": "2026-08-17T15:20:08.186Z"
       },
       {
         "name": "proton-3.0b-2763dd2",
         "version": "0",
         "url": "https://github.com/StevenMXZ/Winlator-Contents/raw/refs/heads/main/VKD3D/vkd3d-proton-3.0b-2763dd2.wcp",
-        "date": "2026-08-17T14:21:05.905Z"
+        "date": "2026-08-17T15:20:08.186Z"
       },
       {
         "name": "3.0.1-gamesir",
         "version": "0",
         "url": "https://github.com/StevenMXZ/Winlator-Contents/raw/refs/heads/main/VKD3D/vkd3d-3.0.1-Gamesir.wcp",
-        "date": "2026-08-17T14:21:05.905Z"
+        "date": "2026-08-17T15:20:08.186Z"
       }
     ]
   }

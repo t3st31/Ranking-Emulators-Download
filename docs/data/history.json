@@ -1,5 +1,5 @@
 {
-  "updatedAt": "2026-08-17T14:21:05.913Z",
+  "updatedAt": "2026-08-17T15:20:08.193Z",
   "entries": [
     {
       "date": "2026-08-10",
@@ -52,10 +52,10 @@
     },
     {
       "date": "2026-08-17",
-      "totalDownloads": 132315,
+      "totalDownloads": 181716,
       "totalProjects": 71,
-      "totalReleases": 34,
-      "totalAssets": 50
+      "totalReleases": 28,
+      "totalAssets": 37
     }
   ],
   "projectSnapshots": [
@@ -3026,16 +3026,28 @@
       "date": "2026-08-17",
       "projects": [
         {
-          "repo": "Stredohori/Winlator-CMOD",
-          "downloads": 131298,
-          "releases": 32,
-          "latestReleaseDate": "2026-02-02T12:47:23Z"
+          "repo": "oxters168/Pluvia",
+          "downloads": 98917,
+          "releases": 6,
+          "latestReleaseDate": "2025-03-02T00:58:48Z"
         },
         {
-          "repo": "edeegg/sharpemu-arm64",
-          "downloads": 1017,
-          "releases": 2,
-          "latestReleaseDate": "2026-08-05T07:38:15Z"
+          "repo": "StevenMXZ/Adrenotools-Drivers",
+          "downloads": 48097,
+          "releases": 5,
+          "latestReleaseDate": "2026-01-05T10:36:05Z"
+        },
+        {
+          "repo": "Honkonx/winlator-honkon",
+          "downloads": 29371,
+          "releases": 14,
+          "latestReleaseDate": "2025-10-19T16:44:57Z"
+        },
+        {
+          "repo": "WinlatorXR/WinlatorXR",
+          "downloads": 5331,
+          "releases": 3,
+          "latestReleaseDate": "2026-07-01T14:17:23Z"
         },
         {
           "repo": "Producdevity/gamehub-lite",
@@ -3081,12 +3093,6 @@
         },
         {
           "repo": "whitebelyash/AdrenoToolsDrivers",
-          "downloads": 0,
-          "releases": 0,
-          "latestReleaseDate": null
-        },
-        {
-          "repo": "StevenMXZ/Adrenotools-Drivers",
           "downloads": 0,
           "releases": 0,
           "latestReleaseDate": null
@@ -3200,12 +3206,6 @@
           "latestReleaseDate": null
         },
         {
-          "repo": "WinlatorXR/WinlatorXR",
-          "downloads": 0,
-          "releases": 0,
-          "latestReleaseDate": null
-        },
-        {
           "repo": "winlator/releases",
           "downloads": 0,
           "releases": 0,
@@ -3218,13 +3218,13 @@
           "latestReleaseDate": null
         },
         {
-          "repo": "Alexoqool/winlator-bionic-build",
+          "repo": "Stredohori/Winlator-CMOD",
           "downloads": 0,
           "releases": 0,
           "latestReleaseDate": null
         },
         {
-          "repo": "Honkonx/winlator-honkon",
+          "repo": "Alexoqool/winlator-bionic-build",
           "downloads": 0,
           "releases": 0,
           "latestReleaseDate": null
@@ -3309,12 +3309,6 @@
         },
         {
           "repo": "jaycore/mobox-patched",
-          "downloads": 0,
-          "releases": 0,
-          "latestReleaseDate": null
-        },
-        {
-          "repo": "oxters168/Pluvia",
           "downloads": 0,
           "releases": 0,
           "latestReleaseDate": null
@@ -3417,6 +3411,12 @@
         },
         {
           "repo": "Trixarian/NetherSX2-classic",
+          "downloads": 0,
+          "releases": 0,
+          "latestReleaseDate": null
+        },
+        {
+          "repo": "edeegg/sharpemu-arm64",
           "downloads": 0,
           "releases": 0,
           "latestReleaseDate": null
