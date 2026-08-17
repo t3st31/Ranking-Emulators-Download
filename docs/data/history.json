@@ -1,5 +1,5 @@
 {
-  "updatedAt": "2026-08-17T13:34:59.761Z",
+  "updatedAt": "2026-08-17T14:21:05.913Z",
   "entries": [
     {
       "date": "2026-08-10",
@@ -52,10 +52,10 @@
     },
     {
       "date": "2026-08-17",
-      "totalDownloads": 112245,
+      "totalDownloads": 132315,
       "totalProjects": 71,
-      "totalReleases": 3,
-      "totalAssets": 22
+      "totalReleases": 34,
+      "totalAssets": 50
     }
   ],
   "projectSnapshots": [
@@ -3026,10 +3026,16 @@
       "date": "2026-08-17",
       "projects": [
         {
-          "repo": "winlatorbrasil/gamehub-brasil",
-          "downloads": 112245,
-          "releases": 3,
-          "latestReleaseDate": "2026-08-10T03:32:02Z"
+          "repo": "Stredohori/Winlator-CMOD",
+          "downloads": 131298,
+          "releases": 32,
+          "latestReleaseDate": "2026-02-02T12:47:23Z"
+        },
+        {
+          "repo": "edeegg/sharpemu-arm64",
+          "downloads": 1017,
+          "releases": 2,
+          "latestReleaseDate": "2026-08-05T07:38:15Z"
         },
         {
           "repo": "Producdevity/gamehub-lite",
@@ -3039,6 +3045,12 @@
         },
         {
           "repo": "ItzDFPlayer/gamehub-lite",
+          "downloads": 0,
+          "releases": 0,
+          "latestReleaseDate": null
+        },
+        {
+          "repo": "winlatorbrasil/gamehub-brasil",
           "downloads": 0,
           "releases": 0,
           "latestReleaseDate": null
@@ -3201,12 +3213,6 @@
         },
         {
           "repo": "duckyduckG/winlator",
-          "downloads": 0,
-          "releases": 0,
-          "latestReleaseDate": null
-        },
-        {
-          "repo": "Stredohori/Winlator-CMOD",
           "downloads": 0,
           "releases": 0,
           "latestReleaseDate": null
@@ -3411,12 +3417,6 @@
         },
         {
           "repo": "Trixarian/NetherSX2-classic",
-          "downloads": 0,
-          "releases": 0,
-          "latestReleaseDate": null
-        },
-        {
-          "repo": "edeegg/sharpemu-arm64",
           "downloads": 0,
           "releases": 0,
           "latestReleaseDate": null

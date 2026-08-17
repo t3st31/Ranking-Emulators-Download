@@ -1,9 +1,9 @@
 {
-  "updatedAt": "2026-08-17T13:34:59.761Z",
+  "updatedAt": "2026-08-17T14:21:05.913Z",
   "totalProjects": 71,
-  "projectsWithReleases": 1,
-  "projectsWithoutReleases": 70,
-  "projectsWithDownloads": 1,
+  "projectsWithReleases": 2,
+  "projectsWithoutReleases": 69,
+  "projectsWithDownloads": 2,
   "failedRepos": [
     {
       "repo": "maxjivi05/GameNative-Performance",
@@ -35,277 +35,912 @@
     }
   ],
   "dataQuality": {
-    "totalDownloads": 112245,
-    "totalReleases": 3,
-    "totalAssets": 22
+    "totalDownloads": 132315,
+    "totalReleases": 34,
+    "totalAssets": 50
   },
   "results": [
     {
-      "name": "GameHub Brasil",
-      "repo": "winlatorbrasil/gamehub-brasil",
-      "category": "GameHub",
+      "name": "Winlator Bionic Stredohiri",
+      "repo": "Stredohori/Winlator-CMOD",
+      "category": "Winlator",
       "driverFamily": null,
-      "logo": "gamehub-brasil.png",
+      "logo": "winlator.png",
       "extensions": null,
       "sourceKind": "fork/comunidade",
       "channel": "stable/unknown",
-      "downloads": 112245,
+      "downloads": 131298,
       "releases": [
         {
-          "name": "GameHub_Brasil_V3",
-          "tag": "GameHub_Brasil_V3",
-          "date": "2026-08-10T03:32:02Z",
-          "downloads": 6819,
-          "body": "<p align=\"center\">\r\n  <img src=\"https://github.com/user-attachments/assets/607a4014-a7ab-4cb8-b088-ff294f0bf845\" alt=\"GameHub Brasil\" width=\"600\"/>\r\n</p>\r\n\r\n<p align=\"center\">\r\n  <a href=\"https://github.com/winlatorbrasil/gamehub-brasil/releases/tag/GameHub_Brasil_V3\">\r\n    <img\r\n      src=\"https://img.shields.io/github/downloads/winlatorbrasil/gamehub-brasil/GameHub_Brasil_V3/total?style=for-the-badge&logo=github&logoColor=fff&label=GAMEHUB%20BRASIL%20V3%20DOWNLOADS&color=0969da&cacheSeconds=300\"\r\n      alt=\"GameHub Brasil V3 Downloads\"\r\n    />\r\n  </a>\r\n</p>\r\n\r\n<br>\r\n\r\n<div align=\"center\">\r\n  <a href=\"https://www.buymeacoffee.com/furulipogames\">\r\n    <img\r\n      src=\"https://img.buymeacoffee.com/button-api/?text=Buy%20me%20a%20coffee&emoji=&slug=furulipogames&button_colour=FFDD00&font_colour=000000&font_family=Bree&outline_colour=000000&coffee_colour=ffffff\"\r\n      alt=\"Buy me a coffee\"\r\n    />\r\n  </a>\r\n</div>\r\n\r\n<br>\r\n\r\n---\r\n\r\n<a name=\"languages\"></a>\r\n\r\n<p align=\"center\">\r\n  <strong>🌐 Escolha seu idioma / Choose your language</strong>\r\n</p>\r\n\r\n<p align=\"center\">\r\n  <a href=\"#pt-br\"><strong>🇧🇷 Português (Brasil)</strong></a>\r\n  &nbsp;&nbsp;&nbsp; • &nbsp;&nbsp;&nbsp;\r\n  <a href=\"#english\"><strong>🇺🇸 English</strong></a>\r\n</p>\r\n\r\n---\r\n\r\n<p align=\"center\">\r\n  <a href=\"https://youtu.be/YCfwqG0b1A4\" target=\"_blank\">\r\n    <img\r\n      src=\"https://img.youtube.com/vi/YCfwqG0b1A4/maxresdefault.jpg\"\r\n      alt=\"GameHub Brasil V3 - Vídeo de Apresentação\"\r\n      width=\"700\"\r\n    />\r\n  </a>\r\n</p>\r\n\r\n<p align=\"center\">\r\n  <a href=\"https://youtu.be/YCfwqG0b1A4\" target=\"_blank\">\r\n    <img\r\n      src=\"https://img.shields.io/badge/▶%20ASSISTIR%20NO%20YOUTUBE-FF0000?style=for-the-badge&logo=youtube&logoColor=white\"\r\n      alt=\"Assistir no YouTube\"\r\n    />\r\n  </a>\r\n</p>\r\n\r\n<p align=\"center\">\r\n  <strong>🎬 Clique na imagem ou no botão acima para assistir ao vídeo de apresentação</strong>\r\n</p>\r\n\r\n---\r\n\r\n<br>\r\n\r\n<a name=\"pt-br\"></a>\r\n\r\n# 🇧🇷 Português (Brasil)\r\n\r\n## 🔥 GAMEHUB BRASIL V3\r\n\r\n*Senhores, é com imensa satisfação que anuncio o GameHub Brasil V3 para a comunidade! 💚💛*\r\n\r\n*Ele recebeu uma grande atualização interna, focada em estabilidade, desempenho, compatibilidade e correção de bugs. Baseado na versão do GameHub v6.0.9 do Bannerhub.*\r\n\r\n### 🎮 *AGRADECIMENTOS* 🤍\r\n\r\n*Grato a equipe do GameHub Brasil que me apoia constantemente, se dependesse de mim mesmo já teria parado com o projeto, minha equipe é demais!!! E grato a comunidade por confiar em meu trabalho com o emulador, espero que atenda a todos e que vocês se divirtam com o emulador, não garanto que haverá outra versão, mas quem sabe...*\r\n\r\n---\r\n\r\n### *EM CASOS DE ERROS*\r\n\r\nhttps://github.com/user-attachments/assets/6c6cd8cc-88df-435b-9ecf-20ecc30cae3d\r\n\r\nEM CASOS DE ERROS, FAÇAM O QUE O VÍDEO ACIMA FAZ E ME MANDEM ESSE ARQUIVO DO VÍDEO PARA AJUDAR A CORRIGIR.\r\n\r\nUTILIZEM O MT MANAGER, LINK ABAIXO:\r\n\r\nhttps://liteapks.com/mt-manager.html\r\n\r\n---\r\n\r\n### 🐛 *PRINCIPAIS CORREÇÕES E IMPLEMENTAÇÕES*\r\n\r\n*✅ ADB Integrado nativamente no emulador sem depender do app Shizuku para performance dos jogos e acesso a pasta data do celular*\r\n\r\n*✅ Limpeza da RAM automática a cada 10 segundos*\r\n\r\n*✅ Aceloryx implementado para otimizar os jogos e obter mais performance*\r\n\r\n*✅ Assistente IA Hermes integrado para auxiliar nas configurações dos jogos*\r\n\r\n*✅ Novas funcionalidades no GHB TOOLS*\r\n\r\n*✅ Correção no HUD de temperatura e implementado novos medidores de temperatura*\r\n\r\n*✅ Barra de pesquisa na lista de drivers para facilitar a busca por drivers*\r\n\r\n*✅ AdrenoHub e Contents Hub para importação de drivers externos*\r\n\r\n*✅ File Manager adicionado no emulador permitindo executar jogos `.exe` diretamente*\r\n\r\n*✅ Reconhecimento de armazenamento externo (SD, PENDRIVE, SSD, HD e etc)*\r\n\r\n*✅ Implementado configurações para o Mali no menu GHB TOOLS*\r\n\r\n*✅ Implementação do BCn*\r\n\r\n*✅ Funcionalidades do Bannerhub mantidas no GHB TOOLS*\r\n\r\n---\r\n\r\n### ⚡ *OTIMIZAÇÕES DE PERFORMANCE*\r\n\r\n*Foram aplicados ajustes avançados no Box64, Wine, DXVK, VKD3D, Mesa e cache de shaders:*\r\n\r\n*• Modo ADB nativo integrado para ganho de performance e estabilidade*\r\n\r\n*• BIGBLOCK 3 e MULTIBLOCK ativados*\r\n\r\n*• WINEFSYNC habilitado*\r\n\r\n*• Menor latência de entrada*\r\n\r\n*• Compilação DXVK em múltiplos núcleos*\r\n\r\n*• AMD FSR para tela cheia*\r\n\r\n*• V-Sync desativado por padrão*\r\n\r\n*• Cache persistente de shaders*\r\n\r\n*• Present Mode em Mailbox*\r\n\r\n*• Menos verificações e logs desnecessários*\r\n\r\n*• Configurações específicas para maior compatibilidade com Mali*\r\n\r\n---\r\n\r\n### 🌡️ *NOVO HUD DE PERFORMANCE*\r\n\r\n*Agora pode exibir:*\r\n\r\n*🌡️ Temperatura da GPU*\r\n\r\n*🌡️ Temperatura da CPU*\r\n\r\n*🔋 Temperatura da bateria*\r\n\r\n*🌡️ Temperatura da RAM*\r\n\r\n*⚡ Frequência da CPU*\r\n\r\n---\r\n\r\n### 🗂️ *SUPORTE A MALI WRAPPER*\r\n\r\n*O GameHub Brasil V3 agora reconhece pacotes `.tzst` com Wrapper, Mali ou Panfrost.*\r\n\r\n*✅ Baixe os drivers wrappers diretamente do AdrenoHub na lista*\r\n\r\n*✅ Preserva múltiplas bibliotecas `.so`*\r\n\r\n*✅ Detecta `libvulkan_wrapper.so`*\r\n\r\n*✅ Ativa automaticamente o modo compatível*\r\n\r\n*✅ Aplica variáveis específicas para GPUs Mali*\r\n\r\n*✅ Evita configurações incompatíveis com Turnip*\r\n\r\n---\r\n\r\n### 🤖 *SISTEMA HERMES - BETA*\r\n\r\n***• PODEM OCORRER ALGUNS ERROS ⚠️***\r\n\r\n*• Você escolhe se ele implementa a configuração automaticamente ou você implementa*\r\n\r\n*• Conversar com o Hermes*\r\n\r\n*• Detecção automática do dispositivo para facilitar a configuração do jogo corretamente*\r\n\r\n---\r\n\r\n### 📱 *GHB TOOLS*\r\n\r\n*• Assintente Hermes > Conversar com a IA e configuração de jogos*\r\n\r\n*• File Manager + ADB > Navegue pelas pastas do disposivo e containers e pasta data livremente*\r\n\r\n*• AdrenoHub > Instalação de drivers externos*\r\n\r\n*• Contents Hub > Instalação de Drivers externos*\r\n\r\n*• Mali > Configuração para GPUs Mali*\r\n\r\n*• Aceloryx Otimizar Jogos > Otimizar o jogo para obter mais performance*\r\n\r\n*• Aceloryx Performance > Desbloquear mais desempenho do dispositivo via ADB*\r\n\r\n---\r\n\r\n### 📈 *GANHOS ESTIMADOS E DICAS*\r\n\r\n*✅ Até **20% a 35% mais FPS** com o ADB, dependendo do aparelho e do jogo*\r\n\r\n*✅ Busca totalmente funcional*\r\n\r\n*✅ Monitoramento da temperatura da GPU, BATERIA e RAM*\r\n\r\n*✅ Melhor suporte para aparelhos com GPU Mali*\r\n\r\n*✅ Adicione os arquivos do jogo no Disco C: do container para obter mais desempenho no jogo*\r\n\r\n*✅ Para realizar a conexão via ADB habilite a permissão de notificação para que você possa adicionar o código corretamente na aba de notificação do celular*\r\n\r\n---\r\n\r\n### ⚠️ *ERROS CONHECIDOS - LEIA ATENTAMENTE* ⚠️\r\n\r\n*• Em casos de erros em jogos da Steam, faça o login novamente na sua conta para voltar ao normal*\r\n\r\n*• Assistente Hermes pode errar ao tentar aplicar as configurações automaticamente, mas você já tem a configuração que ele deu e você mesmo pode aplicar manualmente, não seja preguiçoso*\r\n\r\n*• Para que os atalhos dos jogos importados do File Manager apareçam na Biblioteca, reinicie o app ou force a parada dele se ainda não aparecer o atalho do jogo*\r\n\r\n*• O Armazenamento externo pode não reconhecer de primeira, saia do app e tente novamente para reconhecer*\r\n\r\n<br>\r\n\r\n<p align=\"center\">\r\n  <a href=\"#languages\"><strong>⬆️ Voltar para seleção de idioma / Back to language selection</strong></a>\r\n</p>\r\n\r\n<br>\r\n\r\n---\r\n\r\n---\r\n\r\n<br>\r\n\r\n<a name=\"english\"></a>\r\n\r\n# 🇺🇸 English\r\n\r\n## 🔥 GAMEHUB BRASIL V3\r\n\r\n*It is with great pleasure that I announce GameHub Brasil V3 to the community! 💚💛*\r\n\r\n*This version has received a major internal update focused on stability, performance, compatibility, and bug fixes. It is based on Bannerhub's GameHub v6.0.9.*\r\n\r\n### 🎮 *ACKNOWLEDGEMENTS* 🤍\r\n\r\n*I am grateful to the GameHub Brasil team, who constantly support me. If it were up to me alone, I probably would have stopped working on the project already — my team is amazing!!! I am also grateful to the community for trusting my work on the emulator. I hope it meets everyone's expectations and that you all have fun with it. I can't guarantee there will be another version, but who knows...*\r\n\r\n---\r\n\r\n### *IN CASE THERE ARE ANY ERRORS*\r\n\r\nhttps://github.com/user-attachments/assets/d653c1de-4ad4-49e5-a77c-f3bc0f317531\r\n\r\nIn case of errors, do what the video above shows and send me that video file so I can help correct them.\r\n\r\nUse MT Manager, link below:\r\n\r\nhttps://liteapks.com/mt-manager.html\r\n\r\n---\r\n\r\n### 🐛 *MAIN FIXES AND IMPLEMENTATIONS*\r\n\r\n*✅ ADB natively integrated into the emulator, removing the dependency on the Shizuku app for game performance features and access to the device's data folder*\r\n\r\n*✅ Automatic RAM cleanup every 10 seconds*\r\n\r\n*✅ Aceloryx implemented to optimize games and improve performance*\r\n\r\n*✅ Hermes AI Assistant integrated to help configure games*\r\n\r\n*✅ New features added to GHB TOOLS*\r\n\r\n*✅ Temperature HUD fixes and new temperature monitoring options implemented*\r\n\r\n*✅ Search bar added to the driver list to make finding drivers easier*\r\n\r\n*✅ AdrenoHub and Contents Hub support for importing external drivers*\r\n\r\n*✅ File Manager added to the emulator, allowing `.exe` games to be launched directly*\r\n\r\n*✅ External storage recognition (SD, USB drive, SSD, HD, etc.)*\r\n\r\n*✅ Mali configuration options implemented in the GHB TOOLS menu*\r\n\r\n*✅ BCn implementation*\r\n\r\n*✅ Bannerhub features preserved in GHB TOOLS*\r\n\r\n---\r\n\r\n### ⚡ *PERFORMANCE OPTIMIZATIONS*\r\n\r\n*Advanced tweaks have been applied to Box64, Wine, DXVK, VKD3D, Mesa, and shader caching:*\r\n\r\n*• Native ADB mode integrated for improved performance and stability*\r\n\r\n*• BIGBLOCK 3 and MULTIBLOCK enabled*\r\n\r\n*• WINEFSYNC enabled*\r\n\r\n*• Reduced input latency*\r\n\r\n*• Multi-core DXVK compilation*\r\n\r\n*• AMD FSR for fullscreen mode*\r\n\r\n*• V-Sync disabled by default*\r\n\r\n*• Persistent shader cache*\r\n\r\n*• Mailbox Present Mode*\r\n\r\n*• Reduced unnecessary checks and logging*\r\n\r\n*• Specific configurations for improved Mali compatibility*\r\n\r\n---\r\n\r\n### 🌡️ *NEW PERFORMANCE HUD*\r\n\r\n*The HUD can now display:*\r\n\r\n*🌡️ GPU Temperature*\r\n\r\n*🌡️ CPU Temperature*\r\n\r\n*🔋 Battery Temperature*\r\n\r\n*🌡️ RAM Temperature*\r\n\r\n*⚡ CPU Frequency*\r\n\r\n---\r\n\r\n### 🗂️ *MALI WRAPPER SUPPORT*\r\n\r\n*GameHub Brasil V3 can now recognize `.tzst` packages containing Wrapper, Mali, or Panfrost drivers.*\r\n\r\n*✅ Download Wrapper drivers directly from the AdrenoHub list*\r\n\r\n*✅ Preserves multiple `.so` libraries*\r\n\r\n*✅ Detects `libvulkan_wrapper.so`*\r\n\r\n*✅ Automatically enables the compatible mode*\r\n\r\n*✅ Applies specific environment variables for Mali GPUs*\r\n\r\n*✅ Prevents incompatible Turnip configurations from being applied*\r\n\r\n---\r\n\r\n### 🤖 *HERMES SYSTEM - BETA*\r\n\r\n***• SOME ERRORS MAY OCCUR ⚠️***\r\n\r\n*• You can choose whether Hermes automatically applies the configuration or whether you apply it manually*\r\n\r\n*• Chat with Hermes*\r\n\r\n*• Automatic device detection to help correctly configure each game*\r\n\r\n---\r\n\r\n### 📱 *GHB TOOLS*\r\n\r\n*• Hermes Assistant > Chat with the AI and configure games*\r\n\r\n*• File Manager + ADB > Browse device folders, containers, and the data folder freely*\r\n\r\n*• AdrenoHub > Install external drivers*\r\n\r\n*• Contents Hub > Install external drivers*\r\n\r\n*• Mali > Configuration options for Mali GPUs*\r\n\r\n*• Aceloryx Game Optimizer > Optimize games for improved performance*\r\n\r\n*• Aceloryx Performance > Unlock additional device performance through ADB*\r\n\r\n---\r\n\r\n### 📈 *ESTIMATED GAINS AND TIPS*\r\n\r\n*✅ Up to **20% to 35% more FPS** with ADB, depending on the device and game*\r\n\r\n*✅ Fully functional search*\r\n\r\n*✅ GPU, BATTERY, and RAM temperature monitoring*\r\n\r\n*✅ Improved support for devices with Mali GPUs*\r\n\r\n*✅ Add game files to the container's C: Drive for better in-game performance*\r\n\r\n*✅ To establish the ADB connection, enable notification permission so you can enter the pairing code correctly through your phone's notification panel*\r\n\r\n---\r\n\r\n### ⚠️ *KNOWN ISSUES - PLEASE READ CAREFULLY* ⚠️\r\n\r\n*• If you experience issues with Steam games, log in to your Steam account again to restore normal operation*\r\n\r\n*• The Hermes Assistant may occasionally make mistakes when automatically applying configurations. However, you will already have the recommended configuration and can apply it manually yourself — don't be lazy*\r\n\r\n*• For shortcuts of games imported through the File Manager to appear in the Library, restart the app or force stop it if the game shortcut still does not appear*\r\n\r\n*• External storage may not recognize it on the first try, exit the app and try again for it to recognize it*\r\n\r\n<br>\r\n\r\n<p align=\"center\">\r\n  <a href=\"#languages\"><strong>⬆️ Back to language selection / Voltar para seleção de idioma</strong></a>\r\n</p>\r\n\r\n<br>\r\n\r\n---\r\n<img width=\"1055\" height=\"1491\" alt=\"image\" src=\"https://github.com/user-attachments/assets/cc80cbc0-6a95-4734-8194-bb819e43c1e2\" />\r\n---\r\n\r\n<div align=\"center\">\r\n\r\n### 💚💛 GAMEHUB BRASIL V3\r\n\r\n**PC Gaming on Android**\r\n\r\n</div>\r\n",
+          "name": "CMOD_Benchmark",
+          "tag": "e120cf1",
+          "date": "2026-02-02T12:47:23Z",
+          "downloads": 25411,
+          "body": "Latest changes from the developer.\r\nFixed graphical response of pressing the button by coffincolors.\r\nThe controller will _not_ work with this version.\r\nSet box64-0.4.1-fix, wowbox64-0.4.1-fix, fexcore-2601 and turnip-26.0.0 by StevenMXZ as default.\r\nAdvanced box64 profile settings.\r\nUse apk's at your own risk.\r\n\r\n_Assets:_\r\n\r\n- **CMOD_Genshin:**\r\n Can activate hidden features like frame interpolation on Realme devices.\r\n- **CMOD_AnTuTu:**\r\n Can maximize clocks of all single cores of the CPU part on certain devices.\r\n- **CMOD_3DMark:**\r\n Can maximize GPU utilization on certain devices. (needs further testing).\r\n",
+          "prerelease": true,
+          "assets": [
+            {
+              "name": "CMOD_3DMark.apk",
+              "size": 526043927,
+              "downloads": 9091,
+              "url": "https://github.com/Stredohori/Winlator-CMOD/releases/download/e120cf1/CMOD_3DMark.apk",
+              "digest": "sha256:4849351c8c438edb1be6929ac5ab834ac1669baa4252a06ec6dc8d6bb96a353c",
+              "contentType": "application/vnd.android.package-archive",
+              "createdAt": "2026-02-15T21:23:45Z",
+              "updatedAt": "2026-02-15T21:24:06Z"
+            },
+            {
+              "name": "CMOD_AnTuTu.apk",
+              "size": 526043971,
+              "downloads": 12039,
+              "url": "https://github.com/Stredohori/Winlator-CMOD/releases/download/e120cf1/CMOD_AnTuTu.apk",
+              "digest": "sha256:2cef5fbc6a308d8659dfd53845722e405470631933a86836ce0462aef82b07bb",
+              "contentType": "application/vnd.android.package-archive",
+              "createdAt": "2026-02-15T21:24:11Z",
+              "updatedAt": "2026-02-15T21:24:34Z"
+            },
+            {
+              "name": "CMOD_Genshin.apk",
+              "size": 526043955,
+              "downloads": 4281,
+              "url": "https://github.com/Stredohori/Winlator-CMOD/releases/download/e120cf1/CMOD_Genshin.apk",
+              "digest": "sha256:49ce27ae2d9e7945d3b802982ff531b35176f8b009a7c60d60fa13f9e71c279e",
+              "contentType": "application/vnd.android.package-archive",
+              "createdAt": "2026-02-02T12:46:37Z",
+              "updatedAt": "2026-02-02T12:47:05Z"
+            }
+          ],
+          "htmlUrl": "https://github.com/Stredohori/Winlator-CMOD/releases/tag/e120cf1"
+        },
+        {
+          "name": "Winlator-CMOD -(git-e994f7a)",
+          "tag": "e994f7a",
+          "date": "2026-01-17T20:36:50Z",
+          "downloads": 71912,
+          "body": "This update brings support for BCn texture decompression using compute shader for Mali users.\r\nFor some Adreno users it may not work, so use the  **app-debug-adreno-fix.apk** instead.",
           "prerelease": false,
           "assets": [
             {
-              "name": "GameHub-Brasil-V3-alt-AnTuTu.apk",
-              "size": 79369854,
-              "downloads": 2148,
-              "url": "https://github.com/winlatorbrasil/gamehub-brasil/releases/download/GameHub_Brasil_V3/GameHub-Brasil-V3-alt-AnTuTu.apk",
-              "digest": "sha256:eb3f5e4187a2ed71ff23e8ce13dc7011fb694b59f98c5896492e1a7774e8af8f",
+              "name": "app-debug-adreno-fix.apk",
+              "size": 525130447,
+              "downloads": 40447,
+              "url": "https://github.com/Stredohori/Winlator-CMOD/releases/download/e994f7a/app-debug-adreno-fix.apk",
+              "digest": "sha256:9a173a66ee3a75450d74c6636aa5eb4c2d644d6e88388f2c41275a278d431958",
               "contentType": "application/vnd.android.package-archive",
-              "createdAt": "2026-08-10T03:23:55Z",
-              "updatedAt": "2026-08-10T03:24:13Z"
+              "createdAt": "2026-01-18T00:07:27Z",
+              "updatedAt": "2026-01-18T00:07:53Z"
             },
             {
-              "name": "GameHub-Brasil-V3-alt-Ludashi.apk",
-              "size": 74604594,
-              "downloads": 1162,
-              "url": "https://github.com/winlatorbrasil/gamehub-brasil/releases/download/GameHub_Brasil_V3/GameHub-Brasil-V3-alt-Ludashi.apk",
-              "digest": "sha256:4521574080cf959dc838cba59d37501d36eb30729f6b1ed942f770627d48f365",
+              "name": "app-debug.apk",
+              "size": 523744528,
+              "downloads": 31465,
+              "url": "https://github.com/Stredohori/Winlator-CMOD/releases/download/e994f7a/app-debug.apk",
+              "digest": "sha256:a3842d5c801bc4d202bc2659162c372bb625127154f6f7b156f7f33ad2d4958b",
               "contentType": "application/vnd.android.package-archive",
-              "createdAt": "2026-08-10T03:24:13Z",
-              "updatedAt": "2026-08-10T03:24:28Z"
+              "createdAt": "2026-01-17T20:36:38Z",
+              "updatedAt": "2026-01-17T20:36:49Z"
+            }
+          ],
+          "htmlUrl": "https://github.com/Stredohori/Winlator-CMOD/releases/tag/e994f7a"
+        },
+        {
+          "name": "Winlator-CMOD -(git-f6ffd7f)",
+          "tag": "f6ffd7f",
+          "date": "2026-01-09T21:41:31Z",
+          "downloads": 7094,
+          "body": "",
+          "prerelease": false,
+          "assets": [
+            {
+              "name": "app-debug.apk",
+              "size": 523630092,
+              "downloads": 7094,
+              "url": "https://github.com/Stredohori/Winlator-CMOD/releases/download/f6ffd7f/app-debug.apk",
+              "digest": "sha256:8105798572264d76f9828e61dd15c3ea788c5708e5295d218a8a1eeee2cc8793",
+              "contentType": "application/vnd.android.package-archive",
+              "createdAt": "2026-01-09T21:41:12Z",
+              "updatedAt": "2026-01-09T21:41:31Z"
+            }
+          ],
+          "htmlUrl": "https://github.com/Stredohori/Winlator-CMOD/releases/tag/f6ffd7f"
+        },
+        {
+          "name": "Winlator-CMOD -(git-ca5324a)",
+          "tag": "ca5324a",
+          "date": "2025-12-28T22:37:46Z",
+          "downloads": 4421,
+          "body": "",
+          "prerelease": false,
+          "assets": [
+            {
+              "name": "app-debug.apk",
+              "size": 527364604,
+              "downloads": 4421,
+              "url": "https://github.com/Stredohori/Winlator-CMOD/releases/download/ca5324a/app-debug.apk",
+              "digest": "sha256:13e38a28694b052b7e5c8463f376073429b332a6f9870f9bddb7964ad52005ad",
+              "contentType": "application/vnd.android.package-archive",
+              "createdAt": "2025-12-28T22:37:31Z",
+              "updatedAt": "2025-12-28T22:37:45Z"
+            }
+          ],
+          "htmlUrl": "https://github.com/Stredohori/Winlator-CMOD/releases/tag/ca5324a"
+        },
+        {
+          "name": "Winlator-CMOD -(git-19243b1)",
+          "tag": "19243b1",
+          "date": "2025-12-23T17:27:47Z",
+          "downloads": 1630,
+          "body": "Changes since last update:\r\n\r\n- [arrays: add a few more entries to device memory array](https://github.com/Stredohori/Winlator-CMOD/commit/20c20bf2ab9da97b123c1784c6dd888682fe6e49)\r\n- [assets: update wrapper](https://github.com/Stredohori/Winlator-CMOD/commit/32d56cdbdaf7997c0c8cf4cd1d6af47827d98bca)",
+          "prerelease": false,
+          "assets": [
+            {
+              "name": "app-debug.apk",
+              "size": 527364336,
+              "downloads": 1630,
+              "url": "https://github.com/Stredohori/Winlator-CMOD/releases/download/19243b1/app-debug.apk",
+              "digest": "sha256:eecbfd75fac37c57b2835bffb5d5b1a67cb5d43343f881faaca0eb25c98d9e91",
+              "contentType": "application/vnd.android.package-archive",
+              "createdAt": "2025-12-23T17:27:34Z",
+              "updatedAt": "2025-12-23T17:27:46Z"
+            }
+          ],
+          "htmlUrl": "https://github.com/Stredohori/Winlator-CMOD/releases/tag/19243b1"
+        },
+        {
+          "name": "Winlator-CMOD -(git-5ae2a0c)",
+          "tag": "5ae2a0c",
+          "date": "2025-12-21T16:47:15Z",
+          "downloads": 820,
+          "body": "",
+          "prerelease": false,
+          "assets": [
+            {
+              "name": "app-debug.apk",
+              "size": 523624980,
+              "downloads": 820,
+              "url": "https://github.com/Stredohori/Winlator-CMOD/releases/download/5ae2a0c/app-debug.apk",
+              "digest": "sha256:77db443615458c67cb9c1a0ce0982c0b4a008b25b8d1621c17b79169510e06ca",
+              "contentType": "application/vnd.android.package-archive",
+              "createdAt": "2025-12-21T16:46:59Z",
+              "updatedAt": "2025-12-21T16:47:14Z"
+            }
+          ],
+          "htmlUrl": "https://github.com/Stredohori/Winlator-CMOD/releases/tag/5ae2a0c"
+        },
+        {
+          "name": "Winlator-CMOD -(git-1327378)",
+          "tag": "1327378",
+          "date": "2025-11-24T21:34:59Z",
+          "downloads": 2748,
+          "body": "",
+          "prerelease": false,
+          "assets": [
+            {
+              "name": "app-debug.apk",
+              "size": 523624324,
+              "downloads": 2748,
+              "url": "https://github.com/Stredohori/Winlator-CMOD/releases/download/1327378/app-debug.apk",
+              "digest": "sha256:d73ef16b0da2bfc3e4b8000ed0c5f939b8c8a902ecc95a5d98454e6cc9d057c8",
+              "contentType": "application/vnd.android.package-archive",
+              "createdAt": "2025-11-24T21:34:59Z",
+              "updatedAt": "2025-11-24T21:35:15Z"
+            }
+          ],
+          "htmlUrl": "https://github.com/Stredohori/Winlator-CMOD/releases/tag/1327378"
+        },
+        {
+          "name": "Winlator GlibC - OLD!",
+          "tag": "9c3f213",
+          "date": "2025-11-26T20:22:47Z",
+          "downloads": 894,
+          "body": "_src is recompiled with assets and custom mods.",
+          "prerelease": false,
+          "assets": [
+            {
+              "name": "app-debug.apk",
+              "size": 361472445,
+              "downloads": 550,
+              "url": "https://github.com/Stredohori/Winlator-CMOD/releases/download/9c3f213/app-debug.apk",
+              "digest": "sha256:7392bdcdcd3e501e767b003aeef3fe8aa6fda36bd5b70d442c49da88ad9b79e7",
+              "contentType": "application/vnd.android.package-archive",
+              "createdAt": "2025-11-26T20:22:48Z",
+              "updatedAt": "2025-11-26T20:23:04Z"
             },
             {
-              "name": "GameHub-Brasil-V3-AnTuTu.apk",
-              "size": 79369854,
-              "downloads": 575,
-              "url": "https://github.com/winlatorbrasil/gamehub-brasil/releases/download/GameHub_Brasil_V3/GameHub-Brasil-V3-AnTuTu.apk",
-              "digest": "sha256:6bd2483dcf23b2a4bf3d5f74216396f6c6511565749871476f7fcfa1347460e2",
+              "name": "app-debug_src.apk",
+              "size": 700602686,
+              "downloads": 344,
+              "url": "https://github.com/Stredohori/Winlator-CMOD/releases/download/9c3f213/app-debug_src.apk",
+              "digest": "sha256:89a1475beb8ab14b2df6ee0fe7ada2981f7ad78fa8c612aaee39fefb510adaf5",
               "contentType": "application/vnd.android.package-archive",
-              "createdAt": "2026-08-10T03:24:28Z",
-              "updatedAt": "2026-08-10T03:24:45Z"
+              "createdAt": "2025-11-26T22:08:11Z",
+              "updatedAt": "2025-11-26T22:08:45Z"
+            }
+          ],
+          "htmlUrl": "https://github.com/Stredohori/Winlator-CMOD/releases/tag/9c3f213"
+        },
+        {
+          "name": "Winlator-CMOD -(git-92b2fb7)",
+          "tag": "92b2fb7",
+          "date": "2025-11-19T23:42:01Z",
+          "downloads": 998,
+          "body": "",
+          "prerelease": false,
+          "assets": [
+            {
+              "name": "app-debug.apk",
+              "size": 523624304,
+              "downloads": 998,
+              "url": "https://github.com/Stredohori/Winlator-CMOD/releases/download/92b2fb7/app-debug.apk",
+              "digest": "sha256:cf4dd1bb609dc614d4b1b1a9100acb1f1d3a771e456c79f13991040907b2ba1b",
+              "contentType": "application/vnd.android.package-archive",
+              "createdAt": "2025-11-19T23:42:01Z",
+              "updatedAt": "2025-11-19T23:42:16Z"
+            }
+          ],
+          "htmlUrl": "https://github.com/Stredohori/Winlator-CMOD/releases/tag/92b2fb7"
+        },
+        {
+          "name": "Winlator-CMOD -(git-eb66619)",
+          "tag": "eb66619",
+          "date": "2025-11-17T22:30:18Z",
+          "downloads": 425,
+          "body": "",
+          "prerelease": false,
+          "assets": [
+            {
+              "name": "app-debug.apk",
+              "size": 523622836,
+              "downloads": 425,
+              "url": "https://github.com/Stredohori/Winlator-CMOD/releases/download/eb66619/app-debug.apk",
+              "digest": "sha256:678f52f7f964f235f6e8b56e5f5642b3557314260e11ea8b3547fc8874ea5906",
+              "contentType": "application/vnd.android.package-archive",
+              "createdAt": "2025-11-17T22:30:18Z",
+              "updatedAt": "2025-11-17T22:30:32Z"
+            }
+          ],
+          "htmlUrl": "https://github.com/Stredohori/Winlator-CMOD/releases/tag/eb66619"
+        },
+        {
+          "name": "Winlator-CMOD -(bionic11)",
+          "tag": "3f84168",
+          "date": "2025-11-16T15:55:26Z",
+          "downloads": 1104,
+          "body": "**_Updated 16. Nowember 2025_** \r\n\r\nThis is the **latest** and **greatest** update containing all the latest changes from the developer including a fixed wrapper for Turnip and BCn texture decompression support for Mali GPUs.\r\n_app-debug-smsung.apk_ for those using Gaming Hub. ❤️",
+          "prerelease": true,
+          "assets": [
+            {
+              "name": "app-debug-smsung.apk",
+              "size": 522377966,
+              "downloads": 512,
+              "url": "https://github.com/Stredohori/Winlator-CMOD/releases/download/3f84168/app-debug-smsung.apk",
+              "digest": "sha256:ceb2ed4925a16feb5bc257f1fee0203f389dc05f6b07ea340e066185a8c44593",
+              "contentType": "application/vnd.android.package-archive",
+              "createdAt": "2025-11-16T17:08:40Z",
+              "updatedAt": "2025-11-16T17:09:08Z"
             },
             {
-              "name": "GameHub-Brasil-V3-Balanced-Naraka.apk",
-              "size": 79369854,
-              "downloads": 227,
-              "url": "https://github.com/winlatorbrasil/gamehub-brasil/releases/download/GameHub_Brasil_V3/GameHub-Brasil-V3-Balanced-Naraka.apk",
-              "digest": "sha256:893fd9f3dcfa84641f21a1f32a56d63bf5cfc4efdd21454fd2350694cdb55fc9",
+              "name": "app-debug.apk",
+              "size": 523622612,
+              "downloads": 592,
+              "url": "https://github.com/Stredohori/Winlator-CMOD/releases/download/3f84168/app-debug.apk",
+              "digest": "sha256:a135e656b45c9e5b8118889e0a5ead422f0cbee3cb24450ff804c3885f3dc53a",
               "contentType": "application/vnd.android.package-archive",
-              "createdAt": "2026-08-10T03:24:45Z",
-              "updatedAt": "2026-08-10T03:25:01Z"
+              "createdAt": "2025-11-16T15:55:27Z",
+              "updatedAt": "2025-11-16T15:55:44Z"
+            }
+          ],
+          "htmlUrl": "https://github.com/Stredohori/Winlator-CMOD/releases/tag/3f84168"
+        },
+        {
+          "name": "Winlator-CMOD -(git-6dcf4ea)",
+          "tag": "6dcf4ea",
+          "date": "2025-11-15T16:54:08Z",
+          "downloads": 126,
+          "body": "All latest changes from the developer included , wrapper is working again.",
+          "prerelease": false,
+          "assets": [
+            {
+              "name": "app-debug.apk",
+              "size": 523623920,
+              "downloads": 126,
+              "url": "https://github.com/Stredohori/Winlator-CMOD/releases/download/6dcf4ea/app-debug.apk",
+              "digest": "sha256:c78062650cbd26bffaf03aa2377280550676ae765a199d2fe0885090ace4c264",
+              "contentType": "application/vnd.android.package-archive",
+              "createdAt": "2025-11-15T16:54:08Z",
+              "updatedAt": "2025-11-15T16:54:20Z"
+            }
+          ],
+          "htmlUrl": "https://github.com/Stredohori/Winlator-CMOD/releases/tag/6dcf4ea"
+        },
+        {
+          "name": "Winlator-CMOD -(git-b3bd5e5)",
+          "tag": "b3bd5e5",
+          "date": "2025-11-13T18:25:36Z",
+          "downloads": 151,
+          "body": "",
+          "prerelease": false,
+          "assets": [
+            {
+              "name": "app-debug.apk",
+              "size": 523622520,
+              "downloads": 151,
+              "url": "https://github.com/Stredohori/Winlator-CMOD/releases/download/b3bd5e5/app-debug.apk",
+              "digest": "sha256:ce2faadea0d09b8e6519f795a1967e44193cab2cdc7bdb7a671cb396d32928bd",
+              "contentType": "application/vnd.android.package-archive",
+              "createdAt": "2025-11-13T18:25:36Z",
+              "updatedAt": "2025-11-13T18:25:52Z"
+            }
+          ],
+          "htmlUrl": "https://github.com/Stredohori/Winlator-CMOD/releases/tag/b3bd5e5"
+        },
+        {
+          "name": "Winlator-CMOD -(git-642487e)",
+          "tag": "642487e",
+          "date": "2025-11-12T13:19:18Z",
+          "downloads": 103,
+          "body": "",
+          "prerelease": false,
+          "assets": [
+            {
+              "name": "app-debug.apk",
+              "size": 523510684,
+              "downloads": 103,
+              "url": "https://github.com/Stredohori/Winlator-CMOD/releases/download/642487e/app-debug.apk",
+              "digest": "sha256:7dc35924e16839de9324b74452cdfd609154a315c15189c59c50c4f6f14975ea",
+              "contentType": "application/vnd.android.package-archive",
+              "createdAt": "2025-11-12T13:19:18Z",
+              "updatedAt": "2025-11-12T13:19:38Z"
+            }
+          ],
+          "htmlUrl": "https://github.com/Stredohori/Winlator-CMOD/releases/tag/642487e"
+        },
+        {
+          "name": "Winlator-CMOD -(git-e8aeaa3)",
+          "tag": "e8aeaa3",
+          "date": "2025-11-08T20:57:06Z",
+          "downloads": 272,
+          "body": "",
+          "prerelease": false,
+          "assets": [
+            {
+              "name": "app-debug.apk",
+              "size": 523695068,
+              "downloads": 272,
+              "url": "https://github.com/Stredohori/Winlator-CMOD/releases/download/e8aeaa3/app-debug.apk",
+              "digest": "sha256:332b9b77cc3ba851cfa5b33d4003971f3e68d5559c30ef4d16c1e50c3e2bfe87",
+              "contentType": "application/vnd.android.package-archive",
+              "createdAt": "2025-11-08T20:57:06Z",
+              "updatedAt": "2025-11-08T20:57:18Z"
+            }
+          ],
+          "htmlUrl": "https://github.com/Stredohori/Winlator-CMOD/releases/tag/e8aeaa3"
+        },
+        {
+          "name": "Winlator-CMOD (bionic10)",
+          "tag": "cf54784",
+          "date": "2025-10-25T11:03:53Z",
+          "downloads": 1116,
+          "body": "**Updated 2. nowember. 2025**\r\n\r\n- [ ] Use at own risk! \r\n- [ ] _app-debug-smsung.apk_ adds itself to Gaming Hub, allows showing perf. metrics.\r\n\r\n_Added:_\r\n- Many environment variables for box64 settings\r\n- Scale & opacity to DXVK HUD\r\n\r\n_Updated:_\r\n- Returned latest known working wrapper (don't know if the new functions like blitting work with it).",
+          "prerelease": false,
+          "assets": [
+            {
+              "name": "app-debug-smsung.apk",
+              "size": 524302482,
+              "downloads": 276,
+              "url": "https://github.com/Stredohori/Winlator-CMOD/releases/download/cf54784/app-debug-smsung.apk",
+              "digest": "sha256:8c34c4dfb6a16ad0a63b7a1b01b3d7e800820a5ed60490771c66540749d56e20",
+              "contentType": "application/vnd.android.package-archive",
+              "createdAt": "2025-11-02T21:04:03Z",
+              "updatedAt": "2025-11-02T21:04:31Z"
             },
             {
-              "name": "GameHub-Brasil-V3-FutureMark.apk",
-              "size": 79369854,
-              "downloads": 104,
-              "url": "https://github.com/winlatorbrasil/gamehub-brasil/releases/download/GameHub_Brasil_V3/GameHub-Brasil-V3-FutureMark.apk",
-              "digest": "sha256:5cab6f708d1c891b12e14832d8f7eb4d8c7f059a6051a24a5983edc0f55b93e8",
+              "name": "app-debug.apk",
+              "size": 526281837,
+              "downloads": 840,
+              "url": "https://github.com/Stredohori/Winlator-CMOD/releases/download/cf54784/app-debug.apk",
+              "digest": "sha256:3fab19bc74ac0a27e0f9c8d0d32c42664d0c0f6454ba17aa49a546dd0ccd7472",
               "contentType": "application/vnd.android.package-archive",
-              "createdAt": "2026-08-10T03:25:01Z",
-              "updatedAt": "2026-08-10T03:25:18Z"
+              "createdAt": "2025-10-25T11:03:54Z",
+              "updatedAt": "2025-10-25T11:04:12Z"
+            }
+          ],
+          "htmlUrl": "https://github.com/Stredohori/Winlator-CMOD/releases/tag/cf54784"
+        },
+        {
+          "name": "Winlator-CMOD -(git-85bb8a3)",
+          "tag": "85bb8a3",
+          "date": "2025-10-23T05:59:04Z",
+          "downloads": 84,
+          "body": "",
+          "prerelease": false,
+          "assets": [
+            {
+              "name": "app-debug.apk",
+              "size": 526365505,
+              "downloads": 84,
+              "url": "https://github.com/Stredohori/Winlator-CMOD/releases/download/85bb8a3/app-debug.apk",
+              "digest": "sha256:3131e4393d7aa49e580811c2474ad84f2b367e48ad49c8a34bedd90f6c9f3b0f",
+              "contentType": "application/vnd.android.package-archive",
+              "createdAt": "2025-10-23T05:59:04Z",
+              "updatedAt": "2025-10-23T05:59:14Z"
+            }
+          ],
+          "htmlUrl": "https://github.com/Stredohori/Winlator-CMOD/releases/tag/85bb8a3"
+        },
+        {
+          "name": "Winlator-CMOD -(git-7091332)",
+          "tag": "7091332",
+          "date": "2025-10-13T19:03:47Z",
+          "downloads": 497,
+          "body": "GPU acceleration may not work in this version, install the previous one instead.",
+          "prerelease": false,
+          "assets": [
+            {
+              "name": "app-debug.apk",
+              "size": 526374937,
+              "downloads": 497,
+              "url": "https://github.com/Stredohori/Winlator-CMOD/releases/download/7091332/app-debug.apk",
+              "digest": "sha256:dd839e8904ee0db96ee2a91a619d796456a85ddc4a7023b00294dd0649032955",
+              "contentType": "application/vnd.android.package-archive",
+              "createdAt": "2025-10-13T19:03:48Z",
+              "updatedAt": "2025-10-13T19:04:02Z"
+            }
+          ],
+          "htmlUrl": "https://github.com/Stredohori/Winlator-CMOD/releases/tag/7091332"
+        },
+        {
+          "name": "Winlator-CMOD -(git-c17a2c4)",
+          "tag": "c17a2c4",
+          "date": "2025-09-11T18:18:37Z",
+          "downloads": 1490,
+          "body": "",
+          "prerelease": false,
+          "assets": [
+            {
+              "name": "app-debug.apk",
+              "size": 519148249,
+              "downloads": 1490,
+              "url": "https://github.com/Stredohori/Winlator-CMOD/releases/download/c17a2c4/app-debug.apk",
+              "digest": "sha256:dcc025885624784782768780cf66390624e6891cfad367cfbd2d875f074e74bb",
+              "contentType": "application/vnd.android.package-archive",
+              "createdAt": "2025-09-11T18:18:38Z",
+              "updatedAt": "2025-09-11T18:18:50Z"
+            }
+          ],
+          "htmlUrl": "https://github.com/Stredohori/Winlator-CMOD/releases/tag/c17a2c4"
+        },
+        {
+          "name": "Winlator-CMOD -(git-cc362cd)",
+          "tag": "cc362cd",
+          "date": "2025-09-10T18:15:57Z",
+          "downloads": 142,
+          "body": "",
+          "prerelease": false,
+          "assets": [
+            {
+              "name": "app-debug.apk",
+              "size": 519148169,
+              "downloads": 142,
+              "url": "https://github.com/Stredohori/Winlator-CMOD/releases/download/cc362cd/app-debug.apk",
+              "digest": "sha256:cd9b69c50637cc038bf7a0484fab9646fed67733ac3b2b369640093ecd4c5cf3",
+              "contentType": "application/vnd.android.package-archive",
+              "createdAt": "2025-09-10T18:15:58Z",
+              "updatedAt": "2025-09-10T18:16:10Z"
+            }
+          ],
+          "htmlUrl": "https://github.com/Stredohori/Winlator-CMOD/releases/tag/cc362cd"
+        },
+        {
+          "name": "Winlator-CMOD-(git-343be8d)",
+          "tag": "343be8d",
+          "date": "2025-09-02T16:34:46Z",
+          "downloads": 523,
+          "body": "",
+          "prerelease": false,
+          "assets": [
+            {
+              "name": "app-debug.apk",
+              "size": 519147877,
+              "downloads": 523,
+              "url": "https://github.com/Stredohori/Winlator-CMOD/releases/download/343be8d/app-debug.apk",
+              "digest": "sha256:6321dcf6a1faf6b1d2cdb1d230d8e7d6af61c1b6e34ef4cfb48a83a5e1240de2",
+              "contentType": "application/vnd.android.package-archive",
+              "createdAt": "2025-09-03T02:18:30Z",
+              "updatedAt": "2025-09-03T02:18:47Z"
+            }
+          ],
+          "htmlUrl": "https://github.com/Stredohori/Winlator-CMOD/releases/tag/343be8d"
+        },
+        {
+          "name": "v13.1.1",
+          "tag": "6a8c710",
+          "date": "2025-08-14T18:59:54Z",
+          "downloads": 2843,
+          "body": "**Update 27. 08. 2025:**\r\n- Clone simplified 4smsung devices",
+          "prerelease": false,
+          "assets": [
+            {
+              "name": "app-debug.apk",
+              "size": 639518607,
+              "downloads": 1058,
+              "url": "https://github.com/Stredohori/Winlator-CMOD/releases/download/6a8c710/app-debug.apk",
+              "digest": "sha256:f6c36b4cf2a46e9aa27a7d2ab6789196ef12de0d9c79cbab59ffe97cb7538573",
+              "contentType": "application/vnd.android.package-archive",
+              "createdAt": "2025-08-14T18:59:55Z",
+              "updatedAt": "2025-08-14T19:00:09Z"
             },
             {
-              "name": "GameHub-Brasil-V3-Genshin.apk",
-              "size": 79369854,
+              "name": "Winlator-Cmod-13.1.1_smsng.apk",
+              "size": 698420455,
+              "downloads": 1785,
+              "url": "https://github.com/Stredohori/Winlator-CMOD/releases/download/6a8c710/Winlator-Cmod-13.1.1_smsng.apk",
+              "digest": "sha256:ee41165039839147ff8ac0b9eae5225a36acbd9c7c9fa465e1a20d72a0d42c9e",
+              "contentType": "application/vnd.android.package-archive",
+              "createdAt": "2025-08-27T12:19:45Z",
+              "updatedAt": "2025-08-27T12:20:21Z"
+            }
+          ],
+          "htmlUrl": "https://github.com/Stredohori/Winlator-CMOD/releases/tag/6a8c710"
+        },
+        {
+          "name": "4Smsung",
+          "tag": "b2e303d",
+          "date": "2025-07-26T04:43:13Z",
+          "downloads": 608,
+          "body": "It will be recognized by Gaming hub as a game\r\n\r\n***IMPORTANT INFO:***\r\n> I do ***not*** compile libraries, so don't expect the controller, ALSA reflector, or any other Cmod v13 exclusives to work.\r\n> I'm creating the mod purely for my own needs, but if anyone finds it useful, he can use it at his own risk.",
+          "prerelease": false,
+          "assets": [
+            {
+              "name": "app-debug.apk",
+              "size": 623387773,
+              "downloads": 250,
+              "url": "https://github.com/Stredohori/Winlator-CMOD/releases/download/b2e303d/app-debug.apk",
+              "digest": "sha256:beaefe9f6da6eb861d7dc5ca586755806a3b47ad19a7bd6997605d25bdb7b128",
+              "contentType": "application/vnd.android.package-archive",
+              "createdAt": "2025-07-26T04:43:14Z",
+              "updatedAt": "2025-07-26T04:43:29Z"
+            },
+            {
+              "name": "smsung_game_v13.apk",
+              "size": 642840822,
+              "downloads": 194,
+              "url": "https://github.com/Stredohori/Winlator-CMOD/releases/download/b2e303d/smsung_game_v13.apk",
+              "digest": "sha256:8d04773ec46ef7e80bc60ac2b93f70461ebb7d9d7041df3fcdbb6ebfebd4f407",
+              "contentType": "application/vnd.android.package-archive",
+              "createdAt": "2025-07-29T22:25:31Z",
+              "updatedAt": "2025-07-29T22:26:40Z"
+            },
+            {
+              "name": "Winlator-smsng-crsr-fix.apk",
+              "size": 678111178,
+              "downloads": 164,
+              "url": "https://github.com/Stredohori/Winlator-CMOD/releases/download/b2e303d/Winlator-smsng-crsr-fix.apk",
+              "digest": "sha256:4af040914dd7f4f86ada03d979b0b5a55289769e0124e171ec8f986fc69b7e99",
+              "contentType": "application/vnd.android.package-archive",
+              "createdAt": "2025-08-02T22:27:42Z",
+              "updatedAt": "2025-08-02T22:28:22Z"
+            }
+          ],
+          "htmlUrl": "https://github.com/Stredohori/Winlator-CMOD/releases/tag/b2e303d"
+        },
+        {
+          "name": "Winlator CMOD (dev4) - updated 20. 07. 2025",
+          "tag": "aacd257",
+          "date": "2025-07-20T06:06:23Z",
+          "downloads": 3091,
+          "body": "Apk built and recompiled from the _dev_ branch. Install ***Winlator-CMOD-dev4.apk*** only !\r\n\r\nChanges up to: https://github.com/Pipetto-crypto/winlator/commit/f9ea8f0e6b7781469c71589a12e7d358a1112b61\r\n\r\nNote:. Before each update, you should uninstall the previous version to prevent data corruption.",
+          "prerelease": false,
+          "assets": [
+            {
+              "name": "app-debug.apk",
+              "size": 326001269,
+              "downloads": 559,
+              "url": "https://github.com/Stredohori/Winlator-CMOD/releases/download/aacd257/app-debug.apk",
+              "digest": "sha256:6aa24efbb85b7d81a6ee3114348ae072df8ab076f2b2a90829cde102aeea011b",
+              "contentType": "application/vnd.android.package-archive",
+              "createdAt": "2025-07-20T06:06:23Z",
+              "updatedAt": "2025-07-20T06:06:30Z"
+            },
+            {
+              "name": "Winlator-CMOD-dev4.apk",
+              "size": 621065383,
+              "downloads": 2532,
+              "url": "https://github.com/Stredohori/Winlator-CMOD/releases/download/aacd257/Winlator-CMOD-dev4.apk",
+              "digest": "sha256:5e0c7769a7a67004228ca1e82d4cec370f1adb1128c56477797dbd88cb79ce78",
+              "contentType": "application/vnd.android.package-archive",
+              "createdAt": "2025-07-20T06:14:42Z",
+              "updatedAt": "2025-07-20T06:15:16Z"
+            }
+          ],
+          "htmlUrl": "https://github.com/Stredohori/Winlator-CMOD/releases/tag/aacd257"
+        },
+        {
+          "name": "Winlator CMOD (dev3)",
+          "tag": "8f69821",
+          "date": "2025-07-17T11:56:42Z",
+          "downloads": 456,
+          "body": "Apk built and recompiled from the _dev_ branch. Install ***Winlator-CMOD-dev3.apk*** only !\r\n\r\nChanges up to: https://github.com/Pipetto-crypto/winlator/commit/83e5439639811d2d54fc6e691d0148431d7506e5",
+          "prerelease": false,
+          "assets": [
+            {
+              "name": "app-debug.apk",
+              "size": 323174421,
+              "downloads": 70,
+              "url": "https://github.com/Stredohori/Winlator-CMOD/releases/download/8f69821/app-debug.apk",
+              "digest": "sha256:e44844443677b67e16837b72d8c9d4fcbe48779dc2011c4bbbcca930020736b2",
+              "contentType": "application/vnd.android.package-archive",
+              "createdAt": "2025-07-17T11:56:43Z",
+              "updatedAt": "2025-07-17T11:56:50Z"
+            },
+            {
+              "name": "Winlator-CMOD-dev3.apk",
+              "size": 618239111,
+              "downloads": 386,
+              "url": "https://github.com/Stredohori/Winlator-CMOD/releases/download/8f69821/Winlator-CMOD-dev3.apk",
+              "digest": "sha256:abb464e95d00524742d916304242f0d14b491e51582f3481489ccf4976420b82",
+              "contentType": "application/vnd.android.package-archive",
+              "createdAt": "2025-07-17T12:16:23Z",
+              "updatedAt": "2025-07-17T12:20:51Z"
+            }
+          ],
+          "htmlUrl": "https://github.com/Stredohori/Winlator-CMOD/releases/tag/8f69821"
+        },
+        {
+          "name": "Winlator CMOD (dev2)",
+          "tag": "6b53cba",
+          "date": "2025-07-14T21:24:57Z",
+          "downloads": 244,
+          "body": "Apk built and recompiled from the _dev_ branch. Install ***Winlator-CMOD-dev2.apk*** only !\r\n\r\nChanges:\r\n\r\n- XServerDisplayActivity: pause and resume Wine processes when exiting or re-entering the app\r\n- Move relative mouse input into shortcut and container settings\r\n- Allow to properly create WineInfo from installed contents identifier",
+          "prerelease": false,
+          "assets": [
+            {
+              "name": "app-debug.apk",
+              "size": 321352358,
+              "downloads": 42,
+              "url": "https://github.com/Stredohori/Winlator-CMOD/releases/download/6b53cba/app-debug.apk",
+              "digest": "sha256:4548316d28117cd11b7b8f28bf7055b626291b60aecc783e1b653080af3d9d22",
+              "contentType": "application/vnd.android.package-archive",
+              "createdAt": "2025-07-14T21:24:58Z",
+              "updatedAt": "2025-07-14T21:25:06Z"
+            },
+            {
+              "name": "Winlator-CMOD-dev2.apk",
+              "size": 647013588,
               "downloads": 202,
-              "url": "https://github.com/winlatorbrasil/gamehub-brasil/releases/download/GameHub_Brasil_V3/GameHub-Brasil-V3-Genshin.apk",
-              "digest": "sha256:5713141f8e5e7cf61760697d616f1d9e80bb24d6578613929145023cb6b744c5",
+              "url": "https://github.com/Stredohori/Winlator-CMOD/releases/download/6b53cba/Winlator-CMOD-dev2.apk",
+              "digest": "sha256:39d032ce176e46661c4616f9f1f96d64c286836447d8e0fbbe59e2f8cf4fecc3",
               "contentType": "application/vnd.android.package-archive",
-              "createdAt": "2026-08-10T03:25:18Z",
-              "updatedAt": "2026-08-10T03:25:35Z"
+              "createdAt": "2025-07-14T21:33:31Z",
+              "updatedAt": "2025-07-14T21:34:56Z"
+            }
+          ],
+          "htmlUrl": "https://github.com/Stredohori/Winlator-CMOD/releases/tag/6b53cba"
+        },
+        {
+          "name": "Winlator CMOD (dev 1)",
+          "tag": "fa475aa",
+          "date": "2025-07-12T19:59:06Z",
+          "downloads": 589,
+          "body": "Apk built and recompiled from the _dev_ branch. Install ***Winlator-CMOD-dev.apk*** only !\r\n\r\nChanges up to: https://github.com/Pipetto-crypto/winlator/commit/cb6ecd0700aa6300bd559f30a7a8bdede3dded91",
+          "prerelease": true,
+          "assets": [
+            {
+              "name": "app-debug.apk",
+              "size": 321352150,
+              "downloads": 129,
+              "url": "https://github.com/Stredohori/Winlator-CMOD/releases/download/fa475aa/app-debug.apk",
+              "digest": "sha256:d1c582e5cb57efb0d3fee11ff07d1810c0350295c311fb0ffb158ecfb2c85c58",
+              "contentType": "application/vnd.android.package-archive",
+              "createdAt": "2025-07-12T19:59:06Z",
+              "updatedAt": "2025-07-12T19:59:14Z"
             },
             {
-              "name": "GameHub-Brasil-V3-GFXBench.apk",
-              "size": 79369854,
-              "downloads": 92,
-              "url": "https://github.com/winlatorbrasil/gamehub-brasil/releases/download/GameHub_Brasil_V3/GameHub-Brasil-V3-GFXBench.apk",
-              "digest": "sha256:df640cbd10adb06a637dfaab3bab6ede5443fcba524af260801ff9731d86dbbc",
+              "name": "Winlator-CMOD-dev.apk",
+              "size": 647013512,
+              "downloads": 460,
+              "url": "https://github.com/Stredohori/Winlator-CMOD/releases/download/fa475aa/Winlator-CMOD-dev.apk",
+              "digest": "sha256:afbec1f8861abaf421c7ed734be10d277c57fae3d09a49434f5312fbbafdf0ef",
               "contentType": "application/vnd.android.package-archive",
-              "createdAt": "2026-08-10T03:25:35Z",
-              "updatedAt": "2026-08-10T03:25:51Z"
+              "createdAt": "2025-07-12T20:43:02Z",
+              "updatedAt": "2025-07-12T20:43:57Z"
+            }
+          ],
+          "htmlUrl": "https://github.com/Stredohori/Winlator-CMOD/releases/tag/fa475aa"
+        },
+        {
+          "name": "Winlator CMOD (newest)",
+          "tag": "560c335",
+          "date": "2025-06-23T11:46:26Z",
+          "downloads": 506,
+          "body": "*Winlator-CMOD.apk* is the installable apk with latest changes from the dev.",
+          "prerelease": true,
+          "assets": [
+            {
+              "name": "app-debug.apk",
+              "size": 336246548,
+              "downloads": 87,
+              "url": "https://github.com/Stredohori/Winlator-CMOD/releases/download/560c335/app-debug.apk",
+              "digest": "sha256:107d4678ee67ddbcfae5483ceddd6a3bd093b3a42cf75c05428438bf38cb4526",
+              "contentType": "application/vnd.android.package-archive",
+              "createdAt": "2025-06-23T11:46:26Z",
+              "updatedAt": "2025-06-23T11:46:34Z"
             },
             {
-              "name": "GameHub-Brasil-V3-Ludashi.apk",
-              "size": 79369854,
-              "downloads": 551,
-              "url": "https://github.com/winlatorbrasil/gamehub-brasil/releases/download/GameHub_Brasil_V3/GameHub-Brasil-V3-Ludashi.apk",
-              "digest": "sha256:83119c221398e6e92dd69f8920adc330f9624dda52604da13f8c7bfc3f427fbf",
+              "name": "Winlator-CMOD.apk",
+              "size": 809977218,
+              "downloads": 419,
+              "url": "https://github.com/Stredohori/Winlator-CMOD/releases/download/560c335/Winlator-CMOD.apk",
+              "digest": "sha256:63e2ea49f6c2f3970f28a2f359b06803e10280a94166cdc4f5dcbe444e340679",
               "contentType": "application/vnd.android.package-archive",
-              "createdAt": "2026-08-10T03:25:51Z",
-              "updatedAt": "2026-08-10T03:26:08Z"
+              "createdAt": "2025-06-23T14:02:09Z",
+              "updatedAt": "2025-06-23T14:03:30Z"
+            }
+          ],
+          "htmlUrl": "https://github.com/Stredohori/Winlator-CMOD/releases/tag/560c335"
+        },
+        {
+          "name": "Winlator CMOD (new)",
+          "tag": "7fcd1ed",
+          "date": "2025-06-16T18:09:29Z",
+          "downloads": 350,
+          "body": "You need to use *Winlator-CMOD.apk* only.\r\n- Contains all latest changes from the dev,  as well as the switchable proton wine's.\r\n-  Hopefully this is not the last build.",
+          "prerelease": false,
+          "assets": [
+            {
+              "name": "app-debug.apk",
+              "size": 331765189,
+              "downloads": 79,
+              "url": "https://github.com/Stredohori/Winlator-CMOD/releases/download/7fcd1ed/app-debug.apk",
+              "digest": "sha256:b8a0d98a4c90b669c220271d313d6f552696b697465f56e762606b632391e4ae",
+              "contentType": "application/vnd.android.package-archive",
+              "createdAt": "2025-06-16T18:09:29Z",
+              "updatedAt": "2025-06-16T18:09:39Z"
             },
             {
-              "name": "GameHub-Brasil-V3-Normal.apk",
-              "size": 79369854,
-              "downloads": 1458,
-              "url": "https://github.com/winlatorbrasil/gamehub-brasil/releases/download/GameHub_Brasil_V3/GameHub-Brasil-V3-Normal.apk",
-              "digest": "sha256:3e654dc2f760061af1165dbba6bd847d4af908ab80ee22463f08f50f1579d271",
+              "name": "Winlator-CMOD.apk",
+              "size": 799749148,
+              "downloads": 271,
+              "url": "https://github.com/Stredohori/Winlator-CMOD/releases/download/7fcd1ed/Winlator-CMOD.apk",
+              "digest": "sha256:dc688255b3290d0a0906975cf6135f335f74479dda692879c99bdba60098698b",
               "contentType": "application/vnd.android.package-archive",
-              "createdAt": "2026-08-10T03:26:08Z",
-              "updatedAt": "2026-08-10T03:26:25Z"
-            },
+              "createdAt": "2025-06-16T19:34:08Z",
+              "updatedAt": "2025-06-16T19:35:39Z"
+            }
+          ],
+          "htmlUrl": "https://github.com/Stredohori/Winlator-CMOD/releases/tag/7fcd1ed"
+        },
+        {
+          "name": "Winlator CMOD (old)",
+          "tag": "0447ce1",
+          "date": "2025-06-11T15:33:55Z",
+          "downloads": 240,
+          "body": "- _app-debug.apk_ is a clean build without image and prefix - **Do not istall !**\r\n- _winlator-CMOD.apk_ is a recompiled package with missing files added. This one should work as intended.\r\n- CnC ddraw wrapper was removed, no other changes were made.",
+          "prerelease": false,
+          "assets": [
             {
-              "name": "GameHub-Brasil-V3-PuBG-CrossFire.apk",
-              "size": 79369854,
-              "downloads": 94,
-              "url": "https://github.com/winlatorbrasil/gamehub-brasil/releases/download/GameHub_Brasil_V3/GameHub-Brasil-V3-PuBG-CrossFire.apk",
-              "digest": "sha256:8b78ac99d434d4d48ed9e9535cc543d3c78dc73d9884ab24b2d139117d8fd58d",
-              "contentType": "application/vnd.android.package-archive",
-              "createdAt": "2026-08-10T03:26:41Z",
-              "updatedAt": "2026-08-10T03:26:58Z"
-            },
-            {
-              "name": "GameHub-Brasil-V3-PuBG.apk",
-              "size": 79369854,
-              "downloads": 49,
-              "url": "https://github.com/winlatorbrasil/gamehub-brasil/releases/download/GameHub_Brasil_V3/GameHub-Brasil-V3-PuBG.apk",
-              "digest": "sha256:4b1780a5050b90b9b841d7da655eea40405180c84e57ed0e33b36a2ec4a806b2",
-              "contentType": "application/vnd.android.package-archive",
-              "createdAt": "2026-08-10T03:26:25Z",
-              "updatedAt": "2026-08-10T03:26:41Z"
-            },
-            {
-              "name": "GameHub-Brasil-V3-RedMagic.apk",
-              "size": 79369854,
+              "name": "app-debug.apk",
+              "size": 312483625,
               "downloads": 82,
-              "url": "https://github.com/winlatorbrasil/gamehub-brasil/releases/download/GameHub_Brasil_V3/GameHub-Brasil-V3-RedMagic.apk",
-              "digest": "sha256:62aedc3dcd64924a53e48ac2a588a7a9f01b699733887f14e6830d613658f38a",
+              "url": "https://github.com/Stredohori/Winlator-CMOD/releases/download/0447ce1/app-debug.apk",
+              "digest": "sha256:e73198be10b2be215ab788b2fcf1366421e601de0699c7ade5f5b1ab236b2bee",
               "contentType": "application/vnd.android.package-archive",
-              "createdAt": "2026-08-10T03:26:58Z",
-              "updatedAt": "2026-08-10T03:27:15Z"
+              "createdAt": "2025-06-11T15:33:56Z",
+              "updatedAt": "2025-06-11T15:34:04Z"
             },
             {
-              "name": "GameHub-Brasil-V3-Yuanshen.apk",
-              "size": 79369854,
-              "downloads": 75,
-              "url": "https://github.com/winlatorbrasil/gamehub-brasil/releases/download/GameHub_Brasil_V3/GameHub-Brasil-V3-Yuanshen.apk",
-              "digest": "sha256:20315d81d21a1fc755ef306b5f950c177a9ba4b14344613f195dbc367415a5c1",
+              "name": "winlator-CMOD.apk",
+              "size": 741344068,
+              "downloads": 158,
+              "url": "https://github.com/Stredohori/Winlator-CMOD/releases/download/0447ce1/winlator-CMOD.apk",
+              "digest": "sha256:5dada859bcb724e2e9621e3078a078dd4c872b7ea858156243e0bcf3ed0284eb",
               "contentType": "application/vnd.android.package-archive",
-              "createdAt": "2026-08-10T03:27:15Z",
-              "updatedAt": "2026-08-10T03:27:31Z"
+              "createdAt": "2025-06-15T08:36:44Z",
+              "updatedAt": "2025-06-15T08:43:06Z"
             }
           ],
-          "htmlUrl": "https://github.com/winlatorbrasil/gamehub-brasil/releases/tag/GameHub_Brasil_V3"
+          "htmlUrl": "https://github.com/Stredohori/Winlator-CMOD/releases/tag/0447ce1"
         },
         {
-          "name": "GameHub Brasil v2.0",
-          "tag": "GameHub_Brasil-v2.0",
-          "date": "2026-01-19T14:13:26Z",
-          "downloads": 102167,
-          "body": "# 🎮 GameHub Brasil v2.0 🇧🇷\r\n\r\n<p align=\"center\"> <img src=\"https://github.com/user-attachments/assets/b49d514c-1bdb-467e-873d-a1ea425b7d51\" alt=\"GameHub Brasil\" width=\"600\"/> </p>\r\n\r\n<p align=\"center\"> <img src=\"https://img.shields.io/github/downloads/winlatorbrasil/gamehub-brasil/GameHub_Brasil-v2.0/total?style=flat-square&logo=github&label=Downloads_v2.0&color=blue\" alt=\"Downloads v2.0\"/> </p>\r\n\r\n## 🌟 Destaques desta Versão\r\n\r\nO GameHub Brasil v2.0 chega para revolucionar como você gerencia seus jogos e drivers. Focamos totalmente na flexibilidade e compatibilidade, permitindo que você importe seus próprios arquivos, gerencie perfis de controle com facilidade e leve a experiência de jogos para dispositivos de qualquer gama de desempenho.\r\n\r\n---\r\n🚀 Novidades e Recursos Implementados\r\n---\r\n\r\n## 📥AdrenoHub Drivers (Adrenotools).\r\n\r\n✅ Integração Adrenotools: Sistema robusto para gerenciamento de drivers Vulkan.\r\n📂 Importação Flexível: Suporte para importação de drivers Turnip no formato .zip.\r\n💾 Fontes Variadas: Carregue drivers de fontes externas ou diretamente do armazenamento local do seu dispositivo.\r\n\r\n## 📂 Contents Hub\r\n\r\nCentralize seus conteúdos de forma prática e rápida.\r\n\r\n🎮 Formato .wcp: Importação completa de Contents no formato proprietário.\r\n🔄 Compatibilidade Híbrida: Suporte a arquivos externos e locais.\r\n⚠️ Nota Técnica: O importador de conteúdo está funcional, porém, a importação do **Wine** ainda enfrenta limitações devido a diferenças de arquitetura, estando em aperfeiçoamento.\r\n\r\n## 🕹️ Personalização de Controle\r\n\r\nJogue do seu jeito, sem precisar configurar tudo do zero.\r\n\r\n📥 Importação de Perfis: Adicione perfis de controle personalizados para jogos específicos.\r\n🌐 Fontes Externas: Compatibilidade com perfis baixados da comunidade.\r\n🎯 Praticidade: Aplicação rápida para agilizar o setup dos seus jogos favoritos.\r\n\r\n## 💾 Suporte a Armazenamento Externo (OTG)\r\n\r\nMais espaço e liberdade para sua biblioteca de jogos.\r\n\r\n🔌 Reconhecimento OTG: O app agora detecta e gerencia perfeitamente pen drives e HDs externos conectados via OTG.\r\n📂 Jogar Externo: Instale e rode seus jogos diretamente do armazenamento removível.\r\n\r\n##  ⚡ LowSpecsExperienceV13\r\n\r\nLeve jogos pesados para hardwares mais modestos.\r\n\r\n📉 Otimização Gráfica: Programa dedicado a reduzir e otimizar jogos.\r\n🎮 Foco em Jogabilidade: Prioriza FPS e estabilidade em detrimento de efeitos pesados.\r\n📱 Inclusão Total: Já incluído nativamente nesta versão em Componentes.\r\n\r\n## ✅ Wrappers e Vortek\r\n\r\nA ponte entre o sistema Android e seus jogos.\r\n\r\n🛠️ Gerenciamento Avançado: Inclusão do sistema de Wrappers e Vortek, similar ao encontrado no Winlator.\r\n🔁 Seleção de Drivers: Permite escolher a camada de compatibilidade ideal para cada título.\r\n\r\n## 🔧 Melhorias Técnicas\r\n\r\nEsta versão focou na arquitetura interna do aplicativo para suportar as novas funções de importação:\r\n\r\n🔨 Refatoração do Gerenciador de Arquivos: Melhorias na leitura de caminhos locais e externos.\r\n🛡️ Estabilidade em Importações: Tratamento de erros aprimorado ao ler arquivos .zip e .wcp\r\n\r\n## 📥 Informações de Download\r\n\r\nNome do Arquivo: GameHub-Brasil-v2.0.apk\r\n\r\nRequisitos Mínimos:\r\n\r\n    Android 8.0 (Oreo) ou superior\r\n    4GB de RAM (Recomendado 6GB+ para uso do LowSpecsExperience)\r\n    3GB de espaço livre (Para instalação e drivers)\r\n    GPU com suporte a Vulkan 1.1+\r\n    Dispositivo com suporte a OTG (Opcional, para armazenamento externo)\r\n\r\n## 🙏 Agradecimentos\r\n\r\nEssa versão é um grande passo em direção à personalização. Agradecemos a todos os testadores que validaram as novas funções e algumas que foram importadas do Winlator Ludashi [StevenMXZ](https://github.com/StevenMXZ/Winlator-Ludashi)\r\n\r\nE para você ficar por dentro do houve no app, segue o vídeo do nosso parceiro [BrunoAndroid](https://www.youtube.com/@BrunoAndroid) explicando sobre o funcionamento do app:\r\n\r\n<p align=\"center\">\r\n  <a href=\"https://youtu.be/Uars8bqcQIM?si=8Bqz8sxRTfr69SlG\" target=\"_blank\">\r\n    <img src=\"https://img.youtube.com/vi/Uars8bqcQIM/maxresdefault.jpg\" \r\n         alt=\"GameHub Brasil v2.0 - Vídeo de Apresentação\" \r\n         width=\"700\"/>\r\n  </a>\r\n</p>\r\n\r\n## 📞 Suporte e Feedback\r\n\r\nEncontrou algum bug na importação de drivers ou no Contents Hub?\r\n\r\n🐛 Reporte problemas na aba [Issues](../../issues)\r\n💡 Compartilhe seus perfis de controle e wrappers na comunidade\r\n💡 Compartilhe ideias em [YouTube](https://www.youtube.com/@winlatorbrasil)\r\n⭐ Se gostou da atualização, deixe uma estrela no repositório!\r\n\r\n---\r\n\r\n## 📥 Sobre os pacotes que você deve baixar\r\n\r\n| Posição (prioridade) | Nome / Categoria                                | Package name                         | Motivo de uso (performance / detecção)                                                                 |\r\n|---------------------|--------------------------------------------------|--------------------------------------|----------------------------------------------------------------------------------------------------------|\r\n| 1 | Futuremark | com.futuremark.dmandroid.application | Benchmark GPU moderno (Wild Life / Solar Bay), referência para modo gamer em vários aparelhos atuais, excelente para GPUs Mali/Adreno. |\r\n| 2 | GFXBench | com.gfxbench.glbenchmark | Benchmark gráfico com cenários antigos e atuais (T-Rex, Manhattan, etc.), excelente para GPUs Mali/Adreno. |\r\n| 3 | AnTuTu | com.antutu.ABenchMark | Benchmark geral muito popular (CPU + GPU + RAM + UX), frequentemente usado para liberar modo turbo em ROMs chinesas. |\r\n| 4 | Ludashi | com.ludashi.benchmark | Benchmark chinês focado em score geral e otimização, conhecido por acionar perfis especiais em alguns devices e ROMs custom. |\r\n| 5 | Redmagic | com.riotgames.league.wildrift | Usado por fabricantes para ativar modos de alta performance e alta taxa de quadros. |\r\n| 6 | MiHoYo | com.mihoyo.yuanshen | Usado como “teste real” de SoC e gatilho de perfil gamer. |\r\n| 7 | PUBG | com.tencent.ig | Tradicionalmente incluído em listas de otimização para reduzir lag e melhorar estabilidade de FPS. |\r\n| 8 | GameHub Brasil | com.gamehub.brasil | App genérico/launcher para cenário “normal”, útil para manter um perfil padrão sem overclock ou boost ativado. |\r\n\r\n---\r\n\r\n<div align=\"center\">\r\n\r\n**Desenvolvido com ❤️ para a comunidade gaming brasileira**\r\n\r\n*Jogue mais, jogue melhor!*\r\n\r\n**V2.0: Mais liberdade, mais jogos!**\r\n\r\n</div>",
+          "name": "Winlator Bionic-Glibc",
+          "tag": "e0ca72f",
+          "date": "2025-06-03T23:49:16Z",
+          "downloads": 241,
+          "body": "_**This is the last build before GlibC removal.**_\r\nChange of GPU driver in GlibC cont. possible again thx to @jhinzuo",
+          "prerelease": true,
+          "assets": [
+            {
+              "name": "app-debug.apk",
+              "size": 666121421,
+              "downloads": 241,
+              "url": "https://github.com/Stredohori/Winlator-CMOD/releases/download/e0ca72f/app-debug.apk",
+              "digest": "sha256:d291163dee312fb0a694592b75201d01793c8462f1ebf767463d29b6ebcb1628",
+              "contentType": "application/vnd.android.package-archive",
+              "createdAt": "2025-06-03T23:49:16Z",
+              "updatedAt": "2025-06-03T23:49:34Z"
+            }
+          ],
+          "htmlUrl": "https://github.com/Stredohori/Winlator-CMOD/releases/tag/e0ca72f"
+        },
+        {
+          "name": "winlator_bionic -(git-efaa9e6)",
+          "tag": "efaa9e6",
+          "date": "2025-06-02T01:04:59Z",
+          "downloads": 169,
+          "body": "",
           "prerelease": false,
           "assets": [
             {
-              "name": "GameHub-Brasil-v2.0-AnTuTu.apk",
-              "size": 122316297,
-              "downloads": 46558,
-              "url": "https://github.com/winlatorbrasil/gamehub-brasil/releases/download/GameHub_Brasil-v2.0/GameHub-Brasil-v2.0-AnTuTu.apk",
-              "digest": "sha256:c0949d2182dd96431df11ddc25681899dfa1a62cb48127cbbc86c28a455ad9ca",
+              "name": "app-debug.apk",
+              "size": 666121485,
+              "downloads": 169,
+              "url": "https://github.com/Stredohori/Winlator-CMOD/releases/download/efaa9e6/app-debug.apk",
+              "digest": "sha256:c4f4f0f35f5663ba0530588127a5c96ddfde02a203e4990f5f1c8cc824b3324b",
               "contentType": "application/vnd.android.package-archive",
-              "createdAt": "2026-01-19T13:59:04Z",
-              "updatedAt": "2026-01-19T13:59:30Z"
-            },
-            {
-              "name": "GameHub-Brasil-v2.0-FutureMark.apk",
-              "size": 122316297,
-              "downloads": 8455,
-              "url": "https://github.com/winlatorbrasil/gamehub-brasil/releases/download/GameHub_Brasil-v2.0/GameHub-Brasil-v2.0-FutureMark.apk",
-              "digest": "sha256:a1db05c511cce5d2902d9d96ce88b519e67c72127f003d700d0c6fdc690fcc83",
-              "contentType": "application/vnd.android.package-archive",
-              "createdAt": "2026-01-19T13:57:23Z",
-              "updatedAt": "2026-01-19T13:57:49Z"
-            },
-            {
-              "name": "GameHub-Brasil-v2.0-GFXBench.apk",
-              "size": 122316297,
-              "downloads": 3688,
-              "url": "https://github.com/winlatorbrasil/gamehub-brasil/releases/download/GameHub_Brasil-v2.0/GameHub-Brasil-v2.0-GFXBench.apk",
-              "digest": "sha256:03826959b764398ea2c1de3abf6930be70ea4377ef396ce599f93227fc001738",
-              "contentType": "application/vnd.android.package-archive",
-              "createdAt": "2026-01-19T13:58:40Z",
-              "updatedAt": "2026-01-19T13:59:04Z"
-            },
-            {
-              "name": "GameHub-Brasil-v2.0-Ludashi.apk",
-              "size": 122316297,
-              "downloads": 8491,
-              "url": "https://github.com/winlatorbrasil/gamehub-brasil/releases/download/GameHub_Brasil-v2.0/GameHub-Brasil-v2.0-Ludashi.apk",
-              "digest": "sha256:d1f57135f5deaa0b77cea36b0a0c5f17e5e699ec5688137589392cad6138b3bd",
-              "contentType": "application/vnd.android.package-archive",
-              "createdAt": "2026-01-19T14:00:21Z",
-              "updatedAt": "2026-01-19T14:00:46Z"
-            },
-            {
-              "name": "GameHub-Brasil-v2.0-Mihoyo.apk",
-              "size": 122316297,
-              "downloads": 1397,
-              "url": "https://github.com/winlatorbrasil/gamehub-brasil/releases/download/GameHub_Brasil-v2.0/GameHub-Brasil-v2.0-Mihoyo.apk",
-              "digest": "sha256:a3dc96426d4a7795934498698afe29954938c83fd25b9a28436bad34bf499743",
-              "contentType": "application/vnd.android.package-archive",
-              "createdAt": "2026-01-19T13:59:55Z",
-              "updatedAt": "2026-01-19T14:00:21Z"
-            },
-            {
-              "name": "GameHub-Brasil-v2.0-Normal.apk",
-              "size": 122316297,
-              "downloads": 25404,
-              "url": "https://github.com/winlatorbrasil/gamehub-brasil/releases/download/GameHub_Brasil-v2.0/GameHub-Brasil-v2.0-Normal.apk",
-              "digest": "sha256:d6b04cd95ded14aca36ad21b47e9def4245b341e9f588b630ad90ce02b87ac92",
-              "contentType": "application/vnd.android.package-archive",
-              "createdAt": "2026-01-19T13:57:49Z",
-              "updatedAt": "2026-01-19T13:58:15Z"
-            },
-            {
-              "name": "GameHub-Brasil-v2.0-PuBG.apk",
-              "size": 122316297,
-              "downloads": 3750,
-              "url": "https://github.com/winlatorbrasil/gamehub-brasil/releases/download/GameHub_Brasil-v2.0/GameHub-Brasil-v2.0-PuBG.apk",
-              "digest": "sha256:8b76c3dc057e0f61cf83b56bd0ad1bc3dfb102e035c72c4adb599a5d23dad4e9",
-              "contentType": "application/vnd.android.package-archive",
-              "createdAt": "2026-01-19T13:58:15Z",
-              "updatedAt": "2026-01-19T13:58:40Z"
-            },
-            {
-              "name": "GameHub-Brasil-v2.0-RedMagic.apk",
-              "size": 122316297,
-              "downloads": 4424,
-              "url": "https://github.com/winlatorbrasil/gamehub-brasil/releases/download/GameHub_Brasil-v2.0/GameHub-Brasil-v2.0-RedMagic.apk",
-              "digest": "sha256:407596b46573081e27487da9456b97e8f07915bf65ef94bc180d2735ea98342c",
-              "contentType": "application/vnd.android.package-archive",
-              "createdAt": "2026-01-19T13:59:30Z",
-              "updatedAt": "2026-01-19T13:59:55Z"
+              "createdAt": "2025-06-02T01:04:59Z",
+              "updatedAt": "2025-06-02T01:05:13Z"
             }
           ],
-          "htmlUrl": "https://github.com/winlatorbrasil/gamehub-brasil/releases/tag/GameHub_Brasil-v2.0"
-        },
-        {
-          "name": "GameHub Brasil v1.0",
-          "tag": "GameHub_Brasil-v1.0",
-          "date": "2025-10-27T01:34:28Z",
-          "downloads": 3259,
-          "body": "# 🎮 GameHub Brasil v1.0 🇧🇷\r\n\r\n<p align=\"center\">\r\n  <img src=\"https://github.com/user-attachments/assets/b49d514c-1bdb-467e-873d-a1ea425b7d51\" alt=\"GameHub Brasil\" width=\"600\"/>\r\n</p>\r\n\r\n<p align=\"center\"> <img src=\"https://img.shields.io/github/downloads/winlatorbrasil/gamehub-brasil/GameHub_Brasil-v1.0/total?style=flat-square&logo=github&label=Downloads_v1.0&color=green\" alt=\"Downloads v1.0\"/> </p>\r\n\r\n---\r\n## 🌟 Destaques desta Versão\r\n\r\nEsta versão representa um marco significativo em otimização e estabilidade, trazendo melhorias substanciais de performance para todos os chipsets suportados, além de uma experiência visual completamente renovada e novos componentes de emulação de última geração.\r\n\r\n---\r\n\r\n## 📦 Novos Componentes e Drivers\r\n\r\n### **Box64** - Camada de Tradução x86_64\r\nAtualizações importantes para melhor compatibilidade e performance:\r\n- ✨ **Box64 0.3.8** - Versão estável com correções críticas\r\n- 🚀 **Box64 0.3.9-d730610** - Build de desenvolvimento com otimizações avançadas\r\n- ⚡ **WowBox64 0.3.9-d730610** - Variante otimizada para gaming\r\n\r\n### **DXVK** - Camada de Tradução DirectX para Vulkan\r\nNova série com GPLAsync e Link-Lazy para máxima performance:\r\n- 🎯 **DXVK-GPLAsync-LL 2.6.3-1** - Base estável com async pipeline\r\n- 🔧 **DXVK-GPLAsync-LL 2.6.4-1** - Correções e melhorias incrementais\r\n- 💎 **DXVK-GPLAsync-LL 2.7.1-1** - Versão mais recente com otimizações de shader\r\n\r\n### **FEX-Emu** - Emulador x86/x86_64\r\n- 🆕 **FEXCore-2510** - Última geração do núcleo de emulação com melhorias significativas de velocidade\r\n\r\n### **Turnip** - Driver Vulkan Mesa para Adreno\r\nSuporte completo ao Mesa 26.0.0:\r\n- 🔥 **Turnip v26.0.0 R1 Autotuner** - Ajuste automático de performance baseado em GPU\r\n- ⚙️ **Turnip v26.0.0 R1** - Versão padrão otimizada\r\n\r\n---\r\n\r\n## ⚡ Otimizações de Performance por Chipset\r\n\r\nEsta versão inclui ajustes específicos para extrair o máximo desempenho de cada arquitetura:\r\n\r\n### 🔥 **Snapdragon (Qualcomm)**\r\n- Otimizações para GPUs Adreno\r\n- Perfis customizados para séries 6xx, 7xx e 8xx\r\n- Melhor aproveitamento de cache L2/L3\r\n\r\n### 🚀 **Dimensity / Helio (MediaTek)**\r\n- Ajustes para arquitetura ARM Mali\r\n- Balanceamento de carga entre clusters CPU\r\n- Otimização de thermal throttling\r\n\r\n### 💫 **Exynos (Samsung)**\r\n- Perfis específicos para Mali e Xclipse\r\n- Gerenciamento inteligente de frequências\r\n- Compatibilidade aprimorada com drivers\r\n\r\n---\r\n\r\n## 🎨 Renovação Visual Completa\r\n\r\n### **Interface Modernizada**\r\n- 🖼️ **Novo Wallpaper Principal** - Design moderno e imersivo\r\n- 🎬 **Intro Redesenhada** - Animação de inicialização atualizada\r\n- 🎨 **Paleta de Cores Renovada** - Esquema cromático mais harmônico e profissional\r\n- 🌈 **Wallpapers Adicionais** - Nova coleção de papéis de parede temáticos\r\n\r\n### **Seção \"Sobre\" Aprimorada**\r\n- 📝 HTML customizado em \"Informações Pessoais\"\r\n- 💼 Layout mais profissional e organizado\r\n- ℹ️ Informações atualizadas e detalhadas\r\n\r\n---\r\n\r\n## 🌐 Novos Recursos\r\n\r\n### **Feed de Notícias & Jogos Grátis**\r\n- 📰 Fique atualizado com as últimas notícias do mundo dos games\r\n- 🎁 Descubra jogos gratuitos disponíveis\r\n- 🔔 Sistema de notificações para novos conteúdos\r\n\r\n### **Tradução PT-BR Automática**\r\n- 🇧🇷 Interface completamente em Português do Brasil\r\n- 🔤 Tradução inteligente de conteúdos dinâmicos\r\n\r\n---\r\n\r\n## 🔧 Melhorias Técnicas e Correções\r\n\r\n### **Otimização de Conectividade**\r\n- ❌ **Removida integração direta com GitHub**\r\n  - Solução definitiva para erro \"429: Too Many Requests\"\r\n  - Eliminação de problemas de carregamento do menu\r\n\r\n### **Estabilidade Geral**\r\n- 🛡️ Correções de bugs críticos\r\n- ⚙️ Gerenciamento de recursos otimizado\r\n\r\n---\r\n\r\n## 📥 Informações de Download\r\n\r\n**Nome do Arquivo:** `GameHub-Brasil-v1.0.apk`\r\n\r\n**Requisitos Mínimos:**\r\n- Android 8.0 (Oreo) ou superior\r\n- 2GB de RAM (4GB recomendado)\r\n- 500MB de espaço livre\r\n- GPU com suporte a Vulkan 1.1+\r\n\r\n---\r\n\r\n## 🙏 Agradecimentos\r\n\r\nAgradecemos a toda comunidade GameHub Brasil pelo feedback contínuo e suporte. Esta versão é resultado direto das sugestões e relatórios de vocês!\r\n\r\nE ao GameHub Lite 🤜🤛.\r\n\r\n---\r\n\r\n## 📞 Suporte e Feedback\r\n\r\nEncontrou algum problema ou tem sugestões? \r\n- 🐛 Reporte bugs na aba [Issues](../../issues)\r\n- 💡 Compartilhe ideias em [YouTube](https://www.youtube.com/@winlatorbrasil)\r\n- ⭐ Se gostou, deixe uma estrela no repositório!\r\n\r\n---\r\n\r\n<div align=\"center\">\r\n\r\n**Desenvolvido com ❤️ para a comunidade gaming brasileira**\r\n\r\n*Jogue mais, jogue melhor!*\r\n\r\n</div>",
-          "prerelease": false,
-          "assets": [
-            {
-              "name": "GameHub-Brasil-v1.0.apk",
-              "size": 72976156,
-              "downloads": 3259,
-              "url": "https://github.com/winlatorbrasil/gamehub-brasil/releases/download/GameHub_Brasil-v1.0/GameHub-Brasil-v1.0.apk",
-              "digest": "sha256:8baa4402bc16a350e6714480d84ac95419f8a267d168d98cbe954b1b43a2a673",
-              "contentType": "application/vnd.android.package-archive",
-              "createdAt": "2025-12-26T05:58:08Z",
-              "updatedAt": "2025-12-26T05:58:24Z"
-            }
-          ],
-          "htmlUrl": "https://github.com/winlatorbrasil/gamehub-brasil/releases/tag/GameHub_Brasil-v1.0"
+          "htmlUrl": "https://github.com/Stredohori/Winlator-CMOD/releases/tag/efaa9e6"
         }
       ],
-      "repoUrl": "https://github.com/winlatorbrasil/gamehub-brasil"
+      "repoUrl": "https://github.com/Stredohori/Winlator-CMOD"
+    },
+    {
+      "name": "SharpEmu ARM64",
+      "repo": "edeegg/sharpemu-arm64",
+      "category": "Emulator PS5",
+      "driverFamily": null,
+      "logo": "sharpemu.png",
+      "extensions": null,
+      "sourceKind": "fork/comunidade",
+      "channel": "stable/unknown",
+      "downloads": 1017,
+      "releases": [
+        {
+          "name": "SharpEmu Android 0.0.2_poc",
+          "tag": "android-v0.0.2_poc",
+          "date": "2026-08-05T07:38:15Z",
+          "downloads": 967,
+          "body": "Automated Android proof-of-concept build (0.0.2_poc).",
+          "prerelease": false,
+          "assets": [
+            {
+              "name": "SharpEmu-Android-0.0.2_poc.apk",
+              "size": 91198273,
+              "downloads": 967,
+              "url": "https://github.com/edeegg/sharpemu-arm64/releases/download/android-v0.0.2_poc/SharpEmu-Android-0.0.2_poc.apk",
+              "digest": "sha256:aad7c8ae312163c688832e719d9a3e6d0b6418d1058db153a898c2ce494a1a0a",
+              "contentType": "application/vnd.android.package-archive",
+              "createdAt": "2026-08-05T07:38:12Z",
+              "updatedAt": "2026-08-05T07:38:14Z"
+            }
+          ],
+          "htmlUrl": "https://github.com/edeegg/sharpemu-arm64/releases/tag/android-v0.0.2_poc"
+        },
+        {
+          "name": "SharpEmu Android 0.0.1_poc",
+          "tag": "android-v0.0.1_poc",
+          "date": "2026-08-05T03:58:39Z",
+          "downloads": 50,
+          "body": "Automated Android proof-of-concept build (0.0.1_poc).",
+          "prerelease": false,
+          "assets": [
+            {
+              "name": "SharpEmu-Android-0.0.1_poc.apk",
+              "size": 91198273,
+              "downloads": 50,
+              "url": "https://github.com/edeegg/sharpemu-arm64/releases/download/android-v0.0.1_poc/SharpEmu-Android-0.0.1_poc.apk",
+              "digest": "sha256:4e9e9233a55667cd4440ee3fa0b01544ac13978306f76ce94b23e22e14b021f7",
+              "contentType": "application/vnd.android.package-archive",
+              "createdAt": "2026-08-05T03:58:36Z",
+              "updatedAt": "2026-08-05T03:58:39Z"
+            }
+          ],
+          "htmlUrl": "https://github.com/edeegg/sharpemu-arm64/releases/tag/android-v0.0.1_poc"
+        }
+      ],
+      "repoUrl": "https://github.com/edeegg/sharpemu-arm64"
     },
     {
       "name": "GameHub Lite (Producdevity)",
@@ -332,6 +967,19 @@
       "downloads": 0,
       "releases": [],
       "repoUrl": "https://github.com/ItzDFPlayer/gamehub-lite"
+    },
+    {
+      "name": "GameHub Brasil",
+      "repo": "winlatorbrasil/gamehub-brasil",
+      "category": "GameHub",
+      "driverFamily": null,
+      "logo": "gamehub-brasil.png",
+      "extensions": null,
+      "sourceKind": "fork/comunidade",
+      "channel": "stable/unknown",
+      "downloads": 0,
+      "releases": [],
+      "repoUrl": "https://github.com/winlatorbrasil/gamehub-brasil"
     },
     {
       "name": "GameHub Lite (J4MCU-builds)",
@@ -713,19 +1361,6 @@
       "downloads": 0,
       "releases": [],
       "repoUrl": "https://github.com/duckyduckG/winlator"
-    },
-    {
-      "name": "Winlator Bionic Stredohiri",
-      "repo": "Stredohori/Winlator-CMOD",
-      "category": "Winlator",
-      "driverFamily": null,
-      "logo": "winlator.png",
-      "extensions": null,
-      "sourceKind": "fork/comunidade",
-      "channel": "stable/unknown",
-      "downloads": 0,
-      "releases": [],
-      "repoUrl": "https://github.com/Stredohori/Winlator-CMOD"
     },
     {
       "name": "Winlator Bionic Alexoqool",
@@ -1172,19 +1807,6 @@
       "repoUrl": "https://github.com/Trixarian/NetherSX2-classic"
     },
     {
-      "name": "SharpEmu ARM64",
-      "repo": "edeegg/sharpemu-arm64",
-      "category": "Emulator PS5",
-      "driverFamily": null,
-      "logo": "sharpemu.png",
-      "extensions": null,
-      "sourceKind": "fork/comunidade",
-      "channel": "stable/unknown",
-      "downloads": 0,
-      "releases": [],
-      "repoUrl": "https://github.com/edeegg/sharpemu-arm64"
-    },
-    {
       "name": "Vita3K Android",
       "repo": "Vita3K/Vita3K-Android",
       "category": "PSVITA",
@@ -1256,7 +1878,7 @@
         "name": "Proton-9-x86_64",
         "version": "1",
         "url": "https://github.com/StevenMXZ/Winlator-Contents/releases/download/1.0/Proton.9.0-x86_64.wcp",
-        "date": "2026-08-17T13:34:59.753Z"
+        "date": "2026-08-17T14:21:05.905Z"
       }
     ],
     "Wine": [
@@ -1264,13 +1886,13 @@
         "name": "proton-10-arm64ec",
         "version": "1",
         "url": "https://github.com/StevenMXZ/Winlator-Contents/releases/download/1.0/proton-10-arm64ec.wcp.xz",
-        "date": "2026-08-17T13:34:59.753Z"
+        "date": "2026-08-17T14:21:05.905Z"
       },
       {
         "name": "wine-9.20-x86_64",
         "version": "1",
         "url": "https://github.com/StevenMXZ/Winlator-Contents/releases/download/1.0/wine-9.20.wcp",
-        "date": "2026-08-17T13:34:59.753Z"
+        "date": "2026-08-17T14:21:05.905Z"
       }
     ],
     "Box64": [
@@ -1278,49 +1900,49 @@
         "name": "0.3.5",
         "version": "1",
         "url": "https://github.com/ziad9267/Winlator-Contents/raw/refs/heads/main/Box64/box64-0.3.5.wcp",
-        "date": "2026-08-17T13:34:59.753Z"
+        "date": "2026-08-17T14:21:05.905Z"
       },
       {
         "name": "036fix",
         "version": "1",
         "url": "https://github.com/StevenMXZ/Winlator-Contents/raw/refs/heads/main/Box64/box64-036fix.wcp",
-        "date": "2026-08-17T13:34:59.753Z"
+        "date": "2026-08-17T14:21:05.905Z"
       },
       {
         "name": "0.3.7",
         "version": "1",
         "url": "https://github.com/StevenMXZ/Winlator-Contents/raw/refs/heads/main/Box64/box64-0.3.7.wcp",
-        "date": "2026-08-17T13:34:59.753Z"
+        "date": "2026-08-17T14:21:05.905Z"
       },
       {
         "name": "0.3.8",
         "version": "1",
         "url": "https://github.com/StevenMXZ/Winlator-Contents/raw/refs/heads/main/Box64/box64-0.3.8.wcp",
-        "date": "2026-08-17T13:34:59.753Z"
+        "date": "2026-08-17T14:21:05.905Z"
       },
       {
         "name": "0.3.9",
         "version": "1",
         "url": "https://github.com/StevenMXZ/Winlator-Contents/raw/refs/heads/main/Box64/box64-0.3.9.wcp",
-        "date": "2026-08-17T13:34:59.753Z"
+        "date": "2026-08-17T14:21:05.905Z"
       },
       {
         "name": "0.4.1-fix",
         "version": "1",
         "url": "https://github.com/StevenMXZ/Winlator-Contents/raw/refs/heads/main/Box64/box64-0.4.1-fix.wcp",
-        "date": "2026-08-17T13:34:59.753Z"
+        "date": "2026-08-17T14:21:05.905Z"
       },
       {
         "name": "0.4.2-fix",
         "version": "1",
         "url": "https://github.com/StevenMXZ/Winlator-Contents/raw/refs/heads/main/Box64/box64-0.4.2-fix.wcp",
-        "date": "2026-08-17T13:34:59.753Z"
+        "date": "2026-08-17T14:21:05.905Z"
       },
       {
         "name": "0.4.4",
         "version": "1",
         "url": "https://github.com/StevenMXZ/Winlator-Contents/raw/refs/heads/main/Box64/box64-0.4.4.wcp",
-        "date": "2026-08-17T13:34:59.753Z"
+        "date": "2026-08-17T14:21:05.905Z"
       }
     ],
     "WOWBox64": [
@@ -1328,31 +1950,31 @@
         "name": "0.3.7-5768989",
         "version": "1",
         "url": "https://github.com/StevenMXZ/Winlator-Contents/raw/refs/heads/main/WOWBox64/WowBox64-0.3.7-5768989.wcp",
-        "date": "2026-08-17T13:34:59.753Z"
+        "date": "2026-08-17T14:21:05.905Z"
       },
       {
         "name": "0.3.9-056999e",
         "version": "1",
         "url": "https://github.com/StevenMXZ/Winlator-Contents/raw/refs/heads/main/WOWBox64/WOWBox64-0.3.9-056999e.wcp",
-        "date": "2026-08-17T13:34:59.753Z"
+        "date": "2026-08-17T14:21:05.905Z"
       },
       {
         "name": "0.4.1-fix",
         "version": "1",
         "url": "https://github.com/StevenMXZ/Winlator-Contents/raw/refs/heads/main/WOWBox64/WOWBox64-0.4.1-fix.wcp",
-        "date": "2026-08-17T13:34:59.753Z"
+        "date": "2026-08-17T14:21:05.905Z"
       },
       {
         "name": "0.4.2",
         "version": "1",
         "url": "https://github.com/StevenMXZ/Winlator-Contents/raw/refs/heads/main/WOWBox64/wowbox64-0.4.2.wcp",
-        "date": "2026-08-17T13:34:59.753Z"
+        "date": "2026-08-17T14:21:05.905Z"
       },
       {
         "name": "0.4.4",
         "version": "1",
         "url": "https://github.com/StevenMXZ/Winlator-Contents/raw/refs/heads/main/WOWBox64/Wowbox64-0.4.4.wcp",
-        "date": "2026-08-17T13:34:59.753Z"
+        "date": "2026-08-17T14:21:05.905Z"
       }
     ],
     "DXVK": [
@@ -1360,91 +1982,91 @@
         "name": "1.5.5",
         "version": "1",
         "url": "https://github.com/StevenMXZ/Winlator-Contents/raw/refs/heads/main/DXVK/dxvk-1.5.5.wcp",
-        "date": "2026-08-17T13:34:59.753Z"
+        "date": "2026-08-17T14:21:05.905Z"
       },
       {
         "name": "1.7.2",
         "version": "1",
         "url": "https://github.com/StevenMXZ/Winlator-Contents/raw/refs/heads/main/DXVK/dxvk-1.7.2.wcp",
-        "date": "2026-08-17T13:34:59.753Z"
+        "date": "2026-08-17T14:21:05.905Z"
       },
       {
         "name": "1.9.4",
         "version": "1",
         "url": "https://github.com/StevenMXZ/Winlator-Contents/raw/refs/heads/main/DXVK/dxvk-1.9.4.wcp",
-        "date": "2026-08-17T13:34:59.753Z"
+        "date": "2026-08-17T14:21:05.905Z"
       },
       {
         "name": "1.10.3-async",
         "version": "1",
         "url": "https://github.com/StevenMXZ/Winlator-Contents/raw/refs/heads/main/DXVK/dxvk-1.10.3-async.wcp",
-        "date": "2026-08-17T13:34:59.753Z"
+        "date": "2026-08-17T14:21:05.905Z"
       },
       {
         "name": "11.1-sarek-async",
         "version": "1",
         "url": "https://github.com/StevenMXZ/Winlator-Contents/raw/refs/heads/main/DXVK/dxvk-11.1-sarek-async.wcp",
-        "date": "2026-08-17T13:34:59.753Z"
+        "date": "2026-08-17T14:21:05.905Z"
       },
       {
         "name": "1.12.0-sarek",
         "version": "1",
         "url": "https://github.com/StevenMXZ/Winlator-Contents/raw/refs/heads/main/DXVK/dxvk-sarek-1.12.0.wcp",
-        "date": "2026-08-17T13:34:59.753Z"
+        "date": "2026-08-17T14:21:05.905Z"
       },
       {
         "name": "2.3.1-gplasync",
         "version": "1",
         "url": "https://github.com/StevenMXZ/Winlator-Contents/raw/refs/heads/main/DXVK/dxvk-2.3.1-gplasync.wcp",
-        "date": "2026-08-17T13:34:59.753Z"
+        "date": "2026-08-17T14:21:05.905Z"
       },
       {
         "name": "2.4.1.1-gplasync-sp",
         "version": "1",
         "url": "https://github.com/StevenMXZ/Winlator-Contents/raw/refs/heads/main/DXVK/dxvk-2.4.1.1-gplasync-sp.wcp",
-        "date": "2026-08-17T13:34:59.753Z"
+        "date": "2026-08-17T14:21:05.905Z"
       },
       {
         "name": "2.4.1-fix",
         "version": "1",
         "url": "https://github.com/StevenMXZ/Winlator-Contents/raw/refs/heads/main/DXVK/dxvk-2.4.1-fix.wcp",
-        "date": "2026-08-17T13:34:59.753Z"
+        "date": "2026-08-17T14:21:05.905Z"
       },
       {
         "name": "2.4.1-arm64ec-gplasync",
         "version": "1",
         "url": "https://github.com/StevenMXZ/Winlator-Contents/raw/refs/heads/main/DXVK/dxvk-2.4.1-arm64ec-gplasync.wcp",
-        "date": "2026-08-17T13:34:59.753Z"
+        "date": "2026-08-17T14:21:05.905Z"
       },
       {
         "name": "2.5.3-1-gplasync",
         "version": "1",
         "url": "https://github.com/StevenMXZ/Winlator-Contents/raw/refs/heads/main/DXVK/dxvk-2.5.3-1-gplasync.wcp",
-        "date": "2026-08-17T13:34:59.753Z"
+        "date": "2026-08-17T14:21:05.905Z"
       },
       {
         "name": "2.6-2-gplasync",
         "version": "1",
         "url": "https://github.com/StevenMXZ/Winlator-Contents/raw/refs/heads/main/DXVK/dxvk-2.6-2-gplasync.wcp",
-        "date": "2026-08-17T13:34:59.753Z"
+        "date": "2026-08-17T14:21:05.905Z"
       },
       {
         "name": "2.6.2-arm64ec-gplasync",
         "version": "0",
         "url": "https://github.com/StevenMXZ/Winlator-Contents/raw/refs/heads/main/DXVK/dxvk-2.6.2-arm64ec-gplasync.wcp",
-        "date": "2026-08-17T13:34:59.753Z"
+        "date": "2026-08-17T14:21:05.905Z"
       },
       {
         "name": "2.7.1-gplasync",
         "version": "1",
         "url": "https://github.com/StevenMXZ/Winlator-Contents/raw/refs/heads/main/DXVK/dxvk-2.7.1-gplasync.wcp",
-        "date": "2026-08-17T13:34:59.753Z"
+        "date": "2026-08-17T14:21:05.905Z"
       },
       {
         "name": "2.7.1-arm64ec-gplasync-fix-leegao",
         "version": "1",
         "url": "https://github.com/StevenMXZ/Winlator-Contents/raw/refs/heads/main/DXVK/dxvk-2.7.1-arm64ec-gplasync-fix-leegao.wcp",
-        "date": "2026-08-17T13:34:59.753Z"
+        "date": "2026-08-17T14:21:05.905Z"
       }
     ],
     "FEXCore": [
@@ -1452,91 +2074,91 @@
         "name": "241214",
         "version": "1",
         "url": "https://github.com/ziad9267/Winlator-Contents/raw/refs/heads/main/FEXCore/fexcore_241214.wcp",
-        "date": "2026-08-17T13:34:59.753Z"
+        "date": "2026-08-17T14:21:05.905Z"
       },
       {
         "name": "2505",
         "version": "1",
         "url": "https://github.com/StevenMXZ/Winlator-Contents/raw/refs/heads/main/FEXCore/fexcore-2505.wcp",
-        "date": "2026-08-17T13:34:59.753Z"
+        "date": "2026-08-17T14:21:05.905Z"
       },
       {
         "name": "2507_fix",
         "version": "1",
         "url": "https://github.com/StevenMXZ/Winlator-Contents/raw/refs/heads/main/FEXCore/fexcore_2507_fix.wcp",
-        "date": "2026-08-17T13:34:59.753Z"
+        "date": "2026-08-17T14:21:05.905Z"
       },
       {
         "name": "2508.1",
         "version": "1",
         "url": "https://github.com/StevenMXZ/Winlator-Contents/raw/refs/heads/main/FEXCore/2508.1.wcp",
-        "date": "2026-08-17T13:34:59.753Z"
+        "date": "2026-08-17T14:21:05.905Z"
       },
       {
         "name": "2509.1",
         "version": "1",
         "url": "https://github.com/StevenMXZ/Winlator-Contents/raw/refs/heads/main/FEXCore/2509.1.wcp",
-        "date": "2026-08-17T13:34:59.753Z"
+        "date": "2026-08-17T14:21:05.905Z"
       },
       {
         "name": "2510.1",
         "version": "1",
         "url": "https://github.com/StevenMXZ/Winlator-Contents/raw/refs/heads/main/FEXCore/2510.1.wcp",
-        "date": "2026-08-17T13:34:59.753Z"
+        "date": "2026-08-17T14:21:05.905Z"
       },
       {
         "name": "2511",
         "version": "1",
         "url": "https://github.com/StevenMXZ/Winlator-Contents/raw/refs/heads/main/FEXCore/2511.wcp",
-        "date": "2026-08-17T13:34:59.753Z"
+        "date": "2026-08-17T14:21:05.905Z"
       },
       {
         "name": "2512",
         "version": "1",
         "url": "https://github.com/StevenMXZ/Winlator-Contents/raw/refs/heads/main/FEXCore/2512.wcp",
-        "date": "2026-08-17T13:34:59.753Z"
+        "date": "2026-08-17T14:21:05.905Z"
       },
       {
         "name": "2601",
         "version": "1",
         "url": "https://github.com/StevenMXZ/Winlator-Contents/raw/refs/heads/main/FEXCore/2601.wcp",
-        "date": "2026-08-17T13:34:59.753Z"
+        "date": "2026-08-17T14:21:05.905Z"
       },
       {
         "name": "2601-aabdded-nightly",
         "version": "1",
         "url": "https://github.com/StevenMXZ/Winlator-Contents/raw/refs/heads/main/FEXCore/FEXCore-2601-aabdded.wcp",
-        "date": "2026-08-17T13:34:59.753Z"
+        "date": "2026-08-17T14:21:05.905Z"
       },
       {
         "name": "2603",
         "version": "1",
         "url": "https://github.com/StevenMXZ/Winlator-Contents/raw/refs/heads/main/FEXCore/2603.wcp",
-        "date": "2026-08-17T13:34:59.753Z"
+        "date": "2026-08-17T14:21:05.905Z"
       },
       {
         "name": "2604",
         "version": "1",
         "url": "https://github.com/StevenMXZ/Winlator-Contents/raw/refs/heads/main/FEXCore/2604.wcp",
-        "date": "2026-08-17T13:34:59.753Z"
+        "date": "2026-08-17T14:21:05.905Z"
       },
       {
         "name": "2605",
         "version": "1",
         "url": "https://github.com/StevenMXZ/Winlator-Contents/raw/refs/heads/main/FEXCore/2605.wcp",
-        "date": "2026-08-17T13:34:59.753Z"
+        "date": "2026-08-17T14:21:05.905Z"
       },
       {
         "name": "2607",
         "version": "1",
         "url": "https://github.com/StevenMXZ/Winlator-Contents/raw/refs/heads/main/FEXCore/2607.wcp",
-        "date": "2026-08-17T13:34:59.753Z"
+        "date": "2026-08-17T14:21:05.905Z"
       },
       {
         "name": "2608",
         "version": "1",
         "url": "https://github.com/StevenMXZ/Winlator-Contents/raw/refs/heads/main/FEXCore/2608.wcp",
-        "date": "2026-08-17T13:34:59.754Z"
+        "date": "2026-08-17T14:21:05.905Z"
       }
     ],
     "VKD3D": [
@@ -1544,49 +2166,49 @@
         "name": "2.7-proton",
         "version": "1",
         "url": "https://github.com/StevenMXZ/Winlator-Contents/raw/refs/heads/main/VKD3D/vkd3d-proton-2.7.wcp",
-        "date": "2026-08-17T13:34:59.754Z"
+        "date": "2026-08-17T14:21:05.905Z"
       },
       {
         "name": "2.9-proton",
         "version": "1",
         "url": "https://github.com/StevenMXZ/Winlator-Contents/raw/refs/heads/main/VKD3D/vkd3d-proton-2.9.wcp",
-        "date": "2026-08-17T13:34:59.754Z"
+        "date": "2026-08-17T14:21:05.905Z"
       },
       {
         "name": "2.12-proton",
         "version": "1",
         "url": "https://github.com/StevenMXZ/Winlator-Contents/raw/refs/heads/main/VKD3D/vkd3d-proton-2.12.wcp",
-        "date": "2026-08-17T13:34:59.754Z"
+        "date": "2026-08-17T14:21:05.905Z"
       },
       {
         "name": "2.14.1-arm64ec",
         "version": "0",
         "url": "https://github.com/StevenMXZ/Winlator-Contents/raw/refs/heads/main/VKD3D/vkd3d-2.14.1-arm64ec.wcp",
-        "date": "2026-08-17T13:34:59.754Z"
+        "date": "2026-08-17T14:21:05.905Z"
       },
       {
         "name": "proton-3.0a.wcp",
         "version": "0",
         "url": "https://github.com/StevenMXZ/Winlator-Contents/raw/refs/heads/main/VKD3D/vkd3d-proton-3.0a.wcp",
-        "date": "2026-08-17T13:34:59.754Z"
+        "date": "2026-08-17T14:21:05.905Z"
       },
       {
         "name": "arm64ec-3.0a.wcp",
         "version": "0",
         "url": "https://github.com/StevenMXZ/Winlator-Contents/raw/refs/heads/main/VKD3D/vkd3d-arm64ec-3.0a.wcp",
-        "date": "2026-08-17T13:34:59.754Z"
+        "date": "2026-08-17T14:21:05.905Z"
       },
       {
         "name": "proton-3.0b-2763dd2",
         "version": "0",
         "url": "https://github.com/StevenMXZ/Winlator-Contents/raw/refs/heads/main/VKD3D/vkd3d-proton-3.0b-2763dd2.wcp",
-        "date": "2026-08-17T13:34:59.754Z"
+        "date": "2026-08-17T14:21:05.905Z"
       },
       {
         "name": "3.0.1-gamesir",
         "version": "0",
         "url": "https://github.com/StevenMXZ/Winlator-Contents/raw/refs/heads/main/VKD3D/vkd3d-3.0.1-Gamesir.wcp",
-        "date": "2026-08-17T13:34:59.754Z"
+        "date": "2026-08-17T14:21:05.905Z"
       }
     ]
   }
