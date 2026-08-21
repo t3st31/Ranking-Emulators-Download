@@ -50,8 +50,8 @@
 | 36 | **XenDroid** | ![](https://img.shields.io/github/downloads/rfandango/XenDroid/total?style=for-the-badge&logo=github) | ![](https://img.shields.io/github/v/release/rfandango/XenDroid?style=flat-square) |
 | 37 | **Pluvia** | ![](https://img.shields.io/github/downloads/oxters168/Pluvia/total?style=for-the-badge&logo=github) | ![](https://img.shields.io/github/v/release/oxters168/Pluvia?style=flat-square) |
 | 38 | **Winlator Ajay** | ![](https://img.shields.io/github/downloads/ajay9634/winlator-ajay/total?style=for-the-badge&logo=github) | ![](https://img.shields.io/github/v/release/ajay9634/winlator-ajay?style=flat-square) |
-| 39 | **Lemuroid** | ![](https://img.shields.io/github/downloads/Swordfish90/Lemuroid/total?style=for-the-badge&logo=github) | ![](https://img.shields.io/github/v/release/Swordfish90/Lemuroid?style=flat-square) |
-| 40 | **ARMSX3** | ![](https://img.shields.io/github/downloads/ARMSX2/ARMSX3/total?style=for-the-badge&logo=github) | ![](https://img.shields.io/github/v/release/ARMSX2/ARMSX3?style=flat-square) |
+| 39 | **ARMSX3** | ![](https://img.shields.io/github/downloads/ARMSX2/ARMSX3/total?style=for-the-badge&logo=github) | ![](https://img.shields.io/github/v/release/ARMSX2/ARMSX3?style=flat-square) |
+| 40 | **Lemuroid** | ![](https://img.shields.io/github/downloads/Swordfish90/Lemuroid/total?style=for-the-badge&logo=github) | ![](https://img.shields.io/github/v/release/Swordfish90/Lemuroid?style=flat-square) |
 | 41 | **Winlator X** | ![](https://img.shields.io/github/downloads/JURIS-X/winlator_x/total?style=for-the-badge&logo=github) | ![](https://img.shields.io/github/v/release/JURIS-X/winlator_x?style=flat-square) |
 | 42 | **Winlator Ref4ik (Drivers/Wine)** | ![](https://img.shields.io/github/downloads/REF4IK/winlator-ref4ik-/total?style=for-the-badge&logo=github) | ![](https://img.shields.io/github/v/release/REF4IK/winlator-ref4ik-?style=flat-square) |
 | 43 | **Winlator Ref4ik** | ![](https://img.shields.io/github/downloads/REF4IK/winlator-ref4ik-/total?style=for-the-badge&logo=github) | ![](https://img.shields.io/github/v/release/REF4IK/winlator-ref4ik-?style=flat-square) |
