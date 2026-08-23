@@ -47,8 +47,8 @@
 | 33 | **GameHub Brasil** | ![](https://img.shields.io/github/downloads/winlatorbrasil/gamehub-brasil/total?style=for-the-badge&logo=github) | ![](https://img.shields.io/github/v/release/winlatorbrasil/gamehub-brasil?style=flat-square) |
 | 34 | **MiceWine** | ![](https://img.shields.io/github/downloads/KreitinnSoftware/MiceWine-Application/total?style=for-the-badge&logo=github) | ![](https://img.shields.io/github/v/release/KreitinnSoftware/MiceWine-Application?style=flat-square) |
 | 35 | **XenDroid** | ![](https://img.shields.io/github/downloads/rfandango/XenDroid/total?style=for-the-badge&logo=github) | ![](https://img.shields.io/github/v/release/rfandango/XenDroid?style=flat-square) |
-| 36 | **Star (fork)** | ![](https://img.shields.io/github/downloads/jacojayy/star/total?style=for-the-badge&logo=github) | ![](https://img.shields.io/github/v/release/jacojayy/star?style=flat-square) |
-| 37 | **ARMSX3** | ![](https://img.shields.io/github/downloads/ARMSX2/ARMSX3/total?style=for-the-badge&logo=github) | ![](https://img.shields.io/github/v/release/ARMSX2/ARMSX3?style=flat-square) |
+| 36 | **ARMSX3** | ![](https://img.shields.io/github/downloads/ARMSX2/ARMSX3/total?style=for-the-badge&logo=github) | ![](https://img.shields.io/github/v/release/ARMSX2/ARMSX3?style=flat-square) |
+| 37 | **Star (fork)** | ![](https://img.shields.io/github/downloads/jacojayy/star/total?style=for-the-badge&logo=github) | ![](https://img.shields.io/github/v/release/jacojayy/star?style=flat-square) |
 | 38 | **Pluvia** | ![](https://img.shields.io/github/downloads/oxters168/Pluvia/total?style=for-the-badge&logo=github) | ![](https://img.shields.io/github/v/release/oxters168/Pluvia?style=flat-square) |
 | 39 | **Winlator Ajay** | ![](https://img.shields.io/github/downloads/ajay9634/winlator-ajay/total?style=for-the-badge&logo=github) | ![](https://img.shields.io/github/v/release/ajay9634/winlator-ajay?style=flat-square) |
 | 40 | **Lemuroid** | ![](https://img.shields.io/github/downloads/Swordfish90/Lemuroid/total?style=for-the-badge&logo=github) | ![](https://img.shields.io/github/v/release/Swordfish90/Lemuroid?style=flat-square) |
