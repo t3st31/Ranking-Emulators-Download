@@ -1,5 +1,5 @@
 {
-  "updatedAt": "2026-11-07T09:29:19.867Z",
+  "updatedAt": "2026-11-07T16:00:43.662Z",
   "entries": [
     {
       "date": "2026-08-10",
@@ -626,10 +626,10 @@
     },
     {
       "date": "2026-11-07",
-      "totalDownloads": 85642367,
+      "totalDownloads": 85693593,
       "totalProjects": 71,
-      "totalReleases": 2667,
-      "totalAssets": 9141
+      "totalReleases": 2669,
+      "totalAssets": 9169
     }
   ],
   "projectSnapshots": [
@@ -38943,225 +38943,225 @@
       "projects": [
         {
           "repo": "brunodev85/winlator",
-          "downloads": 16726605,
+          "downloads": 16734561,
           "releases": 17,
           "latestReleaseDate": "2026-08-19T11:06:47Z"
         },
         {
           "repo": "K11MCH1/AdrenoToolsDrivers",
-          "downloads": 12445125,
+          "downloads": 12451101,
           "releases": 153,
           "latestReleaseDate": "2026-01-14T13:54:43Z"
         },
         {
           "repo": "weihuoya/citra",
-          "downloads": 9900875,
+          "downloads": 9901675,
           "releases": 114,
           "latestReleaseDate": "2025-11-12T02:51:02Z"
         },
         {
           "repo": "azahar-emu/azahar",
-          "downloads": 9079069,
+          "downloads": 9083640,
           "releases": 76,
           "latestReleaseDate": "2026-11-06T20:19:23Z"
         },
         {
           "repo": "Vita3K/Vita3K-Android",
-          "downloads": 4342175,
+          "downloads": 4342327,
           "releases": 12,
           "latestReleaseDate": "2024-06-06T20:36:09Z"
         },
         {
           "repo": "Trixarian/NetherSX2-patch",
-          "downloads": 3630469,
+          "downloads": 3632042,
           "releases": 14,
           "latestReleaseDate": "2025-12-25T12:22:12Z"
         },
         {
           "repo": "SSimco/Cemu",
-          "downloads": 2928357,
+          "downloads": 2928571,
           "releases": 9,
           "latestReleaseDate": "2026-04-25T21:55:25Z"
         },
         {
           "repo": "StevenMXZ/Winlator-Ludashi",
-          "downloads": 1672892,
+          "downloads": 1674583,
           "releases": 19,
           "latestReleaseDate": "2026-09-13T13:26:18Z"
         },
         {
           "repo": "Producdevity/gamehub-lite",
-          "downloads": 1600691,
+          "downloads": 1602063,
           "releases": 14,
           "latestReleaseDate": "2026-07-02T19:43:40Z"
         },
         {
           "repo": "Trixarian/NetherSX2-classic",
-          "downloads": 1567568,
+          "downloads": 1568108,
           "releases": 9,
           "latestReleaseDate": "2025-12-25T12:22:14Z"
         },
         {
           "repo": "StevenMXZ/freedreno_turnip-CI",
-          "downloads": 1434576,
-          "releases": 81,
+          "downloads": 1438280,
+          "releases": 82,
           "latestReleaseDate": "2026-11-06T00:23:02Z"
         },
         {
           "repo": "utkarshdalal/GameNative",
-          "downloads": 1433095,
+          "downloads": 1434074,
           "releases": 75,
           "latestReleaseDate": "2026-11-05T13:59:50Z"
         },
         {
           "repo": "ARMSX2/ARMSX2",
-          "downloads": 1426325,
+          "downloads": 1427282,
           "releases": 221,
-          "latestReleaseDate": "2026-11-06T18:59:52Z"
+          "latestReleaseDate": "2026-11-07T15:31:52Z"
         },
         {
           "repo": "The412Banner/Banners-Turnip",
-          "downloads": 1401781,
+          "downloads": 1408284,
           "releases": 1000,
-          "latestReleaseDate": "2026-11-07T08:53:27Z"
+          "latestReleaseDate": "2026-11-07T15:19:28Z"
         },
         {
           "repo": "The412Banner/Bannerlator",
-          "downloads": 1394966,
+          "downloads": 1395701,
           "releases": 86,
           "latestReleaseDate": "2026-11-05T21:09:24Z"
         },
         {
           "repo": "longjunyu2/winlator",
-          "downloads": 1028753,
+          "downloads": 1028812,
           "releases": 6,
           "latestReleaseDate": "2025-01-25T09:40:50Z"
         },
         {
           "repo": "flyinghead/flycast",
-          "downloads": 922683,
+          "downloads": 923062,
           "releases": 12,
           "latestReleaseDate": "2026-08-19T11:47:09Z"
         },
         {
           "repo": "RPCSX/rpcsx-ui-android",
-          "downloads": 866395,
+          "downloads": 866502,
           "releases": 3,
           "latestReleaseDate": "2025-04-25T16:02:13Z"
         },
         {
           "repo": "coffincolors/winlator",
-          "downloads": 860231,
+          "downloads": 860402,
           "releases": 17,
           "latestReleaseDate": "2025-08-07T07:49:41Z"
         },
         {
           "repo": "whitebelyash/AdrenoToolsDrivers",
-          "downloads": 849413,
+          "downloads": 850492,
           "releases": 44,
           "latestReleaseDate": "2026-09-19T13:30:05Z"
         },
         {
           "repo": "whitebelyash/freedreno_turnip-CI",
-          "downloads": 849413,
+          "downloads": 850492,
           "releases": 44,
           "latestReleaseDate": "2026-09-19T13:30:05Z"
         },
         {
           "repo": "Weab-chan/freedreno_turnip-CI",
-          "downloads": 847219,
+          "downloads": 847551,
           "releases": 32,
           "latestReleaseDate": "2025-10-11T23:54:12Z"
         },
         {
           "repo": "afeimod/winlator-mod",
-          "downloads": 829236,
+          "downloads": 829353,
           "releases": 46,
           "latestReleaseDate": "2025-12-02T08:21:17Z"
         },
         {
           "repo": "Medard22/Dolphin-MMJR2-VBI",
-          "downloads": 790328,
+          "downloads": 790582,
           "releases": 12,
           "latestReleaseDate": "2025-07-20T08:56:45Z"
         },
         {
           "repo": "aenu1/aps3e",
-          "downloads": 774974,
+          "downloads": 775097,
           "releases": 24,
           "latestReleaseDate": "2026-10-05T09:08:05Z"
         },
         {
           "repo": "xodiosx/XoDos",
-          "downloads": 771933,
+          "downloads": 772144,
           "releases": 15,
           "latestReleaseDate": "2025-11-09T15:21:38Z"
         },
         {
           "repo": "Fcharan/WinlatorMali",
-          "downloads": 719649,
+          "downloads": 720883,
           "releases": 6,
           "latestReleaseDate": "2026-10-29T08:08:48Z"
         },
         {
           "repo": "ARMSX2/ARMSX3",
-          "downloads": 683033,
+          "downloads": 684628,
           "releases": 66,
           "latestReleaseDate": "2026-11-06T16:28:00Z"
         },
         {
           "repo": "Ashnar2602/X360-Mobile---OFFICIAL",
-          "downloads": 613772,
+          "downloads": 614691,
           "releases": 13,
           "latestReleaseDate": "2026-11-03T22:33:59Z"
         },
         {
           "repo": "HorizonEmuTeam/Horizon-Emu",
-          "downloads": 493589,
+          "downloads": 493684,
           "releases": 2,
           "latestReleaseDate": "2025-02-28T07:48:56Z"
         },
         {
           "repo": "The412Banner/bannerhub",
-          "downloads": 400311,
+          "downloads": 400707,
           "releases": 22,
           "latestReleaseDate": "2026-09-12T01:44:41Z"
         },
         {
           "repo": "winebox64/winlator",
-          "downloads": 302584,
+          "downloads": 302670,
           "releases": 4,
           "latestReleaseDate": "2025-03-03T03:01:09Z"
         },
         {
           "repo": "rfandango/XenDroid",
-          "downloads": 250635,
+          "downloads": 251217,
           "releases": 13,
           "latestReleaseDate": "2026-08-14T11:11:00Z"
         },
         {
           "repo": "XHYN-PH/exagear-302",
-          "downloads": 181918,
+          "downloads": 182088,
           "releases": 2,
           "latestReleaseDate": "2024-01-12T16:20:17Z"
         },
         {
           "repo": "WinNative-Emu/WinNative",
-          "downloads": 175569,
+          "downloads": 176082,
           "releases": 13,
           "latestReleaseDate": "2026-10-12T11:19:55Z"
         },
         {
-          "repo": "Stredohori/Winlator-CMOD",
-          "downloads": 151616,
-          "releases": 32,
-          "latestReleaseDate": "2026-02-02T12:47:23Z"
+          "repo": "jacojayy/star",
+          "downloads": 153100,
+          "releases": 15,
+          "latestReleaseDate": "2026-11-07T15:59:19Z"
         },
         {
-          "repo": "jacojayy/star",
-          "downloads": 149573,
-          "releases": 14,
-          "latestReleaseDate": "2026-11-05T12:58:47Z"
+          "repo": "Stredohori/Winlator-CMOD",
+          "downloads": 151695,
+          "releases": 32,
+          "latestReleaseDate": "2026-02-02T12:47:23Z"
         },
         {
           "repo": "winlatorbrasil/gamehub-brasil",
@@ -39177,61 +39177,61 @@
         },
         {
           "repo": "Swordfish90/Lemuroid",
-          "downloads": 105093,
+          "downloads": 105240,
           "releases": 23,
           "latestReleaseDate": "2026-04-21T08:52:05Z"
         },
         {
           "repo": "ajay9634/winlator-ajay",
-          "downloads": 100761,
+          "downloads": 100813,
           "releases": 6,
           "latestReleaseDate": "2026-06-15T05:01:20Z"
         },
         {
           "repo": "oxters168/Pluvia",
-          "downloads": 100340,
+          "downloads": 100347,
           "releases": 6,
           "latestReleaseDate": "2025-03-02T00:58:48Z"
         },
         {
           "repo": "REF4IK/winlator-ref4ik-",
-          "downloads": 93843,
+          "downloads": 93882,
           "releases": 12,
           "latestReleaseDate": "2026-09-11T14:45:41Z"
         },
         {
           "repo": "REF4IK/winlator-ref4ik-",
-          "downloads": 93843,
+          "downloads": 93882,
           "releases": 12,
           "latestReleaseDate": "2026-09-11T14:45:41Z"
         },
         {
           "repo": "JURIS-X/winlator_x",
-          "downloads": 85298,
+          "downloads": 85318,
           "releases": 5,
           "latestReleaseDate": "2025-04-22T14:19:23Z"
         },
         {
           "repo": "slaker222/Steamlator",
-          "downloads": 71598,
+          "downloads": 71628,
           "releases": 4,
           "latestReleaseDate": "2026-04-29T11:14:37Z"
         },
         {
           "repo": "jhinzuo/winlator",
-          "downloads": 64668,
+          "downloads": 64677,
           "releases": 13,
           "latestReleaseDate": "2025-08-24T22:41:56Z"
         },
         {
           "repo": "StevenMXZ/Adrenotools-Drivers",
-          "downloads": 51995,
+          "downloads": 52001,
           "releases": 5,
           "latestReleaseDate": "2026-01-05T10:36:05Z"
         },
         {
           "repo": "Honkonx/winlator-honkon",
-          "downloads": 30925,
+          "downloads": 30933,
           "releases": 14,
           "latestReleaseDate": "2025-10-19T16:44:57Z"
         },
@@ -39243,19 +39243,19 @@
         },
         {
           "repo": "jaycore/mobox-patched",
-          "downloads": 21819,
+          "downloads": 21822,
           "releases": 5,
           "latestReleaseDate": "2025-06-26T21:09:19Z"
         },
         {
           "repo": "WinlatorXR/WinlatorXR",
-          "downloads": 10049,
+          "downloads": 10082,
           "releases": 4,
           "latestReleaseDate": "2026-10-09T17:41:05Z"
         },
         {
           "repo": "ItzDFPlayer/gamehub-lite",
-          "downloads": 8394,
+          "downloads": 8395,
           "releases": 2,
           "latestReleaseDate": "2026-01-06T21:01:46Z"
         },
@@ -39279,7 +39279,7 @@
         },
         {
           "repo": "edeegg/sharpemu-arm64",
-          "downloads": 2888,
+          "downloads": 2889,
           "releases": 2,
           "latestReleaseDate": "2026-08-05T07:38:15Z"
         },
@@ -39303,7 +39303,7 @@
         },
         {
           "repo": "winlatorbrasil/Exiled-Kingdoms-Multiplayer",
-          "downloads": 1747,
+          "downloads": 1748,
           "releases": 2,
           "latestReleaseDate": "2026-04-24T23:48:07Z"
         },
