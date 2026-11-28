@@ -36,8 +36,8 @@
 | 22 | **Winlator Coffincolors** | ![](https://img.shields.io/github/downloads/coffincolors/winlator/total?style=for-the-badge&logo=github) | ![](https://img.shields.io/github/v/release/coffincolors/winlator?style=flat-square) |
 | 23 | **Winlator Afei** | ![](https://img.shields.io/github/downloads/afeimod/winlator-mod/total?style=for-the-badge&logo=github) | ![](https://img.shields.io/github/v/release/afeimod/winlator-mod?style=flat-square) |
 | 24 | **Dolphin MMJR2 VBI** | ![](https://img.shields.io/github/downloads/Medard22/Dolphin-MMJR2-VBI/total?style=for-the-badge&logo=github) | ![](https://img.shields.io/github/v/release/Medard22/Dolphin-MMJR2-VBI?style=flat-square) |
-| 25 | **APS3e** | ![](https://img.shields.io/github/downloads/aenu1/aps3e/total?style=for-the-badge&logo=github) | ![](https://img.shields.io/github/v/release/aenu1/aps3e?style=flat-square) |
-| 26 | **ARMSX3** | ![](https://img.shields.io/github/downloads/ARMSX2/ARMSX3/total?style=for-the-badge&logo=github) | ![](https://img.shields.io/github/v/release/ARMSX2/ARMSX3?style=flat-square) |
+| 25 | **ARMSX3** | ![](https://img.shields.io/github/downloads/ARMSX2/ARMSX3/total?style=for-the-badge&logo=github) | ![](https://img.shields.io/github/v/release/ARMSX2/ARMSX3?style=flat-square) |
+| 26 | **APS3e** | ![](https://img.shields.io/github/downloads/aenu1/aps3e/total?style=for-the-badge&logo=github) | ![](https://img.shields.io/github/v/release/aenu1/aps3e?style=flat-square) |
 | 27 | **XoDos** | ![](https://img.shields.io/github/downloads/xodiosx/XoDos/total?style=for-the-badge&logo=github) | ![](https://img.shields.io/github/v/release/xodiosx/XoDos?style=flat-square) |
 | 28 | **Winlator Mali** | ![](https://img.shields.io/github/downloads/Fcharan/WinlatorMali/total?style=for-the-badge&logo=github) | ![](https://img.shields.io/github/v/release/Fcharan/WinlatorMali?style=flat-square) |
 | 29 | **X360 Mobile** | ![](https://img.shields.io/github/downloads/Ashnar2602/X360-Mobile---OFFICIAL/total?style=for-the-badge&logo=github) | ![](https://img.shields.io/github/v/release/Ashnar2602/X360-Mobile---OFFICIAL?style=flat-square) |
